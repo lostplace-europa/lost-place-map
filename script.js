@@ -11,13 +11,13 @@ firebase.database().ref("orte").on("value", snapshot => {
   const data = snapshot.val();
   const adminPanel = document.getElementById("admin-panel");
 
-  // vorherige Marker löschen
+  // vorherige Marker entfernen
   markerMap.forEach(marker => map.removeLayer(marker));
   markerMap.clear();
 
-  // Adminliste leeren
-  const alteListen = document.querySelectorAll(".admin-eintrag");
-  alteListen.forEach(el => el.remove());
+  // alte Admin-Einträge löschen
+  const alteEinträge = document.querySelectorAll(".admin-eintrag");
+  alteEinträge.forEach(el => el.remove());
 
   if (data) {
     let counter = 1;
@@ -27,7 +27,7 @@ firebase.database().ref("orte").on("value", snapshot => {
           .bindPopup(`<b>${entry.name}</b><br>${entry.beschreibung}`);
         markerMap.set(id, marker);
 
-        // Admin-Einträge anzeigen
+        // Admin-Eintrag anzeigen
         const div = document.createElement("div");
         div.className = "admin-eintrag";
         div.innerHTML = `
@@ -40,7 +40,7 @@ firebase.database().ref("orte").on("value", snapshot => {
   }
 });
 
-// 🔁 Reiter umschalten (Tabs)
+// 🔁 Reiter umschalten
 window.showTab = function(id) {
   document.querySelectorAll('section').forEach(section => {
     section.classList.remove('active');
