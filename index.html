@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script>
@@ -26,7 +27,7 @@
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Open Sans', sans-serif;
       background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center fixed;
       background-size: cover;
       color: white;
@@ -38,7 +39,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       z-index: 0;
     }
     nav, section {
@@ -51,7 +52,8 @@
       justify-content: center;
       gap: 0.5rem;
       padding: 1rem;
-      background-color: rgba(17, 17, 34, 0.8);
+      background-color: rgba(10, 10, 20, 0.85);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
     }
     nav button {
       padding: 0.6rem 1.2rem;
@@ -61,28 +63,42 @@
       color: white;
       border-radius: 5px;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
     }
-    nav button.active {
+    nav button:hover, nav button.active {
       background-color: #28a745;
+      border-color: #28a745;
     }
     section {
       display: none;
       padding: 2rem;
+      animation: fadeIn 0.5s ease-in-out;
     }
     section.active {
       display: block;
     }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
     #map {
       height: 400px;
       margin-top: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
     }
     form input, form textarea {
       width: 100%;
       max-width: 400px;
       margin: 0.5rem 0;
-      padding: 0.5rem;
+      padding: 0.75rem;
       border-radius: 5px;
       border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    form input::placeholder, form textarea::placeholder {
+      color: #ccc;
+      font-style: italic;
     }
     form button {
       background-color: #28a745;
@@ -91,10 +107,16 @@
       padding: 0.6rem 1rem;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 0.5rem;
     }
     #admin-panel img.admin-banner {
       max-width: 100%;
       margin: 1rem 0;
+      border-radius: 8px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     @media (max-width: 600px) {
       nav {
@@ -120,9 +142,9 @@
 <body>
 
 <nav>
-  <button onclick='showTab("start")' class="active">Start</button>
-  <button onclick='showTab("karte")'>Karte</button>
-  <button onclick='showTab("meldeportal")'>Meldeportal</button>
+  <button onclick='showTab("start")' class="active"><i class="fas fa-home"></i> Start</button>
+  <button onclick='showTab("karte")'><i class="fas fa-map-marked-alt"></i> Karte</button>
+  <button onclick='showTab("meldeportal")'><i class="fas fa-location-arrow"></i> Meldeportal</button>
   <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
 </nav>
 
@@ -157,7 +179,6 @@
 
   <div id="admin-panel" style="display:none">
     <img class="admin-banner" src="https://static.vecteezy.com/system/resources/previews/017/377/592/original/administrator-business-minimal-infographic-banner-vector.jpg" alt="Admin Panel Banner">
-
     <form onsubmit="event.preventDefault(); addAdminMarker();">
       <h3>Neuen Ort hinzufügen</h3>
       <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
@@ -166,7 +187,6 @@
       <input type="url" id="admin-ort-bild" placeholder="Bild-URL (optional)" />
       <button type="submit">Ort hinzufügen</button>
     </form>
-
     <div id="admin-panel-list"></div>
   </div>
 </section>
