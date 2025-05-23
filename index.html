@@ -1,3 +1,4 @@
+index.html – HTML-Code mit versteckter Karte
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -7,144 +8,39 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #111;
-      color: #eee;
-      scroll-behavior: smooth;
-    }
-    a {
-      text-decoration: none;
-    }
-    header {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1613058085460-4d2eb21ed4b6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3.5rem;
-      background: rgba(0,0,0,0.5);
-      padding: 1rem 2rem;
-      border-radius: 1rem;
-    }
-    header p {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      background: rgba(0,0,0,0.4);
-      padding: 0.5rem 1.5rem;
-      border-radius: 0.5rem;
-    }
-    .hero-buttons {
-      margin-top: 3rem;
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .hero-buttons a {
-      padding: 1rem 2rem;
-      border-radius: 5px;
-      font-weight: bold;
-      color: white;
-    }
+    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #111; color: #eee; scroll-behavior: smooth; }
+    a { text-decoration: none; }
+    header { height: 100vh; background: url('https://images.unsplash.com/photo-1613058085460-4d2eb21ed4b6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 2rem; position: relative; }
+    header h1 { font-size: 3.5rem; background: rgba(0,0,0,0.5); padding: 1rem 2rem; border-radius: 1rem; }
+    header p { margin-top: 1rem; font-size: 1.2rem; background: rgba(0,0,0,0.4); padding: 0.5rem 1.5rem; border-radius: 0.5rem; }
+    .hero-buttons { margin-top: 3rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .hero-buttons a { padding: 1rem 2rem; border-radius: 5px; font-weight: bold; color: white; }
     .green { background: #28a745; }
     .blue { background: #007bff; }
     .gray { background: #6c757d; }
-    .hero-footer {
-      position: absolute;
-      bottom: 2rem;
-      font-size: 0.9rem;
-      background: rgba(0,0,0,0.4);
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-    }
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    #map {
-      height: 70vh;
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.4);
-    }
-    form input, form textarea, form button {
-      width: 100%;
-      padding: 0.75rem;
-      border-radius: 5px;
-      border: none;
-      margin-bottom: 1rem;
-    }
-    form textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    form button {
-      background: #28a745;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: #333;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 101;
-    }
-    .light-mode {
-      background-color: #f4f4f4;
-      color: #111;
-    }
-    .light-mode .theme-toggle {
-      background: #ccc;
-      color: #111;
-    }
-    .light-mode header h1,
-    .light-mode header p,
-    .light-mode .hero-footer {
-      background: rgba(255,255,255,0.7);
-      color: #111;
-    }
-    .light-mode form button {
-      background: #28a745;
-      color: white;
-    }
+    .hero-footer { position: absolute; bottom: 2rem; font-size: 0.9rem; background: rgba(0,0,0,0.4); padding: 0.5rem 1rem; border-radius: 5px; }
+    section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
+    h2 { text-align: center; margin-bottom: 2rem; }
+    #map { height: 70vh; width: 100%; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.4); }
+    .theme-toggle { position: fixed; top: 1rem; right: 1rem; background: #333; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; z-index: 101; }
+    #zurueckBtn { display:none; position: fixed; top: 1rem; left: 1rem; padding: 0.5rem 1rem; background: #444; color: white; border: none; border-radius: 5px; z-index: 100; }
   </style>
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
+  <button id="zurueckBtn" onclick="zurueckStartseite()">⬅️ Zurück</button>
   <header>
     <h1>Lost Places Europa</h1>
     <p>Verlassene Orte kostenlos entdecken, erleben & teilen.</p>
     <div class="hero-buttons">
-      <a href="#karte" class="green">🗺️ Karte ansehen</a>
+      <a href="#" class="green" onclick="showKarte()">🗺️ Karte ansehen</a>
       <a href="#melden" class="blue">➕ Ort melden</a>
       <a href="#info" class="gray">ℹ️ Mehr erfahren</a>
     </div>
-    <div class="hero-footer">
-      Diese Seite dient der freien Erkundung europäischer Lost Places. Melde neue Orte – oder entdecke sie einfach.
-    </div>
+    <div class="hero-footer">Diese Seite dient der freien Erkundung europäischer Lost Places. Melde neue Orte – oder entdecke sie einfach.</div>
   </header>
-  <section id="karte">
+  <section id="karte" style="display:none;">
     <h2>Interaktive Karte</h2>
     <div id="map"></div>
   </section>
@@ -183,6 +79,20 @@
 
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
+    }
+
+    function showKarte() {
+      document.querySelector('header').style.display = 'none';
+      document.getElementById('karte').style.display = 'block';
+      document.getElementById('zurueckBtn').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    function zurueckStartseite() {
+      document.querySelector('header').style.display = 'flex';
+      document.getElementById('karte').style.display = 'none';
+      document.getElementById('zurueckBtn').style.display = 'none';
+      window.scrollTo(0, 0);
     }
   </script>
 </body>
