@@ -5,38 +5,56 @@
   <title>Lost Places Europa</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <nav>
-    <button onclick="showTab('start')" class="active">Start</button>
-    <button onclick="showTab('karte')">Karte</button>
-    <button onclick="showTab('meldeportal')">Meldeportal</button>
-    <button onclick="showTab('admin')">🔒 Admin-Login</button>
+<nav>
+  <button onclick="showTab('start')" class="active">Start</button>
+  <button onclick="showTab('karte')">Karte</button>
+  <button onclick="showTab('meldeportal')">Meldeportal</button>
+  <button onclick="showTab('admin')"><i class="fas fa-user-lock"></i> Admin-Login</button>
+</nav>
 
-  </nav>
+<section id="start" class="active">
+  <h1>Willkommen bei Lost Places Europa</h1>
+  <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
+</section>
 
-  <section id="start" class="active">
-    <h1>Willkommen bei Lost Places Europa</h1>
-    <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
-  </section>
+<section id="karte">
+  <div id="map"></div>
+</section>
 
-  <section id="karte">
-    <div id="map"></div>
-  </section>
+<section id="meldeportal">
+  <h2>Lost Place melden</h2>
+  <form action="#">
+    <input type="text" name="ort" placeholder="Name des Ortes" required />
+    <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
+    <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
+    <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
+    <button type="submit">Absenden</button>
+  </form>
+</section>
 
-  <section id="meldeportal">
-    <h2>Lost Place melden</h2>
-    <form action="#">
-      <input type="text" name="ort" placeholder="Name des Ortes" required />
-      <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
-      <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
-      <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
-      <button type="submit">Absenden</button>
-    </form>
-  </section>
+<section id="admin">
+  <div id="admin-login">
+    <h2>Admin Login</h2>
+    <input type="text" id="admin-username" placeholder="Benutzername" />
+    <input type="password" id="admin-password" placeholder="Passwort" />
+    <button onclick="checkAdminLogin()">Login</button>
+    <p id="login-status"></p>
+  </div>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="script.js"></script>
+  <div id="admin-panel" style="display:none">
+    <h2>Neuen Ort hinzufügen (Admin)</h2>
+    <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
+    <input type="text" id="admin-ort-beschreibung" placeholder="Beschreibung" required />
+    <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
+    <button onclick="addAdminMarker()">Ort hinzufügen</button>
+  </div>
+</section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
