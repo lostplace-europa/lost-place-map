@@ -9,27 +9,24 @@ L.marker([52.52, 13.405]).addTo(map)
   .bindPopup('Lost Place Berlin');
 
 // 🔁 Reiter umschalten (Tabs)
-function showTab(id) {
-  // Alle Reiter ausblenden
+window.showTab = function(id) {
   document.querySelectorAll('section').forEach(section => {
     section.classList.remove('active');
   });
 
-  // Aktiven Reiter anzeigen
   const activeSection = document.getElementById(id);
   if (activeSection) activeSection.classList.add('active');
 
-  // Navigations-Buttons aktualisieren
   document.querySelectorAll('nav button').forEach(button => {
     button.classList.remove('active');
   });
 
   const clickedButton = document.querySelector(`nav button[onclick="showTab('${id}')"]`);
   if (clickedButton) clickedButton.classList.add('active');
-}
+};
 
 // 🔐 Admin Login
-function checkAdminLogin() {
+window.checkAdminLogin = function () {
   const user = document.getElementById("admin-username").value;
   const pass = document.getElementById("admin-password").value;
   const status = document.getElementById("login-status");
@@ -42,10 +39,10 @@ function checkAdminLogin() {
     status.style.color = "red";
     status.textContent = "❌ Login fehlgeschlagen. Benutzername oder Passwort falsch.";
   }
-}
+};
 
 // ➕ Admin-Ort hinzufügen
-function addAdminMarker() {
+window.addAdminMarker = function () {
   const name = document.getElementById("admin-ort-name").value;
   const beschr = document.getElementById("admin-ort-beschreibung").value;
   const coords = document.getElementById("admin-ort-koordinaten").value.split(",");
@@ -64,23 +61,4 @@ function addAdminMarker() {
   } else {
     alert("❗ Bitte Koordinaten im Format 'Breite, Länge' angeben.");
   }
-}
-// 🔁 Reiter umschalten (Tabs)
-function showTab(id) {
-  // Alle Reiter ausblenden
-  document.querySelectorAll('section').forEach(section => {
-    section.classList.remove('active');
-  });
-
-  // Aktiven Reiter anzeigen
-  const activeSection = document.getElementById(id);
-  if (activeSection) activeSection.classList.add('active');
-
-  // Navigations-Buttons aktualisieren
-  document.querySelectorAll('nav button').forEach(button => {
-    button.classList.remove('active');
-  });
-
-  const clickedButton = document.querySelector(`nav button[onclick="showTab('${id}')"]`);
-  if (clickedButton) clickedButton.classList.add('active');
-}
+};
