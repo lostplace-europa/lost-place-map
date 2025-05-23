@@ -265,5 +265,14 @@ function showTab(id) {
 <form onsubmit="submitMeldung(event)">
   <!-- bestehende Felder -->
 </form>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  pointer-events: none; /* wichtig für Klicks auf Mobilgeräten */
+}
+
 </body>
 </html>
