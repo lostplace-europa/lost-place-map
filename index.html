@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
   <script>
@@ -45,7 +43,7 @@
 
 <section id="meldeportal">
   <h2>Lost Place melden</h2>
-  <form action="#">
+  <form>
     <input type="text" name="ort" placeholder="Name des Ortes" required />
     <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
     <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
@@ -64,11 +62,18 @@
   </div>
 
   <div id="admin-panel" style="display:none">
-    <h2>Neuen Ort hinzufügen (Admin)</h2>
-    <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
-    <input type="text" id="admin-ort-beschreibung" placeholder="Beschreibung" required />
-    <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
-    <button onclick="addAdminMarker()">Ort hinzufügen</button>
+    <img class="admin-banner" src="https://static.vecteezy.com/system/resources/previews/017/377/592/original/administrator-business-minimal-infographic-banner-vector.jpg" alt="Admin Panel Banner">
+
+    <form onsubmit="event.preventDefault(); addAdminMarker();">
+      <h3>Neuen Ort hinzufügen</h3>
+      <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
+      <textarea id="admin-ort-beschreibung" placeholder="Beschreibung" required></textarea>
+      <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
+      <input type="url" id="admin-ort-bild" placeholder="Bild-URL (optional)" />
+      <button type="submit">Ort hinzufügen</button>
+    </form>
+
+    <div id="admin-panel-list"></div>
   </div>
 </section>
 
