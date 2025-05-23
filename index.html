@@ -8,117 +8,105 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: #111;
       color: #eee;
-    }
-    header {
-      background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center/cover;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
+      margin: 0;
     }
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
       background: #222;
       padding: 1rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
     }
     nav a {
-      color: #ccc;
+      color: white;
       text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover, nav a.active {
-      color: #28a745;
     }
     section {
-      padding: 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-    }
-    #map {
-      width: 100%;
-      height: 500px;
-      border-radius: 10px;
-      margin-bottom: 2rem;
+      padding: 2rem;
     }
     form input, form textarea, form button {
+      display: block;
       width: 100%;
-      padding: 1rem;
       margin-bottom: 1rem;
+      padding: 0.8rem;
       border: none;
       border-radius: 5px;
-      font-size: 1rem;
-    }
-    form input, form textarea {
-      background: #222;
-      color: #eee;
     }
     form button {
       background: #28a745;
       color: white;
+      font-weight: bold;
       cursor: pointer;
     }
-    .meldung {
+    .meldung, .ort-card {
       background: #1a1a1a;
-      border-radius: 5px;
-      padding: 1rem;
       margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .ort-card img {
+      max-width: 100%;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lost Places Europa</h1>
-    <p>Entdecke verlassene Orte in Europa – mystisch, geheimnisvoll, vergessen.</p>
-  </header>
   <nav>
-    <a href="#karte" class="active">Karte</a>
-    <a href="#meldeportal">Melden</a>
-    <a href="#meldungen">Meldungen</a>
+    <a href="#karte">Karte</a>
+    <a href="#meldung">Melden</a>
+    <a href="#liste">Orte</a>
+    <a href="#admin">Admin</a>
+    <a href="#auth">Login/Registrieren</a>
   </nav>
   <section id="karte">
-    <h2>Interaktive Karte</h2>
-    <div id="map"></div>
+    <h2>Karte</h2>
+    <div id="map" style="height: 400px;"></div>
   </section>
-  <section id="meldeportal">
-    <h2>Lost Place melden</h2>
+  <section id="meldung">
+    <h2>Ort melden</h2>
     <form onsubmit="submitMeldung(event)">
-      <input type="text" id="ort" placeholder="Name des Ortes" required />
+      <input type="text" id="ort" placeholder="Ort" required>
       <textarea id="beschreibung" placeholder="Beschreibung" required></textarea>
-      <input type="text" id="standort" placeholder="Land / Stadt / Koordinaten" required />
-      <input type="email" id="email" placeholder="Deine E-Mail (optional)" />
-      <button type="submit">Absenden</button>
+      <input type="text" id="standort" placeholder="Koordinaten" required>
+      <input type="file" id="bild">
+      <button type="submit">Senden</button>
     </form>
   </section>
-  <section id="meldungen">
-    <h2>Gemeldete Orte</h2>
-    <div id="meldungen-liste"></div>
+  <section id="liste">
+    <h2>Entdeckte Orte</h2>
+    <div id="ort-grid" class="grid"></div>
+  </section>
+  <section id="admin">
+    <h2>Admin-Panel</h2>
+    <div id="meldungen"></div>
+  </section>
+  <section id="auth">
+    <h2>Login</h2>
+    <input type="email" id="login-email" placeholder="E-Mail">
+    <input type="password" id="login-pass" placeholder="Passwort">
+    <button onclick="login()">Login</button>
+    <h3>Registrieren</h3>
+    <input type="email" id="reg-email" placeholder="E-Mail">
+    <input type="password" id="reg-pass" placeholder="Passwort">
+    <button onclick="register()">Registrieren</button>
   </section>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
@@ -127,11 +115,12 @@
       projectId: "lost-places-europa",
       storageBucket: "lost-places-europa.appspot.com",
       messagingSenderId: "649339070904",
-      appId: "1:649339070904:web:9e286fb95fe059d998074d",
-      measurementId: "G-B0GSNKHX1B"
+      appId: "1:649339070904:web:9e286fb95fe059d998074d"
     };
     firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
+    const db = firebase.database();
+    const auth = firebase.auth();
+    const storage = firebase.storage();
 
     const map = L.map('map').setView([51.1657, 10.4515], 5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -143,35 +132,79 @@
       const ort = document.getElementById('ort').value;
       const beschreibung = document.getElementById('beschreibung').value;
       const standort = document.getElementById('standort').value;
-      const email = document.getElementById('email').value;
+      const file = document.getElementById('bild').files[0];
+      if (file) {
+        const ref = storage.ref('bilder/' + Date.now() + '_' + file.name);
+        ref.put(file).then(snapshot => {
+          snapshot.ref.getDownloadURL().then(url => {
+            saveMeldung(ort, beschreibung, standort, url);
+          });
+        });
+      } else {
+        saveMeldung(ort, beschreibung, standort, '');
+      }
+    }
 
-      const meldung = { ort, beschreibung, standort, zeitstempel: new Date().toISOString() };
-
-      database.ref('meldungen').push(meldung).then(() => {
-        alert('Vielen Dank! Die Meldung wurde gespeichert.');
-        document.querySelector('#meldeportal form').reset();
-        ladeMeldungen();
-      });
+    function saveMeldung(ort, beschreibung, standort, bildUrl) {
+      const eintrag = { ort, beschreibung, standort, bild: bildUrl, zeit: new Date().toISOString() };
+      db.ref('meldungen').push(eintrag).then(() => ladeMeldungen());
     }
 
     function ladeMeldungen() {
-      const container = document.getElementById('meldungen-liste');
-      container.innerHTML = '<p>Lade Meldungen...</p>';
-      database.ref('meldungen').once('value', snapshot => {
-        container.innerHTML = '';
+      const box = document.getElementById('meldungen');
+      const grid = document.getElementById('ort-grid');
+      box.innerHTML = '';
+      grid.innerHTML = '';
+      db.ref('meldungen').on('value', snapshot => {
+        box.innerHTML = '';
+        grid.innerHTML = '';
         snapshot.forEach(child => {
           const m = child.val();
+          const id = child.key;
           const div = document.createElement('div');
           div.className = 'meldung';
-          div.innerHTML = `
-            <strong>${m.ort}</strong><br>
-            <em>${m.standort}</em><br>
-            <p>${m.beschreibung}</p>
-            <small>${new Date(m.zeitstempel).toLocaleString()}</small>
-          `;
-          container.appendChild(div);
+          div.innerHTML = `<strong>${m.ort}</strong><br>${m.standort}<br>${m.beschreibung}<br>${m.bild ? '<img src="'+m.bild+'" width="100">' : ''}<br>
+            <button onclick="bearbeiten('${id}', '${m.ort}', '${m.beschreibung}', '${m.standort}')">Bearbeiten</button>
+            <button onclick="loeschen('${id}')">Löschen</button>`;
+          box.appendChild(div);
+
+          const card = document.createElement('div');
+          card.className = 'ort-card';
+          card.innerHTML = `<h3>${m.ort}</h3><p>${m.beschreibung}</p><p><em>${m.standort}</em></p>${m.bild ? '<img src="'+m.bild+'">' : ''}`;
+          grid.appendChild(card);
         });
       });
+    }
+
+    function bearbeiten(id, ort, beschreibung, standort) {
+      const neuerOrt = prompt("Neuer Ort:", ort);
+      const neueBeschr = prompt("Neue Beschreibung:", beschreibung);
+      const neuerStand = prompt("Neuer Standort:", standort);
+      if (neuerOrt && neueBeschr && neuerStand) {
+        db.ref('meldungen/' + id).update({ ort: neuerOrt, beschreibung: neueBeschr, standort: neuerStand });
+      }
+    }
+
+    function loeschen(id) {
+      if (confirm("Wirklich löschen?")) {
+        db.ref('meldungen/' + id).remove();
+      }
+    }
+
+    function login() {
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-pass').value;
+      auth.signInWithEmailAndPassword(email, pass)
+        .then(() => alert("Eingeloggt!"))
+        .catch(e => alert(e.message));
+    }
+
+    function register() {
+      const email = document.getElementById('reg-email').value;
+      const pass = document.getElementById('reg-pass').value;
+      auth.createUserWithEmailAndPassword(email, pass)
+        .then(() => alert("Registriert!"))
+        .catch(e => alert(e.message));
     }
 
     document.addEventListener('DOMContentLoaded', ladeMeldungen);
