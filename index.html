@@ -4,38 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lost Places Europa</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       background-color: #111;
       color: #eee;
-    }
-    header {
-      background: url('https://th.bing.com/th/id/OIP.uNbq8mqUywqjfrT1Lv5YzQHaE7?cb=thvnextc1&rs=1&pid=ImgDetMain') center/cover no-repeat;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
-    header h1 {
-      font-size: 4rem;
-      background: rgba(0,0,0,0.5);
-      padding: 2rem;
-      border-radius: 1rem;
-      font-family: 'Playfair Display', serif;
+      scroll-behavior: smooth;
     }
     nav {
       background: #222;
+      padding: 1rem;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem;
       position: sticky;
       top: 0;
       z-index: 100;
@@ -48,72 +32,180 @@
     nav a:hover {
       color: #28a745;
     }
-    main {
-      max-width: 1200px;
-      margin: auto;
+    section {
       padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .feature {
-      background: #1c1c1c;
-      padding: 2rem;
-      border-radius: 10px;
+    h1, h2 {
       text-align: center;
-      transition: transform 0.3s ease;
     }
-    .feature:hover {
-      transform: scale(1.03);
+    #map {
+      height: 70vh;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
     }
-    .feature i {
-      font-size: 2rem;
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
       margin-bottom: 1rem;
-      color: #28a745;
     }
-    .feature h3 {
-      margin: 0.5rem 0;
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
     }
-    .feature a {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
+    form button {
       background: #28a745;
       color: white;
-      border-radius: 5px;
-      text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
+    }
+    .admin-card {
+      background: #2a2a2a;
+      border-left: 5px solid #ff4444;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 5px;
+    }
+    .admin-card h3 {
+      margin-top: 0;
+      color: #ff6666;
+    }
+    .admin-card button {
+      background: #ff4444;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+<style>
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #333;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 101;
+    }
+    .light-mode {
+      background-color: #f4f4f4;
+      color: #111;
+    }
+    .light-mode nav {
+      background: #ddd;
+    }
+    .light-mode nav a {
+      color: #111;
+    }
+    .light-mode nav a:hover {
+      color: #28a745;
+    }
+    .light-mode .admin-card {
+      background: #fff;
+      color: #111;
+      border-left: 5px solid #cc0000;
+    }
+    .light-mode .admin-card h3 {
+      color: #cc0000;
+    }
+    .light-mode form button {
+      background: #28a745;
+      color: white;
     }
   </style>
 </head>
 <body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
   <nav>
-    <a href="index.html">Startseite</a>
-    <a href="karte.html">Karte</a>
-    <a href="melden.html">Ort melden</a>
-    <a href="admin.html">Admin</a>
-    <a href="login.html">Login</a>
+    <a href="#karte">Karte</a>
+    <a href="#melden">Ort melden</a>
+    <a href="#admin">Admin</a>
   </nav>
-  <header>
-    <h1>Lost Places Europa</h1>
-  </header>
-  <main>
-    <div class="grid">
-      <div class="feature">
-        <i class="fas fa-map"></i>
-        <h3>Karte</h3>
-        <p>Entdecke Lost Places auf einer interaktiven Karte.</p>
-        <a href="karte.html">Ansehen</a>
-      </div>
-      <div class="feature">
-        <i class="fas fa-plus-circle"></i>
-        <h3>Ort melden</h3>
-        <p>Du kennst einen verlassenen Ort? Melde ihn hier.</p>
-        <a href="melden.html">Melden</a>
-      </div>
+
+  <section id="karte">
+    <h2>Interaktive Karte</h2>
+    <div id="map"></div>
+  </section>
+
+  <section id="melden">
+    <h2>Verlassenen Ort melden</h2>
+    <form onsubmit="event.preventDefault(); alert('Meldung gesendet!'); this.reset();">
+      <input type="text" placeholder="Name des Ortes" required>
+      <input type="text" placeholder="Standort (z. B. Stadt oder Koordinaten)" required>
+      <textarea placeholder="Beschreibung des Ortes" required></textarea>
+      <button type="submit">Absenden</button>
+    </form>
+  </section>
+
+  <section id="admin">
+    <h2>Adminbereich</h2>
+    <div class="admin-card">
+      <h3>Villa Rosa</h3>
+      <p>Dresden – Ehemaliges Herrenhaus mit Garten.</p>
+      <button>Bearbeiten</button>
+      <button>Löschen</button>
     </div>
-  </main>
+    <div class="admin-card">
+      <h3>Fabrik X</h3>
+      <p>Leipzig – Großer Backsteinbau, gut erhalten.</p>
+      <button>Bearbeiten</button>
+      <button>Löschen</button>
+    </div>
+    <div class="admin-card">
+      <h3>Alter Bahnhof</h3>
+      <p>Berlin – Verlassener Bahnhof mit Geschichte.</p>
+      <button>Bearbeiten</button>
+      <button>Löschen</button>
+    </div>
+    <div class="admin-card">
+      <h3>Heilanstalt St. Marien</h3>
+      <p>Hamburg – Verlassene Psychiatrie aus dem 19. Jahrhundert.</p>
+      <button>Bearbeiten</button>
+      <button>Löschen</button>
+    </div>
+    <div class="admin-card">
+      <h3>Gutshof Kleinow</h3>
+      <p>Brandenburg – Verfallenes Gut mit Nebengebäuden.</p>
+      <button>Bearbeiten</button>
+      <button>Löschen</button>
+    </div>
+  </section>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([51.1657, 10.4515], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap Contributors'
+    }).addTo(map);
+
+    const lostPlaces = [
+      { title: 'Villa Rosa', location: [51.05, 13.74], description: 'Ehemaliges Herrenhaus mit Garten.' },
+      { title: 'Fabrik X', location: [51.34, 12.37], description: 'Großer Backsteinbau, gut erhalten.' },
+      { title: 'Alter Bahnhof', location: [52.52, 13.405], description: 'Verlassener Bahnhof mit Geschichte.' },
+      { title: 'Heilanstalt St. Marien', location: [53.55, 10.0], description: 'Verlassene Psychiatrie aus dem 19. Jahrhundert.' },
+      { title: 'Gutshof Kleinow', location: [52.87, 13.8], description: 'Verfallenes Gut mit Nebengebäuden.' }
+    ];
+
+    lostPlaces.forEach((place) => {
+      L.marker(place.location).addTo(map)
+        .bindPopup(`<strong>${place.title}</strong><br>${place.description}`);
+    });
+  </script>
+<script>
+    function toggleTheme() {
+      document.body.classList.toggle('light-mode');
+    }
+  </script>
 </body>
 </html>
