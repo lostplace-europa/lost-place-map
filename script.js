@@ -65,3 +65,22 @@ function addAdminMarker() {
     alert("❗ Bitte Koordinaten im Format 'Breite, Länge' angeben.");
   }
 }
+// 🔁 Reiter umschalten (Tabs)
+function showTab(id) {
+  // Alle Reiter ausblenden
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Aktiven Reiter anzeigen
+  const activeSection = document.getElementById(id);
+  if (activeSection) activeSection.classList.add('active');
+
+  // Navigations-Buttons aktualisieren
+  document.querySelectorAll('nav button').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  const clickedButton = document.querySelector(`nav button[onclick="showTab('${id}')"]`);
+  if (clickedButton) clickedButton.classList.add('active');
+}
