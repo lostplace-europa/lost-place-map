@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Lost Places Europa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
@@ -27,34 +26,55 @@
     function toggleMenu() {
       document.getElementById('nav-links').classList.toggle('show');
     }
+    function showTab(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+    function checkAdminLogin() {
+      const user = document.getElementById('admin-username').value;
+      const pass = document.getElementById('admin-password').value;
+      const loginStatus = document.getElementById('login-status');
+      if (user === "admin" && pass === "1234") {
+        document.getElementById('admin-login').style.display = 'none';
+        document.getElementById('admin-panel').style.display = 'block';
+        loginStatus.textContent = "";
+      } else {
+        loginStatus.textContent = "Zugangsdaten falsch!";
+      }
+    }
   </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      text-align: center;
       min-height: 100vh;
-      position: relative;
     }
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background-color: rgba(0, 0, 0, 0.6);
-      z-index: 0;
+      z-index: -1;
     }
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
       padding: 1rem;
-      background-color: rgba(10, 10, 20, 0.85);
+      background: rgba(10, 10, 20, 0.85);
     }
     .nav-brand {
       font-weight: bold;
+      font-size: 1.2rem;
     }
     .nav-toggle {
       display: none;
@@ -72,7 +92,6 @@
       color: white;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
     }
     #nav-links button.active, #nav-links button:hover {
       background-color: #28a745;
@@ -84,7 +103,12 @@
       animation: fadeIn 0.5s ease-in-out;
     }
     section.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
+      text-align: center;
     }
     h1, h2, h3 {
       font-family: 'Playfair Display', serif;
@@ -95,9 +119,15 @@
       max-height: 500px;
       border-radius: 8px;
     }
-    form input, form textarea {
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100%;
       max-width: 500px;
+    }
+    form input, form textarea {
+      width: 100%;
       margin: 0.75rem 0;
       padding: 1rem;
       font-size: 1rem;
@@ -106,27 +136,15 @@
       background: rgba(255, 255, 255, 0.1);
       color: white;
     }
-    form input::placeholder, form textarea::placeholder {
-      color: #ccc;
-      font-style: italic;
-    }
     form button {
       background-color: #28a745;
       color: white;
       border: none;
       padding: 1rem 2rem;
-      border-radius: 5px;
       font-size: 1rem;
+      border-radius: 5px;
       cursor: pointer;
-    }
-    #admin-panel img.admin-banner {
-      max-width: 100%;
-      margin: 1rem 0;
-      border-radius: 8px;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      margin-top: 0.5rem;
     }
     @media (max-width: 768px) {
       .nav-toggle {
@@ -136,7 +154,6 @@
         display: none;
         flex-direction: column;
         width: 100%;
-        gap: 0.75rem;
         margin-top: 1rem;
       }
       #nav-links.show {
@@ -160,6 +177,27 @@
     <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
   </div>
 </nav>
+
+<section id="start" class="active">
+  <h1>Willkommen bei Lost Places Europa</h1>
+  <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
+</section>
+
+<section id="karte">
+  <div id="map"></div>
+</section>
+
+<section id="meldeportal">
+  <h2>Lost Place melden</h2>
+  <form>
+    <input type="text" name="ort" placeholder="Name des Ortes" required />
+    <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
+    <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
+    <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
+    <button type="submit">Absenden</button>
+  </form>
+</section>
+
 <section id="admin">
   <div id="admin-login">
     <h2>Admin Login</h2>
@@ -172,9 +210,8 @@
   </div>
 
   <div id="admin-panel" style="display:none">
-    <img class="admin-banner" src="https://static.vecteezy.com/system/resources/previews/017/377/592/original/administrator-business-minimal-infographic-banner-vector.jpg" alt="Admin Panel Banner">
+    <h3>Neuen Ort hinzufügen</h3>
     <form onsubmit="event.preventDefault(); addAdminMarker();">
-      <h3>Neuen Ort hinzufügen</h3>
       <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
       <textarea id="admin-ort-beschreibung" placeholder="Beschreibung" required></textarea>
       <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
@@ -184,3 +221,8 @@
     <div id="admin-panel-list"></div>
   </div>
 </section>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
