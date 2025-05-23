@@ -10,10 +10,22 @@ L.marker([52.52, 13.405]).addTo(map)
 
 // 🔁 Reiter umschalten (Tabs)
 function showTab(id) {
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelector(`nav button[onclick="showTab('${id}')"]`).classList.add('active');
+  // Alle Reiter ausblenden
+  document.querySelectorAll('section').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  // Aktiven Reiter anzeigen
+  const activeSection = document.getElementById(id);
+  if (activeSection) activeSection.classList.add('active');
+
+  // Navigations-Buttons aktualisieren
+  document.querySelectorAll('nav button').forEach(button => {
+    button.classList.remove('active');
+  });
+
+  const clickedButton = document.querySelector(`nav button[onclick="showTab('${id}')"]`);
+  if (clickedButton) clickedButton.classList.add('active');
 }
 
 // 🔐 Admin Login
@@ -36,4 +48,20 @@ function checkAdminLogin() {
 function addAdminMarker() {
   const name = document.getElementById("admin-ort-name").value;
   const beschr = document.getElementById("admin-ort-beschreibung").value;
-  const coords = docu
+  const coords = document.getElementById("admin-ort-koordinaten").value.split(",");
+
+  if (coords.length === 2) {
+    const lat = parseFloat(coords[0].trim());
+    const lon = parseFloat(coords[1].trim());
+
+    if (!isNaN(lat) && !isNaN(lon)) {
+      L.marker([lat, lon]).addTo(map)
+        .bindPopup(`<b>${name}</b><br>${beschr}`);
+      alert("📍 Ort erfolgreich hinzugefügt!");
+    } else {
+      alert("❗ Ungültige Koordinaten.");
+    }
+  } else {
+    alert("❗ Bitte Koordinaten im Format 'Breite, Länge' angeben.");
+  }
+}
