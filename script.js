@@ -25,12 +25,13 @@ function checkAdminLogin() {
   const pass = document.getElementById("admin-password").value;
   const status = document.getElementById("login-status");
 
-if (user === "admin" && pass === "lostsecret123") {
+  if (user === "admin" && pass === "lostsecret123") {
     document.getElementById("admin-login").style.display = "none";
     document.getElementById("admin-panel").style.display = "block";
     status.textContent = "";
   } else {
-    status.textContent = "Login fehlgeschlagen.";
+    status.style.color = "red";
+    status.textContent = "❌ Login fehlgeschlagen. Benutzername oder Passwort falsch.";
   }
 }
 
