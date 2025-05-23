@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ort melden – Lost Places Europa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #111;
+      color: #eee;
+    }
+    nav {
+      background: #222;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #28a745;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 2rem 1rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+    }
+    .form-wrapper {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+      background: #1a1a1a;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+    form label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-weight: bold;
+    }
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 1rem;
+    }
+    form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    form button {
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    form button:hover {
+      background: #218838;
+    }
+    .success {
+      text-align: center;
+      color: #28a745;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="karte.html">Karte</a>
+    <a href="melden.html">Ort melden</a>
+    <a href="admin.html">Admin</a>
+    <a href="login.html">Login</a>
+  </nav>
+  <header>
+    <h1>Verlassenen Ort melden</h1>
+  </header>
+  <div class="form-wrapper">
+    <form id="meldeForm" onsubmit="event.preventDefault(); showSuccess();">
+      <label for="ort">Ort</label>
+      <input type="text" id="ort" name="ort" placeholder="Name oder Beschreibung des Ortes" required>
+
+      <label for="standort">Standort</label>
+      <input type="text" id="standort" name="standort" placeholder="z. B. Stadt, Koordinaten oder Adresse" required>
+
+      <label for="beschreibung">Beschreibung</label>
+      <textarea id="beschreibung" name="beschreibung" placeholder="Was macht den Ort besonders?" required></textarea>
+
+      <button type="submit">Meldung absenden</button>
+    </form>
+    <div class="success" id="successMessage" style="display:none;">Vielen Dank für deine Meldung!</div>
+  </div>
+
+  <script>
+    function showSuccess() {
+      document.getElementById('meldeForm').reset();
+      document.getElementById('successMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
