@@ -163,6 +163,12 @@
   </section>
 
   <section id="admin" style="display:none;">
+  <div class="admin-login" id="adminLogin">
+    <form onsubmit="event.preventDefault(); checkLogin();">
+      <input type="password" id="adminPasswort" placeholder="Admin-Passwort" required>
+      <button type="submit">Einloggen</button>
+    </form>
+  </div>
   <h2>Adminbereich</h2>
   <div class="admin-login" id="adminLogin">
     <form onsubmit="event.preventDefault(); checkLogin();">
@@ -247,7 +253,18 @@ function checkLogin() {
 function toggleAdmin() {
   document.getElementById('admin').style.display = 'block';
   document.getElementById('karte-seite').style.display = 'none';
+  document.getElementById('adminLogin').style.display = 'block';
+  document.getElementById('adminContent').style.display = 'none';
   window.scrollTo({ top: document.getElementById('admin').offsetTop, behavior: 'smooth' });
+}
+function checkLogin() {
+  const pw = document.getElementById('adminPasswort').value;
+  if (pw === 'admin123') {
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminContent').style.display = 'block';
+  } else {
+    alert('Falsches Passwort!');
+  }
 }
 </script>
 </body>
