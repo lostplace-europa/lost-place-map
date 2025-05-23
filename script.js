@@ -4,35 +4,36 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-const markerMap = new Map(); // Firebase-ID → Marker
+const markerMap = new Map(); // ID → Marker-Objekt
 
 // 📥 Marker aus Firebase laden
 firebase.database().ref("orte").on("value", snapshot => {
   const data = snapshot.val();
   const adminPanel = document.getElementById("admin-panel");
 
-  // vorherige Marker entfernen
+  // Alle Marker von Karte entfernen
   markerMap.forEach(marker => map.removeLayer(marker));
   markerMap.clear();
 
-  // alte Admin-Einträge löschen
+  // Alte Admin-Liste bereinigen
   const alteEinträge = document.querySelectorAll(".admin-eintrag");
-  alteEinträge.forEach(el => el.remove());
+  alteEinträge.forEach(e => e.remove());
 
   if (data) {
     let counter = 1;
-    Object.entries(data).forEach(([id, entry]) => {
-      if (entry.lat && entry.lon) {
-        const marker = L.marker([entry.lat, entry.lon]).addTo(map)
-          .bindPopup(`<b>${entry.name}</b><br>${entry.beschreibung}`);
+    Object.entries(data).forEach(([id, ort]) => {
+      const { lat, lon, name, beschreibung } = ort;
+      if (lat && lon) {
+        const marker = L.marker([lat, lon]).addTo(map)
+          .bindPopup(`<b>${name}</b><br>${beschreibung}`);
         markerMap.set(id, marker);
 
-        // Admin-Eintrag anzeigen
+        // Admin-Eintrag
         const div = document.createElement("div");
         div.className = "admin-eintrag";
         div.innerHTML = `
-          <strong>#${counter++}</strong> ${entry.name} (${entry.lat}, ${entry.lon})
-          <button onclick="deleteOrt('${id}')">Löschen</button>
+          <strong>#${counter++}</strong> ${name} (${lat}, ${lon})
+          <button onclick="deleteOrt('${id}')">🗑️ Löschen</button>
         `;
         adminPanel.appendChild(div);
       }
@@ -42,16 +43,12 @@ firebase.database().ref("orte").on("value", snapshot => {
 
 // 🔁 Reiter umschalten
 window.showTab = function(id) {
-  document.querySelectorAll('section').forEach(section => {
-    section.classList.remove('active');
-  });
-  const activeSection = document.getElementById(id);
-  if (activeSection) activeSection.classList.add('active');
-  document.querySelectorAll('nav button').forEach(button => {
-    button.classList.remove('active');
-  });
-  const clickedButton = document.querySelector(`nav button[onclick='showTab("${id}")']`);
-  if (clickedButton) clickedButton.classList.add('active');
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id)?.classList.add('active');
+
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`nav button[onclick='showTab("${id}")']`);
+  if (btn) btn.classList.add('active');
 };
 
 // 🔐 Admin Login
@@ -70,7 +67,7 @@ window.checkAdminLogin = function () {
   }
 };
 
-// ➕ Admin-Ort hinzufügen
+// ➕ Ort hinzufügen
 window.addAdminMarker = function () {
   const name = document.getElementById("admin-ort-name").value;
   const beschr = document.getElementById("admin-ort-beschreibung").value;
@@ -81,13 +78,8 @@ window.addAdminMarker = function () {
     const lon = parseFloat(coords[1].trim());
 
     if (!isNaN(lat) && !isNaN(lon)) {
-      const newOrt = {
-        name: name,
-        beschreibung: beschr,
-        lat: lat,
-        lon: lon
-      };
-      firebase.database().ref("orte").push(newOrt);
+      const ort = { name, beschreibung: beschr, lat, lon };
+      firebase.database().ref("orte").push(ort);
       alert("📍 Ort erfolgreich hinzugefügt!");
       document.getElementById("admin-ort-name").value = "";
       document.getElementById("admin-ort-beschreibung").value = "";
@@ -100,10 +92,10 @@ window.addAdminMarker = function () {
   }
 };
 
-// 🗑️ Ort löschen (Admin)
+// 🗑️ Ort löschen
 window.deleteOrt = function (id) {
-  if (confirm("❗ Bist du sicher, dass du diesen Ort löschen willst?")) {
+  if (confirm("❗ Diesen Ort wirklich löschen?")) {
     firebase.database().ref("orte/" + id).remove();
-    alert("Ort wurde gelöscht.");
+    alert("✅ Ort gelöscht.");
   }
 };
