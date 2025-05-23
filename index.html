@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lost Places Europa</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
@@ -14,31 +14,66 @@
       color: #eee;
       scroll-behavior: smooth;
     }
-    nav {
-      background: #222;
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    nav a {
-      color: #eee;
+    a {
       text-decoration: none;
-      font-weight: bold;
     }
-    nav a:hover {
-      color: #28a745;
+    header {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1613058085460-4d2eb21ed4b6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      background: rgba(0,0,0,0.5);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+    }
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      background: rgba(0,0,0,0.4);
+      padding: 0.5rem 1.5rem;
+      border-radius: 0.5rem;
+    }
+    .hero-buttons {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .hero-buttons a {
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+    }
+    .green { background: #28a745; }
+    .blue { background: #007bff; }
+    .gray { background: #6c757d; }
+    .hero-footer {
+      position: absolute;
+      bottom: 2rem;
+      font-size: 0.9rem;
+      background: rgba(0,0,0,0.4);
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
     }
     section {
       padding: 4rem 2rem;
       max-width: 1000px;
       margin: auto;
     }
-    h1, h2 {
+    h2 {
       text-align: center;
+      margin-bottom: 2rem;
     }
     #map {
       height: 70vh;
@@ -63,29 +98,6 @@
       font-weight: bold;
       cursor: pointer;
     }
-    .admin-card {
-      background: #2a2a2a;
-      border-left: 5px solid #ff4444;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      border-radius: 5px;
-    }
-    .admin-card h3 {
-      margin-top: 0;
-      color: #ff6666;
-    }
-    .admin-card button {
-      background: #ff4444;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      margin-right: 1rem;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
-<style>
     .theme-toggle {
       position: fixed;
       top: 1rem;
@@ -102,22 +114,15 @@
       background-color: #f4f4f4;
       color: #111;
     }
-    .light-mode nav {
-      background: #ddd;
-    }
-    .light-mode nav a {
+    .light-mode .theme-toggle {
+      background: #ccc;
       color: #111;
     }
-    .light-mode nav a:hover {
-      color: #28a745;
-    }
-    .light-mode .admin-card {
-      background: #fff;
+    .light-mode header h1,
+    .light-mode header p,
+    .light-mode .hero-footer {
+      background: rgba(255,255,255,0.7);
       color: #111;
-      border-left: 5px solid #cc0000;
-    }
-    .light-mode .admin-card h3 {
-      color: #cc0000;
     }
     .light-mode form button {
       background: #28a745;
@@ -127,31 +132,22 @@
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
-  <header style="height: 100vh; background: url('https://th.bing.com/th/id/OIP.uNbq8mqUywqjfrT1Lv5YzQHaE7?cb=thvnextc1&rs=1&pid=ImgDetMain') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
-    <h1 style="font-size: 3.5rem; background: rgba(0,0,0,0.5); padding: 1rem 2rem; border-radius: 1rem;">Lost Places Europa</h1>
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a href="#karte-seite">Karte</a>
-      <a href="#melden" style="background: #007bff; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Ort melden</a>
-      <a href="#admin" onclick="toggleAdmin(); return false;">Adminbereich</a>
+  <header>
+    <h1>Lost Places Europa</h1>
+    <p>Verlassene Orte kostenlos entdecken, erleben & teilen.</p>
+    <div class="hero-buttons">
+      <a href="#karte" class="green">🗺️ Karte ansehen</a>
+      <a href="#melden" class="blue">➕ Ort melden</a>
+      <a href="#info" class="gray">ℹ️ Mehr erfahren</a>
+    </div>
+    <div class="hero-footer">
+      Diese Seite dient der freien Erkundung europäischer Lost Places. Melde neue Orte – oder entdecke sie einfach.
     </div>
   </header>
-  <header style="height: 100vh; background: url('https://th.bing.com/th/id/OIP.uNbq8mqUywqjfrT1Lv5YzQHaE7?cb=thvnextc1&rs=1&pid=ImgDetMain') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center;">
-    <h1 style="font-size: 3.5rem; background: rgba(0,0,0,0.5); padding: 1rem 2rem; border-radius: 1rem;">Lost Places Europa</h1>
-    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;">
-      <a href="#karte" style="background: #28a745; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Karte</a>
-      <a href="#melden" style="background: #007bff; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Ort melden</a>
-      <a href="#admin" style="background: #dc3545; color: white; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: bold;">Adminbereich</a>
-    </div>
-  </header>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
-  <nav>
-    <a href="#karte">Karte</a>
-    <a href="#melden">Ort melden</a>
-    <a href="#admin">Admin</a>
-  </nav>
-
-  
-
+  <section id="karte">
+    <h2>Interaktive Karte</h2>
+    <div id="map"></div>
+  </section>
   <section id="melden">
     <h2>Verlassenen Ort melden</h2>
     <form onsubmit="event.preventDefault(); alert('Meldung gesendet!'); this.reset();">
@@ -161,66 +157,13 @@
       <button type="submit">Absenden</button>
     </form>
   </section>
-
-  <section id="admin" style="display:none;">
-  <div class="admin-login" id="adminLogin">
-    <form onsubmit="event.preventDefault(); checkLogin();">
-      <input type="password" id="adminPasswort" placeholder="Admin-Passwort" required>
-      <button type="submit">Einloggen</button>
-    </form>
-  </div>
-  <h2>Adminbereich</h2>
-  <div class="admin-login" id="adminLogin">
-    <form onsubmit="event.preventDefault(); checkLogin();">
-      <input type="password" id="adminPasswort" placeholder="Admin-Passwort" required>
-      <button type="submit">Einloggen</button>
-    </form>
-  </div>
-  <div id="adminContent" style="display:none;">
-    <div class="admin-card">
-      <h3>Villa Rosa</h3>
-      <p>Dresden – Ehemaliges Herrenhaus mit Garten.</p>
-      <button>Bearbeiten</button>
-      <button>Löschen</button>
-    </div>
-    <div class="admin-card">
-      <h3>Fabrik X</h3>
-      <p>Leipzig – Großer Backsteinbau, gut erhalten.</p>
-      <button>Bearbeiten</button>
-      <button>Löschen</button>
-    </div>
-    <div class="admin-card">
-      <h3>Alter Bahnhof</h3>
-      <p>Berlin – Verlassener Bahnhof mit Geschichte.</p>
-      <button>Bearbeiten</button>
-      <button>Löschen</button>
-    </div>
-    <div class="admin-card">
-      <h3>Heilanstalt St. Marien</h3>
-      <p>Hamburg – Verlassene Psychiatrie aus dem 19. Jahrhundert.</p>
-      <button>Bearbeiten</button>
-      <button>Löschen</button>
-    </div>
-    <div class="admin-card">
-      <h3>Gutshof Kleinow</h3>
-      <p>Brandenburg – Verfallenes Gut mit Nebengebäuden.</p>
-      <button>Bearbeiten</button>
-      <button>Löschen</button>
-    </div>
-  </div>
-</section>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js">
-function checkLogin() {
-  const pw = document.getElementById('adminPasswort').value;
-  if (pw === 'admin123') {
-    document.getElementById('adminLogin').style.display = 'none';
-    document.getElementById('adminContent').style.display = 'block';
-  } else {
-    alert('Falsches Passwort!');
-  }
-}
-</script>
+  <section id="info">
+    <h2>Über das Projekt</h2>
+    <p style="text-align:center; max-width: 700px; margin:auto;">
+      Lost Places Europa ist ein nicht-kommerzielles Projekt, das es dir ermöglicht, verlassene Orte in Europa zu entdecken und mit anderen zu teilen. Die Nutzung der Karte ist kostenlos. Bitte respektiere alle Gesetze und betrete keine verbotenen Bereiche.
+    </p>
+  </section>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([51.1657, 10.4515], 6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -230,42 +173,18 @@ function checkLogin() {
     const lostPlaces = [
       { title: 'Villa Rosa', location: [51.05, 13.74], description: 'Ehemaliges Herrenhaus mit Garten.' },
       { title: 'Fabrik X', location: [51.34, 12.37], description: 'Großer Backsteinbau, gut erhalten.' },
-      { title: 'Alter Bahnhof', location: [52.52, 13.405], description: 'Verlassener Bahnhof mit Geschichte.' },
-      { title: 'Heilanstalt St. Marien', location: [53.55, 10.0], description: 'Verlassene Psychiatrie aus dem 19. Jahrhundert.' },
-      { title: 'Gutshof Kleinow', location: [52.87, 13.8], description: 'Verfallenes Gut mit Nebengebäuden.' }
+      { title: 'Alter Bahnhof', location: [52.52, 13.405], description: 'Verlassener Bahnhof mit Geschichte.' }
     ];
 
-    lostPlaces.forEach((place) => {
+    lostPlaces.forEach(place => {
       L.marker(place.location).addTo(map)
         .bindPopup(`<strong>${place.title}</strong><br>${place.description}`);
     });
-  </script>
-<script>
+
     function toggleTheme() {
       document.body.classList.toggle('light-mode');
     }
   </script>
-<section id="karte-seite" style="display:none;">
-  <h2>Interaktive Karte</h2>
-  <div id="map" style="height: 70vh; width: 100%; border-radius: 10px;"></div>
-</section>
-<script>
-function toggleAdmin() {
-  document.getElementById('admin').style.display = 'block';
-  document.getElementById('karte-seite').style.display = 'none';
-  document.getElementById('adminLogin').style.display = 'block';
-  document.getElementById('adminContent').style.display = 'none';
-  window.scrollTo({ top: document.getElementById('admin').offsetTop, behavior: 'smooth' });
-}
-function checkLogin() {
-  const pw = document.getElementById('adminPasswort').value;
-  if (pw === 'admin123') {
-    document.getElementById('adminLogin').style.display = 'none';
-    document.getElementById('adminContent').style.display = 'block';
-  } else {
-    alert('Falsches Passwort!');
-  }
-}
-</script>
 </body>
 </html>
+
