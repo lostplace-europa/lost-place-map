@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lost Places Europa</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
@@ -16,8 +15,9 @@
     }
     header {
       background: url('headerbild.jpg') center/cover no-repeat;
-      height: 70vh;
+      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       color: white;
@@ -27,8 +27,15 @@
       background: rgba(0,0,0,0.6);
       padding: 2rem;
       border-radius: 1rem;
-      font-size: 3rem;
+      font-size: 4rem;
       font-family: 'Playfair Display', serif;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      background: rgba(0,0,0,0.5);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
     }
     nav {
       background: #222;
@@ -48,101 +55,80 @@
     nav a:hover {
       color: #28a745;
     }
-    section {
-      padding: 4rem 2rem;
+    main {
       max-width: 1200px;
       margin: auto;
-    }
-    #map {
-      height: 500px;
-      border-radius: 10px;
+      padding: 4rem 2rem;
     }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    .ort-card {
+    .feature {
       background: #1c1c1c;
-      padding: 1rem;
+      padding: 2rem;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
       transition: transform 0.3s ease;
     }
-    .ort-card:hover {
-      transform: scale(1.02);
+    .feature:hover {
+      transform: scale(1.03);
     }
-    .ort-card img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    form input, form textarea, form button {
-      width: 100%;
+    .feature i {
+      font-size: 2rem;
       margin-bottom: 1rem;
-      padding: 0.75rem;
-      border-radius: 5px;
-      border: none;
+      color: #28a745;
     }
-    form button {
+    .feature h3 {
+      margin: 0.5rem 0;
+    }
+    .feature a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
       background: #28a745;
       color: white;
+      border-radius: 5px;
+      text-decoration: none;
       font-weight: bold;
-      cursor: pointer;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="index.html">Startseite</a>
+    <a href="karte.html">Karte</a>
+    <a href="melden.html">Ort melden</a>
+    <a href="orte.html">Orte</a>
+    <a href="admin.html">Admin</a>
+    <a href="login.html">Login</a>
+  </nav>
   <header>
     <h1>Lost Places Europa</h1>
+    <p>Entdecke verlassene Orte in ganz Europa – gemeinsam mit unserer Community</p>
   </header>
-  <nav>
-    <a href="#karte">Karte</a>
-    <a href="#meldung">Ort melden</a>
-    <a href="#liste">Orte</a>
-    <a href="#admin">Admin</a>
-    <a href="#auth">Login</a>
-  </nav>
-  <section id="karte">
-    <h2>Karte</h2>
-    <div id="map"></div>
-  </section>
-  <section id="meldung">
-    <h2>Ort melden</h2>
-    <form onsubmit="event.preventDefault(); alert('Meldung gesendet!');">
-      <input type="text" placeholder="Ort" required>
-      <textarea placeholder="Beschreibung" required></textarea>
-      <button type="submit">Absenden</button>
-    </form>
-  </section>
-  <section id="liste">
-    <h2>Orte</h2>
+  <main>
     <div class="grid">
-      <div class="ort-card">
-        <img src="beispiel1.jpg" alt="Lost Place 1">
-        <h3>Alter Bahnhof</h3>
-        <p>Ein verlassener Bahnhof mit Geschichte.</p>
+      <div class="feature">
+        <i class="fas fa-map"></i>
+        <h3>Karte</h3>
+        <p>Entdecke Lost Places auf einer interaktiven Karte.</p>
+        <a href="karte.html">Ansehen</a>
       </div>
-      <div class="ort-card">
-        <img src="beispiel2.jpg" alt="Lost Place 2">
-        <h3>Verlassene Fabrik</h3>
-        <p>Industriecharme und Lost-Place-Flair pur.</p>
+      <div class="feature">
+        <i class="fas fa-plus-circle"></i>
+        <h3>Ort melden</h3>
+        <p>Du kennst einen verlassenen Ort? Melde ihn hier.</p>
+        <a href="melden.html">Melden</a>
+      </div>
+      <div class="feature">
+        <i class="fas fa-list"></i>
+        <h3>Alle Orte</h3>
+        <p>Stöbere durch eine Liste aller eingetragenen Orte.</p>
+        <a href="orte.html">Anzeigen</a>
       </div>
     </div>
-  </section>
-  <section id="admin">
-    <h2>Adminbereich</h2>
-    <p>Hier könnten Bearbeiten-/Löschen-Funktionen stehen.</p>
-  </section>
-  <section id="auth">
-    <h2>Login / Registrierung</h2>
-    <p>Login-Formular (z. B. mit Firebase) kann hier eingebunden werden.</p>
-  </section>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    const map = L.map('map').setView([51.1657, 10.4515], 6);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap Contributors'
-    }).addTo(map);
-  </script>
+  </main>
 </body>
 </html>
