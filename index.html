@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <title>Lost Places Karte</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <meta charset="UTF-8">
+  <title>Lost Places Europa</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
-  <h1>Lost Places Europa</h1>
-  <div id="map"></div>
+
+  <nav>
+    <button onclick="showTab('start')" class="active">Start</button>
+    <button onclick="showTab('karte')">Karte</button>
+    <button onclick="showTab('meldeportal')">Meldeportal</button>
+  </nav>
+
+  <section id="start" class="active">
+    <h1>Willkommen bei Lost Places Europa</h1>
+    <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
+  </section>
+
+  <section id="karte">
+    <div id="map"></div>
+  </section>
+
+  <section id="meldeportal">
+    <h2>Lost Place melden</h2>
+    <form action="#">
+      <input type="text" name="ort" placeholder="Name des Ortes" required />
+      <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
+      <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
+      <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
+      <button type="submit">Absenden</button>
+    </form>
+  </section>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
