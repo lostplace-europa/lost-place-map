@@ -160,3 +160,27 @@
     <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
   </div>
 </nav>
+<section id="admin">
+  <div id="admin-login">
+    <h2>Admin Login</h2>
+    <form onsubmit="event.preventDefault(); checkAdminLogin();">
+      <input type="text" id="admin-username" placeholder="Benutzername" required />
+      <input type="password" id="admin-password" placeholder="Passwort" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="login-status"></p>
+  </div>
+
+  <div id="admin-panel" style="display:none">
+    <img class="admin-banner" src="https://static.vecteezy.com/system/resources/previews/017/377/592/original/administrator-business-minimal-infographic-banner-vector.jpg" alt="Admin Panel Banner">
+    <form onsubmit="event.preventDefault(); addAdminMarker();">
+      <h3>Neuen Ort hinzufügen</h3>
+      <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
+      <textarea id="admin-ort-beschreibung" placeholder="Beschreibung" required></textarea>
+      <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
+      <input type="url" id="admin-ort-bild" placeholder="Bild-URL (optional)" />
+      <button type="submit">Ort hinzufügen</button>
+    </form>
+    <div id="admin-panel-list"></div>
+  </div>
+</section>
