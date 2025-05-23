@@ -23,6 +23,10 @@
     };
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
+
+    function toggleMenu() {
+      document.getElementById('nav-links').classList.toggle('show');
+    }
   </script>
   <style>
     body {
@@ -42,30 +46,35 @@
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 0;
     }
-    nav, section {
-      position: relative;
-      z-index: 1;
-    }
     nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem;
       background-color: rgba(10, 10, 20, 0.85);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
     }
-    nav button {
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: transparent;
+    .nav-brand {
+      font-weight: bold;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    #nav-links {
+      display: flex;
+      gap: 0.5rem;
+    }
+    #nav-links button {
+      padding: 0.6rem 1rem;
       border: 2px solid white;
+      background: transparent;
       color: white;
       border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease-in-out;
+      transition: background 0.3s;
     }
-    nav button:hover, nav button.active {
+    #nav-links button.active, #nav-links button:hover {
       background-color: #28a745;
       border-color: #28a745;
     }
@@ -81,16 +90,17 @@
       font-family: 'Playfair Display', serif;
     }
     #map {
-      height: 400px;
-      margin-top: 1rem;
+      width: 100%;
+      height: 50vh;
+      max-height: 500px;
       border-radius: 8px;
-      overflow: hidden;
     }
     form input, form textarea {
       width: 100%;
-      max-width: 400px;
-      margin: 0.5rem 0;
-      padding: 0.75rem;
+      max-width: 500px;
+      margin: 0.75rem 0;
+      padding: 1rem;
+      font-size: 1rem;
       border-radius: 5px;
       border: none;
       background: rgba(255, 255, 255, 0.1);
@@ -104,10 +114,10 @@
       background-color: #28a745;
       color: white;
       border: none;
-      padding: 0.6rem 1rem;
+      padding: 1rem 2rem;
       border-radius: 5px;
+      font-size: 1rem;
       cursor: pointer;
-      margin-top: 0.5rem;
     }
     #admin-panel img.admin-banner {
       max-width: 100%;
@@ -118,23 +128,22 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    @media (max-width: 600px) {
-      nav {
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      #nav-links {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        width: 100%;
+        gap: 0.75rem;
+        margin-top: 1rem;
       }
-      nav button {
-        width: 90%;
-        font-size: 1rem;
-      }
-      section {
-        padding: 1rem;
-      }
-      form input, form textarea {
-        max-width: 90%;
+      #nav-links.show {
+        display: flex;
       }
       #map {
-        height: 300px;
+        height: 40vh;
       }
     }
   </style>
@@ -142,56 +151,12 @@
 <body>
 
 <nav>
-  <button onclick='showTab("start")' class="active"><i class="fas fa-home"></i> Start</button>
-  <button onclick='showTab("karte")'><i class="fas fa-map-marked-alt"></i> Karte</button>
-  <button onclick='showTab("meldeportal")'><i class="fas fa-location-arrow"></i> Meldeportal</button>
-  <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
+  <div class="nav-brand">Lost Places Europa</div>
+  <div class="nav-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <div id="nav-links">
+    <button onclick='showTab("start")' class="active"><i class="fas fa-home"></i> Start</button>
+    <button onclick='showTab("karte")'><i class="fas fa-map-marked-alt"></i> Karte</button>
+    <button onclick='showTab("meldeportal")'><i class="fas fa-location-arrow"></i> Meldeportal</button>
+    <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
+  </div>
 </nav>
-
-<section id="start" class="active">
-  <h1>Willkommen bei Lost Places Europa</h1>
-  <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
-</section>
-
-<section id="karte">
-  <div id="map"></div>
-</section>
-
-<section id="meldeportal">
-  <h2>Lost Place melden</h2>
-  <form>
-    <input type="text" name="ort" placeholder="Name des Ortes" required />
-    <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
-    <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
-    <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
-    <button type="submit">Absenden</button>
-  </form>
-</section>
-
-<section id="admin">
-  <div id="admin-login">
-    <h2>Admin Login</h2>
-    <input type="text" id="admin-username" placeholder="Benutzername" />
-    <input type="password" id="admin-password" placeholder="Passwort" />
-    <button onclick="checkAdminLogin()">Login</button>
-    <p id="login-status"></p>
-  </div>
-
-  <div id="admin-panel" style="display:none">
-    <img class="admin-banner" src="https://static.vecteezy.com/system/resources/previews/017/377/592/original/administrator-business-minimal-infographic-banner-vector.jpg" alt="Admin Panel Banner">
-    <form onsubmit="event.preventDefault(); addAdminMarker();">
-      <h3>Neuen Ort hinzufügen</h3>
-      <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
-      <textarea id="admin-ort-beschreibung" placeholder="Beschreibung" required></textarea>
-      <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
-      <input type="url" id="admin-ort-bild" placeholder="Bild-URL (optional)" />
-      <button type="submit">Ort hinzufügen</button>
-    </form>
-    <div id="admin-panel-list"></div>
-  </div>
-</section>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
