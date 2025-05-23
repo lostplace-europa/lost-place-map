@@ -22,6 +22,79 @@
     firebase.initializeApp(firebaseConfig);
     const database = firebase.database();
   </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+    nav, section {
+      position: relative;
+      z-index: 1;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: rgba(17, 17, 34, 0.8);
+    }
+    nav button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 2px solid white;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    nav button.active {
+      background-color: #28a745;
+    }
+    section {
+      display: none;
+      padding: 2rem;
+    }
+    section.active {
+      display: block;
+    }
+    #map {
+      height: 400px;
+      margin-top: 1rem;
+    }
+    form input, form textarea {
+      width: 100%;
+      max-width: 400px;
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: none;
+    }
+    form button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #admin-panel img.admin-banner {
+      max-width: 100%;
+      margin: 1rem 0;
+    }
+  </style>
 </head>
 <body>
 
