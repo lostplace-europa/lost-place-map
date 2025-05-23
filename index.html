@@ -7,61 +7,19 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
-      authDomain: "lost-places-europa.firebaseapp.com",
-      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
-      projectId: "lost-places-europa",
-      storageBucket: "lost-places-europa.firebasestorage.app",
-      messagingSenderId: "649339070904",
-      appId: "1:649339070904:web:9e286fb95fe059d998074d",
-      measurementId: "G-B0GSNKHX1B"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-
-    function toggleMenu() {
-      document.getElementById('nav-links').classList.toggle('show');
-    }
-    function showTab(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
-      event.target.classList.add('active');
-    }
-    function checkAdminLogin() {
-      const user = document.getElementById('admin-username').value;
-      const pass = document.getElementById('admin-password').value;
-      const loginStatus = document.getElementById('login-status');
-      if (user === "admin" && pass === "1234") {
-        document.getElementById('admin-login').style.display = 'none';
-        document.getElementById('admin-panel').style.display = 'block';
-        loginStatus.textContent = "";
-      } else {
-        loginStatus.textContent = "Zugangsdaten falsch!";
-      }
-    }
-  </script>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
       background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center fixed;
       background-size: cover;
       color: white;
-      min-height: 100vh;
     }
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.6);
+      background: rgba(0,0,0,0.6);
       z-index: -1;
     }
     nav {
@@ -70,25 +28,15 @@
       align-items: center;
       flex-wrap: wrap;
       padding: 1rem;
-      background: rgba(10, 10, 20, 0.85);
+      background-color: rgba(10, 10, 20, 0.85);
     }
-    .nav-brand {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-    #nav-links {
-      display: flex;
-      gap: 0.5rem;
-    }
+    .nav-brand { font-weight: bold; font-size: 1.2rem; }
+    .nav-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+    #nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
     #nav-links button {
       padding: 0.6rem 1rem;
-      border: 2px solid white;
       background: transparent;
+      border: 2px solid white;
       color: white;
       border-radius: 5px;
       cursor: pointer;
@@ -100,7 +48,7 @@
     section {
       display: none;
       padding: 2rem;
-      animation: fadeIn 0.5s ease-in-out;
+      animation: fadeIn 0.4s ease-in-out;
     }
     section.active {
       display: flex;
@@ -110,9 +58,7 @@
       min-height: 70vh;
       text-align: center;
     }
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
     #map {
       width: 100%;
       height: 50vh;
@@ -137,31 +83,30 @@
       color: white;
     }
     form button {
-      background-color: #28a745;
-      color: white;
-      border: none;
       padding: 1rem 2rem;
       font-size: 1rem;
+      background: #28a745;
+      border: none;
       border-radius: 5px;
+      color: white;
       cursor: pointer;
       margin-top: 0.5rem;
     }
+    #admin-panel img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @media (max-width: 768px) {
-      .nav-toggle {
-        display: block;
-      }
+      .nav-toggle { display: block; }
       #nav-links {
         display: none;
         flex-direction: column;
         width: 100%;
         margin-top: 1rem;
       }
-      #nav-links.show {
-        display: flex;
-      }
-      #map {
-        height: 40vh;
-      }
+      #nav-links.show { display: flex; }
     }
   </style>
 </head>
@@ -171,10 +116,10 @@
   <div class="nav-brand">Lost Places Europa</div>
   <div class="nav-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
   <div id="nav-links">
-    <button onclick='showTab("start")' class="active"><i class="fas fa-home"></i> Start</button>
-    <button onclick='showTab("karte")'><i class="fas fa-map-marked-alt"></i> Karte</button>
-    <button onclick='showTab("meldeportal")'><i class="fas fa-location-arrow"></i> Meldeportal</button>
-    <button onclick='showTab("admin")'><i class="fas fa-user-lock"></i> Admin-Login</button>
+    <button onclick="showTab('start')" class="active"><i class="fas fa-home"></i> Start</button>
+    <button onclick="showTab('karte')"><i class="fas fa-map-marked-alt"></i> Karte</button>
+    <button onclick="showTab('meldeportal')"><i class="fas fa-location-arrow"></i> Meldeportal</button>
+    <button onclick="showTab('admin')"><i class="fas fa-user-lock"></i> Admin-Login</button>
   </div>
 </nav>
 
@@ -190,39 +135,63 @@
 <section id="meldeportal">
   <h2>Lost Place melden</h2>
   <form>
-    <input type="text" name="ort" placeholder="Name des Ortes" required />
-    <textarea name="beschreibung" placeholder="Beschreibung" required></textarea>
-    <input type="text" name="standort" placeholder="Land / Stadt / Koordinaten" required />
-    <input type="email" name="email" placeholder="Deine E-Mail (optional)" />
+    <input type="text" placeholder="Name des Ortes" required />
+    <textarea placeholder="Beschreibung" required></textarea>
+    <input type="text" placeholder="Land / Stadt / Koordinaten" required />
+    <input type="email" placeholder="Deine E-Mail (optional)" />
     <button type="submit">Absenden</button>
   </form>
 </section>
 
 <section id="admin">
-  <div id="admin-login">
-    <h2>Admin Login</h2>
-    <form onsubmit="event.preventDefault(); checkAdminLogin();">
-      <input type="text" id="admin-username" placeholder="Benutzername" required />
-      <input type="password" id="admin-password" placeholder="Passwort" required />
-      <button type="submit">Login</button>
-    </form>
-    <p id="login-status"></p>
-  </div>
+  <h2>Admin Login</h2>
+  <form onsubmit="event.preventDefault(); checkAdminLogin();">
+    <input type="text" id="admin-username" placeholder="Benutzername" required />
+    <input type="password" id="admin-password" placeholder="Passwort" required />
+    <button type="submit">Login</button>
+  </form>
+  <p id="login-status"></p>
 
   <div id="admin-panel" style="display:none">
     <h3>Neuen Ort hinzufügen</h3>
     <form onsubmit="event.preventDefault(); addAdminMarker();">
-      <input type="text" id="admin-ort-name" placeholder="Name des Ortes" required />
-      <textarea id="admin-ort-beschreibung" placeholder="Beschreibung" required></textarea>
-      <input type="text" id="admin-ort-koordinaten" placeholder="Koordinaten (z.B. 52.52, 13.405)" required />
-      <input type="url" id="admin-ort-bild" placeholder="Bild-URL (optional)" />
+      <input type="text" placeholder="Name des Ortes" required />
+      <textarea placeholder="Beschreibung" required></textarea>
+      <input type="text" placeholder="Koordinaten (z. B. 52.52, 13.405)" required />
+      <input type="url" placeholder="Bild-URL (optional)" />
       <button type="submit">Ort hinzufügen</button>
     </form>
-    <div id="admin-panel-list"></div>
   </div>
 </section>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('show');
+  }
+
+  function showTab(id) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+
+    document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
+    const btn = Array.from(document.querySelectorAll('#nav-links button')).find(b => b.textContent.includes(id.charAt(0).toUpperCase()));
+    if (btn) btn.classList.add('active');
+  }
+
+  function checkAdminLogin() {
+    const user = document.getElementById('admin-username').value;
+    const pass = document.getElementById('admin-password').value;
+    const status = document.getElementById('login-status');
+
+    if (user === "admin" && pass === "1234") {
+      document.getElementById('admin-panel').style.display = 'block';
+      status.textContent = "";
+    } else {
+      status.textContent = "Zugangsdaten falsch!";
+    }
+  }
+</script>
+
 </body>
 </html>
