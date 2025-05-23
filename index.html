@@ -82,6 +82,10 @@
       background: rgba(255, 255, 255, 0.1);
       color: white;
     }
+    form input::placeholder, form textarea::placeholder {
+      color: #ccc;
+      font-style: italic;
+    }
     form button {
       padding: 1rem 2rem;
       font-size: 1rem;
@@ -107,6 +111,7 @@
         margin-top: 1rem;
       }
       #nav-links.show { display: flex; }
+      #map { height: 40vh; }
     }
   </style>
 </head>
@@ -173,10 +178,8 @@
   function showTab(id) {
     document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-
     document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
-    const btn = Array.from(document.querySelectorAll('#nav-links button')).find(b => b.textContent.includes(id.charAt(0).toUpperCase()));
-    if (btn) btn.classList.add('active');
+    event.target.classList.add('active');
   }
 
   function checkAdminLogin() {
