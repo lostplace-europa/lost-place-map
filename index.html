@@ -195,6 +195,75 @@
     }
   }
 </script>
+<!-- Dein bisheriger HTML bleibt gleich, hier kommen nur die relevanten Erweiterungen -->
 
+<!-- Neuer Button für Meldungen im Admin-Panel -->
+<button onclick="showTab('meldungen')"><i class="fas fa-list"></i> Meldungen</button>
+
+<!-- Neue Sektion für die Meldungsanzeige -->
+<section id="meldungen">
+  <h2>Gemeldete Orte</h2>
+  <div id="meldungen-liste"></div>
+</section>
+
+<script>
+function submitMeldung(e) {
+  e.preventDefault();
+  const ort = document.querySelector('#meldeportal input[placeholder="Name des Ortes"]').value;
+  const beschreibung = document.querySelector('#meldeportal textarea').value;
+  const standort = document.querySelector('#meldeportal input[placeholder*="Koordinaten"]').value;
+  const email = document.querySelector('#meldeportal input[type="email"]').value;
+
+  const meldung = {
+    ort,
+    beschreibung,
+    standort,
+    zeitstempel: new Date().toISOString()
+  };
+
+  firebase.database().ref('meldungen').push(meldung).then(() => {
+    alert('Vielen Dank! Die Meldung wurde gespeichert.');
+    document.querySelector('#meldeportal form').reset();
+  }).catch((error) => {
+    alert('Fehler beim Speichern: ' + error.message);
+  });
+}
+
+function ladeMeldungen() {
+  const container = document.getElementById('meldungen-liste');
+  container.innerHTML = '<p>Lade Meldungen...</p>';
+  firebase.database().ref('meldungen').on('value', snapshot => {
+    container.innerHTML = '';
+    snapshot.forEach(child => {
+      const m = child.val();
+      const div = document.createElement('div');
+      div.style.marginBottom = '1rem';
+      div.innerHTML = `
+        <strong>${m.ort}</strong><br>
+        <em>${m.standort}</em><br>
+        <p>${m.beschreibung}</p>
+        <small>${new Date(m.zeitstempel).toLocaleString()}</small>
+        <hr>
+      `;
+      container.appendChild(div);
+    });
+  });
+}
+
+// Beim Anzeigen der Meldungen laden
+function showTab(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
+  const btn = Array.from(document.querySelectorAll('#nav-links button')).find(b => b.textContent.includes(id.charAt(0).toUpperCase()));
+  if (btn) btn.classList.add('active');
+  if (id === 'meldungen') ladeMeldungen();
+}
+</script>
+
+<!-- Formular-Aufruf im Meldeportal ergänzen -->
+<form onsubmit="submitMeldung(event)">
+  <!-- bestehende Felder -->
+</form>
 </body>
 </html>
