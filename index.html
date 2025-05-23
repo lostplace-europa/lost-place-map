@@ -8,271 +8,173 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    body {
       font-family: 'Open Sans', sans-serif;
-      background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center fixed;
-      background-size: cover;
+      background-color: #111;
+      color: #eee;
+    }
+    header {
+      background: url('https://th.bing.com/th/id/OIP.JXUWX5cgohWQoo65boybLwHaEz?cb=thvnextc1&rs=1&pid=ImgDetMain') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       color: white;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: -1;
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
     }
     nav {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      background: #222;
       padding: 1rem;
-      background-color: rgba(10, 10, 20, 0.85);
     }
-    .nav-brand { font-weight: bold; font-size: 1.2rem; }
-    .nav-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
-    #nav-links { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    #nav-links button {
-      padding: 0.6rem 1rem;
-      background: transparent;
-      border: 2px solid white;
-      color: white;
-      border-radius: 5px;
-      cursor: pointer;
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: bold;
     }
-    #nav-links button.active, #nav-links button:hover {
-      background-color: #28a745;
-      border-color: #28a745;
+    nav a:hover, nav a.active {
+      color: #28a745;
     }
     section {
-      display: none;
       padding: 2rem;
-      animation: fadeIn 0.4s ease-in-out;
+      max-width: 900px;
+      margin: auto;
     }
-    section.active {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 70vh;
-      text-align: center;
-    }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
     #map {
       width: 100%;
-      height: 50vh;
-      max-height: 500px;
-      border-radius: 8px;
+      height: 500px;
+      border-radius: 10px;
+      margin-bottom: 2rem;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    form input, form textarea, form button {
       width: 100%;
-      max-width: 500px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
     }
     form input, form textarea {
-      width: 100%;
-      margin: 0.75rem 0;
-      padding: 1rem;
-      font-size: 1rem;
-      border-radius: 5px;
-      border: none;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
-    form input::placeholder, form textarea::placeholder {
-      color: #ccc;
-      font-style: italic;
+      background: #222;
+      color: #eee;
     }
     form button {
-      padding: 1rem 2rem;
-      font-size: 1rem;
       background: #28a745;
-      border: none;
-      border-radius: 5px;
       color: white;
       cursor: pointer;
-      margin-top: 0.5rem;
     }
-    #admin-panel img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @media (max-width: 768px) {
-      .nav-toggle { display: block; }
-      #nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-      }
-      #nav-links.show { display: flex; }
-      #map { height: 40vh; }
+    .meldung {
+      background: #1a1a1a;
+      border-radius: 5px;
+      padding: 1rem;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
 <body>
-
-<nav>
-  <div class="nav-brand">Lost Places Europa</div>
-  <div class="nav-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-  <div id="nav-links">
-    <button onclick="showTab('start')" class="active"><i class="fas fa-home"></i> Start</button>
-    <button onclick="showTab('karte')"><i class="fas fa-map-marked-alt"></i> Karte</button>
-    <button onclick="showTab('meldeportal')"><i class="fas fa-location-arrow"></i> Meldeportal</button>
-    <button onclick="showTab('admin')"><i class="fas fa-user-lock"></i> Admin-Login</button>
-  </div>
-</nav>
-
-<section id="start" class="active">
-  <h1>Willkommen bei Lost Places Europa</h1>
-  <p>Entdecke verlassene Orte in ganz Europa – mystisch, verborgen und faszinierend.</p>
-</section>
-
-<section id="karte">
-  <div id="map"></div>
-</section>
-
-<section id="meldeportal">
-  <h2>Lost Place melden</h2>
-  <form>
-    <input type="text" placeholder="Name des Ortes" required />
-    <textarea placeholder="Beschreibung" required></textarea>
-    <input type="text" placeholder="Land / Stadt / Koordinaten" required />
-    <input type="email" placeholder="Deine E-Mail (optional)" />
-    <button type="submit">Absenden</button>
-  </form>
-</section>
-
-<section id="admin">
-  <h2>Admin Login</h2>
-  <form onsubmit="event.preventDefault(); checkAdminLogin();">
-    <input type="text" id="admin-username" placeholder="Benutzername" required />
-    <input type="password" id="admin-password" placeholder="Passwort" required />
-    <button type="submit">Login</button>
-  </form>
-  <p id="login-status"></p>
-
-  <div id="admin-panel" style="display:none">
-    <h3>Neuen Ort hinzufügen</h3>
-    <form onsubmit="event.preventDefault(); addAdminMarker();">
-      <input type="text" placeholder="Name des Ortes" required />
-      <textarea placeholder="Beschreibung" required></textarea>
-      <input type="text" placeholder="Koordinaten (z. B. 52.52, 13.405)" required />
-      <input type="url" placeholder="Bild-URL (optional)" />
-      <button type="submit">Ort hinzufügen</button>
+  <header>
+    <h1>Lost Places Europa</h1>
+    <p>Entdecke verlassene Orte in Europa – mystisch, geheimnisvoll, vergessen.</p>
+  </header>
+  <nav>
+    <a href="#karte" class="active">Karte</a>
+    <a href="#meldeportal">Melden</a>
+    <a href="#meldungen">Meldungen</a>
+  </nav>
+  <section id="karte">
+    <h2>Interaktive Karte</h2>
+    <div id="map"></div>
+  </section>
+  <section id="meldeportal">
+    <h2>Lost Place melden</h2>
+    <form onsubmit="submitMeldung(event)">
+      <input type="text" id="ort" placeholder="Name des Ortes" required />
+      <textarea id="beschreibung" placeholder="Beschreibung" required></textarea>
+      <input type="text" id="standort" placeholder="Land / Stadt / Koordinaten" required />
+      <input type="email" id="email" placeholder="Deine E-Mail (optional)" />
+      <button type="submit">Absenden</button>
     </form>
-  </div>
-</section>
+  </section>
+  <section id="meldungen">
+    <h2>Gemeldete Orte</h2>
+    <div id="meldungen-liste"></div>
+  </section>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  function toggleMenu() {
-    document.getElementById('nav-links').classList.toggle('show');
-  }
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+      authDomain: "lost-places-europa.firebaseapp.com",
+      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+      projectId: "lost-places-europa",
+      storageBucket: "lost-places-europa.appspot.com",
+      messagingSenderId: "649339070904",
+      appId: "1:649339070904:web:9e286fb95fe059d998074d",
+      measurementId: "G-B0GSNKHX1B"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
 
-  function showTab(id) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
+    const map = L.map('map').setView([51.1657, 10.4515], 5);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-  function checkAdminLogin() {
-    const user = document.getElementById('admin-username').value;
-    const pass = document.getElementById('admin-password').value;
-    const status = document.getElementById('login-status');
+    function submitMeldung(e) {
+      e.preventDefault();
+      const ort = document.getElementById('ort').value;
+      const beschreibung = document.getElementById('beschreibung').value;
+      const standort = document.getElementById('standort').value;
+      const email = document.getElementById('email').value;
 
-    if (user === "admin" && pass === "1234") {
-      document.getElementById('admin-panel').style.display = 'block';
-      status.textContent = "";
-    } else {
-      status.textContent = "Zugangsdaten falsch!";
+      const meldung = { ort, beschreibung, standort, zeitstempel: new Date().toISOString() };
+
+      database.ref('meldungen').push(meldung).then(() => {
+        alert('Vielen Dank! Die Meldung wurde gespeichert.');
+        document.querySelector('#meldeportal form').reset();
+        ladeMeldungen();
+      });
     }
-  }
-</script>
-<!-- Dein bisheriger HTML bleibt gleich, hier kommen nur die relevanten Erweiterungen -->
 
-<!-- Neuer Button für Meldungen im Admin-Panel -->
-<button onclick="showTab('meldungen')"><i class="fas fa-list"></i> Meldungen</button>
+    function ladeMeldungen() {
+      const container = document.getElementById('meldungen-liste');
+      container.innerHTML = '<p>Lade Meldungen...</p>';
+      database.ref('meldungen').once('value', snapshot => {
+        container.innerHTML = '';
+        snapshot.forEach(child => {
+          const m = child.val();
+          const div = document.createElement('div');
+          div.className = 'meldung';
+          div.innerHTML = `
+            <strong>${m.ort}</strong><br>
+            <em>${m.standort}</em><br>
+            <p>${m.beschreibung}</p>
+            <small>${new Date(m.zeitstempel).toLocaleString()}</small>
+          `;
+          container.appendChild(div);
+        });
+      });
+    }
 
-<!-- Neue Sektion für die Meldungsanzeige -->
-<section id="meldungen">
-  <h2>Gemeldete Orte</h2>
-  <div id="meldungen-liste"></div>
-</section>
-
-<script>
-function submitMeldung(e) {
-  e.preventDefault();
-  const ort = document.querySelector('#meldeportal input[placeholder="Name des Ortes"]').value;
-  const beschreibung = document.querySelector('#meldeportal textarea').value;
-  const standort = document.querySelector('#meldeportal input[placeholder*="Koordinaten"]').value;
-  const email = document.querySelector('#meldeportal input[type="email"]').value;
-
-  const meldung = {
-    ort,
-    beschreibung,
-    standort,
-    zeitstempel: new Date().toISOString()
-  };
-
-  firebase.database().ref('meldungen').push(meldung).then(() => {
-    alert('Vielen Dank! Die Meldung wurde gespeichert.');
-    document.querySelector('#meldeportal form').reset();
-  }).catch((error) => {
-    alert('Fehler beim Speichern: ' + error.message);
-  });
-}
-
-function ladeMeldungen() {
-  const container = document.getElementById('meldungen-liste');
-  container.innerHTML = '<p>Lade Meldungen...</p>';
-  firebase.database().ref('meldungen').on('value', snapshot => {
-    container.innerHTML = '';
-    snapshot.forEach(child => {
-      const m = child.val();
-      const div = document.createElement('div');
-      div.style.marginBottom = '1rem';
-      div.innerHTML = `
-        <strong>${m.ort}</strong><br>
-        <em>${m.standort}</em><br>
-        <p>${m.beschreibung}</p>
-        <small>${new Date(m.zeitstempel).toLocaleString()}</small>
-        <hr>
-      `;
-      container.appendChild(div);
-    });
-  });
-}
-
-// Beim Anzeigen der Meldungen laden
-function showTab(id) {
-  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('#nav-links button').forEach(b => b.classList.remove('active'));
-  const btn = Array.from(document.querySelectorAll('#nav-links button')).find(b => b.textContent.includes(id.charAt(0).toUpperCase()));
-  if (btn) btn.classList.add('active');
-  if (id === 'meldungen') ladeMeldungen();
-}
-</script>
-
-<!-- Formular-Aufruf im Meldeportal ergänzen -->
-<form onsubmit="submitMeldung(event)">
-  <!-- bestehende Felder -->
-</form>
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: -1;
-  pointer-events: none; /* wichtig für Klicks auf Mobilgeräten */
-}
-
+    document.addEventListener('DOMContentLoaded', ladeMeldungen);
+  </script>
 </body>
 </html>
