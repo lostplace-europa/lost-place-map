@@ -4,109 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lost Places Europa</title>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; font-family: 'Open Sans', sans-serif; background-color: #111; color: #eee; scroll-behavior: smooth; }
-    header { height: 100vh; background: url('https://images.unsplash.com/photo-1613058085460-4d2eb21ed4b6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 2rem; position: relative; }
-    .hero-buttons a { padding: 1rem 2rem; border-radius: 5px; font-weight: bold; color: white; text-decoration: none; }
-    .green { background: #28a745; }
-    .blue { background: #007bff; }
-    .gray { background: #6c757d; }
-    section { padding: 4rem 2rem; max-width: 1000px; margin: auto; }
-    #map { height: 70vh; width: 100%; border-radius: 10px; }
-    form input, form textarea, form button {
-      width: 100%; padding: 0.75rem; border-radius: 5px; border: none; margin-bottom: 1rem;
-    }
-    form textarea { resize: vertical; min-height: 120px; }
-    form button { background: #28a745; color: white; font-weight: bold; cursor: pointer; }
-    .theme-toggle {
-      position: fixed; top: 1rem; right: 1rem; background: #333; color: white; border: none;
-      padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; z-index: 101;
-    }
-    #zurueckBtn {
-      display:none; position: fixed; top: 1rem; left: 1rem;
-      padding: 0.5rem 1rem; background: #444; color: white; border: none;
-      border-radius: 5px; z-index: 100;
-    }
+    body {{ margin: 0; font-family: sans-serif; background-color: #111; color: white; }}
+    #map {{ height: 70vh; width: 100%; margin: 2rem 0; border-radius: 10px; }}
+    form {{ max-width: 600px; margin: auto; display: flex; flex-direction: column; gap: 1rem; }}
+    input, textarea, button {{
+      padding: 1rem; border-radius: 5px; border: none;
+    }}
+    button {{ background: #28a745; color: white; font-weight: bold; cursor: pointer; }}
+    header {{ text-align: center; padding: 2rem; background: url('https://images.unsplash.com/photo-1613058085460-4d2eb21ed4b6?auto=format&fit=crop&w=1950&q=80') center/cover; color: white; }}
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 / ☀️</button>
-  <button id="zurueckBtn" onclick="zurueckStartseite()">⬅️ Zurück</button>
 
   <header>
     <h1>Lost Places Europa</h1>
-    <p>Verlassene Orte kostenlos entdecken, erleben & teilen.</p>
-    <div class="hero-buttons">
-      <a href="#" class="green" onclick="showKarte()">🗺️ Karte ansehen</a>
-      <a href="#melden" class="blue">➕ Ort melden</a>
-      <a href="#info" class="gray">ℹ️ Mehr erfahren</a>
-    </div>
+    <p>Erkunde verlassene Orte – oder melde selbst einen neuen Fund!</p>
   </header>
 
-  <section id="karte" style="display:none;">
-    <h2>Interaktive Karte</h2>
-    <div id="map"></div>
-  </section>
+  <div id="map"></div>
 
-  <section id="melden">
-    <h2>Verlassenen Ort melden</h2>
-    <form onsubmit="event.preventDefault(); alert('Meldung gesendet!'); this.reset();">
-      <input type="text" placeholder="Name des Ortes" required>
-      <input type="text" placeholder="Standort (z. B. Stadt oder Koordinaten)" required>
-      <textarea placeholder="Beschreibung des Ortes" required></textarea>
-      <button type="submit">Absenden</button>
-    </form>
-  </section>
+  <form id="meldeForm">
+    <input type="text" id="name" placeholder="Name des Ortes" required />
+    <input type="text" id="location" placeholder="Koordinaten (z. B. 52.52,13.40)" required />
+    <textarea id="beschreibung" placeholder="Beschreibung" required></textarea>
+    <button type="submit">Ort melden</button>
+  </form>
 
-  <section id="info">
-    <h2>Über das Projekt</h2>
-    <p style="text-align:center; max-width: 700px; margin:auto;">
-      Lost Places Europa ist ein nicht-kommerzielles Projekt, das es dir ermöglicht, verlassene Orte in Europa zu entdecken und mit anderen zu teilen.
-    </p>
-  </section>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
   <script>
+    const firebaseConfig = {{
+      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+      authDomain: "lost-places-europa.firebaseapp.com",
+      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+      projectId: "lost-places-europa",
+      storageBucket: "lost-places-europa.firebasestorage.app",
+      messagingSenderId: "649339070904",
+      appId: "1:649339070904:web:9e286fb95fe059d998074d",
+      measurementId: "G-B0GSNKHX1B"
+    }};
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
     const map = L.map('map').setView([51.1657, 10.4515], 6);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
       attribution: '&copy; OpenStreetMap Contributors'
-    }).addTo(map);
+    }}).addTo(map);
 
-    const kmlUrls = [
-      "https://corsproxy.io/?https://www.google.com/maps/d/kml?mid=1yESVKdlhIVf1SoA-qWcFGD4sB3szZ0I",
-      "https://corsproxy.io/?https://www.google.com/maps/d/kml?mid=1b5VPGh9gYZIftkpYOcHIn1YLXImb5ME",
-      "https://corsproxy.io/?https://www.google.com/maps/d/kml?mid=1pob7S6DLdE3gV5qtGbi2zxpawmTyCeE"
-    ];
+    db.ref('orte').on('child_added', snapshot => {{
+      const ort = snapshot.val();
+      const coords = ort.location.split(',').map(Number);
+      L.marker(coords).addTo(map)
+        .bindPopup(`<strong>{{ort.name}}</strong><br>{{ort.beschreibung}}`);
+    }});
 
-    kmlUrls.forEach(url => {
-      omnivore.kml(url).on('ready', function() {
-        this.eachLayer(layer => {
-          if (layer.getBounds) map.fitBounds(layer.getBounds());
-        }).addTo(map);
-      });
-    });
-
-    function toggleTheme() {
-      document.body.classList.toggle('light-mode');
-    }
-
-    function showKarte() {
-      document.querySelector('header').style.display = 'none';
-      document.getElementById('karte').style.display = 'block';
-      document.getElementById('zurueckBtn').style.display = 'block';
-      window.scrollTo(0, 0);
-    }
-
-    function zurueckStartseite() {
-      document.querySelector('header').style.display = 'flex';
-      document.getElementById('karte').style.display = 'none';
-      document.getElementById('zurueckBtn').style.display = 'none';
-      window.scrollTo(0, 0);
-    }
+    document.getElementById('meldeForm').addEventListener('submit', e => {{
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const location = document.getElementById('location').value.trim();
+      const beschreibung = document.getElementById('beschreibung').value.trim();
+      if (name && location && beschreibung) {{
+        db.ref('orte').push({{ name, location, beschreibung }});
+        alert('Ort gemeldet!');
+        document.getElementById('meldeForm').reset();
+      }}
+    }});
   </script>
 </body>
 </html>
