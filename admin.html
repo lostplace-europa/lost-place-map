@@ -185,5 +185,82 @@
       }
     }
   </script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<script>
+  // Firebase-Konfiguration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+    authDomain: "lost-places-europa.firebaseapp.com",
+    databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+    projectId: "lost-places-europa",
+    storageBucket: "lost-places-europa.appspot.com",
+    messagingSenderId: "649339070904",
+    appId: "1:649339070904:web:9e286fb95fe059d998074d"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
+
+  function checkLogin() {
+    const user = document.getElementById("admin-user").value;
+    const pass = document.getElementById("admin-pass").value;
+    if (user === "admin" && pass === "lostsecret123") {
+      document.getElementById("login-section").style.display = "none";
+      document.getElementById("admin-section").style.display = "block";
+      loadOrte();
+    } else {
+      document.getElementById("login-error").innerText = "❌ Zugang verweigert.";
+    }
+  }
+
+  function loadOrte() {
+    db.ref("orte").once("value").then(snapshot => {
+      const data = snapshot.val();
+      const container = document.getElementById("orte-liste");
+      container.innerHTML = "";
+
+      if (!data) {
+        container.innerHTML = "<p>Keine Orte gefunden.</p>";
+        return;
+      }
+
+      Object.entries(data).forEach(([id, ort]) => {
+        const div = document.createElement("div");
+        div.className = "ort-box";
+        div.innerHTML = `
+          <h3>${ort.name}</h3>
+          <p>${ort.beschreibung}</p>
+          <button onclick="editOrt('${id}', '${ort.name}', \`${ort.beschreibung}\`)">✏️ Bearbeiten</button>
+          <button onclick="deleteOrt('${id}')">🗑️ Löschen</button>
+        `;
+        container.appendChild(div);
+      });
+    });
+  }
+
+  function deleteOrt(id) {
+    if (confirm("Diesen Ort wirklich löschen?")) {
+      db.ref("orte/" + id).remove().then(() => {
+        alert("Ort gelöscht.");
+        loadOrte();
+      });
+    }
+  }
+
+  function editOrt(id, name, beschreibung) {
+    const neuerName = prompt("Neuer Name:", name);
+    const neueBeschreibung = prompt("Neue Beschreibung:", beschreibung);
+    if (neuerName && neueBeschreibung) {
+      db.ref("orte/" + id).update({
+        name: neuerName,
+        beschreibung: neueBeschreibung
+      }).then(() => {
+        alert("Ort aktualisiert.");
+        loadOrte();
+      });
+    }
+  }
+</script>
+
 </body>
 </html>
