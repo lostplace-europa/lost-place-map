@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Adminbereich – Lost Place Explorer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background: #f4f4f4;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      padding: 0.6rem 1rem;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    .ort-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background: #fafafa;
+    }
+
+    .ort-box h3 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    .edit-btn {
+      margin-right: 1rem;
+      background-color: #f39c12;
+    }
+
+    .delete-btn {
+      background-color: #e74c3c;
+    }
+
+    .edit-btn:hover {
+      background-color: #d68910;
+    }
+
+    .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    nav {
+      background: #222;
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="karte.html">Karte</a>
+    <a href="eintragen.html">Ort eintragen</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <div class="container">
+    <h1>🔐 Adminbereich</h1>
+
+    <div id="login-section">
+      <input type="text" id="admin-user" placeholder="Benutzername" />
+      <input type="password" id="admin-pass" placeholder="Passwort" />
+      <button onclick="checkLogin()">Einloggen</button>
+      <p id="login-error" style="color: red;"></p>
+    </div>
+
+    <div id="admin-section" class="hidden">
+      <h2>📍 Alle Orte verwalten</h2>
+      <div id="orte-liste"></div>
+    </div>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script>
+    // Firebase-Konfiguration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+      authDomain: "lost-places-europa.firebaseapp.com",
+      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+      projectId: "lost-places-europa",
+      storageBucket: "lost-places-europa.appspot.com",
+      messagingSenderId: "649339070904",
+      appId: "1:649339070904:web:9e286fb95fe059d998074d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // Admin Login
+    function checkLogin() {
+      const user = document.getElementById("admin-user").value;
+      const pass = document.getElementById("admin-pass").value;
+      if (user === "admin" && pass === "lostsecret123") {
+        document.getElementById("login-section").classList.add("hidden");
+        document.getElementById("admin-section").classList.remove("hidden");
+        loadOrte();
+      } else {
+        document.getElementById("login-error").innerText = "❌ Zugang verweigert.";
+      }
+    }
+
+    // Orte laden
+    function loadOrte() {
+      db.ref("orte").once("value").then(snapshot => {
+        const data = snapshot.val();
+        const container = document.getElementById("orte-liste");
+        container.innerHTML = "";
+
+        if (!data) {
+          container.innerHTML = "<p>Keine Orte gefunden.</p>";
+          return;
+        }
+
+        Object.entries(data).forEach(([id, ort]) => {
+          const div = document.createElement("div");
+          div.className = "ort-box";
+          div.innerHTML = `
+            <h3>${ort.name}</h3>
+            <p>${ort.beschreibung}</p>
+            <button class="edit-btn" onclick="editOrt('${id}', '${ort.name}', \`${ort.beschreibung}\`)">✏️ Bearbeiten</button>
+            <button class="delete-btn" onclick="deleteOrt('${id}')">🗑️ Löschen</button>
+          `;
+          container.appendChild(div);
+        });
+      });
+    }
+
+    function deleteOrt(id) {
+      if (confirm("Diesen Ort wirklich löschen?")) {
+        db.ref("orte/" + id).remove().then(() => {
+          alert("Ort gelöscht.");
+          loadOrte();
+        });
+      }
+    }
+
+    function editOrt(id, name, beschreibung) {
+      const neuerName = prompt("Neuer Name:", name);
+      const neueBeschreibung = prompt("Neue Beschreibung:", beschreibung);
+      if (neuerName && neueBeschreibung) {
+        db.ref("orte/" + id).update({
+          name: neuerName,
+          beschreibung: neueBeschreibung
+        }).then(() => {
+          alert("Ort aktualisiert.");
+          loadOrte();
+        });
+      }
+    }
+  </script>
+</body>
+</html>
