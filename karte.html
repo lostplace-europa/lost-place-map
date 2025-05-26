@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+# Erstelle Marker-Liste mit fortlaufender Nummerierung
+orte_js_numbered = "const orte = [\n"
+for i, row in enumerate(df_placemarks_final.itertuples(), start=1):
+    if row.name:
+        ort_name = row.name.replace("`", "'")
+        ort_label = f"{i}. {ort_name}"
+        orte_js_numbered += f"  {{ name: `{ort_label}`, lat: {row.lat}, lon: {row.lon} }},\n"
+orte_js_numbered += "];"
+
+# Neuen HTML-Code für karte.html mit nummerierten Lost Places generieren
+karte_html_numbered = f"""<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -6,118 +16,42 @@
   <title>Interaktive Karte – Lost Place Explorer</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      font-family: Arial, sans-serif;
-    }
-
-    #map {
-      height: 100vh;
-      width: 100%;
-    }
-
-    .popup-content {
-      font-size: 14px;
-      max-width: 200px;
-    }
-
-    .popup-content a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.4rem 0.6rem;
-      background: #3498db;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .popup-content a:hover {
-      background: #2980b9;
-    }
-
-    nav {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background: #222;
-      color: white;
-      padding: 0.5rem;
-      text-align: center;
-      z-index: 1000;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
+    html, body {{ margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; }}
+    #map {{ height: 100vh; width: 100%; }}
+    nav {{ position: absolute; top: 0; width: 100%; background: #222; color: white; padding: 0.5rem; text-align: center; z-index: 1000; }}
+    nav a {{ color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }}
+    nav a:hover {{ text-decoration: underline; }}
+    .popup-content {{ font-size: 14px; max-width: 200px; }}
+    .popup-content a {{ display: inline-block; margin-top: 0.5rem; padding: 0.4rem 0.6rem; background: #3498db; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }}
+    .popup-content a:hover {{ background: #2980b9; }}
   </style>
 </head>
 <body>
-
   <nav>
     <a href="index.html">Start</a>
     <a href="karte.html">Karte</a>
-    <a href="eintragen.html">Ort eintragen</a>
-    <a href="admin.html">Admin</a>
   </nav>
-
   <div id="map"></div>
-
-  <!-- Firebase & Leaflet -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
   <script>
-    // Firebase-Konfiguration
-    const firebaseConfig = {
-      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
-      authDomain: "lost-places-europa.firebaseapp.com",
-      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
-      projectId: "lost-places-europa",
-      storageBucket: "lost-places-europa.appspot.com",
-      messagingSenderId: "649339070904",
-      appId: "1:649339070904:web:9e286fb95fe059d998074d"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.database();
-
-    // Leaflet-Karte initialisieren
-    const map = L.map('map').setView([51.5, 10.0], 5); // Europa-Zoom
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    const map = L.map('map').setView([51.1, 13.2], 7);
+    L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
       attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Marker aus Firebase laden
-    db.ref('orte').once('value').then(snapshot => {
-      const data = snapshot.val();
-      if (!data) return;
-
-      Object.entries(data).forEach(([id, ort]) => {
-        const lat = parseFloat(ort.lat || ort.location?.split(',')[0]);
-        const lon = parseFloat(ort.lon || ort.location?.split(',')[1]);
-
-        if (!isNaN(lat) && !isNaN(lon)) {
-          const popup = `
-            <div class="popup-content">
-              <strong>${ort.name || "Unbekannt"}</strong><br>
-              ${ort.beschreibung?.slice(0, 80) || "Keine Beschreibung"}<br>
-              <a href="ort.html?id=${id}">📍 Mehr erfahren</a>
-            </div>
-          `;
-          L.marker([lat, lon]).addTo(map).bindPopup(popup);
-        }
-      });
-    });
+    }}).addTo(map);
+    {orte_js_numbered}
+    orte.forEach(ort => {{
+      const popup = `
+        <div class="popup-content">
+          <strong>${{ort.name}}</strong><br>
+          <a href="https://www.google.com/maps/search/?api=1&query=${{ort.lat}},${{ort.lon}}" target="_blank">
+            📍 In Google Maps öffnen
+          </a>
+        </div>
+      `;
+      L.marker([ort.lat, ort.lon]).addTo(map).bindPopup(popup);
+    }});
   </script>
 </body>
-</html>
+</html>"""
+
+karte_html_numbered
