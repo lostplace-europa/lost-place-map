@@ -2,12 +2,13 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lost Places – Interaktive Karte</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interaktive Karte – Lost Place Explorer</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
     html, body {
       margin: 0;
+      padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
     }
@@ -36,9 +37,38 @@
     .popup-content a:hover {
       background: #2980b9;
     }
+
+    nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background: #222;
+      color: white;
+      padding: 0.5rem;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="karte.html">Karte</a>
+    <a href="eintragen.html">Ort eintragen</a>
+    <a href="admin.html">Admin</a>
+  </nav>
 
   <div id="map"></div>
 
@@ -48,15 +78,7 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <script>
-    <!-- Navigation -->
-<nav style="background:#222; padding:1rem; text-align:center;">
-  <a href="index.html" style="color:white; margin:0 1rem;">Start</a>
-  <a href="karte.html" style="color:white; margin:0 1rem;">Karte</a>
-  <a href="eintragen.html" style="color:white; margin:0 1rem;">Ort eintragen</a>
-  <a href="admin.html" style="color:white; margin:0 1rem;">Admin</a>
-</nav>
-
-    // Firebase konfigurieren
+    // Firebase-Konfiguration
     const firebaseConfig = {
       apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
       authDomain: "lost-places-europa.firebaseapp.com",
@@ -69,13 +91,13 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
 
-    // Karte initialisieren
-    const map = L.map('map').setView([51.5, 10.0], 5); // Europa-Zentrum
+    // Leaflet-Karte initialisieren
+    const map = L.map('map').setView([51.5, 10.0], 5); // Europa-Zoom
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Marker laden
+    // Marker aus Firebase laden
     db.ref('orte').once('value').then(snapshot => {
       const data = snapshot.val();
       if (!data) return;
@@ -83,14 +105,12 @@
       Object.entries(data).forEach(([id, ort]) => {
         const lat = parseFloat(ort.lat || ort.location?.split(',')[0]);
         const lon = parseFloat(ort.lon || ort.location?.split(',')[1]);
-        const name = ort.name || "Unbekannter Ort";
-        const beschreibung = ort.beschreibung || "Keine Beschreibung";
 
         if (!isNaN(lat) && !isNaN(lon)) {
           const popup = `
             <div class="popup-content">
-              <strong>${name}</strong><br>
-              ${beschreibung.slice(0, 80)}...<br>
+              <strong>${ort.name || "Unbekannt"}</strong><br>
+              ${ort.beschreibung?.slice(0, 80) || "Keine Beschreibung"}<br>
               <a href="ort.html?id=${id}">📍 Mehr erfahren</a>
             </div>
           `;
@@ -99,6 +119,5 @@
       });
     });
   </script>
-
 </body>
 </html>
