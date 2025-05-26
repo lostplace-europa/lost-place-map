@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ort eintragen – Lost Place Explorer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 2rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.3rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 2rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 1.5rem;
+      text-align: center;
+      text-decoration: none;
+      color: #3498db;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>📍 Ort eintragen</h1>
+    <form id="eintragForm">
+      <label for="name">Name des Ortes</label>
+      <input type="text" id="name" required />
+
+      <label for="beschreibung">Beschreibung</label>
+      <textarea id="beschreibung" rows="4" required></textarea>
+
+      <label for="kategorie">Kategorie</label>
+      <select id="kategorie">
+        <option value="">– auswählen –</option>
+        <option>Bunker</option>
+        <option>Fabrik</option>
+        <option>Krankenhaus</option>
+        <option>Villa</option>
+        <option>Schule</option>
+        <option>Sonstiges</option>
+      </select>
+
+      <label for="zugang">Zugangshinweise</label>
+      <textarea id="zugang" rows="3"></textarea>
+
+      <label for="koordinaten">Koordinaten (Format: Breite, Länge)</label>
+      <input type="text" id="koordinaten" placeholder="z. B. 51.05, 13.74" required />
+
+      <button type="submit">Ort eintragen</button>
+    </form>
+
+    <a href="karte.html" class="back-link">🔙 Zur Karte</a>
+  </div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+      authDomain: "lost-places-europa.firebaseapp.com",
+      databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+      projectId: "lost-places-europa",
+      storageBucket: "lost-places-europa.appspot.com",
+      messagingSenderId: "649339070904",
+      appId: "1:649339070904:web:9e286fb95fe059d998074d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    document.getElementById("eintragForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const beschreibung = document.getElementById("beschreibung").value.trim();
+      const kategorie = document.getElementById("kategorie").value;
+      const zugang = document.getElementById("zugang").value.trim();
+      const coords = document.getElementById("koordinaten").value.trim().split(",");
+
+      if (coords.length !== 2 || isNaN(coords[0]) || isNaN(coords[1])) {
+        alert("❗ Bitte gültige Koordinaten im Format 'Breite, Länge' angeben.");
+        return;
+      }
+
+      const ort = {
+        name,
+        beschreibung,
+        kategorie,
+        zugang,
+        lat: parseFloat(coords[0]),
+        lon: parseFloat(coords[1])
+      };
+
+      db.ref("orte").push(ort).then(() => {
+        alert("✅ Ort erfolgreich eingetragen!");
+        document.getElementById("eintragForm").reset();
+      }).catch(err => {
+        alert("Fehler beim Speichern: " + err.message);
+      });
+    });
+  </script>
+</body>
+</html>
