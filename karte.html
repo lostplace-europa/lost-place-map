@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lost Places – Clusterkarte</title>
+  <title>Lost Places Europa</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
@@ -50,16 +50,91 @@
       font-size: 14px;
       color: #000;
     }
-  </style>
+  
+<style>
+  #search-box {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    z-index: 1001;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 220px;
+  }
+  #search-box input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  #search-box input:focus {
+    outline: none;
+    border-color: #888;
+  }
+</style>
+
+</style>
 </head>
 <body>
   <nav>
     <a href="index.html">Start</a>
     <a href="karte.html">Karte</a>
   </nav>
+<div id="search-box">
+  <input type="text" id="searchName" placeholder="🔍 Name suchen..." oninput="filterMarkers()" />
+  <input type="text" id="searchAddress" placeholder="📍 Adresse suchen..." oninput="filterMarkers()" />
+</div>
+
+<div style="padding: 10px; background: #333; color: white; text-align: center;">
+  <input type="text" id="searchName" placeholder="Suche nach Name..." oninput="filterMarkers()" style="padding:5px; margin: 5px;" />
+  <input type="text" id="searchAddress" placeholder="Suche nach Adresse..." oninput="filterMarkers()" style="padding:5px; margin: 5px;" />
+</div>
+
   <div id="map"></div>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js">
+let allMarkers = [];
+
+function filterMarkers() {
+  const nameFilter = document.getElementById('searchName').value.toLowerCase();
+  const addressFilter = document.getElementById('searchAddress').value.toLowerCase();
+
+  allMarkers.forEach(marker => {
+    const matchesName = marker.name.includes(nameFilter);
+    const matchesAddress = marker.address.includes(addressFilter);
+    if (matchesName && matchesAddress) {
+      marker.addTo(markerClusterGroup);
+    } else {
+      markerClusterGroup.removeLayer(marker);
+    }
+  });
+}
+
+</script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js">
+let allMarkers = [];
+
+function filterMarkers() {
+  const nameFilter = document.getElementById('searchName').value.toLowerCase();
+  const addressFilter = document.getElementById('searchAddress').value.toLowerCase();
+
+  allMarkers.forEach(marker => {
+    const matchesName = marker.name.includes(nameFilter);
+    const matchesAddress = marker.address.includes(addressFilter);
+    if (matchesName && matchesAddress) {
+      marker.addTo(markerClusterGroup);
+    } else {
+      markerClusterGroup.removeLayer(marker);
+    }
+  });
+}
+
+</script>
   <script>
     const map = L.map('map').setView([51.1, 13.2], 6);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -2993,6 +3068,24 @@
     });
 
     map.addLayer(markers);
-  </script>
+  
+let allMarkers = [];
+
+function filterMarkers() {
+  const nameFilter = document.getElementById('searchName').value.toLowerCase();
+  const addressFilter = document.getElementById('searchAddress').value.toLowerCase();
+
+  allMarkers.forEach(marker => {
+    const matchesName = marker.name.includes(nameFilter);
+    const matchesAddress = marker.address.includes(addressFilter);
+    if (matchesName && matchesAddress) {
+      marker.addTo(markerClusterGroup);
+    } else {
+      markerClusterGroup.removeLayer(marker);
+    }
+  });
+}
+
+</script>
 </body>
 </html>
