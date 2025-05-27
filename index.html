@@ -1,99 +1,43 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lost Place Explorer – Verlassene Orte in Europa</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-    }
+<!-- ... Dein bisheriger Head und Body -->
 
-    .hero {
-      background-image: url('https://wallpapercave.com/wp/wp10671855.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      padding: 2rem;
-    }
+<style>
+  #wartungs-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffcc00;
+    color: black;
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: none;
+  }
+</style>
 
-    .hero-overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 700px;
-    }
+<div id="wartungs-overlay">🔧 Wartungsmodus aktiviert</div>
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+<script>
+  // Firebase Config (wie in Admin und Index)
+  const firebaseConfig = {
+    apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
+    authDomain: "lost-places-europa.firebaseapp.com",
+    databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
+    projectId: "lost-places-europa",
+    storageBucket: "lost-places-europa.appspot.com",
+    messagingSenderId: "649339070904",
+    appId: "1:649339070904:web:9e286fb95fe059d998074d"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.database();
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
+  db.ref("settings/wartungsmodus").once("value").then(snapshot => {
+    if (snapshot.val() === true) {
+      document.getElementById("wartungs-overlay").style.display = "block";
     }
+  });
+</script>
 
-    .button {
-      background-color: #3498db;
-      color: white;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .button:hover {
-      background-color: #2980b9;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      p { font-size: 1rem; }
-    }
-
-    nav {
-      background:#222;
-      padding:1rem;
-      text-align:center;
-    }
-
-    nav a {
-      color:white;
-      margin:0 1rem;
-      text-decoration:none;
-      font-weight: 600;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="karte.html">Karte</a>
-    <a href="eintragen.html">Ort eintragen</a>
-    <a href="admin.html">Admin</a>
-  </nav>
-
-  <div class="hero">
-    <div class="hero-overlay">
-      <h1>Lost Place Explorer</h1>
-      <p>Entdecke verlassene Orte in ganz Europa – eingetragen von der Community.</p>
-      <a href="karte.html" class="button">🌍 Zur interaktiven Karte</a>
-    </div>
-  </div>
-</body>
-</html>
+<!-- ... Rest deiner karte.html -->
