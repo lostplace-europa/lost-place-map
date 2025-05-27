@@ -11,7 +11,6 @@
       background: #f4f4f4;
       margin: 0;
     }
-
     .container {
       max-width: 800px;
       margin: auto;
@@ -20,11 +19,9 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     h1, h2 {
       text-align: center;
     }
-
     input {
       width: 100%;
       padding: 0.6rem;
@@ -33,7 +30,6 @@
       border-radius: 6px;
       font-size: 1rem;
     }
-
     button {
       padding: 0.6rem 1rem;
       background-color: #2ecc71;
@@ -44,11 +40,9 @@
       cursor: pointer;
       margin-top: 1rem;
     }
-
     button:hover {
       background-color: #27ae60;
     }
-
     .ort-box {
       margin-top: 1.5rem;
       padding: 1rem;
@@ -56,53 +50,56 @@
       border-radius: 6px;
       background: #fafafa;
     }
-
     .ort-box h3 {
       margin: 0 0 0.5rem 0;
     }
-
     .edit-btn {
       margin-right: 1rem;
       background-color: #f39c12;
     }
-
     .delete-btn {
       background-color: #e74c3c;
     }
-
     .edit-btn:hover {
       background-color: #d68910;
     }
-
     .delete-btn:hover {
       background-color: #c0392b;
     }
-
     .hidden {
       display: none;
     }
-
     nav {
       background: #222;
       padding: 1rem;
       text-align: center;
       margin-bottom: 2rem;
     }
-
     nav a {
       color: white;
       margin: 0 1rem;
       text-decoration: none;
       font-weight: bold;
     }
-
     nav a:hover {
       text-decoration: underline;
+    }
+    /* Wartungsmodus Overlay auf Admin Seite (optional) */
+    #wartungs-overlay-admin {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffcc00;
+      color: black;
+      padding: 12px 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      z-index: 9999;
+      display: none;
     }
   </style>
 </head>
 <body>
-
   <nav>
     <a href="index.html">Start</a>
     <a href="karte.html">Karte</a>
@@ -123,8 +120,15 @@
     <div id="admin-section" class="hidden">
       <h2>📍 Alle Orte verwalten</h2>
       <div id="orte-liste"></div>
+
+      <div style="margin-top: 2rem; text-align:center;">
+        <button id="wartungsmodus-btn" onclick="toggleWartungsmodus()">Wartungsmodus umschalten</button>
+        <p id="wartungsmodus-status"></p>
+      </div>
     </div>
   </div>
+
+  <div id="wartungs-overlay-admin">🔧 Wartungsmodus aktiviert</div>
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
@@ -151,6 +155,7 @@
         document.getElementById("login-section").classList.add("hidden");
         document.getElementById("admin-section").classList.remove("hidden");
         loadOrte();
+        checkWartungsmodus();
       } else {
         document.getElementById("login-error").innerText = "❌ Zugang verweigert.";
       }
@@ -203,6 +208,35 @@
           loadOrte();
         });
       }
+    }
+
+    // Wartungsmodus prüfen und anzeigen
+    function checkWartungsmodus() {
+      db.ref("settings/wartungsmodus").once("value").then(snapshot => {
+        const status = snapshot.val();
+        const statusText = document.getElementById("wartungsmodus-status");
+        const btn = document.getElementById("wartungsmodus-btn");
+        const overlay = document.getElementById("wartungs-overlay-admin");
+        if (status === true) {
+          statusText.textContent = "Wartungsmodus ist aktiviert.";
+          btn.textContent = "Wartungsmodus deaktivieren";
+          overlay.style.display = "block";
+        } else {
+          statusText.textContent = "Wartungsmodus ist deaktiviert.";
+          btn.textContent = "Wartungsmodus aktivieren";
+          overlay.style.display = "none";
+        }
+      });
+    }
+
+    // Wartungsmodus umschalten
+    function toggleWartungsmodus() {
+      db.ref("settings/wartungsmodus").once("value").then(snapshot => {
+        const current = snapshot.val();
+        db.ref("settings/wartungsmodus").set(!current).then(() => {
+          checkWartungsmodus();
+        });
+      });
     }
   </script>
 </body>
