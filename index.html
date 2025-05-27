@@ -13,7 +13,7 @@
     }
 
     .hero {
-      background-image: url('https://wallpapercave.com/wp/wp10671855.jpg'); /* Lost Place in Europa */
+      background-image: url('https://wallpapercave.com/wp/wp10671855.jpg');
       background-size: cover;
       background-position: center;
       height: 100vh;
@@ -61,16 +61,32 @@
       h1 { font-size: 1.8rem; }
       p { font-size: 1rem; }
     }
+
+    nav {
+      background:#222;
+      padding:1rem;
+      text-align:center;
+    }
+
+    nav a {
+      color:white;
+      margin:0 1rem;
+      text-decoration:none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-<!-- Navigation -->
-<nav style="background:#222; padding:1rem; text-align:center;">
-  <a href="index.html" style="color:white; margin:0 1rem;">Start</a>
-  <a href="karte.html" style="color:white; margin:0 1rem;">Karte</a>
-  <a href="eintragen.html" style="color:white; margin:0 1rem;">Ort eintragen</a>
-  <a href="admin.html" style="color:white; margin:0 1rem;">Admin</a>
-</nav>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="karte.html">Karte</a>
+    <a href="eintragen.html">Ort eintragen</a>
+    <a href="admin.html">Admin</a>
+  </nav>
 
   <div class="hero">
     <div class="hero-overlay">
@@ -79,6 +95,5 @@
       <a href="karte.html" class="button">🌍 Zur interaktiven Karte</a>
     </div>
   </div>
-
 </body>
 </html>
