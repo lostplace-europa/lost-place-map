@@ -1,43 +1,89 @@
-<!-- ... Dein bisheriger Head und Body -->
-
-<style>
-  #wartungs-overlay {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ffcc00;
-    color: black;
-    padding: 12px 16px;
-    border-radius: 8px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    z-index: 9999;
-    display: none;
-  }
-</style>
-
-<div id="wartungs-overlay">🔧 Wartungsmodus aktiviert</div>
-
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-<script>
-  // Firebase Config (wie in Admin und Index)
-  const firebaseConfig = {
-    apiKey: "AIzaSyDZe0pfxRTlUBumrJxe03rxwKf8RZ4F68g",
-    authDomain: "lost-places-europa.firebaseapp.com",
-    databaseURL: "https://lost-places-europa-default-rtdb.firebaseio.com",
-    projectId: "lost-places-europa",
-    storageBucket: "lost-places-europa.appspot.com",
-    messagingSenderId: "649339070904",
-    appId: "1:649339070904:web:9e286fb95fe059d998074d"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.database();
-
-  db.ref("settings/wartungsmodus").once("value").then(snapshot => {
-    if (snapshot.val() === true) {
-      document.getElementById("wartungs-overlay").style.display = "block";
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LostPlaces Europa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  });
-</script>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f0f0;
+      color: #222;
+    }
+    header {
+      background-color: #2e4d4f;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      margin-top: 70px;
+      position: relative;
+    }
+    .hero img {
+      width: 100%;
+      max-height: 85vh;
+      object-fit: cover;
+    }
+    .intro {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #f9f9f9;
+    }
+    .intro h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #2e4d4f;
+    }
+    .intro p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div><strong>🧭</strong></div>
+    <nav>
+      <a href="karte.html">Karte</a>
+      <a href="liste.html">Listenansicht</a>
+      <a href="login.html">Login</a>
+    </nav>
+    <div>☰</div>
+  </header>
 
-<!-- ... Rest deiner karte.html -->
+  <section class="hero">
+    <img src="3aa00f0e-e6a8-494f-809c-f8b95a86721b.png" alt="Lost Place Flugzeug Wrack">
+  </section>
+
+  <section class="intro">
+    <h1>LostPlace.Club</h1>
+    <p>
+      Der Lost Place Club lädt dich ein, aufregende und vergessene Orte Europas zu entdecken. 
+      Tritt unserer Community bei und teile deine Entdeckungen mit anderen Urbex-Fans.
+    </p>
+  </section>
+</body>
+</html>
+
