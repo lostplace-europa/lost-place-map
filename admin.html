@@ -122,43 +122,16 @@
       <div id="orte-liste"></div>
 
       <div style="margin-top: 2rem; text-align:center;">
-        <button id="wartungsmodus-btn" onclick="toggleWartungsmodus()">Wartungsmodus umschalten</button>
-        <p id="wartungsmodus-status"></p>
+        
+        
       </div>
     </div>
   </div>
 
-  <div id="wartungs-overlay-admin">🔧 Wartungsmodus aktiviert</div>
+  
 
   <!-- Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js">
-// Wartungsmodus prüfen und Status anzeigen
-function checkWartungsmodus() {
-  const ref = db.ref("settings/wartungsmodus");
-  ref.on("value", (snapshot) => {
-    const aktiv = snapshot.val() === true;
-    const statusText = aktiv
-      ? "❌ Wartungsmodus ist AKTIV – Die Website ist für Besucher gesperrt."
-      : "✅ Website ist ONLINE.";
-    document.getElementById("wartungsmodus-status").innerText = statusText;
-    document.getElementById("wartungs-overlay-admin").style.display = aktiv ? "block" : "none";
-  });
-}
-
-// Umschalten des Wartungsmodus
-function toggleWartungsmodus() {
-  const ref = db.ref("settings/wartungsmodus");
-  ref.once("value").then((snapshot) => {
-    const aktuell = snapshot.val() === true;
-    ref.set(!aktuell).then(() => {
-      alert(!aktuell
-        ? "🔧 Wartungsmodus wurde AKTIVIERT."
-        : "✅ Wartungsmodus wurde DEAKTIVIERT.");
-    });
-  });
-}
-
-</script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
   <script>
     // Firebase-Konfiguration
@@ -182,7 +155,7 @@ function toggleWartungsmodus() {
         document.getElementById("login-section").classList.add("hidden");
         document.getElementById("admin-section").classList.remove("hidden");
         loadOrte();
-        checkWartungsmodus();
+        
       } else {
         document.getElementById("login-error").innerText = "❌ Zugang verweigert.";
       }
