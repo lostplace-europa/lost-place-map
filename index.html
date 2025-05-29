@@ -1,52 +1,78 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mystische Lost Places</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost Places Europa</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #fff;
+    }
+    .hero {
+      background: url('https://th.bing.com/th/id/OIP.o_rdCw6jRE4c00Y0TAskMAHaEK?rs=1&pid=ImgDetMain') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      backdrop-filter: brightness(0.7);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 10px #000;
+    }
+    .hero button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background-color: #111;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+    }
+    #map {
+      height: 100vh;
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Mystische Lost Places</h1>
-    <nav id="menu">
-      <button id="hamburger">&#9776;</button>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#places">Lost Places</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Kontakt</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home"><h2>Willkommen</h2></section>
-    <section id="places" class="gallery"></section>
-    <section id="about"><h2>Über diese Seite</h2></section>
-    <section id="contact">
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="text" name="name" placeholder="Dein Name" required>
-        <input type="email" name="email" placeholder="Deine E-Mail" required>
-        <textarea name="message" placeholder="Deine Nachricht" required></textarea>
-        <button type="submit">Senden</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Mystische Lost Places</p>
-    <div class="socials">
-      <a href="#">Instagram</a>
-      <a href="#">YouTube</a>
-    </div>
-  </footer>
-
-  <div id="lightbox" class="hidden">
-    <span class="close">&times;</span>
-    <img id="lightbox-img" />
-    <div id="lightbox-text"></div>
+  <div class="hero" id="start">
+    <h1>Lost Places Europa</h1>
+    <button onclick="showMap()">Zur Karte</button>
   </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.4/leaflet-omnivore.min.js"></script>
+  <script>
+    function showMap() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('map').style.display = 'block';
+
+      const map = L.map('map').setView([52.5, 13.4], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      // Hier wird die KML-Datei geladen (muss im gleichen Verzeichnis liegen)
+      omnivore.kml('doc.kml')
+        .on('ready', function () {
+          map.fitBounds(this.getBounds());
+        })
+        .addTo(map);
+    }
+  </script>
 </body>
 </html>
