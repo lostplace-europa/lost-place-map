@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -14,21 +15,38 @@
       background-color: #0a0a0a;
       color: #fff;
     }
-    nav {
-      background-color: #111;
-      padding: 10px 20px;
+    .navbar {
       position: absolute;
       top: 0;
-      width: 100%;
-      z-index: 1000;
-      display: flex;
-      justify-content: flex-end;
-      gap: 20px;
+      left: 0;
+      z-index: 1001;
     }
-    nav a {
-      color: #fff;
+    .hamburger {
+      font-size: 30px;
+      cursor: pointer;
+      padding: 15px;
+      background-color: #111;
+      border: none;
+      color: white;
+    }
+    .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #111;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 200px;
+      z-index: 1000;
+    }
+    .menu a {
+      color: white;
+      padding: 12px;
       text-decoration: none;
-      font-size: 0.9rem;
+      border-bottom: 1px solid #222;
+    }
+    .menu a:hover {
+      background-color: #222;
     }
     .hero {
       background: url('https://th.bing.com/th/id/OIP.o_rdCw6jRE4c00Y0TAskMAHaEK?rs=1&pid=ImgDetMain') center/cover no-repeat;
@@ -56,51 +74,125 @@
     }
     #map-wrapper {
       display: none;
-      padding: 0 60px; /* Seitenabstand für Werbung (~3-4 cm bei 1080px Breite) */
+      padding: 0 60px;
       box-sizing: border-box;
     }
     #map {
       height: 100vh;
       width: 100%;
     }
+    .back-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1002;
+      background: #111;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .popup {
+      display: none;
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      max-width: 500px;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      border: 2px solid #444;
+      z-index: 2000;
+    }
+    .popup h2 {
+      margin-top: 0;
+    }
+    .popup button {
+      margin-top: 20px;
+      background: #333;
+      border: none;
+      padding: 8px 12px;
+      color: white;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#impressum">Impressum</a>
-    <a href="#datenschutz">Datenschutz</a>
-    <a href="#agb">AGB</a>
-  </nav>
 
-  <div class="hero" id="start">
-    <h1>Lost Places Europa</h1>
-    <button onclick="showMap()">Zur Karte</button>
+<div class="navbar">
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <div class="menu" id="menu">
+    <a href="#" onclick="openPopup('impressum')">Impressum</a>
+    <a href="#" onclick="openPopup('datenschutz')">Datenschutz</a>
+    <a href="#" onclick="openPopup('agb')">AGB</a>
   </div>
+</div>
 
-  <div id="map-wrapper">
-    <div id="map"></div>
-  </div>
+<div class="hero" id="start">
+  <h1>Lost Places Europa</h1>
+  <button onclick="showMap()">Zur Karte</button>
+</div>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.4/leaflet-omnivore.min.js"></script>
-  <script>
-    function showMap() {
-      document.getElementById('start').style.display = 'none';
-      document.getElementById('map-wrapper').style.display = 'block';
+<div id="map-wrapper">
+  <button class="back-button" onclick="backToStart()">Zurück</button>
+  <div id="map"></div>
+</div>
 
-      const map = L.map('map').setView([52.5, 13.4], 6);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-      }).addTo(map);
+<div class="popup" id="impressum">
+  <h2>Impressum</h2>
+  <p>Hier steht das Impressum.</p>
+  <button onclick="closePopup()">Schließen</button>
+</div>
+<div class="popup" id="datenschutz">
+  <h2>Datenschutz</h2>
+  <p>Hier steht die Datenschutzerklärung.</p>
+  <button onclick="closePopup()">Schließen</button>
+</div>
+<div class="popup" id="agb">
+  <h2>AGB</h2>
+  <p>Hier stehen die AGB.</p>
+  <button onclick="closePopup()">Schließen</button>
+</div>
 
-      // KML-Datei einbinden
-      omnivore.kml('doc.kml')
-        .on('ready', function () {
-          map.fitBounds(this.getBounds());
-        })
-        .addTo(map);
-    }
-  </script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.4/leaflet-omnivore.min.js"></script>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+  }
+
+  function showMap() {
+    document.getElementById('start').style.display = 'none';
+    document.getElementById('map-wrapper').style.display = 'block';
+
+    const map = L.map('map').setView([52.5, 13.4], 6);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    omnivore.kml('doc.kml')
+      .on('ready', function () {
+        map.fitBounds(this.getBounds());
+      })
+      .addTo(map);
+  }
+
+  function backToStart() {
+    location.reload();
+  }
+
+  function openPopup(id) {
+    document.getElementById(id).style.display = 'block';
+  }
+
+  function closePopup() {
+    document.querySelectorAll('.popup').forEach(p => p.style.display = 'none');
+  }
+</script>
 </body>
 </html>
