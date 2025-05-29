@@ -84,9 +84,85 @@
   display: none;
 }
 
+
+/* Desktop-Stil (wie bisher) */
+.fixed-menu {
+  position: fixed;
+  top: 50px;
+  right: 30px;
+  background-color: rgba(17, 17, 17, 0.9);
+  padding: 15px 20px;
+  border-radius: 10px;
+  z-index: 1002;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+.fixed-menu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 18px;
+}
+.fixed-menu a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile: Hamburger-Menü */
+#hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1003;
+  cursor: pointer;
+}
+#hamburger div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 6px 0;
+}
+#mobileMenu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background-color: rgba(17, 17, 17, 0.95);
+  border-radius: 10px;
+  padding: 15px 20px;
+  z-index: 1002;
+}
+#mobileMenu a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 10px 0;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .fixed-menu {
+    display: none;
+  }
+  #hamburger {
+    display: block;
+  }
+}
+
 </style>
 </head>
 <body>
+
+<div id="hamburger" onclick="toggleMobileMenu()">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div id="mobileMenu">
+  <a href="datenschutz.html">Datenschutz</a>
+  <a href="agb.html">AGB</a>
+  <a href="impressum.html">Impressum</a>
+</div>
+
 <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-map" id="logoMap">
 
   <div class="fixed-menu">
@@ -109,6 +185,8 @@
     function showMap() {
       document.getElementById('start').style.display = 'none';
       document.getElementById('map').style.display = 'block';
+      document.getElementById('logoMap').style.display = 'block';
+      document.querySelector('.logo-top').style.display = 'none';
       document.getElementById('logoMap').style.display = 'block';
 
       const map = L.map('map').setView([51.3, 13.3], 7);
@@ -135,6 +213,11 @@
     }
   </script>
 
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+}
+</script>
 </body>
 </html>
-
