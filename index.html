@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mystische Lost Places</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Mystische Lost Places</h1>
+    <nav id="menu">
+      <button id="hamburger">&#9776;</button>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#places">Lost Places</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home"><h2>Willkommen</h2></section>
+    <section id="places" class="gallery"></section>
+    <section id="about"><h2>Über diese Seite</h2></section>
+    <section id="contact">
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Dein Name" required>
+        <input type="email" name="email" placeholder="Deine E-Mail" required>
+        <textarea name="message" placeholder="Deine Nachricht" required></textarea>
+        <button type="submit">Senden</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mystische Lost Places</p>
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+    </div>
+  </footer>
+
+  <div id="lightbox" class="hidden">
+    <span class="close">&times;</span>
+    <img id="lightbox-img" />
+    <div id="lightbox-text"></div>
+  </div>
+</body>
+</html>
