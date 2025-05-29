@@ -1,0 +1,6607 @@
+[
+  {
+    "name": "Brauerei Stellwerk",
+    "lat": 52.3503625,
+    "lng": 13.2852344
+  },
+  {
+    "name": "Haus",
+    "lat": 52.2308625,
+    "lng": 13.4439219
+  },
+  {
+    "name": "Telefonzellen Friedhof",
+    "lat": 52.3185375,
+    "lng": 13.0153906
+  },
+  {
+    "name": "Haus der toten Diva",
+    "lat": 52.6262125,
+    "lng": 13.0232344
+  },
+  {
+    "name": "Fluo-Bunker",
+    "lat": 52.4218875,
+    "lng": 12.9898281
+  },
+  {
+    "name": "Haus",
+    "lat": 51.7485125,
+    "lng": 13.9442656
+  },
+  {
+    "name": "Haus",
+    "lat": 51.5952875,
+    "lng": 13.7774531
+  },
+  {
+    "name": "Tuchfabrik",
+    "lat": 51.7477625,
+    "lng": 14.6540156
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.2272375,
+    "lng": 13.9806406
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.0987125,
+    "lng": 13.6342344
+  },
+  {
+    "name": "NVA Kaserne",
+    "lat": 52.3429625,
+    "lng": 13.6657969
+  },
+  {
+    "name": "NVA Bunker",
+    "lat": 52.3609125,
+    "lng": 14.2988906
+  },
+  {
+    "name": "Schlachthof",
+    "lat": 52.9361375,
+    "lng": 11.0357344
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 50.7861125,
+    "lng": 13.8143906
+  },
+  {
+    "name": "Abwasserwerk",
+    "lat": 51.7800625,
+    "lng": 14.0994844
+  },
+  {
+    "name": "Ferienlager",
+    "lat": 52.6638125,
+    "lng": 12.3990469
+  },
+  {
+    "name": "Novoktan Anlage",
+    "lat": 52.5285625,
+    "lng": 12.4050156
+  },
+  {
+    "name": "Gleiswerke",
+    "lat": 52.3926375,
+    "lng": 12.4255156
+  },
+  {
+    "name": "Ziegelei",
+    "lat": 52.1090125,
+    "lng": 12.3827969
+  },
+  {
+    "name": "Mokerei",
+    "lat": 52.1061375,
+    "lng": 13.7581094
+  },
+  {
+    "name": "Munitionslager",
+    "lat": 52.9456375,
+    "lng": 12.9218594
+  },
+  {
+    "name": "Artilleriebrigade",
+    "lat": 53.1797125,
+    "lng": 12.6803906
+  },
+  {
+    "name": "Kaserne",
+    "lat": 53.1972875,
+    "lng": 12.5158906
+  },
+  {
+    "name": "Heeresversuchsanstalt",
+    "lat": 52.0962125,
+    "lng": 13.3604219
+  },
+  {
+    "name": "Fliegerhorst J\u00fcterbog-Damm",
+    "lat": 51.9825875,
+    "lng": 13.0686094
+  },
+  {
+    "name": "Kaiserbauten GSSD",
+    "lat": 52.0213125,
+    "lng": 12.9925469
+  },
+  {
+    "name": "Kaserne Neues Lager",
+    "lat": 51.9993625,
+    "lng": 13.0251719
+  },
+  {
+    "name": "Kaserne",
+    "lat": 52.0270375,
+    "lng": 12.9754219
+  },
+  {
+    "name": "Lazarett",
+    "lat": 51.9942375,
+    "lng": 13.0311719
+  },
+  {
+    "name": "Funksendeamt + Bunker",
+    "lat": 51.7028125,
+    "lng": 13.9477969
+  },
+  {
+    "name": "Haus",
+    "lat": 52.3636625,
+    "lng": 14.3432969
+  },
+  {
+    "name": "Fliegerhorst",
+    "lat": 52.6231768,
+    "lng": 13.1523741
+  },
+  {
+    "name": "Kinderheim",
+    "lat": 52.4615125,
+    "lng": 12.4817656
+  },
+  {
+    "name": "NVA Gel\u00e4nde",
+    "lat": 52.8400375,
+    "lng": 13.0386094
+  },
+  {
+    "name": "Panzer Fabrik",
+    "lat": 52.0918875,
+    "lng": 13.3647969
+  },
+  {
+    "name": "FDGB-Ferienheim",
+    "lat": 52.5755538,
+    "lng": 14.0724737
+  },
+  {
+    "name": "Bunker Koralle",
+    "lat": 52.7396875,
+    "lng": 13.5756406
+  },
+  {
+    "name": "Stasi Bunker",
+    "lat": 52.6674875,
+    "lng": 13.7219531
+  },
+  {
+    "name": "Hotel",
+    "lat": 52.2189125,
+    "lng": 14.0363281
+  },
+  {
+    "name": "Haus",
+    "lat": 53.1804625,
+    "lng": 13.1237969
+  },
+  {
+    "name": "Hotel",
+    "lat": 51.6525125,
+    "lng": 14.0259844
+  },
+  {
+    "name": "Gleiswerke",
+    "lat": 52.3901125,
+    "lng": 12.4145156
+  },
+  {
+    "name": "Kraftwerk Plessa",
+    "lat": 51.4708875,
+    "lng": 13.6107031
+  },
+  {
+    "name": "GSSD Kommandatur",
+    "lat": 52.8331625,
+    "lng": 13.8023281
+  },
+  {
+    "name": "Gutshaus",
+    "lat": 52.2199125,
+    "lng": 14.0440469
+  },
+  {
+    "name": "Krematorium",
+    "lat": 52.1931625,
+    "lng": 13.3684531
+  },
+  {
+    "name": "Garnison Vogelsang",
+    "lat": 53.0553125,
+    "lng": 13.3705156
+  },
+  {
+    "name": "Little Prypjat",
+    "lat": 52.0282625,
+    "lng": 13.7578281
+  },
+  {
+    "name": "Heilst\u00e4tte Grabowsee",
+    "lat": 52.786956,
+    "lng": 13.2923334
+  },
+  {
+    "name": "Ferienheim",
+    "lat": 52.1614625,
+    "lng": 13.7618906
+  },
+  {
+    "name": "Forst Zinna",
+    "lat": 52.0556375,
+    "lng": 13.1179219
+  },
+  {
+    "name": "\u201eOtto von Braun\u201c \u2013 Testgel\u00e4nde Gottow",
+    "lat": 52.0927125,
+    "lng": 13.3113906
+  },
+  {
+    "name": "NVA Kasino",
+    "lat": 52.2832875,
+    "lng": 13.0017344
+  },
+  {
+    "name": "Polizeischule",
+    "lat": 52.7718875,
+    "lng": 13.6016406
+  },
+  {
+    "name": "Flughafen Rangsdorf",
+    "lat": 52.2831875,
+    "lng": 13.4292031
+  },
+  {
+    "name": "Brautladen",
+    "lat": 51.5431292,
+    "lng": 13.8954782
+  },
+  {
+    "name": "Hotel",
+    "lat": 52.9485125,
+    "lng": 13.7179219
+  },
+  {
+    "name": "Schule",
+    "lat": 52.1397875,
+    "lng": 12.4800156
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.1443625,
+    "lng": 12.5048906
+  },
+  {
+    "name": "Kinderheim",
+    "lat": 52.0329375,
+    "lng": 14.1913125
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 52.3476875,
+    "lng": 14.0390469
+  },
+  {
+    "name": "Schaufelradbagger",
+    "lat": 51.5352625,
+    "lng": 13.9499844
+  },
+  {
+    "name": "DDR Zirkus",
+    "lat": 52.5018375,
+    "lng": 13.6573906
+  },
+  {
+    "name": "NVA Treib- und- Schmierstofflager",
+    "lat": 52.8800625,
+    "lng": 14.1103281
+  },
+  {
+    "name": "Munitionskistenwald",
+    "lat": 52.7934875,
+    "lng": 13.5985781
+  },
+  {
+    "name": "Tuchfabrik",
+    "lat": 53.1626125,
+    "lng": 12.4916719
+  },
+  {
+    "name": "VEB OTB Wittstock",
+    "lat": 53.1613625,
+    "lng": 12.4945156
+  },
+  {
+    "name": "Schie\u00dfplatz",
+    "lat": 52.6339625,
+    "lng": 13.1522344
+  },
+  {
+    "name": "Forsthaus",
+    "lat": 52.3384625,
+    "lng": 13.6828594
+  },
+  {
+    "name": "SS-Brotfabrik",
+    "lat": 52.7682875,
+    "lng": 13.2823281
+  },
+  {
+    "name": "Gutshof",
+    "lat": 51.7076125,
+    "lng": 13.2382031
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.7091125,
+    "lng": 13.8173906
+  },
+  {
+    "name": "Haus",
+    "lat": 53.1591625,
+    "lng": 12.4641406
+  },
+  {
+    "name": "Schule",
+    "lat": 51.7413625,
+    "lng": 14.6458594
+  },
+  {
+    "name": "Gasthaus",
+    "lat": 52.3594375,
+    "lng": 12.3902969
+  },
+  {
+    "name": "Klinikum Kolkwitz",
+    "lat": 51.7319375,
+    "lng": 14.2289219
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 51.8825125,
+    "lng": 14.6522344
+  },
+  {
+    "name": "Loveparade Zug",
+    "lat": 51.7375125,
+    "lng": 13.9790469
+  },
+  {
+    "name": "Sonderwaffenlager",
+    "lat": 53.1759125,
+    "lng": 13.2806094
+  },
+  {
+    "name": "Penison",
+    "lat": 50.8822375,
+    "lng": 13.2811406
+  },
+  {
+    "name": "Hotel",
+    "lat": 50.8831625,
+    "lng": 13.2819531
+  },
+  {
+    "name": "Lokschuppen",
+    "lat": 52.4803875,
+    "lng": 13.2520156
+  },
+  {
+    "name": "Schule",
+    "lat": 52.6298125,
+    "lng": 13.4869219
+  },
+  {
+    "name": "Ballsaal",
+    "lat": 51.7727125,
+    "lng": 13.6890469
+  },
+  {
+    "name": "Burg Spreewald Molkerei",
+    "lat": 51.8381125,
+    "lng": 14.1452656
+  },
+  {
+    "name": "Glasfabrik",
+    "lat": 51.6406625,
+    "lng": 13.7210469
+  },
+  {
+    "name": "Schloss",
+    "lat": 52.0511625,
+    "lng": 13.5071406
+  },
+  {
+    "name": "Fliegerhorst",
+    "lat": 52.6242375,
+    "lng": 13.1559219
+  },
+  {
+    "name": "Bunker",
+    "lat": 53.1750125,
+    "lng": 13.2797344
+  },
+  {
+    "name": "Haus",
+    "lat": 52.4465875,
+    "lng": 13.1680469
+  },
+  {
+    "name": "Gasthof",
+    "lat": 52.6812125,
+    "lng": 13.8370156
+  },
+  {
+    "name": "Ferienheim",
+    "lat": 52.5789125,
+    "lng": 13.8273281
+  },
+  {
+    "name": "Tuchfabrik",
+    "lat": 51.7514875,
+    "lng": 14.6531719
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 52.5948125,
+    "lng": 13.8348594
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 51.5070875,
+    "lng": 13.9642656
+  },
+  {
+    "name": "Kinderheim",
+    "lat": 52.1168125,
+    "lng": 12.3770781
+  },
+  {
+    "name": "Shelter",
+    "lat": 52.6938875,
+    "lng": 13.4120781
+  },
+  {
+    "name": "Bahnhof",
+    "lat": 52.5391875,
+    "lng": 13.2636719
+  },
+  {
+    "name": "Gasthof",
+    "lat": 51.8517125,
+    "lng": 14.4036406
+  },
+  {
+    "name": "Draisinenbahn",
+    "lat": 52.6801875,
+    "lng": 13.8367969
+  },
+  {
+    "name": "Institut f\u00fcr angewandte Tierhygiene",
+    "lat": 52.8892375,
+    "lng": 13.8223906
+  },
+  {
+    "name": "Ziegelei",
+    "lat": 52.1639875,
+    "lng": 13.3980156
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 51.5101125,
+    "lng": 13.9685156
+  },
+  {
+    "name": "Gutshaus",
+    "lat": 52.0148625,
+    "lng": 14.6387344
+  },
+  {
+    "name": "Glash\u00fctte",
+    "lat": 51.5509625,
+    "lng": 14.2214844
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 52.3930375,
+    "lng": 12.4139844
+  },
+  {
+    "name": "Tanklager",
+    "lat": 52.3277875,
+    "lng": 13.6637656
+  },
+  {
+    "name": "VEB Baukeramik",
+    "lat": 51.7442375,
+    "lng": 13.7749531
+  },
+  {
+    "name": "H\u00f6rsaal",
+    "lat": 52.5891375,
+    "lng": 13.4566406
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 52.6381875,
+    "lng": 13.4768594
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 52.4586625,
+    "lng": 13.3285781
+  },
+  {
+    "name": "Schloss",
+    "lat": 51.7115125,
+    "lng": 14.0831406
+  },
+  {
+    "name": "Bahnhof",
+    "lat": 51.6071125,
+    "lng": 14.1614844
+  },
+  {
+    "name": "Pionierlager",
+    "lat": 53.0939875,
+    "lng": 13.4451094
+  },
+  {
+    "name": "Umspannwerk",
+    "lat": 52.6408375,
+    "lng": 13.2129844
+  },
+  {
+    "name": "Wasserwerk",
+    "lat": 52.6582625,
+    "lng": 13.2193906
+  },
+  {
+    "name": "Kaserne",
+    "lat": 51.6741125,
+    "lng": 14.6226719
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 51.9688875,
+    "lng": 12.9799219
+  },
+  {
+    "name": "Messingwerk",
+    "lat": 52.8451125,
+    "lng": 13.7277969
+  },
+  {
+    "name": "Ziegelei",
+    "lat": 51.6964625,
+    "lng": 14.0295156
+  },
+  {
+    "name": "Schutzanlage",
+    "lat": 52.1701125,
+    "lng": 13.5264219
+  },
+  {
+    "name": "Glassandwerk",
+    "lat": 51.4598875,
+    "lng": 14.0166406
+  },
+  {
+    "name": "Unterirdische Papph\u00fclsenfabrik",
+    "lat": 48.4991125,
+    "lng": 9.2001094
+  },
+  {
+    "name": "Hotel Adler",
+    "lat": 49.4665125,
+    "lng": 9.0576094
+  },
+  {
+    "name": "Hotel",
+    "lat": 48.7839125,
+    "lng": 8.7467031
+  },
+  {
+    "name": "Cafe",
+    "lat": 48.5706875,
+    "lng": 8.8860625
+  },
+  {
+    "name": "Bunker",
+    "lat": 49.2508375,
+    "lng": 8.6758281
+  },
+  {
+    "name": "Pastorenhaus",
+    "lat": 47.9218125,
+    "lng": 9.6431094
+  },
+  {
+    "name": "Bunker",
+    "lat": 48.5083375,
+    "lng": 9.0607656
+  },
+  {
+    "name": "Haus des K\u00fcnstlers",
+    "lat": 48.1381125,
+    "lng": 9.2103594
+  },
+  {
+    "name": "Villa Mattenhof",
+    "lat": 47.8227875,
+    "lng": 8.1748281
+  },
+  {
+    "name": "Hotel st.Anna",
+    "lat": 48.4518125,
+    "lng": 8.2424844
+  },
+  {
+    "name": "Bahnstation",
+    "lat": 48.7579375,
+    "lng": 9.1250781
+  },
+  {
+    "name": "Gasthof Schiff",
+    "lat": 48.6065625,
+    "lng": 8.3674375
+  },
+  {
+    "name": "Haus mit unterirdische Miene",
+    "lat": 49.2024125,
+    "lng": 9.6570469
+  },
+  {
+    "name": "Baumarkt",
+    "lat": 48.7578625,
+    "lng": 8.8674844
+  },
+  {
+    "name": "Waldfreibad",
+    "lat": 48.7763625,
+    "lng": 9.0610781
+  },
+  {
+    "name": "Bauernhaus",
+    "lat": 48.5705625,
+    "lng": 9.5910469
+  },
+  {
+    "name": "Haus",
+    "lat": 48.5505625,
+    "lng": 9.6343906
+  },
+  {
+    "name": "Kindergarten",
+    "lat": 49.4861875,
+    "lng": 8.4306406
+  },
+  {
+    "name": "Bunker",
+    "lat": 47.6622375,
+    "lng": 7.5303281
+  },
+  {
+    "name": "LKW Friedhof",
+    "lat": 47.6459875,
+    "lng": 9.5072344
+  },
+  {
+    "name": "Wohnh\u00e4user",
+    "lat": 49.3002875,
+    "lng": 8.8769531
+  },
+  {
+    "name": "Luisenklinik",
+    "lat": 48.0124125,
+    "lng": 8.5463594
+  },
+  {
+    "name": "Suchtklinik Gl\u00f6cklehof",
+    "lat": 47.8442125,
+    "lng": 8.1799531
+  },
+  {
+    "name": "Kinderklinik",
+    "lat": 49.4138125,
+    "lng": 8.6676719
+  },
+  {
+    "name": "Hotel Kreidacher H\u00f6he",
+    "lat": 49.5650405,
+    "lng": 8.8106598
+  },
+  {
+    "name": "Schimmelklinik",
+    "lat": 48.6588625,
+    "lng": 8.2329531
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 48.7466625,
+    "lng": 8.5509844
+  },
+  {
+    "name": "Ziegelei",
+    "lat": 47.9031625,
+    "lng": 9.0278906
+  },
+  {
+    "name": "Textilveredelung",
+    "lat": 47.6832625,
+    "lng": 9.8475781
+  },
+  {
+    "name": "Gesundheitsamt",
+    "lat": 48.8534375,
+    "lng": 8.2038594
+  },
+  {
+    "name": "Waffenfabrik",
+    "lat": 48.8507857,
+    "lng": 8.2106594
+  },
+  {
+    "name": "Altenheim",
+    "lat": 48.7575625,
+    "lng": 10.3297969
+  },
+  {
+    "name": "Gie\u00dferei",
+    "lat": 48.9984375,
+    "lng": 8.8017656
+  },
+  {
+    "name": "Sanatorium F\u00fcrstenhof",
+    "lat": 48.4063125,
+    "lng": 8.7719219
+  },
+  {
+    "name": "Tuchfabrik",
+    "lat": 48.4616375,
+    "lng": 8.4057031
+  },
+  {
+    "name": "Kieswerk",
+    "lat": 47.9198875,
+    "lng": 9.0611094
+  },
+  {
+    "name": "Bus",
+    "lat": 48.3203625,
+    "lng": 9.1035781
+  },
+  {
+    "name": "Altenheim",
+    "lat": 49.4385375,
+    "lng": 9.0033281
+  },
+  {
+    "name": "Tonishof",
+    "lat": 48.1416625,
+    "lng": 8.4099844
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 48.7111125,
+    "lng": 8.3651719
+  },
+  {
+    "name": "Hotel Alpenpanorama",
+    "lat": 47.732775,
+    "lng": 8.1697273
+  },
+  {
+    "name": "Ziegelei",
+    "lat": 49.3418125,
+    "lng": 8.4776719
+  },
+  {
+    "name": "Auto",
+    "lat": 49.0453125,
+    "lng": 9.1740469
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 48.6138125,
+    "lng": 9.5109219
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 48.6970625,
+    "lng": 8.3518281
+  },
+  {
+    "name": "Kino",
+    "lat": 48.7180625,
+    "lng": 8.7387969
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 49.4126875,
+    "lng": 8.6569219
+  },
+  {
+    "name": "Ausbesserungswerk",
+    "lat": 49.3919375,
+    "lng": 8.5785314
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 48.8076951,
+    "lng": 9.3578218
+  },
+  {
+    "name": "Auto",
+    "lat": 48.4808625,
+    "lng": 9.2052969
+  },
+  {
+    "name": "Trainingscenter",
+    "lat": 49.4042289,
+    "lng": 8.5616486
+  },
+  {
+    "name": "Hotel der zwei Schwestern",
+    "lat": 48.1478625,
+    "lng": 8.2409844
+  },
+  {
+    "name": "Haus",
+    "lat": 48.1384464,
+    "lng": 9.2100965
+  },
+  {
+    "name": "Forsthaus",
+    "lat": 48.1371885,
+    "lng": 9.2109764
+  },
+  {
+    "name": "Villa Sommerberg",
+    "lat": 48.4366125,
+    "lng": 8.3173594
+  },
+  {
+    "name": "Schwarzwaldklinik",
+    "lat": 48.4357342,
+    "lng": 8.3183414
+  },
+  {
+    "name": "US Airfield",
+    "lat": 49.3923307,
+    "lng": 8.6541593
+  },
+  {
+    "name": "Auto",
+    "lat": 48.2892125,
+    "lng": 8.7070156
+  },
+  {
+    "name": "Gerberei",
+    "lat": 47.8079125,
+    "lng": 9.2946094
+  },
+  {
+    "name": "Schlossruine",
+    "lat": 49.1438375,
+    "lng": 8.7710156
+  },
+  {
+    "name": "Kaserne",
+    "lat": 49.4072242,
+    "lng": 8.5607696
+  },
+  {
+    "name": "Altenheim",
+    "lat": 49.4749125,
+    "lng": 8.6831719
+  },
+  {
+    "name": "Hotel",
+    "lat": 48.4545625,
+    "lng": 8.4254844
+  },
+  {
+    "name": "Haus des Computerfreaks",
+    "lat": 48.0775375,
+    "lng": 9.2921406
+  },
+  {
+    "name": "Metzgerei",
+    "lat": 48.6145625,
+    "lng": 8.2777969
+  },
+  {
+    "name": "Hotel",
+    "lat": 48.6138125,
+    "lng": 8.2778281
+  },
+  {
+    "name": "Charlottenh\u00f6he / Lunghenheilanstalt",
+    "lat": 48.7838625,
+    "lng": 8.6004531
+  },
+  {
+    "name": "Haus der Schwarzwaldmarie",
+    "lat": 48.0062375,
+    "lng": 8.2881406
+  },
+  {
+    "name": "Haus",
+    "lat": 50.1541125,
+    "lng": 11.5154844
+  },
+  {
+    "name": "Haus",
+    "lat": 49.9917875,
+    "lng": 9.5845781
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 50.0286125,
+    "lng": 9.6392969
+  },
+  {
+    "name": "Restaurant",
+    "lat": 49.9785625,
+    "lng": 9.4621875
+  },
+  {
+    "name": "Hallenbad",
+    "lat": 50.2469576,
+    "lng": 10.2062929
+  },
+  {
+    "name": "Haus",
+    "lat": 49.4496625,
+    "lng": 12.4302969
+  },
+  {
+    "name": "Haus",
+    "lat": 48.2011098,
+    "lng": 11.4731883
+  },
+  {
+    "name": "Haus",
+    "lat": 50.1966625,
+    "lng": 10.0480156
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 50.1873125,
+    "lng": 10.0796406
+  },
+  {
+    "name": "Jugendherberge",
+    "lat": 47.4132585,
+    "lng": 10.258302
+  },
+  {
+    "name": "Haus",
+    "lat": 49.386223,
+    "lng": 10.9601416
+  },
+  {
+    "name": "Pumpwerk",
+    "lat": 47.7621375,
+    "lng": 11.3994219
+  },
+  {
+    "name": "Kran",
+    "lat": 49.8008845,
+    "lng": 9.8841988
+  },
+  {
+    "name": "Sanatorium Apolant",
+    "lat": 50.1962875,
+    "lng": 10.0812656
+  },
+  {
+    "name": "Schlachthof",
+    "lat": 50.1878352,
+    "lng": 10.0757662
+  },
+  {
+    "name": "Pilz Haus mit Hausschwamm",
+    "lat": 50.0889875,
+    "lng": 11.9216094
+  },
+  {
+    "name": "Haus",
+    "lat": 47.5399125,
+    "lng": 9.8581719
+  },
+  {
+    "name": "Ferienpark",
+    "lat": 48.9234625,
+    "lng": 13.0794844
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 50.338201,
+    "lng": 11.9261431
+  },
+  {
+    "name": "Kaufhaus",
+    "lat": 48.2408375,
+    "lng": 12.6949219
+  },
+  {
+    "name": "Federballfabrik",
+    "lat": 49.7080375,
+    "lng": 11.0637656
+  },
+  {
+    "name": "Haus",
+    "lat": 49.9229625,
+    "lng": 11.0731719
+  },
+  {
+    "name": "Bahnbetriebswerk",
+    "lat": 48.1343625,
+    "lng": 11.6234844
+  },
+  {
+    "name": "Zollhaus",
+    "lat": 48.1505054,
+    "lng": 10.8692468
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 48.6721125,
+    "lng": 12.5907969
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 48.6743229,
+    "lng": 12.7480115
+  },
+  {
+    "name": "Haus",
+    "lat": 48.6949318,
+    "lng": 12.807596
+  },
+  {
+    "name": "Haus",
+    "lat": 48.6052258,
+    "lng": 13.3171416
+  },
+  {
+    "name": "Haus",
+    "lat": 50.0694385,
+    "lng": 11.0639512
+  },
+  {
+    "name": "Gogo Scheune",
+    "lat": 48.3672625,
+    "lng": 12.7876406
+  },
+  {
+    "name": "Lokschuppen",
+    "lat": 49.9818815,
+    "lng": 9.1563752
+  },
+  {
+    "name": "Jagdhaus",
+    "lat": 48.0660625,
+    "lng": 10.5617656
+  },
+  {
+    "name": "Kirche",
+    "lat": 50.1208125,
+    "lng": 9.7379375
+  },
+  {
+    "name": "G\u00e4rtnerei mit Wohnhaus",
+    "lat": 47.7701125,
+    "lng": 11.5542656
+  },
+  {
+    "name": "Porzellanfabrik Arzberg",
+    "lat": 50.0581192,
+    "lng": 12.1840573
+  },
+  {
+    "name": "Kinderheim",
+    "lat": 50.1969367,
+    "lng": 10.088479
+  },
+  {
+    "name": "Nabucco Glasfabrik",
+    "lat": 49.7935694,
+    "lng": 12.1650221
+  },
+  {
+    "name": "Kieswerk",
+    "lat": 48.4275847,
+    "lng": 10.0760737
+  },
+  {
+    "name": "Gasthaus",
+    "lat": 48.3545802,
+    "lng": 10.1608933
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 48.6932194,
+    "lng": 10.750255
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 49.0390625,
+    "lng": 11.3652969
+  },
+  {
+    "name": "Stangga\u00df Klinik",
+    "lat": 47.6313366,
+    "lng": 12.9853522
+  },
+  {
+    "name": "H\u00fctte",
+    "lat": 47.4235625,
+    "lng": 10.2566719
+  },
+  {
+    "name": "Haus des Busfahrers",
+    "lat": 50.3957875,
+    "lng": 11.4465781
+  },
+  {
+    "name": "Autofriedhof",
+    "lat": 50.5237568,
+    "lng": 10.1402003
+  },
+  {
+    "name": "Haus",
+    "lat": 50.1463125,
+    "lng": 11.7463125
+  },
+  {
+    "name": "Holzkistenfabrik",
+    "lat": 49.6275875,
+    "lng": 11.9028906
+  },
+  {
+    "name": "Presshefefabrik",
+    "lat": 50.2719625,
+    "lng": 11.9301406
+  },
+  {
+    "name": "84G3+546",
+    "lat": 49.3253705,
+    "lng": 12.1024062
+  },
+  {
+    "name": "Porzellanfabrik",
+    "lat": 50.2163999,
+    "lng": 11.9520971
+  },
+  {
+    "name": "Feriendorf",
+    "lat": 47.5976749,
+    "lng": 9.8390413
+  },
+  {
+    "name": "Skisprungschanze",
+    "lat": 47.5732625,
+    "lng": 9.8374844
+  },
+  {
+    "name": "Feriendorf",
+    "lat": 47.6136375,
+    "lng": 9.8978281
+  },
+  {
+    "name": "Rutzenhof",
+    "lat": 48.9197125,
+    "lng": 10.9086094
+  },
+  {
+    "name": "Munitionslager",
+    "lat": 49.1208625,
+    "lng": 10.8783281
+  },
+  {
+    "name": "Stuhlfabrik",
+    "lat": 50.9116375,
+    "lng": 13.4888594
+  },
+  {
+    "name": "Sonderwaffenlager",
+    "lat": 49.7274625,
+    "lng": 10.1126094
+  },
+  {
+    "name": "Therme",
+    "lat": 50.0131582,
+    "lng": 11.8530791
+  },
+  {
+    "name": "Gutshof",
+    "lat": 49.9036488,
+    "lng": 10.2152957
+  },
+  {
+    "name": "Schimmelhaus",
+    "lat": 49.8141082,
+    "lng": 9.9161996
+  },
+  {
+    "name": "Flaschenhaus",
+    "lat": 50.1208625,
+    "lng": 11.1777969
+  },
+  {
+    "name": "Haus",
+    "lat": 49.8748068,
+    "lng": 11.17254
+  },
+  {
+    "name": "Kl\u00e4ranlage",
+    "lat": 50.1313046,
+    "lng": 9.7281685
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 47.8523737,
+    "lng": 12.1111859
+  },
+  {
+    "name": "Haus",
+    "lat": 47.6620375,
+    "lng": 11.2669844
+  },
+  {
+    "name": "Forsthaus",
+    "lat": 48.0879375,
+    "lng": 11.1694531
+  },
+  {
+    "name": "NATO \u00dcberwachungsbunker",
+    "lat": 49.1319125,
+    "lng": 12.2247344
+  },
+  {
+    "name": "Hotel",
+    "lat": 52.5377452,
+    "lng": 13.4740277
+  },
+  {
+    "name": "Bahnhof",
+    "lat": 52.5346875,
+    "lng": 13.2761094
+  },
+  {
+    "name": "VEB Berlin Chemie",
+    "lat": 52.4298875,
+    "lng": 13.5554844
+  },
+  {
+    "name": "Haus des Perversen",
+    "lat": 52.6272625,
+    "lng": 13.2976719
+  },
+  {
+    "name": "Gaswerk Spandau",
+    "lat": 52.5380647,
+    "lng": 13.1288576
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.4087875,
+    "lng": 13.3874531
+  },
+  {
+    "name": "Glyphosatwerk",
+    "lat": 52.4839375,
+    "lng": 13.7906406
+  },
+  {
+    "name": "Haus",
+    "lat": 53.1842446,
+    "lng": 8.6316566
+  },
+  {
+    "name": "Schule",
+    "lat": 53.5948546,
+    "lng": 9.9303501
+  },
+  {
+    "name": "Haus",
+    "lat": 53.4504625,
+    "lng": 10.1359531
+  },
+  {
+    "name": "Waldh\u00fctten",
+    "lat": 50.0954625,
+    "lng": 8.0952344
+  },
+  {
+    "name": "Buchdruckerei",
+    "lat": 49.8597125,
+    "lng": 8.6246094
+  },
+  {
+    "name": "DB Ausbildungsst\u00e4tte",
+    "lat": 51.2282875,
+    "lng": 9.4665469
+  },
+  {
+    "name": "Nachrichtenbunker",
+    "lat": 50.5719375,
+    "lng": 8.7100469
+  },
+  {
+    "name": "U-Verlagerung",
+    "lat": 50.3961625,
+    "lng": 8.1845156
+  },
+  {
+    "name": "Bahngel\u00e4nde",
+    "lat": 51.3223625,
+    "lng": 9.4643906
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.3096375,
+    "lng": 9.5234844
+  },
+  {
+    "name": "Sprengstofffabrik",
+    "lat": 51.2339972,
+    "lng": 9.7271486
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 51.2084125,
+    "lng": 9.9161406
+  },
+  {
+    "name": "Disco",
+    "lat": 51.1551375,
+    "lng": 9.9859844
+  },
+  {
+    "name": "Schloss Rittershain",
+    "lat": 51.0514375,
+    "lng": 9.8111406
+  },
+  {
+    "name": "Pulverm\u00fchle Culture Club",
+    "lat": 50.1193625,
+    "lng": 8.9602656
+  },
+  {
+    "name": "Fliesenfabrik",
+    "lat": 50.5664125,
+    "lng": 8.6846406
+  },
+  {
+    "name": "Kaserne",
+    "lat": 50.3701625,
+    "lng": 8.6204219
+  },
+  {
+    "name": "Asylheim",
+    "lat": 50.1780184,
+    "lng": 8.296898
+  },
+  {
+    "name": "Panzer",
+    "lat": 50.7892189,
+    "lng": 9.0922553
+  },
+  {
+    "name": "Berufsinformationszentrum",
+    "lat": 51.3205358,
+    "lng": 9.4885813
+  },
+  {
+    "name": "Eisenbahnerheim",
+    "lat": 51.6414125,
+    "lng": 9.4587031
+  },
+  {
+    "name": "Tierfarm",
+    "lat": 51.3646625,
+    "lng": 9.5255781
+  },
+  {
+    "name": "Kapelle",
+    "lat": 50.4247272,
+    "lng": 8.3920829
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 51.1114493,
+    "lng": 9.0784104
+  },
+  {
+    "name": "Bio Campus",
+    "lat": 50.1254924,
+    "lng": 8.658389
+  },
+  {
+    "name": "Bahnbetriebswerk",
+    "lat": 50.5706735,
+    "lng": 8.6545072
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 50.2012375,
+    "lng": 8.8164219
+  },
+  {
+    "name": "Haus",
+    "lat": 49.9097995,
+    "lng": 9.1552669
+  },
+  {
+    "name": "Grube Waldhausen",
+    "lat": 50.4984125,
+    "lng": 8.2588594
+  },
+  {
+    "name": "Kaserne",
+    "lat": 51.3384375,
+    "lng": 9.1255156
+  },
+  {
+    "name": "L\u00f6wensprudel",
+    "lat": 51.0468375,
+    "lng": 9.1815469
+  },
+  {
+    "name": "Safaripark",
+    "lat": 50.7576125,
+    "lng": 9.6026719
+  },
+  {
+    "name": "Anna L",
+    "lat": 51.1142462,
+    "lng": 9.1097535
+  },
+  {
+    "name": "Skisprungschanze",
+    "lat": 50.4666375,
+    "lng": 9.3018906
+  },
+  {
+    "name": "Haus des Sammlers",
+    "lat": 50.9000375,
+    "lng": 8.4452031
+  },
+  {
+    "name": "Marmorwerk",
+    "lat": 50.247315,
+    "lng": 9.6139914
+  },
+  {
+    "name": "Asklepios Klinik",
+    "lat": 51.0369125,
+    "lng": 9.4181094
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.2940771,
+    "lng": 8.8582436
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.5833125,
+    "lng": 8.6952031
+  },
+  {
+    "name": "Kindergarten",
+    "lat": 53.4994689,
+    "lng": 13.019831
+  },
+  {
+    "name": "LPG",
+    "lat": 54.4348625,
+    "lng": 13.2119531
+  },
+  {
+    "name": "Feriendorf",
+    "lat": 53.9820317,
+    "lng": 14.1253258
+  },
+  {
+    "name": "Kaserne",
+    "lat": 54.2567847,
+    "lng": 12.4444289
+  },
+  {
+    "name": "Haus des Verfalls",
+    "lat": 53.5989625,
+    "lng": 11.4908594
+  },
+  {
+    "name": "Bauernhaus",
+    "lat": 53.5745125,
+    "lng": 11.7280469
+  },
+  {
+    "name": "Haus des Amerikanischen Autosammlers",
+    "lat": 53.6007625,
+    "lng": 11.0895781
+  },
+  {
+    "name": "Schiff",
+    "lat": 53.9309625,
+    "lng": 11.4732344
+  },
+  {
+    "name": "Gie\u00dferei",
+    "lat": 53.5111875,
+    "lng": 13.9800156
+  },
+  {
+    "name": "Saal GSSD",
+    "lat": 53.3378375,
+    "lng": 12.7263906
+  },
+  {
+    "name": "Hotel",
+    "lat": 54.2876875,
+    "lng": 13.3117969
+  },
+  {
+    "name": "Gefl\u00fcgelfarm",
+    "lat": 54.4046625,
+    "lng": 13.2906719
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 53.1704692,
+    "lng": 11.2881066
+  },
+  {
+    "name": "LPG",
+    "lat": 54.4260375,
+    "lng": 12.7409844
+  },
+  {
+    "name": "Strahlenklinik",
+    "lat": 53.6457625,
+    "lng": 11.3796406
+  },
+  {
+    "name": "Gutshaus",
+    "lat": 53.8178375,
+    "lng": 13.1902344
+  },
+  {
+    "name": "DDR Volksmarine",
+    "lat": 54.3253375,
+    "lng": 13.5895156
+  },
+  {
+    "name": "Heizkraftwerk",
+    "lat": 53.5785875,
+    "lng": 11.3923281
+  },
+  {
+    "name": "Grafitti Fabrik",
+    "lat": 51.2157875,
+    "lng": 7.0715156
+  },
+  {
+    "name": "Sex Kino",
+    "lat": 51.5194375,
+    "lng": 7.4641875
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 51.1545827,
+    "lng": 6.9846944
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.9331375,
+    "lng": 7.1599844
+  },
+  {
+    "name": "Haus",
+    "lat": 51.6656875,
+    "lng": 7.7305781
+  },
+  {
+    "name": "Kartonfabrik",
+    "lat": 51.7105875,
+    "lng": 9.2985469
+  },
+  {
+    "name": "Studienhaus",
+    "lat": 51.0566375,
+    "lng": 8.2342969
+  },
+  {
+    "name": "Schule",
+    "lat": 51.5467125,
+    "lng": 7.1357031
+  },
+  {
+    "name": "Sporthalle",
+    "lat": 51.1227448,
+    "lng": 6.2111724
+  },
+  {
+    "name": "Minengel\u00e4nde mit Bergwerksstollen",
+    "lat": 51.2918875,
+    "lng": 7.0667969
+  },
+  {
+    "name": "Haus",
+    "lat": 51.8418125,
+    "lng": 6.2319531
+  },
+  {
+    "name": "Saunaclub",
+    "lat": 51.7434875,
+    "lng": 6.5886094
+  },
+  {
+    "name": "Schacht Sandbochum",
+    "lat": 51.6416125,
+    "lng": 7.6981719
+  },
+  {
+    "name": "Druckerei",
+    "lat": 51.835724,
+    "lng": 6.2503179
+  },
+  {
+    "name": "Bauernhaus",
+    "lat": 51.4595875,
+    "lng": 6.3470156
+  },
+  {
+    "name": "Bunker Danzig",
+    "lat": 51.5181875,
+    "lng": 7.4697969
+  },
+  {
+    "name": "Haus",
+    "lat": 51.5825058,
+    "lng": 6.2391872
+  },
+  {
+    "name": "Werkstatt mit Tankstelle",
+    "lat": 51.7638625,
+    "lng": 7.9203906
+  },
+  {
+    "name": "Villa des Skih\u00e4ndlers",
+    "lat": 51.3668875,
+    "lng": 8.3303594
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 51.2536375,
+    "lng": 6.3139219
+  },
+  {
+    "name": "Flugzeugrestaurant",
+    "lat": 51.3044625,
+    "lng": 7.2799844
+  },
+  {
+    "name": "Haus des Sheriff's",
+    "lat": 50.8941125,
+    "lng": 7.4234219
+  },
+  {
+    "name": "Haus",
+    "lat": 51.4415875,
+    "lng": 7.4876406
+  },
+  {
+    "name": "Schie\u00dfanlage",
+    "lat": 51.3810625,
+    "lng": 7.3339219
+  },
+  {
+    "name": "Hotel Elmer",
+    "lat": 51.7319625,
+    "lng": 6.7365156
+  },
+  {
+    "name": "Haus der Freude",
+    "lat": 52.0139625,
+    "lng": 8.4529844
+  },
+  {
+    "name": "Haus der Orgel",
+    "lat": 51.4487625,
+    "lng": 7.4074844
+  },
+  {
+    "name": "Bauernhaus",
+    "lat": 52.0895375,
+    "lng": 8.3311406
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 51.698377,
+    "lng": 7.7635218
+  },
+  {
+    "name": "Haus",
+    "lat": 52.2399375,
+    "lng": 8.5584844
+  },
+  {
+    "name": "Hotel Lippische Rose",
+    "lat": 51.8782875,
+    "lng": 9.3315156
+  },
+  {
+    "name": "Zahnarzt Villa",
+    "lat": 51.9530991,
+    "lng": 7.5559306
+  },
+  {
+    "name": "Gastst\u00e4tte",
+    "lat": 52.0262375,
+    "lng": 8.0361719
+  },
+  {
+    "name": "Tonfabrik",
+    "lat": 50.6261375,
+    "lng": 6.6945781
+  },
+  {
+    "name": "Stahlherstellung",
+    "lat": 51.5044375,
+    "lng": 7.1295156
+  },
+  {
+    "name": "SM Haus",
+    "lat": 51.7721875,
+    "lng": 9.0539531
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 51.0582875,
+    "lng": 6.8642344
+  },
+  {
+    "name": "Bergwerk",
+    "lat": 51.4211375,
+    "lng": 7.4807344
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.3904625,
+    "lng": 8.6929531
+  },
+  {
+    "name": "Maschinenbau Fabrik",
+    "lat": 51.4516125,
+    "lng": 6.7164844
+  },
+  {
+    "name": "Bauernhaus",
+    "lat": 52.0773375,
+    "lng": 9.1592344
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.5021875,
+    "lng": 7.1657969
+  },
+  {
+    "name": "Lazarettbunker",
+    "lat": 51.5020125,
+    "lng": 7.1043594
+  },
+  {
+    "name": "Kutscherhaus",
+    "lat": 52.2325875,
+    "lng": 8.5789844
+  },
+  {
+    "name": "Motorboothaus",
+    "lat": 51.4744125,
+    "lng": 7.7098281
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 52.1973125,
+    "lng": 8.7852969
+  },
+  {
+    "name": "Kneipe",
+    "lat": 52.1803273,
+    "lng": 8.5153774
+  },
+  {
+    "name": "Haus",
+    "lat": 52.2719125,
+    "lng": 8.5387969
+  },
+  {
+    "name": "Haus",
+    "lat": 52.2027875,
+    "lng": 8.5357969
+  },
+  {
+    "name": "H\u00e4user",
+    "lat": 51.8027625,
+    "lng": 9.1008594
+  },
+  {
+    "name": "Lokschuppen",
+    "lat": 50.6793625,
+    "lng": 7.1943281
+  },
+  {
+    "name": "Treibstofflager",
+    "lat": 51.4675875,
+    "lng": 8.5132969
+  },
+  {
+    "name": "Bowlinghalle",
+    "lat": 51.8360375,
+    "lng": 6.8592969
+  },
+  {
+    "name": "Bahnhofskaserne",
+    "lat": 52.2909125,
+    "lng": 8.9323281
+  },
+  {
+    "name": "Kieswerk mit Steinbruch",
+    "lat": 52.2747125,
+    "lng": 8.7567656
+  },
+  {
+    "name": "Gasthaus",
+    "lat": 51.9018897,
+    "lng": 8.8603433
+  },
+  {
+    "name": "Schule",
+    "lat": 51.5381625,
+    "lng": 7.0396719
+  },
+  {
+    "name": "Haus der Politikerin",
+    "lat": 51.3730375,
+    "lng": 7.3821406
+  },
+  {
+    "name": "Stollen",
+    "lat": 51.4587125,
+    "lng": 8.3471719
+  },
+  {
+    "name": "Schule + Bunker",
+    "lat": 51.0610951,
+    "lng": 6.8553989
+  },
+  {
+    "name": "Dorma Center",
+    "lat": 51.0960125,
+    "lng": 6.8416719
+  },
+  {
+    "name": "Hallenbad Die Welle",
+    "lat": 50.8709625,
+    "lng": 6.8689844
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.5880625,
+    "lng": 7.0577656
+  },
+  {
+    "name": "Hochbunker",
+    "lat": 51.4503125,
+    "lng": 6.7350469
+  },
+  {
+    "name": "M\u00e4rchenwald",
+    "lat": 51.9470625,
+    "lng": 8.9801719
+  },
+  {
+    "name": "Hochofen Landschaftspark",
+    "lat": 51.4803625,
+    "lng": 6.7802969
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.4899625,
+    "lng": 7.2121719
+  },
+  {
+    "name": "Zwergenhaus",
+    "lat": 51.8146125,
+    "lng": 9.0247969
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.4271375,
+    "lng": 6.8729219
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.3908625,
+    "lng": 8.6923906
+  },
+  {
+    "name": "Haus",
+    "lat": 50.8405125,
+    "lng": 7.4688281
+  },
+  {
+    "name": "Kirche",
+    "lat": 51.4957125,
+    "lng": 7.0841094
+  },
+  {
+    "name": "Seniorenheim",
+    "lat": 50.992798,
+    "lng": 6.7394833
+  },
+  {
+    "name": "Haus des Staatsanwaltes",
+    "lat": 51.4812625,
+    "lng": 6.6615469
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.7580125,
+    "lng": 6.3240156
+  },
+  {
+    "name": "Zeche",
+    "lat": 51.7130625,
+    "lng": 7.1183906
+  },
+  {
+    "name": "Haus",
+    "lat": 50.8907375,
+    "lng": 7.4141719
+  },
+  {
+    "name": "Totenhaus",
+    "lat": 51.6707875,
+    "lng": 6.2784219
+  },
+  {
+    "name": "Haus des Schreiners",
+    "lat": 51.6120875,
+    "lng": 6.1734193
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.5768625,
+    "lng": 8.1248281
+  },
+  {
+    "name": "Haus",
+    "lat": 51.3431125,
+    "lng": 6.5997031
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.5598375,
+    "lng": 7.5281719
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.7812625,
+    "lng": 6.2187656
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.5565625,
+    "lng": 6.2305781
+  },
+  {
+    "name": "Restaurant + Haus",
+    "lat": 51.2111625,
+    "lng": 7.7590469
+  },
+  {
+    "name": "Hotel",
+    "lat": 51.3074875,
+    "lng": 7.9468594
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.5124375,
+    "lng": 7.4281094
+  },
+  {
+    "name": "Ballsaal Roter Baron",
+    "lat": 51.1756875,
+    "lng": 6.4551719
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.5194875,
+    "lng": 7.4825469
+  },
+  {
+    "name": "Promibunker",
+    "lat": 51.4978125,
+    "lng": 7.4583281
+  },
+  {
+    "name": "Haus im Moor",
+    "lat": 51.9261375,
+    "lng": 8.5186406
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.1242875,
+    "lng": 6.4085781
+  },
+  {
+    "name": "Kl\u00e4rwerk",
+    "lat": 51.5716875,
+    "lng": 9.2121406
+  },
+  {
+    "name": "Hotel",
+    "lat": 51.1462704,
+    "lng": 7.1256617
+  },
+  {
+    "name": "Haus des Chemiedoktors",
+    "lat": 52.1562625,
+    "lng": 8.9196719
+  },
+  {
+    "name": "Autofriedhof",
+    "lat": 51.3835875,
+    "lng": 7.2633281
+  },
+  {
+    "name": "Gastst\u00e4tte",
+    "lat": 51.6458625,
+    "lng": 9.3137344
+  },
+  {
+    "name": "Sporthotel",
+    "lat": 52.0967375,
+    "lng": 8.6830156
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.4769875,
+    "lng": 6.9689844
+  },
+  {
+    "name": "Villa mit Autos",
+    "lat": 51.2613125,
+    "lng": 6.3795781
+  },
+  {
+    "name": "Lehrbergwerk",
+    "lat": 51.4738875,
+    "lng": 6.5588906
+  },
+  {
+    "name": "Freibad",
+    "lat": 51.3064625,
+    "lng": 7.9506719
+  },
+  {
+    "name": "M\u00fcnzfabrik/Drahtzieherei",
+    "lat": 51.2930625,
+    "lng": 7.6872969
+  },
+  {
+    "name": "Villa Sohl",
+    "lat": 51.2563125,
+    "lng": 6.8764844
+  },
+  {
+    "name": "Nato Bunker",
+    "lat": 51.6389875,
+    "lng": 6.4515156
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.4522625,
+    "lng": 6.7159844
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.4743875,
+    "lng": 6.8288594
+  },
+  {
+    "name": "Wohnhaus mit Scheune",
+    "lat": 51.6718375,
+    "lng": 9.0563906
+  },
+  {
+    "name": "Knopffabrik",
+    "lat": 51.2792925,
+    "lng": 7.1840046
+  },
+  {
+    "name": "Hotel Herrenberg",
+    "lat": 50.0513125,
+    "lng": 7.1281406
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 50.3530625,
+    "lng": 6.5276719
+  },
+  {
+    "name": "Hotel Kaiserhof",
+    "lat": 50.2223625,
+    "lng": 6.6613281
+  },
+  {
+    "name": "Park Hotel",
+    "lat": 49.4953125,
+    "lng": 8.4039844
+  },
+  {
+    "name": "Haus+Bunker",
+    "lat": 50.5758875,
+    "lng": 7.2355781
+  },
+  {
+    "name": "Hotel Weins",
+    "lat": 50.5708898,
+    "lng": 7.2729219
+  },
+  {
+    "name": "Hotel Palm",
+    "lat": 50.5626125,
+    "lng": 7.2820156
+  },
+  {
+    "name": "Restaurant/Pension",
+    "lat": 50.6364375,
+    "lng": 7.2060469
+  },
+  {
+    "name": "Rheingasthof Morbach",
+    "lat": 50.2142125,
+    "lng": 7.6274844
+  },
+  {
+    "name": "Hof mit Kapelle",
+    "lat": 49.7441125,
+    "lng": 7.4122344
+  },
+  {
+    "name": "Haus",
+    "lat": 50.5226875,
+    "lng": 7.9098281
+  },
+  {
+    "name": "Kieswerk",
+    "lat": 50.3168125,
+    "lng": 7.9500781
+  },
+  {
+    "name": "Wollfabrik Moselkern",
+    "lat": 50.1922476,
+    "lng": 7.3657422
+  },
+  {
+    "name": "Kaufhaus",
+    "lat": 50.1554625,
+    "lng": 6.7200469
+  },
+  {
+    "name": "Swingerclub",
+    "lat": 49.3955125,
+    "lng": 7.6963906
+  },
+  {
+    "name": "Haus des Winzers",
+    "lat": 50.0314375,
+    "lng": 7.1755781
+  },
+  {
+    "name": "Milit\u00e4rlager",
+    "lat": 49.9744375,
+    "lng": 6.4747031
+  },
+  {
+    "name": "VW K\u00e4fer Werkstatt",
+    "lat": 49.8636625,
+    "lng": 7.1646719
+  },
+  {
+    "name": "Haus",
+    "lat": 49.4262672,
+    "lng": 6.7297219
+  },
+  {
+    "name": "Villa Baum",
+    "lat": 49.2945125,
+    "lng": 7.3227031
+  },
+  {
+    "name": "Restaurant Zollbahnhof",
+    "lat": 49.3165625,
+    "lng": 7.3070781
+  },
+  {
+    "name": "Stollen",
+    "lat": 49.3695125,
+    "lng": 6.6639219
+  },
+  {
+    "name": "V\u00f6lklinger H\u00fctte",
+    "lat": 49.2483125,
+    "lng": 6.8444375
+  },
+  {
+    "name": "Haus des Tennislehrers",
+    "lat": 49.4730875,
+    "lng": 6.6134844
+  },
+  {
+    "name": "Haus des J\u00e4gers",
+    "lat": 50.8529625,
+    "lng": 14.0405156
+  },
+  {
+    "name": "Weberei",
+    "lat": 50.9346125,
+    "lng": 14.6722344
+  },
+  {
+    "name": "Kino",
+    "lat": 51.0931125,
+    "lng": 12.4458281
+  },
+  {
+    "name": "VEB Fahrzeugsitz",
+    "lat": 50.9096375,
+    "lng": 14.1888594
+  },
+  {
+    "name": "Kaserne",
+    "lat": 52.6400875,
+    "lng": 10.0908281
+  },
+  {
+    "name": "Garnison",
+    "lat": 51.2293875,
+    "lng": 12.7097344
+  },
+  {
+    "name": "Ballsaal Schenkgut",
+    "lat": 51.2674875,
+    "lng": 13.3394219
+  },
+  {
+    "name": "Milit\u00e4rgel\u00e4nde",
+    "lat": 51.6471625,
+    "lng": 12.7132656
+  },
+  {
+    "name": "Gastst\u00e4tte & Pension J\u00e4gerhof",
+    "lat": 50.7316375,
+    "lng": 13.6986094
+  },
+  {
+    "name": "Altenheim",
+    "lat": 50.7824625,
+    "lng": 13.8282656
+  },
+  {
+    "name": "Weberei",
+    "lat": 51.0157625,
+    "lng": 14.5843594
+  },
+  {
+    "name": "Garnfabrik",
+    "lat": 50.9057875,
+    "lng": 13.3513281
+  },
+  {
+    "name": "Blauer Ballsaal",
+    "lat": 50.8773625,
+    "lng": 14.0479219
+  },
+  {
+    "name": "Landgasthof Goldener L\u00f6we",
+    "lat": 50.8305125,
+    "lng": 12.8223906
+  },
+  {
+    "name": "T\u00f6pferei",
+    "lat": 51.7174875,
+    "lng": 9.7925469
+  },
+  {
+    "name": "Villa Kolbe",
+    "lat": 51.1008625,
+    "lng": 13.6837969
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.1858375,
+    "lng": 12.3752344
+  },
+  {
+    "name": "Schimmelhotel",
+    "lat": 50.8452625,
+    "lng": 14.0466719
+  },
+  {
+    "name": "Milit\u00e4rgel\u00e4nde",
+    "lat": 51.4479125,
+    "lng": 14.1838594
+  },
+  {
+    "name": "Haus des Vertreters",
+    "lat": 53.2414375,
+    "lng": 9.6144844
+  },
+  {
+    "name": "Stollen",
+    "lat": 50.8253375,
+    "lng": 12.5442031
+  },
+  {
+    "name": "Gasthaus und Saal zur Linde",
+    "lat": 51.4186125,
+    "lng": 14.0766406
+  },
+  {
+    "name": "Disco",
+    "lat": 51.2891625,
+    "lng": 13.1257031
+  },
+  {
+    "name": "Schloss Zedtlitz",
+    "lat": 51.1050625,
+    "lng": 12.5100156
+  },
+  {
+    "name": "Kuscheltier Haus",
+    "lat": 50.8599625,
+    "lng": 13.4273281
+  },
+  {
+    "name": "Betriebsarzt",
+    "lat": 51.5761375,
+    "lng": 14.7100469
+  },
+  {
+    "name": "Haus des Schnitzers",
+    "lat": 50.7642667,
+    "lng": 13.1232619
+  },
+  {
+    "name": "Ballsaal",
+    "lat": 51.1803875,
+    "lng": 14.1891094
+  },
+  {
+    "name": "Haus des Tischlers",
+    "lat": 50.6758375,
+    "lng": 12.9466719
+  },
+  {
+    "name": "Haus Freiberg",
+    "lat": 50.330213,
+    "lng": 12.2384579
+  },
+  {
+    "name": "Schlosserei + Wohnhaus",
+    "lat": 51.5948875,
+    "lng": 11.4554219
+  },
+  {
+    "name": "Haus",
+    "lat": 50.8760375,
+    "lng": 14.0467031
+  },
+  {
+    "name": "Stra\u00dfenbahn",
+    "lat": 53.4989375,
+    "lng": 8.9745469
+  },
+  {
+    "name": "Kinderheim Br\u00e4unsdorf",
+    "lat": 50.9380625,
+    "lng": 13.2193594
+  },
+  {
+    "name": "Tonwarenfabrik",
+    "lat": 51.6422125,
+    "lng": 12.8698906
+  },
+  {
+    "name": "Haus der Pferdesattlerin",
+    "lat": 51.0399375,
+    "lng": 13.8566094
+  },
+  {
+    "name": "Textilfabrik",
+    "lat": 50.7923375,
+    "lng": 12.6040469
+  },
+  {
+    "name": "VEB Keramik",
+    "lat": 51.2669125,
+    "lng": 13.9170156
+  },
+  {
+    "name": "Tante Erika's Erbe",
+    "lat": 51.0119375,
+    "lng": 13.3282031
+  },
+  {
+    "name": "VEB Impulsa",
+    "lat": 51.1935875,
+    "lng": 13.3128594
+  },
+  {
+    "name": "VEB Germania Verwaltungsgeb\u00e4ude",
+    "lat": 50.7918125,
+    "lng": 12.9153281
+  },
+  {
+    "name": "Sporthotel Waldfrieden",
+    "lat": 50.4418125,
+    "lng": 12.6712656
+  },
+  {
+    "name": "VEB Feinspinnerei Gelenau",
+    "lat": 50.7133088,
+    "lng": 12.9971168
+  },
+  {
+    "name": "Gr\u00fcner Ballsaal",
+    "lat": 51.1454998,
+    "lng": 14.030114
+  },
+  {
+    "name": "Ballsaal",
+    "lat": 50.9384125,
+    "lng": 13.4260781
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.3057875,
+    "lng": 12.3287969
+  },
+  {
+    "name": "Industrieheizwerk",
+    "lat": 51.3224625,
+    "lng": 12.3340469
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 50.9517625,
+    "lng": 12.7663594
+  },
+  {
+    "name": "FDGB Mooskombinat",
+    "lat": 50.2222625,
+    "lng": 12.3113594
+  },
+  {
+    "name": "Berufsschule",
+    "lat": 50.6480254,
+    "lng": 12.6305588
+  },
+  {
+    "name": "Tagungshotel",
+    "lat": 50.4295625,
+    "lng": 12.7040469
+  },
+  {
+    "name": "VEB Mosterei",
+    "lat": 51.0388429,
+    "lng": 12.6442631
+  },
+  {
+    "name": "Kapelle",
+    "lat": 51.3932375,
+    "lng": 12.2277656
+  },
+  {
+    "name": "Textilfabrik",
+    "lat": 51.0762375,
+    "lng": 13.1531094
+  },
+  {
+    "name": "Grafitti Fabrik Artbase",
+    "lat": 50.7514125,
+    "lng": 12.4809844
+  },
+  {
+    "name": "Zuckerfabrik",
+    "lat": 51.7070125,
+    "lng": 9.9862656
+  },
+  {
+    "name": "Brauerei",
+    "lat": 52.0368375,
+    "lng": 11.2289219
+  },
+  {
+    "name": "Pension",
+    "lat": 51.8008125,
+    "lng": 10.4516875
+  },
+  {
+    "name": "Pension",
+    "lat": 51.7155125,
+    "lng": 10.5247969
+  },
+  {
+    "name": "Schimmelwirt",
+    "lat": 51.6908125,
+    "lng": 9.5175625
+  },
+  {
+    "name": "Pension Waldkater",
+    "lat": 51.8623625,
+    "lng": 10.3072031
+  },
+  {
+    "name": "Mausoleum",
+    "lat": 52.9362875,
+    "lng": 9.5453906
+  },
+  {
+    "name": "Ferienlager",
+    "lat": 50.4272125,
+    "lng": 12.4879219
+  },
+  {
+    "name": "Pension",
+    "lat": 51.6311125,
+    "lng": 10.6342344
+  },
+  {
+    "name": "Sprengstoffwerk",
+    "lat": 51.1501375,
+    "lng": 14.3848906
+  },
+  {
+    "name": "VEB Galvanotechnik",
+    "lat": 51.3467125,
+    "lng": 12.4208281
+  },
+  {
+    "name": "Malzfabrik",
+    "lat": 51.0037125,
+    "lng": 13.8236719
+  },
+  {
+    "name": "Auto Scheune",
+    "lat": 51.1926375,
+    "lng": 13.0212969
+  },
+  {
+    "name": "VEB N\u00e4herei",
+    "lat": 50.2178358,
+    "lng": 12.3161406
+  },
+  {
+    "name": "Sanatorium Kussmund",
+    "lat": 50.2226125,
+    "lng": 12.2979219
+  },
+  {
+    "name": "Historische Schachtanlage \"Georgschacht\"",
+    "lat": 52.3129185,
+    "lng": 9.1774652
+  },
+  {
+    "name": "Marmeladenfabrik",
+    "lat": 51.9599119,
+    "lng": 11.4427661
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 52.3120625,
+    "lng": 8.1060781
+  },
+  {
+    "name": "B\u00fcrstenfabrik",
+    "lat": 50.5015375,
+    "lng": 12.5091094
+  },
+  {
+    "name": "G\u00e4rtnerei",
+    "lat": 51.2481375,
+    "lng": 14.8132031
+  },
+  {
+    "name": "Pension",
+    "lat": 51.7524875,
+    "lng": 10.3744844
+  },
+  {
+    "name": "Zum alten Fritz",
+    "lat": 52.2971375,
+    "lng": 9.0547969
+  },
+  {
+    "name": "Villa Waldtraudt",
+    "lat": 51.9880875,
+    "lng": 9.2564844
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.1444625,
+    "lng": 10.4292031
+  },
+  {
+    "name": "Bunker",
+    "lat": 52.1444125,
+    "lng": 10.4273594
+  },
+  {
+    "name": "Rittergut",
+    "lat": 52.1872625,
+    "lng": 10.4827656
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 52.2238375,
+    "lng": 8.2493594
+  },
+  {
+    "name": "Pension",
+    "lat": 51.7530375,
+    "lng": 10.3754844
+  },
+  {
+    "name": "Haus",
+    "lat": 53.0940375,
+    "lng": 8.6493281
+  },
+  {
+    "name": "Rehaklinik",
+    "lat": 51.8292875,
+    "lng": 10.3508281
+  },
+  {
+    "name": "Haus",
+    "lat": 51.7109125,
+    "lng": 10.5437656
+  },
+  {
+    "name": "Freizeitzentrum",
+    "lat": 51.8847875,
+    "lng": 10.1646719
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 52.1882145,
+    "lng": 8.1095002
+  },
+  {
+    "name": "Haus",
+    "lat": 52.2733625,
+    "lng": 9.7943906
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 53.5295852,
+    "lng": 7.6986435
+  },
+  {
+    "name": "Schule",
+    "lat": 52.5879875,
+    "lng": 10.0652656
+  },
+  {
+    "name": "Fahrzeughalle",
+    "lat": 52.9145375,
+    "lng": 8.6083906
+  },
+  {
+    "name": "Kino",
+    "lat": 53.1718875,
+    "lng": 8.6222344
+  },
+  {
+    "name": "Altenheim",
+    "lat": 51.8495125,
+    "lng": 10.3307969
+  },
+  {
+    "name": "Restaurant",
+    "lat": 52.5232125,
+    "lng": 8.3707031
+  },
+  {
+    "name": "Munitionslager",
+    "lat": 51.6672875,
+    "lng": 9.7558906
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 52.3833625,
+    "lng": 7.9710156
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 52.4350125,
+    "lng": 8.8238281
+  },
+  {
+    "name": "Gastst\u00e4tte",
+    "lat": 52.3523191,
+    "lng": 7.1453293
+  },
+  {
+    "name": "Bunker",
+    "lat": 53.0595125,
+    "lng": 8.8856094
+  },
+  {
+    "name": "Haus",
+    "lat": 52.7843875,
+    "lng": 9.3711094
+  },
+  {
+    "name": "Freibad",
+    "lat": 52.5064125,
+    "lng": 9.4667969
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 51.8747375,
+    "lng": 10.0315156
+  },
+  {
+    "name": "Haus",
+    "lat": 53.5780125,
+    "lng": 7.4182969
+  },
+  {
+    "name": "Pension",
+    "lat": 51.6246491,
+    "lng": 10.6278233
+  },
+  {
+    "name": "Panzer",
+    "lat": 52.8712625,
+    "lng": 7.4383906
+  },
+  {
+    "name": "Fabrik",
+    "lat": 52.0947875,
+    "lng": 9.3598906
+  },
+  {
+    "name": "Auto",
+    "lat": 53.3275125,
+    "lng": 9.9186719
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 52.4331515,
+    "lng": 9.6988648
+  },
+  {
+    "name": "Hotel",
+    "lat": 51.8575625,
+    "lng": 10.3395156
+  },
+  {
+    "name": "Alte F\u00f6rderanlagen aus Untertage",
+    "lat": 52.1557375,
+    "lng": 10.9990469
+  },
+  {
+    "name": "Rittergut",
+    "lat": 51.5219375,
+    "lng": 12.0962969
+  },
+  {
+    "name": "Autohaus",
+    "lat": 51.8528875,
+    "lng": 10.7909844
+  },
+  {
+    "name": "Fliegerhorst",
+    "lat": 51.7321125,
+    "lng": 11.9734531
+  },
+  {
+    "name": "Rundfunksendestelle",
+    "lat": 52.2865375,
+    "lng": 11.9105156
+  },
+  {
+    "name": "Sanit\u00e4tsbunker",
+    "lat": 52.2860125,
+    "lng": 11.9091094
+  },
+  {
+    "name": "FDGB-Heim Hermann Duncker",
+    "lat": 51.7613375,
+    "lng": 10.6646094
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 52.7227625,
+    "lng": 12.0185781
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.9171625,
+    "lng": 12.7219531
+  },
+  {
+    "name": "Schule",
+    "lat": 51.7899375,
+    "lng": 11.3218281
+  },
+  {
+    "name": "Hotel",
+    "lat": 51.6098375,
+    "lng": 11.8593906
+  },
+  {
+    "name": "Mausoleum",
+    "lat": 51.6074125,
+    "lng": 11.6327031
+  },
+  {
+    "name": "Zug",
+    "lat": 51.5736625,
+    "lng": 11.4835156
+  },
+  {
+    "name": "Rittergut",
+    "lat": 51.9691625,
+    "lng": 11.9879219
+  },
+  {
+    "name": "Polizeih\u00f6rsaal",
+    "lat": 51.7548125,
+    "lng": 11.4904844
+  },
+  {
+    "name": "Wasserwerk",
+    "lat": 51.5758375,
+    "lng": 11.7984219
+  },
+  {
+    "name": "Silos",
+    "lat": 52.0387875,
+    "lng": 11.7063906
+  },
+  {
+    "name": "Kristallpalast",
+    "lat": 52.1127875,
+    "lng": 11.6186719
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 52.1482375,
+    "lng": 11.6598594
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 51.9038125,
+    "lng": 11.7779844
+  },
+  {
+    "name": "Schweinehochhaus",
+    "lat": 51.6869125,
+    "lng": 11.9617656
+  },
+  {
+    "name": "Bleischwei\u00dferei",
+    "lat": 51.6517375,
+    "lng": 12.2933906
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.6217092,
+    "lng": 12.3060289
+  },
+  {
+    "name": "Kegelbahn Sport frei",
+    "lat": 51.8916921,
+    "lng": 12.6065096
+  },
+  {
+    "name": "Heeresmunitionsanstalt",
+    "lat": 51.8118125,
+    "lng": 12.3553906
+  },
+  {
+    "name": "Gastst\u00e4tte",
+    "lat": 51.990391,
+    "lng": 10.8931201
+  },
+  {
+    "name": "Hotel Kutscherstube",
+    "lat": 51.6688125,
+    "lng": 11.1308906
+  },
+  {
+    "name": "Rittergut",
+    "lat": 52.0595625,
+    "lng": 11.0839531
+  },
+  {
+    "name": "Brauerei",
+    "lat": 51.8293798,
+    "lng": 12.2260525
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 51.8059125,
+    "lng": 12.2402656
+  },
+  {
+    "name": "Krematorium",
+    "lat": 51.8130625,
+    "lng": 12.2426719
+  },
+  {
+    "name": "B\u00fcroverwaltung",
+    "lat": 51.8307375,
+    "lng": 12.2277656
+  },
+  {
+    "name": "Mineral\u00f6lwerk",
+    "lat": 51.2888125,
+    "lng": 11.8620781
+  },
+  {
+    "name": "Kraftwerk Vockerode",
+    "lat": 51.8451875,
+    "lng": 12.3577656
+  },
+  {
+    "name": "Kinderkrankenhaus",
+    "lat": 51.5795625,
+    "lng": 11.2715781
+  },
+  {
+    "name": "Schimmelgastst\u00e4tte",
+    "lat": 51.8183375,
+    "lng": 12.6369531
+  },
+  {
+    "name": "Schule",
+    "lat": 51.61167,
+    "lng": 11.0468
+  },
+  {
+    "name": "Chemiefabrik",
+    "lat": 51.6546625,
+    "lng": 12.2840781
+  },
+  {
+    "name": "Molmecker Kirche",
+    "lat": 51.6371875,
+    "lng": 11.5020156
+  },
+  {
+    "name": "Pferdehotel",
+    "lat": 51.5283875,
+    "lng": 11.6942031
+  },
+  {
+    "name": "Schloss Neum\u00fchle",
+    "lat": 52.6573875,
+    "lng": 11.0036719
+  },
+  {
+    "name": "Tonwerk mit Labor",
+    "lat": 51.5265625,
+    "lng": 11.8373125
+  },
+  {
+    "name": "Reichsbahnerholungsheim",
+    "lat": 51.6497375,
+    "lng": 11.1170156
+  },
+  {
+    "name": "Haus",
+    "lat": 53.6755125,
+    "lng": 9.9714219
+  },
+  {
+    "name": "Autos",
+    "lat": 54.0404625,
+    "lng": 10.0118594
+  },
+  {
+    "name": "Haus",
+    "lat": 53.7746875,
+    "lng": 9.4858906
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 54.1847375,
+    "lng": 10.6095469
+  },
+  {
+    "name": "Bauernhof",
+    "lat": 54.8462625,
+    "lng": 8.2977031
+  },
+  {
+    "name": "Auto",
+    "lat": 53.8066125,
+    "lng": 10.0062344
+  },
+  {
+    "name": "Grafitti Fabrik",
+    "lat": 53.9162125,
+    "lng": 9.5097031
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.0309375,
+    "lng": 11.2137656
+  },
+  {
+    "name": "Bauhof",
+    "lat": 50.8770375,
+    "lng": 11.8452031
+  },
+  {
+    "name": "Schule",
+    "lat": 50.8555875,
+    "lng": 11.8975469
+  },
+  {
+    "name": "Rittergut\u00a0Rosch\u00fctz",
+    "lat": 50.9163875,
+    "lng": 12.0805469
+  },
+  {
+    "name": "Dorf der Bergarbeiter",
+    "lat": 50.4863375,
+    "lng": 11.4690469
+  },
+  {
+    "name": "Haus der Amish 2",
+    "lat": 50.571471,
+    "lng": 11.0862736
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.4473125,
+    "lng": 11.4529219
+  },
+  {
+    "name": "Hotel Sch\u00f6ne Aussicht",
+    "lat": 50.6154375,
+    "lng": 10.8050469
+  },
+  {
+    "name": "Haus",
+    "lat": 50.8873793,
+    "lng": 10.3697036
+  },
+  {
+    "name": "Villa",
+    "lat": 50.990448,
+    "lng": 12.4392899
+  },
+  {
+    "name": "Kettenburg Gef\u00e4ngnis",
+    "lat": 51.0913719,
+    "lng": 10.7279252
+  },
+  {
+    "name": "Haus",
+    "lat": 50.7728625,
+    "lng": 10.9268281
+  },
+  {
+    "name": "Ballsaal",
+    "lat": 51.0463322,
+    "lng": 12.284005
+  },
+  {
+    "name": "Auto",
+    "lat": 50.8825608,
+    "lng": 12.4090768
+  },
+  {
+    "name": "Haus der Amish Haupthaus",
+    "lat": 50.5712154,
+    "lng": 11.0866524
+  },
+  {
+    "name": "Haus",
+    "lat": 50.5039481,
+    "lng": 11.5252269
+  },
+  {
+    "name": "VEB Feinplasttechnik",
+    "lat": 50.6328875,
+    "lng": 12.1895156
+  },
+  {
+    "name": "Hotel",
+    "lat": 50.9724375,
+    "lng": 10.3095781
+  },
+  {
+    "name": "DDR Tanzsaal",
+    "lat": 51.0660875,
+    "lng": 10.7230156
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.2273375,
+    "lng": 11.3346094
+  },
+  {
+    "name": "Sanatorium",
+    "lat": 50.6727125,
+    "lng": 11.2699531
+  },
+  {
+    "name": "Friseursalon",
+    "lat": 50.9877875,
+    "lng": 12.4361719
+  },
+  {
+    "name": "Puppenfabrik",
+    "lat": 50.8693625,
+    "lng": 12.0659531
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.6532875,
+    "lng": 12.2122344
+  },
+  {
+    "name": "Kaliwerk",
+    "lat": 51.3020195,
+    "lng": 11.4611379
+  },
+  {
+    "name": "Weltmeisterzug",
+    "lat": 50.5836625,
+    "lng": 10.4171719
+  },
+  {
+    "name": "Villa Wintergarten",
+    "lat": 50.652196,
+    "lng": 12.1975306
+  },
+  {
+    "name": "4 Seitenhof",
+    "lat": 50.852196,
+    "lng": 11.9560247
+  },
+  {
+    "name": "Maison PCR",
+    "lat": 49.5773875,
+    "lng": 5.9904219
+  },
+  {
+    "name": "Maison Barbelen",
+    "lat": 50.0999625,
+    "lng": 6.0857969
+  },
+  {
+    "name": "Maison Hirondelle",
+    "lat": 49.8313375,
+    "lng": 6.1804531
+  },
+  {
+    "name": "Maison Muller",
+    "lat": 49.6889625,
+    "lng": 6.0564844
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.8382125,
+    "lng": 5.7450156
+  },
+  {
+    "name": "Haus",
+    "lat": 50.0620375,
+    "lng": 6.0209531
+  },
+  {
+    "name": "Maison Anna",
+    "lat": 50.0933125,
+    "lng": 6.0586719
+  },
+  {
+    "name": "Pesto Fabrik",
+    "lat": 49.5021898,
+    "lng": 5.9743487
+  },
+  {
+    "name": "Milchfabrik",
+    "lat": 49.8516875,
+    "lng": 6.1199219
+  },
+  {
+    "name": "Haus",
+    "lat": 49.6956375,
+    "lng": 5.9593594
+  },
+  {
+    "name": "Maison Decker",
+    "lat": 49.9239125,
+    "lng": 5.8464531
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.5036893,
+    "lng": 5.9940518
+  },
+  {
+    "name": "Maison Greiveldinger",
+    "lat": 49.5506125,
+    "lng": 6.3159531
+  },
+  {
+    "name": "Haus",
+    "lat": 49.5551625,
+    "lng": 6.3141094
+  },
+  {
+    "name": "Caf\u00e9 Differdinger",
+    "lat": 49.9019875,
+    "lng": 5.7786406
+  },
+  {
+    "name": "Maison Kirsch",
+    "lat": 49.5803875,
+    "lng": 5.9639531
+  },
+  {
+    "name": "Chateau Arabia",
+    "lat": 49.5569625,
+    "lng": 6.3807031
+  },
+  {
+    "name": "Pfarrhaus",
+    "lat": 50.7949125,
+    "lng": 5.0391406
+  },
+  {
+    "name": "Usine S",
+    "lat": 50.6024875,
+    "lng": 5.8886094
+  },
+  {
+    "name": "Maison Elephant",
+    "lat": 49.7828622,
+    "lng": 5.5055348
+  },
+  {
+    "name": "Umspannwerk",
+    "lat": 50.6055375,
+    "lng": 5.5331719
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.6103875,
+    "lng": 5.5275156
+  },
+  {
+    "name": "Velodrom",
+    "lat": 50.4281125,
+    "lng": 4.4789219
+  },
+  {
+    "name": "Saal",
+    "lat": 51.0617625,
+    "lng": 5.2764531
+  },
+  {
+    "name": "Raven Church",
+    "lat": 50.4131418,
+    "lng": 4.4936818
+  },
+  {
+    "name": "Ferme K",
+    "lat": 51.0615125,
+    "lng": 5.2744531
+  },
+  {
+    "name": "Maison Antenne",
+    "lat": 51.0829625,
+    "lng": 4.4376094
+  },
+  {
+    "name": "Maison globe-trotter",
+    "lat": 50.3849125,
+    "lng": 4.5841719
+  },
+  {
+    "name": "Auto",
+    "lat": 51.1917375,
+    "lng": 5.1125156
+  },
+  {
+    "name": "Panzerfriedhof",
+    "lat": 50.5759125,
+    "lng": 3.5045781
+  },
+  {
+    "name": "Maison Garfield",
+    "lat": 50.7396375,
+    "lng": 3.9468281
+  },
+  {
+    "name": "Pizzeria",
+    "lat": 51.0229625,
+    "lng": 5.3717344
+  },
+  {
+    "name": "Potterie Chopin",
+    "lat": 50.2380375,
+    "lng": 4.2158594
+  },
+  {
+    "name": "Ferme Enfui",
+    "lat": 50.7398625,
+    "lng": 3.2824531
+  },
+  {
+    "name": "Pathologie",
+    "lat": 50.4343625,
+    "lng": 4.4445156
+  },
+  {
+    "name": "Autos",
+    "lat": 50.4792875,
+    "lng": 4.5426719
+  },
+  {
+    "name": "Chateau Halloween",
+    "lat": 50.4453625,
+    "lng": 4.4655781
+  },
+  {
+    "name": "Maison Hobbit",
+    "lat": 50.5447875,
+    "lng": 5.1387344
+  },
+  {
+    "name": "Friedhof / la crypte",
+    "lat": 50.8794125,
+    "lng": 4.3529219
+  },
+  {
+    "name": "Schule",
+    "lat": 51.0328625,
+    "lng": 5.3669531
+  },
+  {
+    "name": "Villa Ginette",
+    "lat": 50.7026875,
+    "lng": 4.0309219
+  },
+  {
+    "name": "Maison Chassures",
+    "lat": 50.4242625,
+    "lng": 4.6263906
+  },
+  {
+    "name": "Haus",
+    "lat": 51.4109935,
+    "lng": 5.0009141
+  },
+  {
+    "name": "Maison Leopard",
+    "lat": 50.9690125,
+    "lng": 4.5592969
+  },
+  {
+    "name": "Mine",
+    "lat": 50.3951114,
+    "lng": 4.4368834
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 50.4708375,
+    "lng": 4.8374844
+  },
+  {
+    "name": "Villa",
+    "lat": 50.5016375,
+    "lng": 3.9347656
+  },
+  {
+    "name": "Maison De La Dessinatrice",
+    "lat": 50.8554625,
+    "lng": 4.7613906
+  },
+  {
+    "name": "Maison Flipper",
+    "lat": 50.8493625,
+    "lng": 4.7898906
+  },
+  {
+    "name": "Maison Cevi",
+    "lat": 51.2167144,
+    "lng": 3.2849665
+  },
+  {
+    "name": "Maison Boely",
+    "lat": 51.2071035,
+    "lng": 3.4296995
+  },
+  {
+    "name": "Maison Meyne",
+    "lat": 51.0572642,
+    "lng": 3.1089836
+  },
+  {
+    "name": "Hof ter Engelen",
+    "lat": 51.3047625,
+    "lng": 4.2350156
+  },
+  {
+    "name": "Usine Justice",
+    "lat": 51.1784875,
+    "lng": 3.5709844
+  },
+  {
+    "name": "Maison Canada",
+    "lat": 51.1648125,
+    "lng": 3.2643281
+  },
+  {
+    "name": "White Farm",
+    "lat": 50.9747625,
+    "lng": 4.4253594
+  },
+  {
+    "name": "Autos",
+    "lat": 51.1783625,
+    "lng": 5.1841719
+  },
+  {
+    "name": "Chateau Elise",
+    "lat": 50.5866551,
+    "lng": 5.637688
+  },
+  {
+    "name": "Piscine Castor",
+    "lat": 50.5719875,
+    "lng": 5.5935781
+  },
+  {
+    "name": "Fort De La Chartreuse",
+    "lat": 50.6321056,
+    "lng": 5.6002651
+  },
+  {
+    "name": "Radarstation",
+    "lat": 50.7385625,
+    "lng": 5.5431406
+  },
+  {
+    "name": "Haus des Glasers",
+    "lat": 50.6376847,
+    "lng": 5.528467
+  },
+  {
+    "name": "Maison Persil",
+    "lat": 50.7548125,
+    "lng": 5.5775469
+  },
+  {
+    "name": "Usine Blue Bottle",
+    "lat": 50.9180875,
+    "lng": 3.6851719
+  },
+  {
+    "name": "Villa Mafia",
+    "lat": 50.8723375,
+    "lng": 4.7417344
+  },
+  {
+    "name": "Ferme Egems",
+    "lat": 51.0130875,
+    "lng": 3.2716406
+  },
+  {
+    "name": "Spider Farm",
+    "lat": 50.9939656,
+    "lng": 3.2053613
+  },
+  {
+    "name": "Ferme Hugo",
+    "lat": 50.8624375,
+    "lng": 2.8250781
+  },
+  {
+    "name": "Caf\u00e9 Poepeche",
+    "lat": 51.0218875,
+    "lng": 3.0380781
+  },
+  {
+    "name": "Ferme Rideau Rouge",
+    "lat": 50.6999128,
+    "lng": 4.4885432
+  },
+  {
+    "name": "Garage Renault",
+    "lat": 50.4059375,
+    "lng": 4.3357344
+  },
+  {
+    "name": "Brasserie J",
+    "lat": 50.4404875,
+    "lng": 4.4138594
+  },
+  {
+    "name": "Resto VL",
+    "lat": 50.7668875,
+    "lng": 4.4601406
+  },
+  {
+    "name": "Ferme Musta",
+    "lat": 50.9303125,
+    "lng": 3.6712656
+  },
+  {
+    "name": "Ferme Olsen",
+    "lat": 50.9420875,
+    "lng": 3.4748281
+  },
+  {
+    "name": "Clinique Quarantaine",
+    "lat": 50.0247875,
+    "lng": 4.1591094
+  },
+  {
+    "name": "The Green House",
+    "lat": 51.1682375,
+    "lng": 3.0296406
+  },
+  {
+    "name": "Maison Rick",
+    "lat": 51.0505625,
+    "lng": 3.1944844
+  },
+  {
+    "name": "Maison Tapis",
+    "lat": 50.9612375,
+    "lng": 3.1220469
+  },
+  {
+    "name": "Chateau Queen Mary",
+    "lat": 50.2771625,
+    "lng": 4.5665469
+  },
+  {
+    "name": "La Maison \u00e0 la cloche",
+    "lat": 50.9155125,
+    "lng": 3.2939844
+  },
+  {
+    "name": "Maison sans issue",
+    "lat": 50.8422125,
+    "lng": 3.1637656
+  },
+  {
+    "name": "Maison Montana",
+    "lat": 51.1574625,
+    "lng": 3.1814844
+  },
+  {
+    "name": "Maison 1927",
+    "lat": 51.3174375,
+    "lng": 3.2502344
+  },
+  {
+    "name": "Maison Spirit",
+    "lat": 50.3410125,
+    "lng": 3.7267656
+  },
+  {
+    "name": "MAISON DJEVALO",
+    "lat": 50.7054625,
+    "lng": 2.8678281
+  },
+  {
+    "name": "Kloster",
+    "lat": 50.4084375,
+    "lng": 4.1693281
+  },
+  {
+    "name": "Maison 100 Fenetres",
+    "lat": 50.7377625,
+    "lng": 3.3813281
+  },
+  {
+    "name": "Maison Ordinateurs",
+    "lat": 50.7812875,
+    "lng": 3.1936406
+  },
+  {
+    "name": "Maison Blonde",
+    "lat": 51.0388929,
+    "lng": 3.2157656
+  },
+  {
+    "name": "Maison Chasseur",
+    "lat": 50.8434375,
+    "lng": 3.0045156
+  },
+  {
+    "name": "Manoir du Docteur Myst\u00e9rieux",
+    "lat": 50.9650875,
+    "lng": 3.1343281
+  },
+  {
+    "name": "Manoir du Square",
+    "lat": 50.1579124,
+    "lng": 5.2208143
+  },
+  {
+    "name": "Maison Rollo",
+    "lat": 50.9467816,
+    "lng": 5.3878549
+  },
+  {
+    "name": "Maison Vinyl",
+    "lat": 50.6877125,
+    "lng": 5.0163906
+  },
+  {
+    "name": "Maison aux Chapeaux",
+    "lat": 50.6302164,
+    "lng": 5.1137773
+  },
+  {
+    "name": "Chateau Louva",
+    "lat": 50.6065535,
+    "lng": 5.5392398
+  },
+  {
+    "name": "Maison Nains Jaune",
+    "lat": 50.4590625,
+    "lng": 3.9880781
+  },
+  {
+    "name": "Maison Grand Jour",
+    "lat": 50.5052625,
+    "lng": 3.9325781
+  },
+  {
+    "name": "Maison Felix",
+    "lat": 50.9289375,
+    "lng": 4.9405781
+  },
+  {
+    "name": "Maison Oktober",
+    "lat": 50.9747875,
+    "lng": 4.0729219
+  },
+  {
+    "name": "Maison Sarlat",
+    "lat": 51.1126625,
+    "lng": 3.9601406
+  },
+  {
+    "name": "Maison Pasteur",
+    "lat": 51.0560625,
+    "lng": 4.3713281
+  },
+  {
+    "name": "Blue Church",
+    "lat": 50.4210125,
+    "lng": 4.4452969
+  },
+  {
+    "name": "Flugzeuge",
+    "lat": 51.0522125,
+    "lng": 4.9991094
+  },
+  {
+    "name": "Autos",
+    "lat": 50.3617375,
+    "lng": 4.8522031
+  },
+  {
+    "name": "Autos",
+    "lat": 50.5533625,
+    "lng": 5.3165156
+  },
+  {
+    "name": "Maison aux Mustangs",
+    "lat": 50.4090125,
+    "lng": 3.9050469
+  },
+  {
+    "name": "Ferme Soenen",
+    "lat": 51.0599125,
+    "lng": 3.2753281
+  },
+  {
+    "name": "Maison Gabriel",
+    "lat": 51.0392625,
+    "lng": 3.3040781
+  },
+  {
+    "name": "Ferme T",
+    "lat": 51.1331625,
+    "lng": 4.2550469
+  },
+  {
+    "name": "Maison little Pony",
+    "lat": 50.8825125,
+    "lng": 5.0790781
+  },
+  {
+    "name": "Maison Jacques",
+    "lat": 50.6328625,
+    "lng": 4.7037969
+  },
+  {
+    "name": "Lokschuppen",
+    "lat": 50.6093625,
+    "lng": 5.5752656
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.4125315,
+    "lng": 4.5355521
+  },
+  {
+    "name": "Ferme Saint-Valentine",
+    "lat": 50.8688875,
+    "lng": 5.4836094
+  },
+  {
+    "name": "Ferme Serenade",
+    "lat": 50.9998875,
+    "lng": 3.5394844
+  },
+  {
+    "name": "Schule",
+    "lat": 50.4385875,
+    "lng": 4.3723906
+  },
+  {
+    "name": "Autos",
+    "lat": 50.9946625,
+    "lng": 5.4755469
+  },
+  {
+    "name": "Maison Poupees",
+    "lat": 50.7097875,
+    "lng": 4.0630469
+  },
+  {
+    "name": "Ferme Sanglier",
+    "lat": 50.9460875,
+    "lng": 4.2072031
+  },
+  {
+    "name": "Werkstatt",
+    "lat": 50.3470625,
+    "lng": 4.8498906
+  },
+  {
+    "name": "Starfighters",
+    "lat": 50.8697875,
+    "lng": 4.4814531
+  },
+  {
+    "name": "Chateau Sophie",
+    "lat": 51.0080375,
+    "lng": 4.0612969
+  },
+  {
+    "name": "Villa Coco",
+    "lat": 51.1263625,
+    "lng": 3.6079844
+  },
+  {
+    "name": "Orient Express",
+    "lat": 51.0281375,
+    "lng": 4.1749844
+  },
+  {
+    "name": "Teracotta Fabrik",
+    "lat": 51.1238375,
+    "lng": 4.2645156
+  },
+  {
+    "name": "Ferme Plesbos",
+    "lat": 50.9939375,
+    "lng": 4.0279531
+  },
+  {
+    "name": "Lost Dorf",
+    "lat": 51.3105125,
+    "lng": 4.2649219
+  },
+  {
+    "name": "Citroen Kiss",
+    "lat": 51.1194375,
+    "lng": 3.4278906
+  },
+  {
+    "name": "Maison de la cure",
+    "lat": 50.9568875,
+    "lng": 3.0575156
+  },
+  {
+    "name": "Maison Georgette",
+    "lat": 51.1225137,
+    "lng": 3.325937
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.7684125,
+    "lng": 2.9048281
+  },
+  {
+    "name": "Chateau Gerard",
+    "lat": 50.8487125,
+    "lng": 3.2916406
+  },
+  {
+    "name": "Maison Diane",
+    "lat": 50.6809875,
+    "lng": 3.5972344
+  },
+  {
+    "name": "Maison Suzuki",
+    "lat": 50.5114625,
+    "lng": 3.9060156
+  },
+  {
+    "name": "Freibad",
+    "lat": 50.8445625,
+    "lng": 5.1974531
+  },
+  {
+    "name": "Maison Pacifier",
+    "lat": 50.9915875,
+    "lng": 5.3944531
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.4297125,
+    "lng": 4.1743281
+  },
+  {
+    "name": "Freibad",
+    "lat": 50.2040125,
+    "lng": 4.8504219
+  },
+  {
+    "name": "Fort",
+    "lat": 51.2547625,
+    "lng": 4.2966094
+  },
+  {
+    "name": "Buddy Farm",
+    "lat": 50.9030875,
+    "lng": 3.1134844
+  },
+  {
+    "name": "Manoir Limo",
+    "lat": 50.5659125,
+    "lng": 5.5696719
+  },
+  {
+    "name": "Schule",
+    "lat": 50.6236625,
+    "lng": 5.5523281
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.0295375,
+    "lng": 3.8665781
+  },
+  {
+    "name": "Kirche",
+    "lat": 50.3515324,
+    "lng": 4.2145335
+  },
+  {
+    "name": "Maison Suicide",
+    "lat": 50.9174852,
+    "lng": 4.5041312
+  },
+  {
+    "name": "Indiana Jones Mine",
+    "lat": 50.4671125,
+    "lng": 5.5703281
+  },
+  {
+    "name": "Autos",
+    "lat": 50.8720625,
+    "lng": 4.7404219
+  },
+  {
+    "name": "Disco Church",
+    "lat": 50.4122370328,
+    "lng": 4.16682779789
+  },
+  {
+    "name": "Maison Tribal",
+    "lat": 50.7199625,
+    "lng": 4.0432031
+  },
+  {
+    "name": "Kirche",
+    "lat": 50.3913125,
+    "lng": 4.4686094
+  },
+  {
+    "name": "Schwimmbad",
+    "lat": 50.3924375,
+    "lng": 4.4779219
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.0695625,
+    "lng": 3.7235469
+  },
+  {
+    "name": "Zug",
+    "lat": 50.5051375,
+    "lng": 5.6792969
+  },
+  {
+    "name": "Haus",
+    "lat": 50.4906736,
+    "lng": 5.8524826
+  },
+  {
+    "name": "Maison Physalis",
+    "lat": 51.0491375,
+    "lng": 4.6107656
+  },
+  {
+    "name": "Ferme Hiboux",
+    "lat": 50.9121049,
+    "lng": 3.9584893
+  },
+  {
+    "name": "Chateau R",
+    "lat": 50.8042451,
+    "lng": 5.2610187
+  },
+  {
+    "name": "Autos",
+    "lat": 50.7329125,
+    "lng": 4.9644844
+  },
+  {
+    "name": "Fort",
+    "lat": 51.1658625,
+    "lng": 4.3775781
+  },
+  {
+    "name": "Kapelle",
+    "lat": 51.3833875,
+    "lng": 4.8996094
+  },
+  {
+    "name": "Fort",
+    "lat": 51.1868125,
+    "lng": 4.4787656
+  },
+  {
+    "name": "Fort",
+    "lat": 51.0612951,
+    "lng": 4.4615729
+  },
+  {
+    "name": "Maison Kuusi",
+    "lat": 51.1277875,
+    "lng": 3.6705156
+  },
+  {
+    "name": "Maison Follet",
+    "lat": 51.1326625,
+    "lng": 3.4395469
+  },
+  {
+    "name": "Ferme",
+    "lat": 51.1973375,
+    "lng": 4.6658594
+  },
+  {
+    "name": "Zug",
+    "lat": 51.0824375,
+    "lng": 3.7445469
+  },
+  {
+    "name": "Maison Baron",
+    "lat": 51.0448375,
+    "lng": 3.9381094
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.0938125,
+    "lng": 4.3514531
+  },
+  {
+    "name": "Maison Renault",
+    "lat": 51.1069375,
+    "lng": 4.6982656
+  },
+  {
+    "name": "Doctor Dolittle",
+    "lat": 51.0511125,
+    "lng": 4.8788594
+  },
+  {
+    "name": "Haus",
+    "lat": 51.0227289,
+    "lng": 5.0323004
+  },
+  {
+    "name": "Maison Alfons",
+    "lat": 51.0014625,
+    "lng": 5.3608281
+  },
+  {
+    "name": "Chateau Marguerite",
+    "lat": 50.9249581,
+    "lng": 5.7055647
+  },
+  {
+    "name": "Chez Bobonne",
+    "lat": 50.8445125,
+    "lng": 5.6088281
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.0154375,
+    "lng": 4.4788281
+  },
+  {
+    "name": "Villa Hollandia",
+    "lat": 50.8011875,
+    "lng": 5.4439844
+  },
+  {
+    "name": "Maison Hangar",
+    "lat": 50.7441625,
+    "lng": 3.1947656
+  },
+  {
+    "name": "Schule",
+    "lat": 50.5697375,
+    "lng": 3.4536406
+  },
+  {
+    "name": "Schiff",
+    "lat": 50.5444875,
+    "lng": 3.4497656
+  },
+  {
+    "name": "Charbonnage du Gouffre",
+    "lat": 50.4254875,
+    "lng": 4.5037969
+  },
+  {
+    "name": "Mine",
+    "lat": 50.3964625,
+    "lng": 4.4609844
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.4167375,
+    "lng": 4.4028906
+  },
+  {
+    "name": "Zug",
+    "lat": 50.4504625,
+    "lng": 4.4407656
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.3581875,
+    "lng": 4.4092656
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.4400375,
+    "lng": 4.2227344
+  },
+  {
+    "name": "Internat",
+    "lat": 50.3391875,
+    "lng": 4.2962969
+  },
+  {
+    "name": "Fort",
+    "lat": 50.7970625,
+    "lng": 5.6773906
+  },
+  {
+    "name": "Zahnarzt Haus",
+    "lat": 50.7741375,
+    "lng": 3.4467031
+  },
+  {
+    "name": "Auto",
+    "lat": 51.1330875,
+    "lng": 4.8154219
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.6069351,
+    "lng": 5.5019951
+  },
+  {
+    "name": "Autowerkstatt",
+    "lat": 50.6659375,
+    "lng": 5.5281406
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.6546875,
+    "lng": 5.6677344
+  },
+  {
+    "name": "Ferme Eton",
+    "lat": 51.2582375,
+    "lng": 3.2026719
+  },
+  {
+    "name": "Maison Blanc",
+    "lat": 51.2744125,
+    "lng": 3.2299844
+  },
+  {
+    "name": "Villa Battre",
+    "lat": 51.3464625,
+    "lng": 3.2763594
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.2384125,
+    "lng": 2.9314531
+  },
+  {
+    "name": "Bunker",
+    "lat": 51.2488867,
+    "lng": 2.9589059
+  },
+  {
+    "name": "Villa Easy",
+    "lat": 51.1211875,
+    "lng": 2.6791406
+  },
+  {
+    "name": "Batterie",
+    "lat": 51.1618662,
+    "lng": 2.7580596
+  },
+  {
+    "name": "Maison Ivy",
+    "lat": 51.1921291,
+    "lng": 3.0933291
+  },
+  {
+    "name": "Ferme Opel",
+    "lat": 51.0563125,
+    "lng": 3.1812031
+  },
+  {
+    "name": "Chateau Bambi",
+    "lat": 50.5321625,
+    "lng": 5.2168281
+  },
+  {
+    "name": "Maison Dolly",
+    "lat": 51.0713625,
+    "lng": 4.9875469
+  },
+  {
+    "name": "Haus",
+    "lat": 51.1650125,
+    "lng": 5.0350156
+  },
+  {
+    "name": "Villa Mistral",
+    "lat": 50.6709125,
+    "lng": 5.6735781
+  },
+  {
+    "name": "Chateau Leblanc",
+    "lat": 51.2270125,
+    "lng": 5.4216406
+  },
+  {
+    "name": "Fabrik",
+    "lat": 51.1519875,
+    "lng": 5.5084844
+  },
+  {
+    "name": "Chateau Enfant",
+    "lat": 50.7413464,
+    "lng": 5.891121
+  },
+  {
+    "name": "Freibad",
+    "lat": 50.5838875,
+    "lng": 5.8842031
+  },
+  {
+    "name": "Freibad",
+    "lat": 50.5755875,
+    "lng": 5.8453594
+  },
+  {
+    "name": "Chateau de la Fenderie",
+    "lat": 50.5711875,
+    "lng": 5.6909219
+  },
+  {
+    "name": "Ferme Sainte",
+    "lat": 50.4836375,
+    "lng": 5.3871406
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.8950008,
+    "lng": 5.1209324
+  },
+  {
+    "name": "Maison de Mamie",
+    "lat": 49.6962625,
+    "lng": 5.4147344
+  },
+  {
+    "name": "Chateau Radio",
+    "lat": 50.6279875,
+    "lng": 4.9678906
+  },
+  {
+    "name": "Chateau D\u00b4 eau",
+    "lat": 50.8519625,
+    "lng": 4.7500156
+  },
+  {
+    "name": "Chateau Hoogenmeyer",
+    "lat": 50.8955999,
+    "lng": 4.9946012
+  },
+  {
+    "name": "Chateau du Vin",
+    "lat": 50.9758301,
+    "lng": 4.8182506
+  },
+  {
+    "name": "Ferme Tapioca",
+    "lat": 50.8902875,
+    "lng": 4.2297031
+  },
+  {
+    "name": "Mold House",
+    "lat": 51.0159375,
+    "lng": 5.0049219
+  },
+  {
+    "name": "Maison Piron",
+    "lat": 50.8518375,
+    "lng": 4.8224219
+  },
+  {
+    "name": "Avions Perdus",
+    "lat": 50.8424375,
+    "lng": 4.9012656
+  },
+  {
+    "name": "Ferme Collectionneuse",
+    "lat": 51.0129875,
+    "lng": 5.0222031
+  },
+  {
+    "name": "Ferme W",
+    "lat": 50.9366724,
+    "lng": 4.7319126
+  },
+  {
+    "name": "Chateau Robbe Rouge",
+    "lat": 50.7315125,
+    "lng": 5.6901719
+  },
+  {
+    "name": "Maison Costume",
+    "lat": 50.1735203,
+    "lng": 4.4726612
+  },
+  {
+    "name": "Disco\u00a0Metropolis",
+    "lat": 50.1866375,
+    "lng": 5.3657344
+  },
+  {
+    "name": "Br\u00fccke",
+    "lat": 50.8788734,
+    "lng": 5.6145281
+  },
+  {
+    "name": "Autowaschstrasse",
+    "lat": 51.1430875,
+    "lng": 4.1514844
+  },
+  {
+    "name": "Betonwerk",
+    "lat": 50.3976125,
+    "lng": 4.4985156
+  },
+  {
+    "name": "Monastaire Antoinette",
+    "lat": 50.5482875,
+    "lng": 5.3164844
+  },
+  {
+    "name": "Lokhalle",
+    "lat": 50.4369875,
+    "lng": 4.3883906
+  },
+  {
+    "name": "Bahnhaus",
+    "lat": 50.7198125,
+    "lng": 3.8402121
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.6509625,
+    "lng": 5.4691406
+  },
+  {
+    "name": "K\u00fchlturm",
+    "lat": 50.3947125,
+    "lng": 4.3813594
+  },
+  {
+    "name": "Maison Ypres",
+    "lat": 50.9182529,
+    "lng": 3.6852585
+  },
+  {
+    "name": "Chateau Sommelier",
+    "lat": 50.4888125,
+    "lng": 3.9121406
+  },
+  {
+    "name": "Chateau Cinderella",
+    "lat": 50.4867875,
+    "lng": 3.9466719
+  },
+  {
+    "name": "Werkstatt",
+    "lat": 50.7500875,
+    "lng": 3.5826719
+  },
+  {
+    "name": "Minenschacht",
+    "lat": 51.0402125,
+    "lng": 5.3300469
+  },
+  {
+    "name": "Holzfabrik",
+    "lat": 50.0536875,
+    "lng": 4.9824219
+  },
+  {
+    "name": "Schule",
+    "lat": 51.1756814,
+    "lng": 4.1813337
+  },
+  {
+    "name": "Autos",
+    "lat": 50.4054375,
+    "lng": 4.2522656
+  },
+  {
+    "name": "Maison SDR",
+    "lat": 50.4318375,
+    "lng": 4.1415781
+  },
+  {
+    "name": "Cockerill Sambre",
+    "lat": 50.6981875,
+    "lng": 5.6675469
+  },
+  {
+    "name": "Maison Peugeot 201",
+    "lat": 50.6291375,
+    "lng": 4.6551719
+  },
+  {
+    "name": "Ford Werkstatt",
+    "lat": 50.6254543,
+    "lng": 5.7613001
+  },
+  {
+    "name": "Maison Romantica",
+    "lat": 50.7660625,
+    "lng": 5.2665469
+  },
+  {
+    "name": "Blue Christ Church",
+    "lat": 50.6056936,
+    "lng": 5.4825802
+  },
+  {
+    "name": "Kirche",
+    "lat": 50.5983125,
+    "lng": 5.5099844
+  },
+  {
+    "name": "Ferme Prothese",
+    "lat": 50.9461375,
+    "lng": 4.9208906
+  },
+  {
+    "name": "Powerplant IM",
+    "lat": 50.3958125,
+    "lng": 4.3784531
+  },
+  {
+    "name": "Stellwerk",
+    "lat": 50.8145125,
+    "lng": 3.2408594
+  },
+  {
+    "name": "Tante Emma Laden",
+    "lat": 50.8107714,
+    "lng": 5.5975968
+  },
+  {
+    "name": "Usine Skeleton",
+    "lat": 51.0698687,
+    "lng": 3.6806327
+  },
+  {
+    "name": "Maison Mona Lisa",
+    "lat": 51.0278125,
+    "lng": 4.1885469
+  },
+  {
+    "name": "Manoir aux Statues",
+    "lat": 50.1986545,
+    "lng": 4.8592184
+  },
+  {
+    "name": "Maison Chat",
+    "lat": 50.7397375,
+    "lng": 3.9459219
+  },
+  {
+    "name": "Maison Schimmelpenninck",
+    "lat": 50.9753655,
+    "lng": 3.6498308
+  },
+  {
+    "name": "Autofriedhof",
+    "lat": 50.3260625,
+    "lng": 5.2019844
+  },
+  {
+    "name": "Chapelle Des Mineurs",
+    "lat": 50.440915,
+    "lng": 4.2194638
+  },
+  {
+    "name": "Station Terrestre Satellite",
+    "lat": 50.1306125,
+    "lng": 5.1453906
+  },
+  {
+    "name": "Fabrik",
+    "lat": 50.3970125,
+    "lng": 4.4910469
+  },
+  {
+    "name": "Villa Steen",
+    "lat": 51.0094375,
+    "lng": 4.9477031
+  },
+  {
+    "name": "Kokerei",
+    "lat": 50.4140375,
+    "lng": 4.4113594
+  },
+  {
+    "name": "Goetsenhoven Airfield",
+    "lat": 50.7832625,
+    "lng": 4.9532031
+  },
+  {
+    "name": "Mine",
+    "lat": 50.3923125,
+    "lng": 3.8160625
+  },
+  {
+    "name": "Villa Lion",
+    "lat": 50.8511625,
+    "lng": 3.8595469
+  },
+  {
+    "name": "TV Farm",
+    "lat": 50.1864986,
+    "lng": 4.2181111
+  },
+  {
+    "name": "Maison Dash",
+    "lat": 50.8353625,
+    "lng": 4.8518281
+  },
+  {
+    "name": "Maison Panema",
+    "lat": 50.9503061,
+    "lng": 3.9835209
+  },
+  {
+    "name": "Ghostbus Tunnel 2.0",
+    "lat": 50.6323625,
+    "lng": 5.5597656
+  },
+  {
+    "name": "Magazin du Peinture",
+    "lat": 51.0104875,
+    "lng": 3.8820469
+  },
+  {
+    "name": "Hotel de Paris",
+    "lat": 45.5793738,
+    "lng": 2.9971425
+  },
+  {
+    "name": "Villa des grands hommes",
+    "lat": 47.9788226,
+    "lng": 2.1658197
+  },
+  {
+    "name": "Maison Baltrap",
+    "lat": 47.795763,
+    "lng": 6.7132677
+  },
+  {
+    "name": "Maison Mandragore",
+    "lat": 47.4915125,
+    "lng": 3.8725469
+  },
+  {
+    "name": "Chateau Hibou",
+    "lat": 45.1206451,
+    "lng": 2.9602006
+  },
+  {
+    "name": "House of Flags",
+    "lat": 45.3825875,
+    "lng": 3.2726094
+  },
+  {
+    "name": "Maison du collectionneur",
+    "lat": 46.3993375,
+    "lng": 1.3984531
+  },
+  {
+    "name": "Chateau T",
+    "lat": 48.4696728,
+    "lng": 6.1401647
+  },
+  {
+    "name": "Manoir des anes",
+    "lat": 44.5269625,
+    "lng": 2.7423906
+  },
+  {
+    "name": "Villa Lolo Ferrari",
+    "lat": 43.6402227,
+    "lng": 6.8948055
+  },
+  {
+    "name": "Hotel aux Lions",
+    "lat": 43.6963875,
+    "lng": 7.1663594
+  },
+  {
+    "name": "Maison aux Poupees",
+    "lat": 49.1330809,
+    "lng": 6.2537792
+  },
+  {
+    "name": "Manoir Mango",
+    "lat": 46.4082375,
+    "lng": 3.3028594
+  },
+  {
+    "name": "Villa du Brocanteur",
+    "lat": 46.7263375,
+    "lng": 3.1938906
+  },
+  {
+    "name": "Manoir de la golf",
+    "lat": 44.1702875,
+    "lng": 4.9618594
+  },
+  {
+    "name": "Maison Savana",
+    "lat": 50.3295625,
+    "lng": 1.8785469
+  },
+  {
+    "name": "Chateau chevron",
+    "lat": 45.6751125,
+    "lng": 6.3372344
+  },
+  {
+    "name": "Bunker",
+    "lat": 49.3674875,
+    "lng": 6.3283594
+  },
+  {
+    "name": "Maison Oiseau Bleu",
+    "lat": 50.2739625,
+    "lng": 3.7901406
+  },
+  {
+    "name": "Manoir Meuble",
+    "lat": 47.7985125,
+    "lng": 2.6972969
+  },
+  {
+    "name": "Maison nudiste",
+    "lat": 49.2997375,
+    "lng": 2.2632077
+  },
+  {
+    "name": "Chateau charades",
+    "lat": 48.4725198,
+    "lng": 6.3133487
+  },
+  {
+    "name": "Maison polynaise",
+    "lat": 44.4798875,
+    "lng": 0.7873281
+  },
+  {
+    "name": "Villa",
+    "lat": 48.1505125,
+    "lng": 5.8305469
+  },
+  {
+    "name": "manoir du medecin",
+    "lat": 44.0868662,
+    "lng": 4.8864603
+  },
+  {
+    "name": "Maison aux milles mercedes",
+    "lat": 49.4994183,
+    "lng": 4.3576336
+  },
+  {
+    "name": "Maison Lina",
+    "lat": 46.2841625,
+    "lng": 4.2984219
+  },
+  {
+    "name": "Manoir Soupir",
+    "lat": 47.555323,
+    "lng": 2.8440043
+  },
+  {
+    "name": "Manoir du Militaire",
+    "lat": 49.2077125,
+    "lng": 1.3787031
+  },
+  {
+    "name": "Maison fouin",
+    "lat": 44.3075625,
+    "lng": 0.4527031
+  },
+  {
+    "name": "Maison Blicourt",
+    "lat": 49.5555625,
+    "lng": 2.0610781
+  },
+  {
+    "name": "Maison ch\u00b4ti",
+    "lat": 50.1514875,
+    "lng": 2.9114844
+  },
+  {
+    "name": "Ferme",
+    "lat": 47.1552625,
+    "lng": 0.9958906
+  },
+  {
+    "name": "Maison British",
+    "lat": 48.4415125,
+    "lng": 7.2458281
+  },
+  {
+    "name": "Manoir Jade",
+    "lat": 48.1721375,
+    "lng": 1.7134531
+  },
+  {
+    "name": "Maison Efeu",
+    "lat": 50.0305625,
+    "lng": 2.9823906
+  },
+  {
+    "name": "Fabrik",
+    "lat": 48.0848375,
+    "lng": 7.2767969
+  },
+  {
+    "name": "Maison Moulin",
+    "lat": 49.3260392,
+    "lng": 1.7203524
+  },
+  {
+    "name": "Maison chasseur de police",
+    "lat": 44.7233125,
+    "lng": 1.0792969
+  },
+  {
+    "name": "Maison Biljard",
+    "lat": 49.0857875,
+    "lng": 3.2133594
+  },
+  {
+    "name": "Maison Patriote",
+    "lat": 44.2685625,
+    "lng": 0.5187656
+  },
+  {
+    "name": "Maison Pepe",
+    "lat": 50.3045625,
+    "lng": 2.4079844
+  },
+  {
+    "name": "Maison",
+    "lat": 47.1407318,
+    "lng": 4.8828745
+  },
+  {
+    "name": "Manoir Simonet",
+    "lat": 50.0485375,
+    "lng": 4.7217656
+  },
+  {
+    "name": "Ch\u00e2teau Napoleon",
+    "lat": 44.4216875,
+    "lng": 1.0788125
+  },
+  {
+    "name": "Ch\u00e2teau Billonaire",
+    "lat": 43.2007625,
+    "lng": 2.4618281
+  },
+  {
+    "name": "Les Thermes Roses",
+    "lat": 45.9191875,
+    "lng": 3.0633594
+  },
+  {
+    "name": "maison de grand-m\u00e8re",
+    "lat": 47.5765625,
+    "lng": 6.2520156
+  },
+  {
+    "name": "Manoir Deutsch",
+    "lat": 48.146616,
+    "lng": 6.8065934
+  },
+  {
+    "name": "Manoir Dorcel",
+    "lat": 43.9895125,
+    "lng": 0.5434219
+  },
+  {
+    "name": "Maison sans facade",
+    "lat": 49.0412301,
+    "lng": 0.42385
+  },
+  {
+    "name": "Maison Joseph",
+    "lat": 45.3715305,
+    "lng": 5.6923433
+  },
+  {
+    "name": "Maison bleu",
+    "lat": 47.8541625,
+    "lng": 2.4735469
+  },
+  {
+    "name": "Kapelle",
+    "lat": 44.1633625,
+    "lng": 2.1665156
+  },
+  {
+    "name": "Maison Gepetto",
+    "lat": 50.3249875,
+    "lng": 2.3608281
+  },
+  {
+    "name": "Ferme de la Rose",
+    "lat": 49.6306875,
+    "lng": 4.5017031
+  },
+  {
+    "name": "Maison Pharaon",
+    "lat": 43.8283625,
+    "lng": 7.3671406
+  },
+  {
+    "name": "Maison Marguerite",
+    "lat": 48.9120876,
+    "lng": 0.8479851
+  },
+  {
+    "name": "Maison cubidon",
+    "lat": 50.8369625,
+    "lng": 2.0200469
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.8278879,
+    "lng": 3.269802
+  },
+  {
+    "name": "Ferme Pelican",
+    "lat": 50.7253125,
+    "lng": 2.9860156
+  },
+  {
+    "name": "Ferme Panthere Bleue",
+    "lat": 50.3839905,
+    "lng": 1.8329782
+  },
+  {
+    "name": "Maison Coffre Fort",
+    "lat": 50.3741375,
+    "lng": 2.0550781
+  },
+  {
+    "name": "Manoir Pendulum",
+    "lat": 50.4073625,
+    "lng": 2.3050156
+  },
+  {
+    "name": "Ferme Tracteur",
+    "lat": 50.2968875,
+    "lng": 2.3203594
+  },
+  {
+    "name": "Chateau de Bois",
+    "lat": 49.299017,
+    "lng": 2.6165679
+  },
+  {
+    "name": "Maison du lapin rose",
+    "lat": 48.9643375,
+    "lng": 2.0953906
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 49.0126781,
+    "lng": 1.6973925
+  },
+  {
+    "name": "Altenheim",
+    "lat": 49.3256625,
+    "lng": 2.4779531
+  },
+  {
+    "name": "Maison du faisan",
+    "lat": 50.591671,
+    "lng": 3.2562407
+  },
+  {
+    "name": "Maison Veste",
+    "lat": 50.5710404,
+    "lng": 1.7451253
+  },
+  {
+    "name": "Autos",
+    "lat": 46.6187875,
+    "lng": 1.4935156
+  },
+  {
+    "name": "Panzer",
+    "lat": 49.1413322,
+    "lng": 4.4672423
+  },
+  {
+    "name": "Kirche",
+    "lat": 48.568691,
+    "lng": 1.2525496
+  },
+  {
+    "name": "Manoir Krug",
+    "lat": 48.4273625,
+    "lng": 4.4100781
+  },
+  {
+    "name": "Ferme du lapin",
+    "lat": 48.8508625,
+    "lng": 5.2807031
+  },
+  {
+    "name": "Ferme buse",
+    "lat": 50.4608125,
+    "lng": 3.4143281
+  },
+  {
+    "name": "Maison Pastis",
+    "lat": 49.0873125,
+    "lng": 0.2477656
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.3741875,
+    "lng": 1.9912031
+  },
+  {
+    "name": "Autos",
+    "lat": 50.2363711,
+    "lng": 3.8365783
+  },
+  {
+    "name": "Autos",
+    "lat": 49.6847375,
+    "lng": 2.5826406
+  },
+  {
+    "name": "Chateau Machiavellian",
+    "lat": 47.8289215,
+    "lng": 0.7878792
+  },
+  {
+    "name": "Manoir Darkbang",
+    "lat": 47.974827,
+    "lng": 2.1939381
+  },
+  {
+    "name": "Maison Alfred",
+    "lat": 47.5364353,
+    "lng": 6.5110969
+  },
+  {
+    "name": "Maison Max",
+    "lat": 43.4397174,
+    "lng": 3.1461647
+  },
+  {
+    "name": "Manoir de l'architecte",
+    "lat": 43.9859141,
+    "lng": 1.2661261
+  },
+  {
+    "name": "Mine",
+    "lat": 49.3796125,
+    "lng": 6.0676406
+  },
+  {
+    "name": "Manoir Royal",
+    "lat": 48.6515875,
+    "lng": 1.5396094
+  },
+  {
+    "name": "Maison du Peintre",
+    "lat": 44.5708375,
+    "lng": 0.0147656
+  },
+  {
+    "name": "Maison Jumelle",
+    "lat": 48.5099946,
+    "lng": 3.7856022
+  },
+  {
+    "name": "Lokschuppen",
+    "lat": 48.9057625,
+    "lng": 6.7323906
+  },
+  {
+    "name": "Maison Vincent",
+    "lat": 47.9957444,
+    "lng": 6.2759184
+  },
+  {
+    "name": "Bergwerk",
+    "lat": 47.6776125,
+    "lng": 6.6140156
+  },
+  {
+    "name": "Maison Exudat",
+    "lat": 50.3052312,
+    "lng": 3.6583386
+  },
+  {
+    "name": "Kapelle",
+    "lat": 50.7231125,
+    "lng": 2.2816406
+  },
+  {
+    "name": "Manoir grand depression",
+    "lat": 50.5012375,
+    "lng": 2.4487031
+  },
+  {
+    "name": "Maison",
+    "lat": 50.5157875,
+    "lng": 2.5383594
+  },
+  {
+    "name": "Le chateau Clairdome",
+    "lat": 48.7691875,
+    "lng": 1.2425469
+  },
+  {
+    "name": "Manoir Trois Colonnes",
+    "lat": 48.5907375,
+    "lng": 2.0650781
+  },
+  {
+    "name": "Chateau Bibliotheque",
+    "lat": 48.5380875,
+    "lng": 2.3421719
+  },
+  {
+    "name": "Chateau Miramar",
+    "lat": 48.3198464,
+    "lng": 2.0909067
+  },
+  {
+    "name": "Manoir Jumanji",
+    "lat": 48.5915125,
+    "lng": 2.0633594
+  },
+  {
+    "name": "Schule",
+    "lat": 48.8926349,
+    "lng": 2.2231569
+  },
+  {
+    "name": "Chateau Poseidon",
+    "lat": 47.2244375,
+    "lng": 1.6160625
+  },
+  {
+    "name": "Chateau academicien",
+    "lat": 45.1341283,
+    "lng": 2.9827227
+  },
+  {
+    "name": "Maison Gabriel",
+    "lat": 45.9207177,
+    "lng": 5.3016036
+  },
+  {
+    "name": "Manoir Resurrection",
+    "lat": 50.381788,
+    "lng": 1.831629
+  },
+  {
+    "name": "Chateau Faisans",
+    "lat": 48.7537789,
+    "lng": 2.9093543
+  },
+  {
+    "name": "Manoir Gucci",
+    "lat": 49.4088811,
+    "lng": 2.8366291
+  },
+  {
+    "name": "Autos",
+    "lat": 49.0508125,
+    "lng": 3.0422344
+  },
+  {
+    "name": "Ch\u00e2teau d'Edra",
+    "lat": 45.2899389,
+    "lng": 2.6370576
+  },
+  {
+    "name": "Zeche",
+    "lat": 49.2054875,
+    "lng": 6.8633594
+  },
+  {
+    "name": "Fabrik",
+    "lat": 48.3263875,
+    "lng": 7.6985469
+  },
+  {
+    "name": "Manoir Ozan",
+    "lat": 46.3614282,
+    "lng": 6.3449023
+  },
+  {
+    "name": "Manoir du Cineaste",
+    "lat": 47.8337625,
+    "lng": 5.6976719
+  },
+  {
+    "name": "Manoir des anglais",
+    "lat": 44.7188625,
+    "lng": 0.2821719
+  },
+  {
+    "name": "Manoir livre",
+    "lat": 47.2776029,
+    "lng": 3.4912001
+  },
+  {
+    "name": "Autos",
+    "lat": 47.2229375,
+    "lng": 6.0204844
+  },
+  {
+    "name": "Maison Alf",
+    "lat": 48.1850125,
+    "lng": 6.9443594
+  },
+  {
+    "name": "Maison des poupees",
+    "lat": 42.9678625,
+    "lng": 0.6228281
+  },
+  {
+    "name": "Manoir Madame B",
+    "lat": 43.0819875,
+    "lng": 0.1391094
+  },
+  {
+    "name": "Ch\u00e2teau Blancard",
+    "lat": 43.3440875,
+    "lng": 0.6455469
+  },
+  {
+    "name": "Schule",
+    "lat": 42.9739625,
+    "lng": 0.6525781
+  },
+  {
+    "name": "Manoir S",
+    "lat": 43.2090375,
+    "lng": 0.6672969
+  },
+  {
+    "name": "L\u2019H\u00f4tel Cloclo",
+    "lat": 42.9447625,
+    "lng": 0.2743594
+  },
+  {
+    "name": "Manoir Journaux",
+    "lat": 43.4466875,
+    "lng": 0.3570781
+  },
+  {
+    "name": "Villa Serpent",
+    "lat": 43.4488067,
+    "lng": 1.5352068
+  },
+  {
+    "name": "Ch\u00e2teau du Saint-Clar-de-Rivi\u00e8re",
+    "lat": 43.4674375,
+    "lng": 1.2160469
+  },
+  {
+    "name": "Le bateau restaurant",
+    "lat": 43.4934125,
+    "lng": 1.5356406
+  },
+  {
+    "name": "Manoir de la Dame du Lac",
+    "lat": 43.606548,
+    "lng": 0.2277017
+  },
+  {
+    "name": "Ch\u00e2teau Annelise",
+    "lat": 43.8715625,
+    "lng": 0.3383594
+  },
+  {
+    "name": "Autos",
+    "lat": 43.2882875,
+    "lng": 0.9838906
+  },
+  {
+    "name": "Gew\u00e4chshaus",
+    "lat": 43.5971375,
+    "lng": 1.2862656
+  },
+  {
+    "name": "Ch\u00e2teau Thomas Rung",
+    "lat": 43.8632125,
+    "lng": 1.4016719
+  },
+  {
+    "name": "Airbus School",
+    "lat": 43.6426125,
+    "lng": 1.3738281
+  },
+  {
+    "name": "Maison Medievale",
+    "lat": 44.5836125,
+    "lng": 2.1872031
+  },
+  {
+    "name": "Ch\u00e2teau du Colonel",
+    "lat": 43.7344375,
+    "lng": 1.3864531
+  },
+  {
+    "name": "Manoir au 4 vents",
+    "lat": 44.5317125,
+    "lng": 1.4664844
+  },
+  {
+    "name": "Grand hotel de la Source",
+    "lat": 44.8328125,
+    "lng": 1.6960156
+  },
+  {
+    "name": "Kohlew\u00e4scherei",
+    "lat": 44.0397041,
+    "lng": 2.1430341
+  },
+  {
+    "name": "Ch\u00e2teau du ma\u00e7on",
+    "lat": 43.9412781,
+    "lng": 1.9594558
+  },
+  {
+    "name": "Mine",
+    "lat": 43.3393875,
+    "lng": 2.3610156
+  },
+  {
+    "name": "Maison Globe",
+    "lat": 43.4374625,
+    "lng": 3.0947031
+  },
+  {
+    "name": "Villa des Orangers",
+    "lat": 43.0829125,
+    "lng": 2.1969219
+  },
+  {
+    "name": "Sanatorium",
+    "lat": 43.5152375,
+    "lng": 2.7263906
+  },
+  {
+    "name": "Ch\u00e2teau Sedrati",
+    "lat": 43.2289625,
+    "lng": 3.0890469
+  },
+  {
+    "name": "Ch\u00e2teau du Bois",
+    "lat": 43.5987125,
+    "lng": 3.8284219
+  },
+  {
+    "name": "Schiff",
+    "lat": 43.4105125,
+    "lng": 3.7019531
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 44.1335875,
+    "lng": 4.0701094
+  },
+  {
+    "name": "Ch\u00e2teau Isabelle",
+    "lat": 43.6003375,
+    "lng": 3.8778281
+  },
+  {
+    "name": "Maison Hant\u00e9e",
+    "lat": 43.4376875,
+    "lng": 3.6169531
+  },
+  {
+    "name": "Chateau Lavagnac",
+    "lat": 43.5091875,
+    "lng": 3.4746875
+  },
+  {
+    "name": "Garage Poussette",
+    "lat": 47.7193375,
+    "lng": 5.8443281
+  },
+  {
+    "name": "Maison de la Faucheuse",
+    "lat": 47.7112625,
+    "lng": 5.7417969
+  },
+  {
+    "name": "Fort",
+    "lat": 46.8925875,
+    "lng": 6.3922031
+  },
+  {
+    "name": "Autos",
+    "lat": 47.4485125,
+    "lng": 6.2062969
+  },
+  {
+    "name": "Ch\u00e2teau des 4 dames",
+    "lat": 47.3825125,
+    "lng": 6.0017344
+  },
+  {
+    "name": "Manoir Jeanne",
+    "lat": 46.8889625,
+    "lng": 5.2617656
+  },
+  {
+    "name": "Chateau IBM",
+    "lat": 47.5123125,
+    "lng": 6.3301719
+  },
+  {
+    "name": "Chateau Thaix",
+    "lat": 46.8480625,
+    "lng": 3.7376719
+  },
+  {
+    "name": "Chateau Secret",
+    "lat": 46.8637375,
+    "lng": 3.2062656
+  },
+  {
+    "name": "Autos",
+    "lat": 46.6489875,
+    "lng": 4.7441094
+  },
+  {
+    "name": "Kohlew\u00e4scherei",
+    "lat": 46.6601625,
+    "lng": 4.3437344
+  },
+  {
+    "name": "Ch\u00e2teau du Pilote",
+    "lat": 46.2625375,
+    "lng": 4.7607656
+  },
+  {
+    "name": "Maison Vroom",
+    "lat": 46.8892875,
+    "lng": 4.6778906
+  },
+  {
+    "name": "Sanatorium",
+    "lat": 46.4088375,
+    "lng": 4.5603594
+  },
+  {
+    "name": "Fort",
+    "lat": 47.2678625,
+    "lng": 5.0432969
+  },
+  {
+    "name": "Fabrik",
+    "lat": 47.4897625,
+    "lng": 4.1222656
+  },
+  {
+    "name": "Chateau Marianne",
+    "lat": 47.9174625,
+    "lng": 4.7363281
+  },
+  {
+    "name": "Maison du chien",
+    "lat": 49.1255875,
+    "lng": 1.4357344
+  },
+  {
+    "name": "Piscine Tournesol",
+    "lat": 49.8759125,
+    "lng": 1.1384531
+  },
+  {
+    "name": "Chateau d\u2019Antiville",
+    "lat": 49.6418125,
+    "lng": 0.4013594
+  },
+  {
+    "name": "Chateau de Pont-Saint-Pierre",
+    "lat": 49.3338125,
+    "lng": 1.2850625
+  },
+  {
+    "name": "Maison Nightmare",
+    "lat": 49.5131125,
+    "lng": 0.3567344
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.3608125,
+    "lng": 0.4988125
+  },
+  {
+    "name": "Manoir Damocles",
+    "lat": 48.8563437,
+    "lng": 0.6011873
+  },
+  {
+    "name": "Chateau de l'hermite",
+    "lat": 48.8489375,
+    "lng": 0.7300781
+  },
+  {
+    "name": "Chateau Anzeray",
+    "lat": 48.9208875,
+    "lng": 0.6879531
+  },
+  {
+    "name": "Chateau Japonais",
+    "lat": 48.8869875,
+    "lng": 1.0849219
+  },
+  {
+    "name": "Chateau de Serquigny",
+    "lat": 49.1062375,
+    "lng": 0.7094844
+  },
+  {
+    "name": "Maison Mexico",
+    "lat": 48.7390625,
+    "lng": 0.9318281
+  },
+  {
+    "name": "Maison Renard",
+    "lat": 48.944347,
+    "lng": 0.8303592
+  },
+  {
+    "name": "Manoir Tapis Rouge",
+    "lat": 49.3454555,
+    "lng": 6.1618747
+  },
+  {
+    "name": "Kaserne",
+    "lat": 49.3940625,
+    "lng": 6.0572969
+  },
+  {
+    "name": "Fabrik",
+    "lat": 48.9399555,
+    "lng": 7.8203042
+  },
+  {
+    "name": "Ferme McCormick",
+    "lat": 48.2080418,
+    "lng": 7.5736882
+  },
+  {
+    "name": "Chateau Allemagne",
+    "lat": 48.1761625,
+    "lng": 7.0118281
+  },
+  {
+    "name": "Chateau de saulxure",
+    "lat": 47.9475625,
+    "lng": 6.7677969
+  },
+  {
+    "name": "Hotel Vasili Komaroff",
+    "lat": 48.2040625,
+    "lng": 5.9398281
+  },
+  {
+    "name": "Maison de Philosophe",
+    "lat": 47.8303375,
+    "lng": 5.6946719
+  },
+  {
+    "name": "Airplane Graveyard",
+    "lat": 48.4227125,
+    "lng": 4.4958906
+  },
+  {
+    "name": "Chapelle des Morts",
+    "lat": 48.4032625,
+    "lng": 4.5026406
+  },
+  {
+    "name": "Maison Saphir",
+    "lat": 48.6454198,
+    "lng": 3.9442066
+  },
+  {
+    "name": "Manoir Petrouchka",
+    "lat": 48.0438829,
+    "lng": 4.6693992
+  },
+  {
+    "name": "Manoir aux Canons",
+    "lat": 49.1539125,
+    "lng": 4.0651406
+  },
+  {
+    "name": "Maison 1000 Bottles",
+    "lat": 48.6975342,
+    "lng": 3.5711803
+  },
+  {
+    "name": "Strumpffabrik",
+    "lat": 48.4258375,
+    "lng": 3.9169844
+  },
+  {
+    "name": "Ch\u00e2teau Jaguar",
+    "lat": 49.6360625,
+    "lng": 4.3564219
+  },
+  {
+    "name": "Usine Minion",
+    "lat": 49.3108304,
+    "lng": 3.7333256
+  },
+  {
+    "name": "Manoir Panthera",
+    "lat": 47.3461625,
+    "lng": 1.2271719
+  },
+  {
+    "name": "Manoir Mutilation",
+    "lat": 47.1943414,
+    "lng": 0.9990561
+  },
+  {
+    "name": "Ch\u00e2teau Pentagone",
+    "lat": 49.1636625,
+    "lng": 2.4492344
+  },
+  {
+    "name": "Manoir da Vinci",
+    "lat": 49.3478466,
+    "lng": 2.0662621
+  },
+  {
+    "name": "Manoir Malediction",
+    "lat": 49.9649125,
+    "lng": 1.7919844
+  },
+  {
+    "name": "Greenhouse",
+    "lat": 49.0851766,
+    "lng": 3.5538884
+  },
+  {
+    "name": "Maison Lierre",
+    "lat": 50.532158,
+    "lng": 2.8020643
+  },
+  {
+    "name": "Fort",
+    "lat": 50.8052125,
+    "lng": 1.6006527
+  },
+  {
+    "name": "chateau dystopia",
+    "lat": 46.0381875,
+    "lng": 0.8494531
+  },
+  {
+    "name": "Chateau Grenouille",
+    "lat": 44.917809,
+    "lng": 4.8792951
+  },
+  {
+    "name": "Chateau Chrysantheme",
+    "lat": 46.5303125,
+    "lng": 3.7432031
+  },
+  {
+    "name": "Blue Therme",
+    "lat": 46.2366125,
+    "lng": 3.8356094
+  },
+  {
+    "name": "Piscine Tigres",
+    "lat": 45.5891875,
+    "lng": 2.9914219
+  },
+  {
+    "name": "Manoir Colimacon",
+    "lat": 48.4898625,
+    "lng": 2.8621406
+  },
+  {
+    "name": "Villa Scarface",
+    "lat": 49.0434375,
+    "lng": 2.2283125
+  },
+  {
+    "name": "Manoir Institutrice",
+    "lat": 49.0715375,
+    "lng": 2.1996406
+  },
+  {
+    "name": "Manoir Salon Jaune",
+    "lat": 49.160041,
+    "lng": 1.8011794
+  },
+  {
+    "name": "Grube Simon",
+    "lat": 49.2028125,
+    "lng": 6.9135469
+  },
+  {
+    "name": "Chateau de Bagnac",
+    "lat": 46.1519625,
+    "lng": 0.9702656
+  },
+  {
+    "name": "Kirche",
+    "lat": 44.9958125,
+    "lng": 10.2315156
+  },
+  {
+    "name": "Casa del Impagliatore",
+    "lat": 45.2343625,
+    "lng": 10.9345156
+  },
+  {
+    "name": "Hotel Miramonti",
+    "lat": 46.0343875,
+    "lng": 8.6646094
+  },
+  {
+    "name": "Hotel Imperial",
+    "lat": 45.3226625,
+    "lng": 11.7847969
+  },
+  {
+    "name": "Hotel Cristallo",
+    "lat": 45.3338235,
+    "lng": 11.783358
+  },
+  {
+    "name": "Villa V",
+    "lat": 44.4208375,
+    "lng": 11.6857344
+  },
+  {
+    "name": "Sanatorium",
+    "lat": 45.6128201,
+    "lng": 9.3685826
+  },
+  {
+    "name": "Blue Church",
+    "lat": 44.7940601,
+    "lng": 9.6074208
+  },
+  {
+    "name": "Casa santa claus",
+    "lat": 44.8741875,
+    "lng": 9.5722344
+  },
+  {
+    "name": "Theatre",
+    "lat": 45.8106875,
+    "lng": 9.0767656
+  },
+  {
+    "name": "Villa",
+    "lat": 45.8303316,
+    "lng": 8.7984922
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.836464,
+    "lng": 11.0003034
+  },
+  {
+    "name": "Theater",
+    "lat": 45.4605625,
+    "lng": 8.8506719
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.4617614,
+    "lng": 8.8498795
+  },
+  {
+    "name": "Villa Tenno",
+    "lat": 45.9181125,
+    "lng": 10.8818906
+  },
+  {
+    "name": "Villa Cinta",
+    "lat": 45.91752,
+    "lng": 10.887794
+  },
+  {
+    "name": "Chiesa della Madonna del Vigne",
+    "lat": 45.2208125,
+    "lng": 8.2281719
+  },
+  {
+    "name": "Villa Bottini",
+    "lat": 43.8583396,
+    "lng": 10.622813
+  },
+  {
+    "name": "Eglise du christ couche",
+    "lat": 44.9200609,
+    "lng": 9.4747381
+  },
+  {
+    "name": "Fabrik",
+    "lat": 43.9363877,
+    "lng": 8.0624519
+  },
+  {
+    "name": "Miro NightClub",
+    "lat": 45.6758825,
+    "lng": 13.0959951
+  },
+  {
+    "name": "Hospital",
+    "lat": 45.3113776,
+    "lng": 8.4372824
+  },
+  {
+    "name": "Divina NightClub",
+    "lat": 44.4050048,
+    "lng": 7.4460675
+  },
+  {
+    "name": "Fabrik",
+    "lat": 44.2300184,
+    "lng": 12.0431802
+  },
+  {
+    "name": "Oculus Tower",
+    "lat": 44.8420125,
+    "lng": 11.5915469
+  },
+  {
+    "name": "Schiff Restaurant",
+    "lat": 43.4432303,
+    "lng": 12.9015531
+  },
+  {
+    "name": "Farm",
+    "lat": 45.6855806,
+    "lng": 13.0418111
+  },
+  {
+    "name": "Velodrom",
+    "lat": 40.3234421,
+    "lng": 18.0711443
+  },
+  {
+    "name": "Villa Serpente",
+    "lat": 45.7353894,
+    "lng": 9.7354335
+  },
+  {
+    "name": "Aquapark",
+    "lat": 44.5310125,
+    "lng": 11.2808906
+  },
+  {
+    "name": "Therme",
+    "lat": 45.7493899,
+    "lng": 7.6558581
+  },
+  {
+    "name": "Kinderheim",
+    "lat": 45.201989,
+    "lng": 8.2993431
+  },
+  {
+    "name": "Dorf",
+    "lat": 42.292351,
+    "lng": 13.4880604
+  },
+  {
+    "name": "Castello\u00a0armure noir",
+    "lat": 43.2930007,
+    "lng": 12.6603263
+  },
+  {
+    "name": "Villa Alessandro Poss",
+    "lat": 45.9404569,
+    "lng": 8.5877953
+  },
+  {
+    "name": "Villa du Medecin",
+    "lat": 44.0704778,
+    "lng": 10.0742483
+  },
+  {
+    "name": "Manicomio",
+    "lat": 43.4014461,
+    "lng": 10.8746945
+  },
+  {
+    "name": "Bergwerk",
+    "lat": 45.8029812,
+    "lng": 10.3051495
+  },
+  {
+    "name": "Kirche",
+    "lat": 45.6494375,
+    "lng": 9.2790625
+  },
+  {
+    "name": "Aquapark",
+    "lat": 45.4350125,
+    "lng": 9.3588594
+  },
+  {
+    "name": "ACE High-Station Dosso dei Galli",
+    "lat": 45.8537361,
+    "lng": 10.3757937
+  },
+  {
+    "name": "Farm",
+    "lat": 45.6366875,
+    "lng": 12.7486719
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.1497375,
+    "lng": 8.4442344
+  },
+  {
+    "name": "Villla del Cacciatore",
+    "lat": 43.2919774,
+    "lng": 13.3279793
+  },
+  {
+    "name": "Villa delle Spade",
+    "lat": 43.861806,
+    "lng": 12.9246174
+  },
+  {
+    "name": "Sanatorium Salvini",
+    "lat": 45.5814189,
+    "lng": 9.0966049
+  },
+  {
+    "name": "Kirche",
+    "lat": 45.5602969,
+    "lng": 8.2415791
+  },
+  {
+    "name": "Casa Rainbow",
+    "lat": 45.6330363,
+    "lng": 8.1479424
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.2234803,
+    "lng": 7.5853843
+  },
+  {
+    "name": "Villa Melano",
+    "lat": 45.0685295,
+    "lng": 7.5083524
+  },
+  {
+    "name": "Kloster",
+    "lat": 44.8992125,
+    "lng": 7.3740781
+  },
+  {
+    "name": "Hotel",
+    "lat": 45.3508031,
+    "lng": 11.7818512
+  },
+  {
+    "name": "Villa Ancilotto",
+    "lat": 45.6498375,
+    "lng": 12.5499531
+  },
+  {
+    "name": "Aquapark",
+    "lat": 43.0807972,
+    "lng": 13.8450566
+  },
+  {
+    "name": "Villa Ardesia",
+    "lat": 44.404624,
+    "lng": 9.2729788
+  },
+  {
+    "name": "Villa Spazio Rotonda",
+    "lat": 45.2369268,
+    "lng": 9.9265389
+  },
+  {
+    "name": "palazzo d oro",
+    "lat": 45.3286493,
+    "lng": 8.7658173
+  },
+  {
+    "name": "Kloster",
+    "lat": 43.6798662,
+    "lng": 12.7977929
+  },
+  {
+    "name": "Irish Pub",
+    "lat": 45.7054345,
+    "lng": 9.3352549
+  },
+  {
+    "name": "Villa",
+    "lat": 45.7095437,
+    "lng": 11.5252779
+  },
+  {
+    "name": "Villa Targaryen",
+    "lat": 45.3726371,
+    "lng": 9.868935
+  },
+  {
+    "name": "Villa Stillisto",
+    "lat": 45.5612625,
+    "lng": 7.9489531
+  },
+  {
+    "name": "Flugzeug",
+    "lat": 45.9832099,
+    "lng": 12.6042914
+  },
+  {
+    "name": "Manicomia trezza Ponton",
+    "lat": 45.5154826,
+    "lng": 10.8066446
+  },
+  {
+    "name": "NATO Base",
+    "lat": 44.3214375,
+    "lng": 10.1252344
+  },
+  {
+    "name": "Fabrik",
+    "lat": 43.6623375,
+    "lng": 10.6898906
+  },
+  {
+    "name": "Sanatorio Arliano",
+    "lat": 43.8414625,
+    "lng": 10.4085781
+  },
+  {
+    "name": "Aquapark",
+    "lat": 40.395264,
+    "lng": 9.7607191
+  },
+  {
+    "name": "Villa Wind",
+    "lat": 44.1325835,
+    "lng": 9.8604408
+  },
+  {
+    "name": "Villa Santa Cristina",
+    "lat": 43.8768126,
+    "lng": 11.1209099
+  },
+  {
+    "name": "Villa Mary Poppins",
+    "lat": 43.8547583,
+    "lng": 10.6836103
+  },
+  {
+    "name": "Zementfabrik",
+    "lat": 40.6999375,
+    "lng": 8.6019531
+  },
+  {
+    "name": "Red Cross Hospital",
+    "lat": 45.9809625,
+    "lng": 8.6001406
+  },
+  {
+    "name": "Ballhaus",
+    "lat": 43.529105,
+    "lng": 10.3631601
+  },
+  {
+    "name": "Villa",
+    "lat": 45.9805375,
+    "lng": 8.5997656
+  },
+  {
+    "name": "Villa Minetta",
+    "lat": 44.7524623,
+    "lng": 8.7920373
+  },
+  {
+    "name": "Grand Hotel Paragon",
+    "lat": 44.8132241,
+    "lng": 9.9817068
+  },
+  {
+    "name": "Casa della Moda",
+    "lat": 44.7002625,
+    "lng": 11.4179219
+  },
+  {
+    "name": "Manicomio Mombello",
+    "lat": 45.6141454,
+    "lng": 9.1261119
+  },
+  {
+    "name": "Dorf",
+    "lat": 41.1195125,
+    "lng": 14.9309844
+  },
+  {
+    "name": "Villa Inzani",
+    "lat": 44.7601875,
+    "lng": 10.4609531
+  },
+  {
+    "name": "Tierversuchslabor",
+    "lat": 45.1583375,
+    "lng": 9.6972344
+  },
+  {
+    "name": "Hotel",
+    "lat": 43.9957685,
+    "lng": 8.1588774
+  },
+  {
+    "name": "Manicomio",
+    "lat": 43.954955,
+    "lng": 10.9182545
+  },
+  {
+    "name": "Vecchia Filanda Villa",
+    "lat": 45.705995,
+    "lng": 9.5075604
+  },
+  {
+    "name": "Villa Siotto Pintor",
+    "lat": 45.675965,
+    "lng": 9.8294777
+  },
+  {
+    "name": "Villa Moglia",
+    "lat": 45.0185125,
+    "lng": 7.7878281
+  },
+  {
+    "name": "Villa Caire",
+    "lat": 44.7439875,
+    "lng": 7.7150156
+  },
+  {
+    "name": "Fort",
+    "lat": 45.7239125,
+    "lng": 10.4454844
+  },
+  {
+    "name": "Manicomio di Racconigi",
+    "lat": 44.7659875,
+    "lng": 7.6787969
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.6143125,
+    "lng": 9.8990625
+  },
+  {
+    "name": "Zementfabrik",
+    "lat": 45.735356,
+    "lng": 9.7394321
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 46.0643375,
+    "lng": 10.4188594
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 45.6948375,
+    "lng": 8.8763594
+  },
+  {
+    "name": "Fabrik",
+    "lat": 45.615005,
+    "lng": 8.9001406
+  },
+  {
+    "name": "Kloster",
+    "lat": 42.4537367,
+    "lng": 12.3853334
+  },
+  {
+    "name": "Hotel",
+    "lat": 45.7486182,
+    "lng": 7.6521752
+  },
+  {
+    "name": "Castello\u00a0Cereseto",
+    "lat": 45.0865379,
+    "lng": 8.3167779
+  },
+  {
+    "name": "Villino Romito",
+    "lat": 44.2226471,
+    "lng": 11.0644584
+  },
+  {
+    "name": "Kirche",
+    "lat": 44.7457375,
+    "lng": 10.2187656
+  },
+  {
+    "name": "Villa Magherita",
+    "lat": 45.134189,
+    "lng": 8.4317736
+  },
+  {
+    "name": "Kirche",
+    "lat": 45.2571875,
+    "lng": 8.1980625
+  },
+  {
+    "name": "Flugzeug",
+    "lat": 45.1256189,
+    "lng": 10.5416148
+  },
+  {
+    "name": "Villa Corinna",
+    "lat": 45.5841557,
+    "lng": 8.1964739
+  },
+  {
+    "name": "Kloster",
+    "lat": 41.7805125,
+    "lng": 12.6777656
+  },
+  {
+    "name": "Villa Mistral",
+    "lat": 44.8903375,
+    "lng": 9.8981406
+  },
+  {
+    "name": "Villa Porro Lamberthengi",
+    "lat": 45.7506562,
+    "lng": 9.0334468
+  },
+  {
+    "name": "Kirche",
+    "lat": 44.2715625,
+    "lng": 8.3291875
+  },
+  {
+    "name": "Hospital",
+    "lat": 40.9339625,
+    "lng": 9.5335781
+  },
+  {
+    "name": "Disco",
+    "lat": 42.5621205,
+    "lng": 14.1045721
+  },
+  {
+    "name": "Zuckerfabrik",
+    "lat": 43.3078093,
+    "lng": 10.5084373
+  },
+  {
+    "name": "Baumwollfabrik",
+    "lat": 45.2112875,
+    "lng": 7.5497969
+  },
+  {
+    "name": "Kirche",
+    "lat": 43.3896738,
+    "lng": 11.3851644
+  },
+  {
+    "name": "Hotel",
+    "lat": 39.3777141,
+    "lng": 8.4942423
+  },
+  {
+    "name": "Kloster",
+    "lat": 45.2791054,
+    "lng": 7.496621
+  },
+  {
+    "name": "Villa",
+    "lat": 39.6305228,
+    "lng": 8.9627229
+  },
+  {
+    "name": "Kirche",
+    "lat": 44.2100625,
+    "lng": 11.9450156
+  },
+  {
+    "name": "Hospital",
+    "lat": 45.2801149,
+    "lng": 7.4956406
+  },
+  {
+    "name": "Manicomio Rizzeddu",
+    "lat": 40.7145875,
+    "lng": 8.5604219
+  },
+  {
+    "name": "Air Base",
+    "lat": 40.8571375,
+    "lng": 9.1702344
+  },
+  {
+    "name": "Fabrik",
+    "lat": 40.9882198,
+    "lng": 9.6466709
+  },
+  {
+    "name": "Dorf",
+    "lat": 42.4861819,
+    "lng": 12.7615331
+  },
+  {
+    "name": "Dorf",
+    "lat": 42.792135,
+    "lng": 12.9903144
+  },
+  {
+    "name": "Kloster",
+    "lat": 42.5794375,
+    "lng": 12.6562031
+  },
+  {
+    "name": "Bordell",
+    "lat": 46.7855375,
+    "lng": 14.8501406
+  },
+  {
+    "name": "Papierfabrik",
+    "lat": 47.2848875,
+    "lng": 15.3121094
+  },
+  {
+    "name": "Casa Medicus",
+    "lat": 45.8485375,
+    "lng": 9.0347031
+  },
+  {
+    "name": "Haus 3 Tannen",
+    "lat": 47.3233875,
+    "lng": 11.1880469
+  },
+  {
+    "name": "Kirche",
+    "lat": 47.4033625,
+    "lng": 15.2824531
+  },
+  {
+    "name": "Weberei",
+    "lat": 48.7784936,
+    "lng": 15.0431955
+  },
+  {
+    "name": "Ghost Church",
+    "lat": 50.0164875,
+    "lng": 13.1605781
+  },
+  {
+    "name": "KZ Fabrik",
+    "lat": 50.8007125,
+    "lng": 14.3584844
+  },
+  {
+    "name": "Palac",
+    "lat": 50.3461875,
+    "lng": 14.4626719
+  },
+  {
+    "name": "Schloss Welchau",
+    "lat": 50.2798625,
+    "lng": 13.0050156
+  },
+  {
+    "name": "Stahlwerk",
+    "lat": 49.9404711,
+    "lng": 14.0382092
+  },
+  {
+    "name": "Villa Wolfova",
+    "lat": 50.5289119,
+    "lng": 16.1482229
+  },
+  {
+    "name": "Torpedo - Launch Station",
+    "lat": 45.3340625,
+    "lng": 14.4035625
+  },
+  {
+    "name": "Casino",
+    "lat": 45.4587875,
+    "lng": 13.5123281
+  },
+  {
+    "name": "Petrova Gora",
+    "lat": 45.3163625,
+    "lng": 15.8048906
+  },
+  {
+    "name": "Tito School",
+    "lat": 46.0823375,
+    "lng": 15.6838594
+  },
+  {
+    "name": "Panzer",
+    "lat": 45.0903375,
+    "lng": 18.3049531
+  },
+  {
+    "name": "Hotel Belvedere",
+    "lat": 42.6330534,
+    "lng": 18.1317535
+  },
+  {
+    "name": "Schloss Mali Tabor",
+    "lat": 46.2114375,
+    "lng": 15.6741875
+  },
+  {
+    "name": "Hotel",
+    "lat": 44.2491204,
+    "lng": 15.637734
+  },
+  {
+    "name": "M\u00fchle",
+    "lat": 45.3687875,
+    "lng": 14.0165156
+  },
+  {
+    "name": "Flugzeug",
+    "lat": 44.8575375,
+    "lng": 15.7362969
+  },
+  {
+    "name": "Autos",
+    "lat": 56.4667125,
+    "lng": 14.6503906
+  },
+  {
+    "name": "Haus",
+    "lat": 58.1380116,
+    "lng": 8.0003245
+  },
+  {
+    "name": "Autos",
+    "lat": 59.3608875,
+    "lng": 11.8384219
+  },
+  {
+    "name": "Mausoleum",
+    "lat": 51.0899855,
+    "lng": 15.3079817
+  },
+  {
+    "name": "AKW Ruine",
+    "lat": 54.7428125,
+    "lng": 18.0891406
+  },
+  {
+    "name": "Palac",
+    "lat": 52.1848625,
+    "lng": 16.4967031
+  },
+  {
+    "name": "Chemiewerk",
+    "lat": 53.0832995,
+    "lng": 18.0974585
+  },
+  {
+    "name": "Kraftwerk",
+    "lat": 51.7420641,
+    "lng": 19.4500669
+  },
+  {
+    "name": "K\u00fchlturm",
+    "lat": 51.7435625,
+    "lng": 19.4490469
+  },
+  {
+    "name": "Kl\u00e4rwerk",
+    "lat": 53.0900447,
+    "lng": 18.1186991
+  },
+  {
+    "name": "Palac",
+    "lat": 51.6188125,
+    "lng": 17.0253125
+  },
+  {
+    "name": "Palast w Niewodnikach",
+    "lat": 50.7423875,
+    "lng": 17.8125469
+  },
+  {
+    "name": "Palac",
+    "lat": 52.0808375,
+    "lng": 17.6147031
+  },
+  {
+    "name": "Bunker",
+    "lat": 50.7960875,
+    "lng": 18.5362031
+  },
+  {
+    "name": "Schule",
+    "lat": 51.8181625,
+    "lng": 20.9900469
+  },
+  {
+    "name": "Krankenhaus",
+    "lat": 51.1961875,
+    "lng": 16.1295625
+  },
+  {
+    "name": "Zug",
+    "lat": 50.0285625,
+    "lng": 19.9851875
+  },
+  {
+    "name": "Fabrik",
+    "lat": 49.462812,
+    "lng": 19.9986376
+  },
+  {
+    "name": "Mausoleum",
+    "lat": 50.9081625,
+    "lng": 15.8281406
+  },
+  {
+    "name": "Palac",
+    "lat": 52.9741875,
+    "lng": 16.6565625
+  },
+  {
+    "name": "Palac - Szalejow Dolny",
+    "lat": 50.4269375,
+    "lng": 16.5994375
+  },
+  {
+    "name": "Palac",
+    "lat": 50.7362727,
+    "lng": 18.0761102
+  },
+  {
+    "name": "Flugzeug",
+    "lat": 52.18863,
+    "lng": 23.02934
+  },
+  {
+    "name": "Schule",
+    "lat": 50.3469125,
+    "lng": 20.3224531
+  },
+  {
+    "name": "M\u00fcllverbrennungswerk",
+    "lat": 50.6424375,
+    "lng": 17.9683594
+  },
+  {
+    "name": "Villa Pink",
+    "lat": 50.8839875,
+    "lng": 16.2583594
+  },
+  {
+    "name": "Autos",
+    "lat": 54.8535875,
+    "lng": 9.3828906
+  },
+  {
+    "name": "Haus",
+    "lat": 54.9893613,
+    "lng": 8.6958007
+  },
+  {
+    "name": "Werkstatt",
+    "lat": 55.0015706,
+    "lng": 8.7025185
+  },
+  {
+    "name": "Flughafen",
+    "lat": 46.6883875,
+    "lng": 17.1674844
+  },
+  {
+    "name": "Kraftwerk Kelenf\u00f6ld",
+    "lat": 47.4620207,
+    "lng": 19.0571824
+  },
+  {
+    "name": "Kloster",
+    "lat": 51.5263625,
+    "lng": 6.0340469
+  },
+  {
+    "name": "Haus",
+    "lat": 51.6595375,
+    "lng": 6.0427344
+  },
+  {
+    "name": "Flugzeug",
+    "lat": 51.6588625,
+    "lng": 4.0559531
+  },
+  {
+    "name": "Kloster",
+    "lat": 51.1751875,
+    "lng": 5.8954844
+  },
+  {
+    "name": "Disney Schloss Hotel",
+    "lat": 40.4451625,
+    "lng": 31.2033281
+  },
+  {
+    "name": "Freizeitpark",
+    "lat": 39.9459127,
+    "lng": 32.789038
+  },
+  {
+    "name": "Synagoge",
+    "lat": 44.1744625,
+    "lng": 28.6567656
+  },
+  {
+    "name": "Stahlwerk",
+    "lat": 45.4252375,
+    "lng": 27.9834531
+  },
+  {
+    "name": "Stahlwerk",
+    "lat": 45.295665,
+    "lng": 21.900786
+  }
+]
