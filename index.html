@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lost Places Europa</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <style>
@@ -14,6 +14,22 @@
       background-color: #0a0a0a;
       color: #fff;
     }
+    nav {
+      background-color: #111;
+      padding: 10px 20px;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
     .hero {
       background: url('https://th.bing.com/th/id/OIP.o_rdCw6jRE4c00Y0TAskMAHaEK?rs=1&pid=ImgDetMain') center/cover no-repeat;
       height: 100vh;
@@ -22,7 +38,6 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      backdrop-filter: brightness(0.7);
     }
     .hero h1 {
       font-size: 3rem;
@@ -39,26 +54,39 @@
       border-radius: 8px;
       box-shadow: 0 0 10px #000;
     }
+    #map-wrapper {
+      display: none;
+      padding: 0 60px; /* Seitenabstand für Werbung (~3-4 cm bei 1080px Breite) */
+      box-sizing: border-box;
+    }
     #map {
       height: 100vh;
-      display: none;
+      width: 100%;
     }
   </style>
 </head>
 <body>
+  <nav>
+    <a href="#impressum">Impressum</a>
+    <a href="#datenschutz">Datenschutz</a>
+    <a href="#agb">AGB</a>
+  </nav>
+
   <div class="hero" id="start">
     <h1>Lost Places Europa</h1>
     <button onclick="showMap()">Zur Karte</button>
   </div>
 
-  <div id="map"></div>
+  <div id="map-wrapper">
+    <div id="map"></div>
+  </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.4/leaflet-omnivore.min.js"></script>
   <script>
     function showMap() {
       document.getElementById('start').style.display = 'none';
-      document.getElementById('map').style.display = 'block';
+      document.getElementById('map-wrapper').style.display = 'block';
 
       const map = L.map('map').setView([52.5, 13.4], 6);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -66,7 +94,7 @@
         attribution: '© OpenStreetMap'
       }).addTo(map);
 
-      // Hier wird die KML-Datei geladen (muss im gleichen Verzeichnis liegen)
+      // KML-Datei einbinden
       omnivore.kml('doc.kml')
         .on('ready', function () {
           map.fitBounds(this.getBounds());
