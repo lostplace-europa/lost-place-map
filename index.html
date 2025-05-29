@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Urbex Scope</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!-- ✅ Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627"
+    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
@@ -87,8 +91,6 @@
     .fixed-menu a:hover {
       text-decoration: underline;
     }
-
-    /* Responsive Menü */
     #hamburger {
       display: none;
       position: fixed;
@@ -154,6 +156,19 @@
   <div class="hero" id="start">
     <h1>Urbex Scope</h1>
     <button onclick="showMap()">Zur Karte</button>
+  </div>
+
+  <!-- ✅ Google AdSense Anzeige -->
+  <div style="text-align:center; margin: 20px auto;">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-9584980650144627"
+         data-ad-slot="1234567890"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
 
   <div id="map"></div>
