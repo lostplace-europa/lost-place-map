@@ -48,7 +48,7 @@
     .fixed-menu {
       position: fixed;
       top: 50px;
-      left: 30px;
+      right: 30px;
       background-color: rgba(17, 17, 17, 0.9);
       padding: 15px 20px;
       border-radius: 10px;
@@ -65,9 +65,28 @@
     .fixed-menu a:hover {
       text-decoration: underline;
     }
-  </style>
+  
+.logo-top {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1001;
+  max-width: 200px;
+}
+.logo-map {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  width: 120px;
+  z-index: 1003;
+  display: none;
+}
+
+</style>
 </head>
 <body>
+<img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-map" id="logoMap">
 
   <div class="fixed-menu">
     <a href="datenschutz.html">Datenschutz</a>
@@ -75,7 +94,8 @@
     <a href="impressum.html">Impressum</a>
   </div>
 
-  <div class="hero" id="start">
+  <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-top">
+<div class="hero" id="start">
     <h1>Lost Places Europa</h1>
     <button onclick="showMap()">Zur Karte</button>
   </div>
@@ -88,6 +108,7 @@
     function showMap() {
       document.getElementById('start').style.display = 'none';
       document.getElementById('map').style.display = 'block';
+      document.getElementById('logoMap').style.display = 'block';
 
       const map = L.map('map').setView([51.3, 13.3], 7);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
