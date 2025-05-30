@@ -133,6 +133,30 @@
   <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-top" />
   <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-map" id="logoMap" />
 
+  <div class="fixed-menu">
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+
+  <div id="hamburger" onclick="toggleMobileMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div id="mobileMenu">
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="impressum.html">Impressum</a>
+  </div>
+
+  <div class="hero" id="start">
+    <h1>Urbex Scope</h1>
+    <button onclick="showMap()">Zur Karte</button>
+  </div>
+
+  <div id="map"></div>
+
   <!-- Werbeblock 1 -->
   <ins class="adsbygoogle"
        style="display:block"
@@ -164,30 +188,6 @@
   <script>
        (adsbygoogle = window.adsbygoogle || []).push({});
   </script>
-
-  <div class="fixed-menu">
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-    <a href="impressum.html">Impressum</a>
-  </div>
-
-  <div id="hamburger" onclick="toggleMobileMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div id="mobileMenu">
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-    <a href="impressum.html">Impressum</a>
-  </div>
-
-  <div class="hero" id="start">
-    <h1>Urbex Scope</h1>
-    <button onclick="showMap()">Zur Karte</button>
-  </div>
-
-  <div id="map"></div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
