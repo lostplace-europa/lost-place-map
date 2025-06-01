@@ -4,69 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Urbex Scope</title>
-  <meta name="google-adsense-account" content="ca-pub-9584980650144627">
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <style>
     body, html {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #0a0a0a;
       color: #fff;
     }
 
-    /* Hero-Bereich */
+    /* HERO-Bereich */
     .hero {
-      background: url('lostplaces_bg.jpg') center/cover no-repeat;
+      position: relative;
       height: 100vh;
+      background: url('lostplaces_bg.jpg') center/cover no-repeat;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      position: relative;
+      overflow: hidden;
     }
     .hero::after {
       content: "";
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
       z-index: 1;
     }
     .hero-content {
       position: relative;
       z-index: 2;
+      text-align: center;
+      animation: fadeInUp 1s ease-out forwards;
+      opacity: 0;
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+      font-size: 3.5rem;
+      margin-bottom: 15px;
       text-shadow: 2px 2px 10px #000;
     }
     .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
       max-width: 600px;
-      line-height: 1.4;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+      color: #ddd;
     }
     .hero .btn {
-      padding: 12px 30px;
+      display: inline-block;
+      padding: 14px 35px;
       font-size: 1.2rem;
       background-color: #ffcc00;
       color: #000;
       border: none;
       cursor: pointer;
-      border-radius: 8px;
+      border-radius: 50px;
       text-decoration: none;
-      box-shadow: 0 0 15px #000;
-      transition: background-color 0.3s;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      transition: background-color 0.3s, transform 0.3s;
     }
     .hero .btn:hover {
       background-color: #ffaa00;
+      transform: translateY(-3px);
     }
 
-    /* Menü */
+    /* Navigation */
     .fixed-menu {
       position: fixed;
       top: 20px;
@@ -76,19 +87,18 @@
       padding: 20px 25px;
       border-radius: 15px;
       z-index: 1002;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
     }
     .fixed-menu a {
       display: block;
       color: #fff;
       text-decoration: none;
       margin: 12px 0;
-      font-size: 20px;
-      transition: color 0.3s ease;
+      font-size: 18px;
+      transition: color 0.3s;
     }
     .fixed-menu a:hover {
       color: #ffcc00;
-      text-decoration: underline;
     }
 
     /* Mobile Menü */
@@ -105,7 +115,7 @@
       height: 4px;
       background-color: #fff;
       margin: 6px 0;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
     #hamburger.active div:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
@@ -121,12 +131,12 @@
       position: fixed;
       top: 0;
       right: 0;
-      background-color: rgba(20, 20, 20, 0.95);
+      background-color: rgba(20,20,20,0.95);
       border-radius: 0 0 10px 10px;
       padding: 20px;
-      width: 200px;
+      width: 220px;
       transform: translateY(-100%);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s;
       z-index: 1002;
     }
     #mobileMenu.show {
@@ -137,7 +147,7 @@
       display: block;
       color: #fff;
       text-decoration: none;
-      margin: 10px 0;
+      margin: 12px 0;
       font-size: 18px;
     }
 
@@ -156,14 +166,20 @@
       font-size: 0.9rem;
       color: #888;
       border-top: 1px solid #222;
-      margin-top: 30px;
+      background-color: #111;
+    }
+
+    #map {
+      height: 100vh;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <!-- Menü -->
+  <!-- Navigation -->
   <div class="fixed-menu">
     <a href="index.html">Startseite</a>
+    <a href="#" onclick="showMap()">Karte</a>
     <a href="zone.html">ZONE</a>
     <a href="partner.html">Partner</a>
     <a href="soziales.html">Soziales</a>
@@ -178,6 +194,7 @@
   </div>
   <div id="mobileMenu">
     <a href="index.html">Startseite</a>
+    <a href="#" onclick="showMap()">Karte</a>
     <a href="zone.html">ZONE</a>
     <a href="partner.html">Partner</a>
     <a href="soziales.html">Soziales</a>
@@ -186,14 +203,17 @@
     <a href="agb.html">AGB</a>
   </div>
 
-  <!-- Hero -->
-  <div class="hero">
+  <!-- Hero-Bereich -->
+  <section class="hero" id="start">
     <div class="hero-content">
       <h1>Urbex Scope</h1>
-      <p>Entdecke die vergessene Welt der verlassenen Orte in Europa. Trete ein in die ZONE und beginne dein Abenteuer.</p>
-      <a href="zone.html" class="btn">Zur ZONE</a>
+      <p>Verlassene Orte. Verborgene Geschichten. Entdecke die geheimnisvollen Lost Places Europas – dein Abenteuer beginnt hier.</p>
+      <button class="btn" onclick="showMap()">Karte öffnen</button>
     </div>
-  </div>
+  </section>
+
+  <!-- Karte -->
+  <div id="map"></div>
 
   <!-- Footer -->
   <footer>
@@ -201,11 +221,39 @@
   </footer>
 
   <!-- JavaScript -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
     function toggleMobileMenu(hamburger) {
       const menu = document.getElementById('mobileMenu');
       hamburger.classList.toggle('active');
       menu.classList.toggle('show');
+    }
+
+    function showMap() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('map').style.display = 'block';
+
+      const map = L.map('map').setView([51.3, 13.3], 7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap'
+      }).addTo(map);
+
+      const markers = L.markerClusterGroup();
+      fetch('orte.json')
+        .then(response => response.json())
+        .then(data => {
+          data.forEach(place => {
+            const marker = L.marker([place.lat, place.lng])
+              .bindPopup(`<strong>${place.name}</strong>`);
+            markers.addLayer(marker);
+          });
+          map.addLayer(markers);
+        })
+        .catch(error => {
+          console.error('Fehler beim Laden der JSON-Datei:', error);
+        });
     }
   </script>
 </body>
