@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <style>
+    /* Hier bleibt dein CSS unverändert */
     body, html {
       margin: 0;
       padding: 0;
@@ -200,7 +201,8 @@
         }).addTo(map);
 
         markers = L.markerClusterGroup({
-          maxClusterRadius: 40,
+          maxClusterRadius: 60,      // Größerer Radius = weniger Einzelmarker
+          chunkedLoading: true,      // Stückweises Laden verbessert Performance
           iconCreateFunction: function(cluster) {
             return L.divIcon({
               html: '<div class="custom-cluster">' + cluster.getChildCount() + '</div>',
