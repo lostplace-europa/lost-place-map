@@ -18,7 +18,37 @@
       color: #fff;
     }
 
-    /* HERO-Bereich */
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(20,20,20,0.85);
+      backdrop-filter: blur(6px);
+      padding: 15px 30px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      z-index: 1002;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    #hamburger {
+      display: none;
+    }
+
+    /* Hero-Bereich */
     .hero {
       position: relative;
       height: 100vh;
@@ -26,7 +56,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      text-align: center;
+      padding-top: 80px; /* Platz für Navigation */
     }
     .hero::after {
       content: "";
@@ -39,7 +70,10 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      text-align: center;
+      max-width: 600px;
+      padding: 20px;
+      background-color: rgba(20,20,20,0.6);
+      border-radius: 10px;
       animation: fadeInUp 1s ease-out forwards;
       opacity: 0;
     }
@@ -77,89 +111,6 @@
       transform: translateY(-3px);
     }
 
-    /* Navigation */
-    .fixed-menu {
-      position: fixed;
-      top: 20px;
-      right: 30px;
-      background: rgba(20, 20, 20, 0.85);
-      backdrop-filter: blur(6px);
-      padding: 20px 25px;
-      border-radius: 15px;
-      z-index: 1002;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-    .fixed-menu a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      margin: 12px 0;
-      font-size: 18px;
-      transition: color 0.3s;
-    }
-    .fixed-menu a:hover {
-      color: #ffcc00;
-    }
-
-    /* Mobile Menü */
-    #hamburger {
-      display: none;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1003;
-      cursor: pointer;
-    }
-    #hamburger div {
-      width: 30px;
-      height: 4px;
-      background-color: #fff;
-      margin: 6px 0;
-      transition: all 0.3s;
-    }
-    #hamburger.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    #hamburger.active div:nth-child(2) {
-      opacity: 0;
-    }
-    #hamburger.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-    #mobileMenu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      background-color: rgba(20,20,20,0.95);
-      border-radius: 0 0 10px 10px;
-      padding: 20px;
-      width: 220px;
-      transform: translateY(-100%);
-      transition: transform 0.3s;
-      z-index: 1002;
-    }
-    #mobileMenu.show {
-      display: block;
-      transform: translateY(0);
-    }
-    #mobileMenu a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      margin: 12px 0;
-      font-size: 18px;
-    }
-
-    @media (max-width: 768px) {
-      .fixed-menu {
-        display: none;
-      }
-      #hamburger {
-        display: block;
-      }
-    }
-
     footer {
       text-align: center;
       padding: 15px;
@@ -173,11 +124,21 @@
       height: 100vh;
       display: none;
     }
+
+    /* Mobile Menü (optional) */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        gap: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <!-- Navigation -->
-  <div class="fixed-menu">
+  <nav>
     <a href="index.html">Startseite</a>
     <a href="#" onclick="showMap()">Karte</a>
     <a href="zone.html">ZONE</a>
@@ -186,22 +147,7 @@
     <a href="impressum.html">Impressum</a>
     <a href="datenschutz.html">Datenschutz</a>
     <a href="agb.html">AGB</a>
-  </div>
-  <div id="hamburger" onclick="toggleMobileMenu(this)">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div id="mobileMenu">
-    <a href="index.html">Startseite</a>
-    <a href="#" onclick="showMap()">Karte</a>
-    <a href="zone.html">ZONE</a>
-    <a href="partner.html">Partner</a>
-    <a href="soziales.html">Soziales</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-  </div>
+  </nav>
 
   <!-- Hero-Bereich -->
   <section class="hero" id="start">
@@ -224,12 +170,6 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
-    function toggleMobileMenu(hamburger) {
-      const menu = document.getElementById('mobileMenu');
-      hamburger.classList.toggle('active');
-      menu.classList.toggle('show');
-    }
-
     function showMap() {
       document.getElementById('start').style.display = 'none';
       document.getElementById('map').style.display = 'block';
