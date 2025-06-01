@@ -6,9 +6,6 @@
   <title>Urbex Scope</title>
   <meta name="google-adsense-account" content="ca-pub-9584980650144627">
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <style>
     body, html {
       margin: 0;
@@ -18,6 +15,8 @@
       background-color: #0a0a0a;
       color: #fff;
     }
+
+    /* Hero-Bereich */
     .hero {
       background: url('lostplaces_bg.jpg') center/cover no-repeat;
       height: 100vh;
@@ -26,50 +25,51 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
     .hero h1 {
       font-size: 3rem;
       margin-bottom: 20px;
       text-shadow: 2px 2px 10px #000;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 12px;
-      display: inline-block;
     }
-    .hero button {
-      padding: 10px 20px;
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      max-width: 600px;
+      line-height: 1.4;
+    }
+    .hero .btn {
+      padding: 12px 30px;
       font-size: 1.2rem;
-      background-color: #111;
-      color: #fff;
+      background-color: #ffcc00;
+      color: #000;
       border: none;
       cursor: pointer;
       border-radius: 8px;
-      box-shadow: 0 0 10px #000;
+      text-decoration: none;
+      box-shadow: 0 0 15px #000;
+      transition: background-color 0.3s;
     }
-    #map {
-      height: 100vh;
-      display: none;
+    .hero .btn:hover {
+      background-color: #ffaa00;
     }
-    .logo-top {
-      position: absolute;
-      top: 60px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1001;
-      max-width: 300px;
-      display: block;
-    }
-    .logo-map {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      width: 120px;
-      z-index: 1003;
-      display: none;
-    }
+
+    /* Menü */
     .fixed-menu {
       position: fixed;
-      top: 50px;
+      top: 20px;
       right: 30px;
       background: rgba(20, 20, 20, 0.85);
       backdrop-filter: blur(6px);
@@ -77,7 +77,6 @@
       border-radius: 15px;
       z-index: 1002;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      transition: all 0.3s ease;
     }
     .fixed-menu a {
       display: block;
@@ -91,6 +90,8 @@
       color: #ffcc00;
       text-decoration: underline;
     }
+
+    /* Mobile Menü */
     #hamburger {
       display: none;
       position: fixed;
@@ -139,6 +140,7 @@
       margin: 10px 0;
       font-size: 18px;
     }
+
     @media (max-width: 768px) {
       .fixed-menu {
         display: none;
@@ -147,73 +149,59 @@
         display: block;
       }
     }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #222;
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
-  <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-top" />
-  <img src="1000032170-removebg-preview.png" alt="URBEXSCOPE Logo" class="logo-map" id="logoMap" />
-
+  <!-- Menü -->
   <div class="fixed-menu">
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-    <a href="impressum.html">Impressum</a>
+    <a href="index.html">Startseite</a>
+    <a href="zone.html">ZONE</a>
     <a href="partner.html">Partner</a>
     <a href="soziales.html">Soziales</a>
-    <a href="zone.html">ZONE</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
   </div>
-
   <div id="hamburger" onclick="toggleMobileMenu(this)">
     <div></div>
     <div></div>
     <div></div>
   </div>
   <div id="mobileMenu">
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="agb.html">AGB</a>
-    <a href="impressum.html">Impressum</a>
+    <a href="index.html">Startseite</a>
+    <a href="zone.html">ZONE</a>
     <a href="partner.html">Partner</a>
     <a href="soziales.html">Soziales</a>
-    <a href="zone.html">ZONE</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
   </div>
 
-  <div class="hero" id="start">
-    <h1>Urbex Scope</h1>
-    <button onclick="showMap()">Zur Karte</button>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Urbex Scope</h1>
+      <p>Entdecke die vergessene Welt der verlassenen Orte in Europa. Trete ein in die ZONE und beginne dein Abenteuer.</p>
+      <a href="zone.html" class="btn">Zur ZONE</a>
+    </div>
   </div>
 
-  <div id="map"></div>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Urbex Scope | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
+  </footer>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <!-- JavaScript -->
   <script>
-    function showMap() {
-      document.getElementById('start').style.display = 'none';
-      document.getElementById('map').style.display = 'block';
-      document.getElementById('logoMap').style.display = 'block';
-      document.querySelector('.logo-top').style.display = 'none';
-
-      const map = L.map('map').setView([51.3, 13.3], 7);
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap'
-      }).addTo(map);
-
-      const markers = L.markerClusterGroup();
-      fetch('orte.json')
-        .then(response => response.json())
-        .then(data => {
-          data.forEach(place => {
-            const marker = L.marker([place.lat, place.lng])
-              .bindPopup(`<strong>${place.name}</strong>`);
-            markers.addLayer(marker);
-          });
-          map.addLayer(markers);
-        })
-        .catch(error => {
-          console.error('Fehler beim Laden der JSON-Datei:', error);
-        });
-    }
-
     function toggleMobileMenu(hamburger) {
       const menu = document.getElementById('mobileMenu');
       hamburger.classList.toggle('active');
