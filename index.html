@@ -187,6 +187,103 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
+
+    let map, markers, allPlaces;
+
+    function showMap() {
+      document.getElementById('start').style.display = 'none';
+      document.getElementById('map').style.display = 'block';
+
+      if (!map) {
+        map = L.map('map').setView([51.3, 13.3], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        markers = L.markerClusterGroup({
+          maxClusterRadius: 40,
+          iconCreateFunction: function(cluster) {
+            return L.divIcon({
+              html: `<div class="custom-cluster">${cluster.getChildCount()}</div>`,
+              className: 'custom-cluster',
+              iconSize: L.point(40, 40)
+            });
+          }
+        });
+
+        fetch('orte.json')
+          .then(response => response.json())
+          .then(data => {
+            allPlaces = data;
+
+            const controls = document.createElement('div');
+            controls.className = 'controls';
+
+            const select = document.createElement('select');
+            select.innerHTML = `<option value="">Alle Kategorien</option>`;
+            const categories = [...new Set(allPlaces.map(p => p.category))];
+            categories.forEach(c => {
+              select.innerHTML += `<option value="${c}">${c}</option>`;
+            });
+            select.addEventListener('change', () => updateMarkers());
+            controls.appendChild(select);
+
+            const searchInput = document.createElement('input');
+            searchInput.type = 'text';
+            searchInput.placeholder = 'Ort suchen...';
+            searchInput.addEventListener('input', () => updateMarkers());
+            controls.appendChild(searchInput);
+
+            map.getContainer().appendChild(controls);
+
+            map.on('moveend zoomend', () => updateMarkers());
+            updateMarkers();
+          })
+          .catch(error => {
+            console.error('Fehler beim Laden der JSON-Datei:', error);
+          });
+      }
+    }
+
+    function updateMarkers() {
+      const category = document.querySelector('.controls select').value;
+      const search = document.querySelector('.controls input').value.toLowerCase();
+      const bounds = map.getBounds();
+      let filtered = allPlaces;
+
+      if (category) {
+        filtered = filtered.filter(p => p.category === category);
+      }
+      if (search) {
+        filtered = filtered.filter(p => p.name.toLowerCase().includes(search));
+      }
+      // Lazy Loading: nur Marker im aktuellen Kartenausschnitt anzeigen
+      filtered = filtered.filter(p => bounds.contains([p.lat, p.lng]));
+
+      renderMarkers(filtered);
+    }
+
+    function renderMarkers(places) {
+      markers.clearLayers();
+      places.forEach(place => {
+        const marker = L.marker([place.lat, place.lng])
+          .bindPopup(\`
+            <strong>\${place.name}</strong><br>
+            Beschreibung: \${place.beschreibung}<br>
+            Kategorie: \${place.category}<br>
+            Schwierigkeit: \${place.schwierigkeit}
+          \`);
+        markers.addLayer(marker);
+      });
+      map.addLayer(markers);
+    }
+  
+  </script>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script>
     let map, markers, allPlaces;
 
     function showMap() {
