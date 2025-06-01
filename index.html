@@ -201,8 +201,9 @@
         }).addTo(map);
 
         markers = L.markerClusterGroup({
-          maxClusterRadius: 60,      // Größerer Radius = weniger Einzelmarker
-          chunkedLoading: true,      // Stückweises Laden verbessert Performance
+          maxClusterRadius: 80,
+          chunkedLoading: true,
+          removeOutsideVisibleBounds: true,
           iconCreateFunction: function(cluster) {
             return L.divIcon({
               html: '<div class="custom-cluster">' + cluster.getChildCount() + '</div>',
@@ -270,16 +271,23 @@
 
     function renderMarkers(places) {
       markers.clearLayers();
+      const bounds = map.getBounds();
+      const markersToRender = [];
+
       places.forEach(place => {
-        const marker = L.marker([place.lat, place.lng])
-          .bindPopup(
-            '<strong>' + place.name + '</strong><br>' +
-            'Beschreibung: ' + place.beschreibung + '<br>' +
-            'Kategorie: ' + place.category + '<br>' +
-            'Schwierigkeit: ' + place.schwierigkeit
-          );
-        markers.addLayer(marker);
+        if (bounds.contains([place.lat, place.lng])) {
+          const marker = L.marker([place.lat, place.lng])
+            .bindPopup(
+              '<strong>' + place.name + '</strong><br>' +
+              'Beschreibung: ' + place.beschreibung + '<br>' +
+              'Kategorie: ' + place.category + '<br>' +
+              'Schwierigkeit: ' + place.schwierigkeit
+            );
+          markersToRender.push(marker);
+        }
       });
+
+      markers.addLayers(markersToRender);
       map.addLayer(markers);
     }
   </script>
