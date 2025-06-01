@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <style>
-    /* Hier bleibt dein CSS unverändert */
     body, html {
       margin: 0;
       padding: 0;
@@ -188,6 +187,7 @@
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
     let map, markers, allPlaces;
+    let debounceTimeout;
 
     function showMap() {
       document.getElementById('start').style.display = 'none';
@@ -230,18 +230,18 @@
             categories.forEach(c => {
               select.innerHTML += '<option value="' + c + '">' + c + '</option>';
             });
-            select.addEventListener('change', () => updateMarkers());
+            select.addEventListener('change', () => debounceUpdateMarkers());
             controls.appendChild(select);
 
             const searchInput = document.createElement('input');
             searchInput.type = 'text';
             searchInput.placeholder = 'Ort suchen...';
-            searchInput.addEventListener('input', () => updateMarkers());
+            searchInput.addEventListener('input', () => debounceUpdateMarkers());
             controls.appendChild(searchInput);
 
             map.getContainer().appendChild(controls);
 
-            map.on('moveend zoomend', () => updateMarkers());
+            map.on('moveend zoomend', () => debounceUpdateMarkers());
             updateMarkers();
           })
           .catch(error => {
@@ -249,6 +249,11 @@
             alert("Fehler beim Laden der JSON-Datei. Prüfe die Konsole!");
           });
       }
+    }
+
+    function debounceUpdateMarkers() {
+      clearTimeout(debounceTimeout);
+      debounceTimeout = setTimeout(() => updateMarkers(), 300);
     }
 
     function updateMarkers() {
@@ -263,7 +268,6 @@
       if (search) {
         filtered = filtered.filter(p => p.name.toLowerCase().includes(search));
       }
-      // Lazy Loading: nur Marker im aktuellen Kartenausschnitt anzeigen
       filtered = filtered.filter(p => bounds.contains([p.lat, p.lng]));
 
       renderMarkers(filtered);
@@ -271,20 +275,17 @@
 
     function renderMarkers(places) {
       markers.clearLayers();
-      const bounds = map.getBounds();
       const markersToRender = [];
 
       places.forEach(place => {
-        if (bounds.contains([place.lat, place.lng])) {
-          const marker = L.marker([place.lat, place.lng])
-            .bindPopup(
-              '<strong>' + place.name + '</strong><br>' +
-              'Beschreibung: ' + place.beschreibung + '<br>' +
-              'Kategorie: ' + place.category + '<br>' +
-              'Schwierigkeit: ' + place.schwierigkeit
-            );
-          markersToRender.push(marker);
-        }
+        const marker = L.marker([place.lat, place.lng])
+          .bindPopup(
+            '<strong>' + place.name + '</strong><br>' +
+            'Beschreibung: ' + place.beschreibung + '<br>' +
+            'Kategorie: ' + place.category + '<br>' +
+            'Schwierigkeit: ' + place.schwierigkeit
+          );
+        markersToRender.push(marker);
       });
 
       markers.addLayers(markersToRender);
