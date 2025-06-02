@@ -354,11 +354,11 @@
       if (percentage === 0) {
         progressText.textContent = 'Nicht bereit';
       } else if (percentage < 50) {
-        progressText.textContent = 'Anfänger – noch einiges zu tun!';
+        progressText.textContent = "Anfänger – noch einiges zu tun!";
       } else if (percentage < 100) {
-        progressText.textContent = 'Gut vorbereitet – fast startklar!';
+        progressText.textContent = "Gut vorbereitet – fast startklar!";
       } else {
-        progressText.textContent = 'Perfekt vorbereitet – los geht's!';
+        progressText.textContent = "Perfekt vorbereitet – los geht's!";
       }
 
       const essentials = document.querySelectorAll('#checklist [data-essential="true"] input[type="checkbox"]');
