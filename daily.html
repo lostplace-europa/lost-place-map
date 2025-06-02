@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Heutiger Lost Place</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 20px;
+      line-height: 1.5;
+    }
+    #map {
+      margin: 0 auto;
+      width: 400px;
+      height: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Heutiger Lost Place</h1>
+  <h2 id="place-name">Lade...</h2>
+  <p id="place-description"></p>
+  <div id="map"></div>
+  <p><a href="index.html">Zurück zur Startseite</a></p>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    fetch('orte.json')
+      .then(response => response.json())
+      .then(data => {
+        const heute = new Date();
+        const dayOfYear = Math.floor(
+          (heute - new Date(heute.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24
+        );
+        const index = dayOfYear % data.length;
+        const place = data[index];
+
+        document.getElementById('place-name').textContent = place.name;
+        document.getElementById('place-description').textContent = place.beschreibung;
+
+        const map = L.map('map').setView([place.lat, place.lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        L.marker([place.lat, place.lng]).addTo(map)
+          .bindPopup(`<b>${place.name}</b><br>${place.beschreibung}`).openPopup();
+      })
+      .catch(error => {
+        console.error('Fehler beim Laden der JSON-Datei:', error);
+        document.getElementById('place-name').textContent = 'Fehler beim Laden!';
+      });
+  </script>
+</body>
+</html>
