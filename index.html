@@ -186,24 +186,43 @@
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
     let mapInitialized = false;
+    let map;
 
     function showMap() {
-      // Blende die Hero Section aus
+      // Hero ausblenden, Karte einblenden
       document.querySelector('.hero').style.display = 'none';
-      // Blende die Karte ein
       document.getElementById('map').style.display = 'block';
 
-      // Initialisiere die Karte nur einmal
       if (!mapInitialized) {
-        const map = L.map('map').setView([51.505, -0.09], 13); // Beispielkoordinaten
+        map = L.map('map').setView([51.505, -0.09], 6); // Deutschland-Zoom
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Beispielmarker hinzufügen
-        const marker = L.marker([51.505, -0.09]).addTo(map)
-          .bindPopup('<b>Beispiel Lost Place</b><br>Beschreibung hier.');
+        // Marker Cluster Layer
+        const markers = L.markerClusterGroup();
+
+        // JSON-Datei laden
+        fetch('orte.json')
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('orte.json konnte nicht geladen werden.');
+            }
+            return response.json();
+          })
+          .then(data => {
+            data.forEach(ort => {
+              const marker = L.marker([ort.lat, ort.lng])
+                .bindPopup(`<b>${ort.name}</b><br>${ort.beschreibung}`);
+              markers.addLayer(marker);
+            });
+            map.addLayer(markers);
+          })
+          .catch(error => {
+            console.error(error);
+            alert('Fehler beim Laden der Orte.');
+          });
 
         mapInitialized = true;
       }
