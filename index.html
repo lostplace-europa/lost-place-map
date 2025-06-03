@@ -18,7 +18,6 @@
       color: #fff;
     }
 
-    /* Navigation Styles */
     nav {
       position: fixed;
       top: 0;
@@ -28,15 +27,10 @@
       backdrop-filter: blur(6px);
       padding: 15px 30px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      justify-content: center;
+      gap: 20px;
       z-index: 1002;
       box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -49,42 +43,6 @@
 
     nav a:hover {
       color: #ffcc00;
-    }
-
-    .burger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .burger div {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      margin: 4px;
-      transition: 0.3s;
-    }
-
-    @media (max-width: 600px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background: rgba(20,20,20,0.95);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .burger {
-        display: flex;
-      }
     }
 
     .hero {
@@ -197,34 +155,30 @@
       color: #000;
       font-weight: bold;
     }
-
-    body { max-width: 100%; margin: auto; padding: 10px; box-sizing: border-box; }
-    img, iframe, video { max-width: 100%; height: auto; }
   </style>
 </head>
 <body>
+  <!-- Sprachumschalter -->
+  <div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <a href="index-en.html"><button>English</button></a>
+  </div>
+
   <nav>
-    <div class="burger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Startseite</a>
-      <a href="#" onclick="showMap()">Karte</a>
-      <a href="zone.html">ZONE</a>
-      <a href="partner.html">Partner</a>
-      <a href="soziales.html">Soziales</a>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutz</a>
-      <a href="agb.html">AGB</a>
-    </div>
+    <a href="index.html">Startseite</a>
+    <a href="#" onclick="showMap()">Karte</a>
+    <a href="zone.html">ZONE</a>
+    <a href="partner.html">Partner</a>
+    <a href="soziales.html">Soziales</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
   </nav>
 
   <section class="hero" id="start">
     <div class="hero-content">
       <h1>Urbex Scope</h1>
       <p>Verlassene Orte. Verborgene Geschichten. Entdecke die geheimnisvollen Lost Places Europas – dein Abenteuer beginnt hier.</p>
+      <p>Heute waren <span id="visitor-count">0</span> Besucher hier!</p>
       <button class="btn" onclick="showMap()">Karte öffnen</button>
     </div>
   </section>
@@ -238,116 +192,43 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
-    let map, markers, allPlaces;
-    let debounceTimeout;
+    const apiKey = "$2a$10$jTp/BwqJ8yfiKVvKr0ZWRO/l/q9uoWw96dOEEpH3SjT/KeeR6lCmG";
+    const binId = "683ea94f8960c979a5a4a455";
 
-    function showMap() {
-      document.getElementById('start').style.display = 'none';
-      document.getElementById('map').style.display = 'block';
+    async function updateVisitorCount() {
+      const today = new Date().toISOString().slice(0, 10);
+      try {
+        let response = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+          headers: { 'X-Master-Key': apiKey }
+        });
+        let data = await response.json();
+        let bin = data.record;
 
-      if (!map) {
-        map = L.map('map').setView([51.3, 13.3], 7);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 19,
-          attribution: '© OpenStreetMap'
-        }).addTo(map);
+        if (bin.today === today) {
+          bin.count++;
+        } else {
+          bin.today = today;
+          bin.count = 1;
+        }
 
-        markers = L.markerClusterGroup({
-          maxClusterRadius: 80,
-          chunkedLoading: true,
-          removeOutsideVisibleBounds: true,
-          iconCreateFunction: function(cluster) {
-            return L.divIcon({
-              html: '<div class="custom-cluster">' + cluster.getChildCount() + '</div>',
-              className: 'custom-cluster',
-              iconSize: L.point(40, 40)
-            });
-          }
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+          },
+          body: JSON.stringify(bin)
         });
 
-        fetch('orte.json')
-          .then(response => {
-            if (!response.ok) throw new Error("Fehler beim Laden der JSON-Datei: " + response.status);
-            return response.json();
-          })
-          .then(data => {
-            allPlaces = data;
-
-            const controls = document.createElement('div');
-            controls.className = 'controls';
-
-            const select = document.createElement('select');
-            select.innerHTML = '<option value="">Alle Kategorien</option>';
-            const categories = [...new Set(allPlaces.map(p => p.category))];
-            categories.forEach(c => {
-              select.innerHTML += '<option value="' + c + '">' + c + '</option>';
-            });
-            select.addEventListener('change', () => debounceUpdateMarkers());
-            controls.appendChild(select);
-
-            const searchInput = document.createElement('input');
-            searchInput.type = 'text';
-            searchInput.placeholder = 'Ort suchen...';
-            searchInput.addEventListener('input', () => debounceUpdateMarkers());
-            controls.appendChild(searchInput);
-
-            map.getContainer().appendChild(controls);
-
-            map.on('moveend zoomend', () => debounceUpdateMarkers());
-            updateMarkers();
-          })
-          .catch(error => {
-            console.error(error);
-            alert("Fehler beim Laden der JSON-Datei. Prüfe die Konsole!");
-          });
+        document.getElementById("visitor-count").textContent = bin.count;
+      } catch (error) {
+        console.error("Fehler beim Laden des Zählers:", error);
+        document.getElementById("visitor-count").textContent = "N/A";
       }
     }
 
-    function debounceUpdateMarkers() {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(() => updateMarkers(), 300);
-    }
-
-    function updateMarkers() {
-      const category = document.querySelector('.controls select').value;
-      const search = document.querySelector('.controls input').value.toLowerCase();
-      const bounds = map.getBounds();
-      let filtered = allPlaces;
-
-      if (category) {
-        filtered = filtered.filter(p => p.category === category);
-      }
-      if (search) {
-        filtered = filtered.filter(p => p.name.toLowerCase().includes(search));
-      }
-      filtered = filtered.filter(p => bounds.contains([p.lat, p.lng]));
-
-      renderMarkers(filtered);
-    }
-
-    function renderMarkers(places) {
-      markers.clearLayers();
-      const markersToRender = [];
-
-      places.forEach(place => {
-        const marker = L.marker([place.lat, place.lng])
-          .bindPopup(
-            '<strong>' + place.name + '</strong><br>' +
-            'Beschreibung: ' + place.beschreibung + '<br>' +
-            'Kategorie: ' + place.category + '<br>' +
-            'Schwierigkeit: ' + place.schwierigkeit
-          );
-        markersToRender.push(marker);
-      });
-
-      markers.addLayers(markersToRender);
-      map.addLayer(markers);
-    }
-
-    function toggleMenu() {
-      const navLinks = document.getElementById('navLinks');
-      navLinks.classList.toggle('active');
-    }
+    updateVisitorCount();
   </script>
+  <script src="js/main.js"></script> <!-- Falls du Leaflet etc. extra ausgelagert hast -->
 </body>
 </html>
