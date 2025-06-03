@@ -114,6 +114,13 @@
       transform: translateY(-3px);
     }
 
+    #map {
+      display: none;
+      height: 80vh;
+      width: 100%;
+      z-index: 1000;
+    }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -174,6 +181,33 @@
     &copy; 2025 Urbex Scope | <a href="impressum.html">Impressum</a> | <a href="datenschutz.html">Datenschutz</a>
   </footer>
 
-  <!-- JS-Karte etc. wie bisher -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script>
+    let mapInitialized = false;
+
+    function showMap() {
+      // Blende die Hero Section aus
+      document.querySelector('.hero').style.display = 'none';
+      // Blende die Karte ein
+      document.getElementById('map').style.display = 'block';
+
+      // Initialisiere die Karte nur einmal
+      if (!mapInitialized) {
+        const map = L.map('map').setView([51.505, -0.09], 13); // Beispielkoordinaten
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Beispielmarker hinzufügen
+        const marker = L.marker([51.505, -0.09]).addTo(map)
+          .bindPopup('<b>Beispiel Lost Place</b><br>Beschreibung hier.');
+
+        mapInitialized = true;
+      }
+    }
+  </script>
 </body>
 </html>
