@@ -176,7 +176,7 @@
 <div class="hero-content">
 
 
-<button class="btn" onclick="showMap()">Karte öffnen</button>
+<button class="btn" onclick="showMap()">Open the map</button>
 </div>
 </section>
 <div id="map"></div>
@@ -213,7 +213,7 @@
           }
         });
 
-        fetch('orte.json')
+        fetch('orte-en.json')
           .then(response => {
             if (!response.ok) throw new Error("Fehler beim Laden der JSON-Datei: " + response.status);
             return response.json();
