@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Checkliste | Urbex Scope</title>
+  <style>
+    body { background-color: #1a1a1a; color: #ffffff; font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+    h1 { text-align: center; margin-bottom: 10px; }
+    nav { text-align: center; margin-bottom: 20px; }
+    nav a { color: #ffffff; text-decoration: none; margin: 0 10px; }
+    nav a:hover { color: #ffcc00; text-decoration: underline; }
+    .content { max-width: 800px; margin: 0 auto; background-color: rgba(30, 30, 30, 0.8); padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); }
+    .progress-container { background-color: rgba(255, 255, 255, 0.2); border-radius: 5px; height: 20px; width: 100%; margin-bottom: 10px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0%; background-color: #ffcc00; transition: width 0.3s ease; }
+    .progress-text { text-align: center; font-size: 0.9em; margin-bottom: 10px; color: #cccccc; }
+    .checklist-item { margin-bottom: 15px; padding: 15px; background-color: rgba(50, 50, 50, 0.7); border-radius: 5px; }
+    .checklist-item label { display: flex; align-items: center; gap: 10px; font-size: 1.1em; cursor: pointer; }
+    .description { font-size: 0.95em; color: #cccccc; margin-left: 30px; margin-top: 5px; }
+    .hilfreich { font-size: 0.85em; color: #ffcc00; margin-left: 30px; margin-top: 5px; }
+    input[type="checkbox"] { transform: scale(1.2); cursor: pointer; }
+    #essential-warning { color: red; font-size: 0.9em; margin-bottom: 15px; display: none; }
+    .category-filter { margin-bottom: 15px; }
+    .category-filter label { margin-right: 10px; cursor: pointer; }
+    .hidden { display: none; }
+    .shake { animation: shake 0.4s; }
+    @keyframes shake { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-5px); } 100% { transform: translateX(0); } }
+    .download-button { background-color: #ffcc00; color: #1a1a1a; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; margin-top: 10px; }
+    .download-button:hover { background-color: #ffaa00; }
+  </style>
+</head>
+<body>
+
+<div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <a href="checkliste.html"><button>Deutsch</button></a>
+</div>
+
+  <h1>Checkliste für deine Lost-Places-Tour</h1>
+  <nav>
+    <a href="index.html">Startseite</a> |
+    <a href="agb.html">AGB</a> |
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="partner.html">Partner</a> |
+    <a href="soziales.html">Soziales</a> |
+    <a href="zone.html">ZONE</a>
+  </nav>
+  <div class="content">
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div class="progress-text" id="progress-text">Nicht bereit</div>
+    <div id="essential-warning">⚠️ Du hast noch wichtige Essentials nicht abgehakt!</div>
+    <div class="category-filter">
+      <strong>Filter:</strong>
+      <label><input type="checkbox" class="filter" value="Sicherheit" checked> Sicherheit</label>
+      <label><input type="checkbox" class="filter" value="Ausrüstung" checked> Ausrüstung</label>
+      <label><input type="checkbox" class="filter" value="Komfort" checked> Komfort</label>
+    </div>
+    <div id="checklist">
+
+      <div class="checklist-item" data-category="Sicherheit" data-essential="true">
+        <label><input type="checkbox"> Taschenlampe</label>
+        <div class="description">Eine gute Taschenlampe ist dein ständiger Begleiter auf jeder Lost-Places-Tour. Sie sorgt dafür, dass du auch in den dunkelsten Ecken alles im Blick behältst, versteckte Gefahren rechtzeitig erkennst und kein Detail übersiehst. Außerdem kann sie dir helfen, Hinweise auf die Geschichte des Ortes zu entdecken.</div>
+        <div class="hilfreich">Hilfreich: Ja</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="true">
+        <label><input type="checkbox"> Erste-Hilfe-Set</label>
+        <div class="description">Ein Erste-Hilfe-Set ist dein Sicherheitsnetz. Es hilft dir dabei, kleine Verletzungen sofort zu versorgen, sodass du deine Tour sicher fortsetzen kannst. Von Pflaster bis Verbandsmaterial – alles dabei, falls mal etwas passiert.</div>
+        <div class="hilfreich">Hilfreich: Ja</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="true">
+        <label><input type="checkbox"> Handschuhe</label>
+        <div class="description">Robuste Handschuhe schützen deine Hände zuverlässig vor scharfen Kanten, Schutt und rostigen Nägeln. Sie geben dir das Vertrauen, auch schwierige Ecken zu erkunden, ohne dich zu verletzen.</div>
+        <div class="hilfreich">Hilfreich: Ja</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Atemschutzmaske</label>
+        <div class="description">Eine Atemschutzmaske schützt dich vor Staub, Schimmelsporen und anderen Schadstoffen, die gerade in alten Gebäuden lauern. So kannst du unbeschwert atmen und deine Tour genießen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Schutzbrille</label>
+        <div class="description">Eine Schutzbrille schützt deine Augen vor Staub, Splittern oder herabfallenden Partikeln. Gerade beim Betreten von Gebäuden mit losem Putz oder Glasresten ist sie unverzichtbar.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Helm</label>
+        <div class="description">Ein Helm schützt dich vor herunterfallenden Teilen und gibt dir Sicherheit in Gebäuden mit instabilen Decken oder Dachböden. So kannst du dich voll und ganz auf deine Entdeckungstour konzentrieren.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Kletterseil/Sicherheitsgurt</label>
+        <div class="description">Ein Kletterseil oder Sicherheitsgurt gibt dir zusätzliche Sicherheit, wenn du höher gelegene oder schwer zugängliche Bereiche erkunden willst. Damit bist du bestens gerüstet für anspruchsvolle Lost Places.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Handdesinfektionsmittel</label>
+        <div class="description">Lost Places sind oft voller Staub und Schmutz. Mit Handdesinfektionsmittel kannst du nach einer Erkundung schnell für Hygiene sorgen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Walkie-Talkie/Funkgerät</label>
+        <div class="description">Ein Walkie-Talkie oder Funkgerät ist gerade bei fehlendem Handynetz Gold wert. So bleibst du mit deinem Team in Kontakt und kannst im Notfall Hilfe holen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Sicherheit" data-essential="false">
+        <label><input type="checkbox"> Notfallpfeife</label>
+        <div class="description">Eine Notfallpfeife hilft dir, in Gefahrensituationen auf dich aufmerksam zu machen. Gerade in abgelegenen Gebäuden kann sie Leben retten.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Ersatzbatterien/Powerbank</label>
+        <div class="description">Damit deine Technik nicht schlappmacht, sind Ersatzbatterien oder eine Powerbank unverzichtbar. So bist du auch bei längeren Touren immer mit Strom versorgt.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Multitool oder Messer</label>
+        <div class="description">Ein Multitool oder Messer ist ein echter Allrounder: Schneiden, Schrauben oder kleine Reparaturen – damit bist du bestens vorbereitet für alle Eventualitäten.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Stirnlampe</label>
+        <div class="description">Eine Stirnlampe sorgt für Licht, während du beide Hände frei hast. Gerade beim Klettern oder Erkunden enger Bereiche ist das besonders praktisch.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Kamera</label>
+        <div class="description">Eine Kamera dokumentiert deine Abenteuer. Halte besondere Details, spannende Perspektiven und die Atmosphäre der Lost Places fest.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Karte/GPS-Gerät</label>
+        <div class="description">Verlassene Orte liegen oft versteckt. Mit einer Karte oder einem GPS-Gerät findest du deinen Weg und kannst deine Route planen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Rucksack</label>
+        <div class="description">Ein Rucksack bietet Platz für deine gesamte Ausrüstung und sorgt dafür, dass du alles griffbereit hast.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Klebeband/Panzertape</label>
+        <div class="description">Klebeband oder Panzertape ist ein echter Problemlöser: Zum Abdichten, Befestigen oder kurzfristigen Reparieren.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Müllbeutel</label>
+        <div class="description">Ein Müllbeutel sorgt dafür, dass du deinen Müll wieder mitnehmen kannst und der Lost Place sauber bleibt.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Ersatzkleidung</label>
+        <div class="description">Manchmal wird es dreckig oder nass – mit Ersatzkleidung bleibst du flexibel und kannst dich bei Bedarf umziehen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Ausrüstung" data-essential="false">
+        <label><input type="checkbox"> Taschenmesser</label>
+        <div class="description">Ein Taschenmesser hilft dir bei kleinen Reparaturen, beim Öffnen von Verpackungen oder beim Basteln vor Ort.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Wasserflasche</label>
+        <div class="description">Trinken ist wichtig – gerade auf langen Touren. Mit einer Wasserflasche bleibst du immer hydriert.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Snacks/Energieriegel</label>
+        <div class="description">Ein kleiner Snack zwischendurch gibt dir neue Energie und hält dich bei Kräften.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Notizbuch und Stift</label>
+        <div class="description">Ein Notizbuch und ein Stift sind perfekt, um deine Eindrücke festzuhalten oder Skizzen zu machen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Sonnencreme</label>
+        <div class="description">Auch bei Lost-Places-Touren kann die Sonne stark sein. Mit Sonnencreme schützt du deine Haut.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Sitzunterlage</label>
+        <div class="description">Eine Sitzunterlage bietet dir eine bequeme Pause zwischendurch – egal, ob drinnen oder draußen.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Regenjacke/Poncho</label>
+        <div class="description">Das Wetter kann schnell umschlagen. Mit einer Regenjacke oder einem Poncho bleibst du trocken.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Reiseapotheke</label>
+        <div class="description">Eine kleine Reiseapotheke mit Schmerztabletten, Pflastern und Salben rundet deine Ausrüstung ab.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Insektenschutzmittel</label>
+        <div class="description">Gerade in verlassenen Gebäuden oder in der Natur kann es viele Insekten geben. Mit Insektenschutzmittel bleibst du ungestört.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Hygieneartikel</label>
+        <div class="description">Feuchttücher, Toilettenpapier oder Desinfektionstücher sind Gold wert, wenn du länger unterwegs bist.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+      <div class="checklist-item" data-category="Komfort" data-essential="false">
+        <label><input type="checkbox"> Sonnenbrille</label>
+        <div class="description">Eine Sonnenbrille schützt deine Augen bei hellem Licht – perfekt für Touren im Sommer.</div>
+        <div class="hilfreich">Hilfreich: Optional</div>
+      </div>
+    </div>
+    <button class="download-button" onclick="downloadChecklist()">Checkliste herunterladen</button>
+  </div>
+  <script>
+    const checkboxes = document.querySelectorAll('#checklist input[type="checkbox"]');
+    const progressBar = document.getElementById('progress-bar');
+    const progressText = document.getElementById('progress-text');
+    const essentialWarning = document.getElementById('essential-warning');
+    const filters = document.querySelectorAll('.filter');
+    function updateProgress() {
+      const totalCount = checkboxes.length;
+      const checkedCount = document.querySelectorAll('#checklist input[type="checkbox"]:checked').length;
+      const percentage = Math.round((checkedCount / totalCount) * 100);
+      progressBar.style.width = percentage + '%';
+      if (percentage === 0) {
+        progressText.textContent = 'Nicht bereit';
+      } else if (percentage < 50) {
+        progressText.textContent = "Anfänger – noch einiges zu tun!";
+      } else if (percentage < 100) {
+        progressText.textContent = "Gut vorbereitet – fast startklar!";
+      } else {
+        progressText.textContent = "Perfekt vorbereitet – los geht's!";
+      }
+      const essentials = document.querySelectorAll('#checklist [data-essential="true"] input[type="checkbox"]');
+      const essentialsChecked = Array.from(essentials).every(cb => cb.checked);
+      essentialWarning.style.display = essentialsChecked ? 'none' : 'block';
+    }
+    checkboxes.forEach(cb => cb.addEventListener('change', () => {
+      cb.parentElement.parentElement.classList.add('shake');
+      setTimeout(() => cb.parentElement.parentElement.classList.remove('shake'), 400);
+      updateProgress();
+    }));
+    filters.forEach(filter => {
+      filter.addEventListener('change', () => {
+        const activeCategories = Array.from(filters).filter(f => f.checked).map(f => f.value);
+        document.querySelectorAll('.checklist-item').forEach(item => {
+          item.classList.toggle('hidden', !activeCategories.includes(item.dataset.category));
+        });
+      });
+    });
+    function downloadChecklist() {
+      const checkedItems = Array.from(checkboxes).filter(cb => cb.checked).map(cb => '- ' + cb.parentElement.textContent.trim());
+      const text = checkedItems.length > 0 ? checkedItems.join('\n') : 'Noch keine Punkte abgehakt!';
+      const blob = new Blob([text], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'checkliste.txt';
+      link.click();
+    }
+    updateProgress();
+  </script>
+</body>
+</html>
