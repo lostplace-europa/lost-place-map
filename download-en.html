@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="utf-8"/>
+<title>ZONE Downloads | Urbex Scope</title>
+<style>
+    body {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav a:hover {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(30, 30, 30, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+    .download-button {
+      background-color: #ffcc00;
+      color: #1a1a1a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin: 10px;
+    }
+    .download-button:hover {
+      background-color: #ffaa00;
+    }
+    .note {
+      font-size: 0.9em;
+      color: #cccccc;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+<div style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+<a href="download.html"><button>Deutsch</button></a>
+</div>
+
+<nav>
+<a href="index.html">Startseite</a> |
+    <a href="agb.html">AGB</a> |
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="partner.html">Partner</a> |
+    <a href="soziales.html">Soziales</a> |
+    <a href="zone.html">ZONE</a>
+</nav>
+<div class="content">
+
+<button class="download-button" onclick="downloadChecklist()">📝 Checkliste herunterladen</button>
+<button class="download-button" onclick="downloadLegal()">⚖️ Rechtliche Hinweise herunterladen</button>
+<button class="download-button" onclick="downloadTips()">💡 Tipps herunterladen</button>
+
+</div>
+<script>
+    function downloadChecklist() {
+      const checklist = [
+        "Wettervorhersage prüfen",
+        "Taschenlampe mit Ersatzbatterien",
+        "Erste-Hilfe-Set",
+        "Karte oder GPS",
+        "Ersatzkleidung (Schutz vor Schmutz, Feuchtigkeit)",
+        "Wasser & Snacks",
+        "Notizbuch oder Kamera",
+        "Akkus laden (Handy, Kamera)",
+        "Helm & Handschuhe (bei unsicheren Gebäuden)",
+        "Vollständige Adresse des Lost Places notieren",
+        "Ansprechpartner informieren (für Sicherheit)"
+      ];
+      const text = checklist.map(item => "- " + item).join("\n");
+      downloadTextFile("checkliste.txt", text);
+    }
+
+    function downloadLegal() {
+      const legal = [
+        "Betreten fremder Grundstücke ohne Genehmigung kann Hausfriedensbruch sein.",
+        "Urbex ist meist eine rechtliche Grauzone – kläre vorher, ob das Gelände öffentlich zugänglich ist.",
+        "Achte auf Hinweisschilder wie 'Betreten verboten' oder 'Privatgelände'.",
+        "Betreten auf eigene Gefahr: Sicherheitsvorkehrungen sind selbst zu treffen.",
+        "Fotografieren kann erlaubt sein, aber Veröffentlichen von Fotos kann die Rechte Dritter verletzen.",
+        "Respektiere die Natur- und Denkmalschutzgesetze.",
+        "Urbex ist ein Abenteuer – aber keine Einladung zu Vandalismus oder Diebstahl."
+      ];
+      const text = legal.map(item => "- " + item).join("\n");
+      downloadTextFile("rechtliche_hinweise.txt", text);
+    }
+
+    function downloadTips() {
+      const tips = [
+        "Sei immer vorsichtig: Baufällige Gebäude können gefährlich sein.",
+        "Gehe nie allein – ein Buddy-System erhöht die Sicherheit.",
+        "Plane ausreichend Zeit ein, um das Gelände zu erkunden und sicher zurückzukehren.",
+        "Hinterlasse keinen Müll – Respektiere die Location.",
+        "Nutze Social Media bewusst – keine genauen Koordinaten veröffentlichen.",
+        "Prüfe vorher Zugänglichkeit und Parkplatzsituation.",
+        "Trage angemessene Kleidung: lange Hosen, festes Schuhwerk.",
+        "Nimm nur Fotos mit – und hinterlasse nur Fußspuren."
+      ];
+      const text = tips.map(item => "- " + item).join("\n");
+      downloadTextFile("tipps.txt", text);
+    }
+
+    function downloadTextFile(filename, content) {
+      const blob = new Blob([content], { type: "text/plain" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    }
+  </script>
+<p>ZONE - Download area
+Here you can download important checklists, legal information and tips directly as a text file:</p><p>📝 Download checklist</p><p>⚖️ Download legal information</p><p>💡 Download tips</p><p>The downloads are created directly in the browser - no server upload necessary. Everything for your Urbex adventure planning!</p></body>
+</html>
