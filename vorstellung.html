@@ -50,11 +50,8 @@
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 300px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-    .gallery figure:hover {
-      transform: scale(1.05);
+      overflow: hidden;
+      text-align: center;
     }
     .gallery img {
       width: 100%;
@@ -66,7 +63,20 @@
       padding: 10px;
       font-size: 0.9em;
       color: #cccccc;
-      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 8px 12px;
+      background-color: #ffcc00;
+      color: #000;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #ffaa00;
     }
     .display {
       margin-top: 30px;
@@ -96,25 +106,28 @@
     <a href="impressum.html">Impressum</a>
   </nav>
   <div class="content">
-    <p>Hier findest du drei Lost Places, die uns besonders beeindruckt haben. Klicke auf ein Bild, um mehr darüber zu erfahren:</p>
+    <p>Hier findest du drei Lost Places, die uns besonders beeindruckt haben. Klicke auf "Mehr erfahren", um mehr zu sehen:</p>
 
     <div class="gallery">
-      <figure onclick="zeigeObjekt('klipphausen')">
+      <figure>
         <img src="images/zi9.jpg" alt="Möbelhaus Klipphausen">
-        <figcaption>Möbelhaus Klipphausen</figcaption>
+        <figcaption>Möbelhaus Klipphausen<br>Ein verlassenes Möbelhaus voller Geschichte und Staub.</figcaption>
+        <button class="button" onclick="zeigeObjekt('klipphausen')">Mehr erfahren</button>
       </figure>
-      <figure onclick="zeigeObjekt('tschernobyl')">
+      <figure>
         <img src="images/tschernobyl-atom-katatstrophe.jpg" alt="Tschernobyl">
-        <figcaption>Tschernobyl</figcaption>
+        <figcaption>Tschernobyl<br>Die Geisterstadt nach der Reaktorkatastrophe von 1986.</figcaption>
+        <button class="button" onclick="zeigeObjekt('tschernobyl')">Mehr erfahren</button>
       </figure>
-      <figure onclick="zeigeObjekt('beelitz')">
+      <figure>
         <img src="images/R.jpeg" alt="Beelitz-Heilstätten">
-        <figcaption>Beelitz-Heilstätten</figcaption>
+        <figcaption>Beelitz-Heilstätten<br>Verfallene Klinikbauten nahe Berlin voller Geschichte.</figcaption>
+        <button class="button" onclick="zeigeObjekt('beelitz')">Mehr erfahren</button>
       </figure>
     </div>
 
     <div class="display" id="anzeige">
-      <!-- Querformatbild und Beschreibung erscheinen hier -->
+      <!-- Hier wird das große Bild und der lange Text angezeigt -->
     </div>
   </div>
 
@@ -122,22 +135,27 @@
     function zeigeObjekt(objekt) {
       let bild = '';
       let beschreibung = '';
+      let titel = '';
 
       if (objekt === 'klipphausen') {
         bild = 'images/zi9.jpg';
+        titel = 'Möbelhaus Klipphausen';
         beschreibung = 'Das Möbelhaus Klipphausen liegt verlassen an der B6 bei Dresden. Einst ein florierendes Möbelhaus, ist es heute eine Ruine voller Staub und Schatten. Die weitläufigen Ausstellungshallen sind mit verrosteten Regalen und zerbrochenen Stühlen gefüllt. Vögel nisten in den Deckenbalken, während das Tageslicht durch zerbrochene Fenster fällt. Jeder Raum erzählt eine Geschichte vom einstigen Glanz und dem langsamen Verfall.';
       } 
       else if (objekt === 'tschernobyl') {
         bild = 'images/tschernobyl-atom-katatstrophe.jpg';
+        titel = 'Tschernobyl';
         beschreibung = 'Tschernobyl ist das bekannteste Sperrgebiet der Welt. Nach der Reaktorkatastrophe von 1986 wurde die Region für Jahrzehnte unbewohnbar. Die verlassenen Gebäude, Wohnblocks und Spielplätze wirken wie eingefroren in der Zeit. Heute zieht es Abenteuerlustige und Historiker gleichermaßen an, die das Ausmaß der Katastrophe hautnah erleben möchten.';
       }
       else if (objekt === 'beelitz') {
         bild = 'images/R.jpeg';
+        titel = 'Beelitz-Heilstätten';
         beschreibung = 'Die Beelitz-Heilstätten nahe Berlin sind ein legendärer Lost Place. Einst ein Sanatorium für Lungenkranke, später Militärhospital, sind die Gebäude heute von der Natur zurückerobert. Endlose Flure mit zerbrochenen Fenstern, imposante Backsteinfassaden und verwunschene Treppenhäuser erzählen Geschichten von Krankheit, Heilung, Krieg und Verfall.';
       }
 
       document.getElementById('anzeige').innerHTML = `
-        <img src="${bild}" alt="${objekt}">
+        <h2>${titel}</h2>
+        <img src="${bild}" alt="${titel}">
         <div class="description">${beschreibung}</div>
       `;
     }
