@@ -14,7 +14,7 @@
     }
     h1 {
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       color: #ffcc00;
     }
     nav {
@@ -38,51 +38,52 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    .object-grid {
+    .gallery {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
       margin-top: 20px;
     }
-    .object-card {
+    .gallery figure {
       background-color: rgba(0,0,0,0.5);
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 300px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s;
     }
-    .object-card img {
+    .gallery figure:hover {
+      transform: scale(1.05);
+    }
+    .gallery img {
       width: 100%;
       height: auto;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
     }
-    .object-info {
-      padding: 15px;
-    }
-    .object-info h3 {
-      margin: 10px 0 5px;
-      color: #ffffff;
-    }
-    .object-info p {
+    .gallery figcaption {
+      padding: 10px;
       font-size: 0.9em;
       color: #cccccc;
-      margin-bottom: 10px;
+      text-align: center;
     }
-    .object-card .button {
-      display: inline-block;
-      padding: 8px 12px;
-      background-color: #ffcc00;
-      color: #000;
-      border-radius: 4px;
-      text-decoration: none;
-      transition: background-color 0.3s;
+    .display {
+      margin-top: 30px;
+      text-align: center;
     }
-    .object-card .button:hover {
-      background-color: #ffaa00;
+    .display img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .description {
+      text-align: left;
+      font-size: 1em;
+      color: #cccccc;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -95,39 +96,51 @@
     <a href="impressum.html">Impressum</a>
   </nav>
   <div class="content">
-    <p>Hier stellen wir euch drei außergewöhnliche Lost Places vor, die uns besonders beeindruckt haben. Jeder dieser Orte erzählt seine eigene Geschichte von Verfall, Geschichte und Abenteuer.</p>
+    <p>Hier findest du drei Lost Places, die uns besonders beeindruckt haben. Klicke auf ein Bild, um mehr darüber zu erfahren:</p>
 
-    <div class="object-grid">
-      <!-- Objekt 1 -->
-      <div class="object-card">
-        <img src="https://cdn.pixabay.com/photo/2017/01/20/00/30/factory-1991485_1280.jpg" alt="Möbelhaus Klipphausen" loading="lazy">
-        <div class="object-info">
-          <h3>Möbelhaus Klipphausen</h3>
-          <p>Ein verlassenes Möbelhaus bei Dresden. Seit Jahren leerstehend, bietet es eine mysteriöse Atmosphäre zwischen verstaubten Ausstellungsstücken und zerfallenen Regalen.</p>
-          <a href="#" class="button">Mehr erfahren</a>
-        </div>
-      </div>
+    <div class="gallery">
+      <figure onclick="zeigeObjekt('klipphausen')">
+        <img src="images/zi9.jpg" alt="Möbelhaus Klipphausen">
+        <figcaption>Möbelhaus Klipphausen</figcaption>
+      </figure>
+      <figure onclick="zeigeObjekt('tschernobyl')">
+        <img src="images/tschernobyl-atom-katatstrophe.jpg" alt="Tschernobyl">
+        <figcaption>Tschernobyl</figcaption>
+      </figure>
+      <figure onclick="zeigeObjekt('beelitz')">
+        <img src="images/R.jpeg" alt="Beelitz-Heilstätten">
+        <figcaption>Beelitz-Heilstätten</figcaption>
+      </figure>
+    </div>
 
-      <!-- Objekt 2 -->
-      <div class="object-card">
-        <img src="https://cdn.pixabay.com/photo/2018/04/29/16/18/ghost-town-3352991_1280.jpg" alt="Tschernobyl" loading="lazy">
-        <div class="object-info">
-          <h3>Tschernobyl</h3>
-          <p>Das wohl bekannteste Sperrgebiet der Welt: Tschernobyl ist seit der Katastrophe von 1986 ein Mahnmal für die Kraft der Natur und die Vergänglichkeit menschlicher Bauwerke.</p>
-          <a href="#" class="button">Mehr erfahren</a>
-        </div>
-      </div>
-
-      <!-- Objekt 3 -->
-      <div class="object-card">
-        <img src="https://cdn.pixabay.com/photo/2020/11/06/20/23/beelitz-heilstaetten-5718706_1280.jpg" alt="Beelitz-Heilstätten" loading="lazy">
-        <div class="object-info">
-          <h3>Beelitz-Heilstätten</h3>
-          <p>Das ehemalige Sanatorium nahe Berlin, bekannt für seine beeindruckende Architektur und die faszinierende Geschichte von Heilung und Verfall.</p>
-          <a href="#" class="button">Mehr erfahren</a>
-        </div>
-      </div>
+    <div class="display" id="anzeige">
+      <!-- Querformatbild und Beschreibung erscheinen hier -->
     </div>
   </div>
+
+  <script>
+    function zeigeObjekt(objekt) {
+      let bild = '';
+      let beschreibung = '';
+
+      if (objekt === 'klipphausen') {
+        bild = 'images/zi9.jpg';
+        beschreibung = 'Das Möbelhaus Klipphausen liegt verlassen an der B6 bei Dresden. Einst ein florierendes Möbelhaus, ist es heute eine Ruine voller Staub und Schatten. Die weitläufigen Ausstellungshallen sind mit verrosteten Regalen und zerbrochenen Stühlen gefüllt. Vögel nisten in den Deckenbalken, während das Tageslicht durch zerbrochene Fenster fällt. Jeder Raum erzählt eine Geschichte vom einstigen Glanz und dem langsamen Verfall.';
+      } 
+      else if (objekt === 'tschernobyl') {
+        bild = 'images/tschernobyl-atom-katatstrophe.jpg';
+        beschreibung = 'Tschernobyl ist das bekannteste Sperrgebiet der Welt. Nach der Reaktorkatastrophe von 1986 wurde die Region für Jahrzehnte unbewohnbar. Die verlassenen Gebäude, Wohnblocks und Spielplätze wirken wie eingefroren in der Zeit. Heute zieht es Abenteuerlustige und Historiker gleichermaßen an, die das Ausmaß der Katastrophe hautnah erleben möchten.';
+      }
+      else if (objekt === 'beelitz') {
+        bild = 'images/R.jpeg';
+        beschreibung = 'Die Beelitz-Heilstätten nahe Berlin sind ein legendärer Lost Place. Einst ein Sanatorium für Lungenkranke, später Militärhospital, sind die Gebäude heute von der Natur zurückerobert. Endlose Flure mit zerbrochenen Fenstern, imposante Backsteinfassaden und verwunschene Treppenhäuser erzählen Geschichten von Krankheit, Heilung, Krieg und Verfall.';
+      }
+
+      document.getElementById('anzeige').innerHTML = `
+        <img src="${bild}" alt="${objekt}">
+        <div class="description">${beschreibung}</div>
+      `;
+    }
+  </script>
 </body>
 </html>
