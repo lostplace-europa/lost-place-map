@@ -78,13 +78,12 @@
     .button:hover {
       background-color: #ffaa00;
     }
-    .display {
-      margin-top: 30px;
+    .detail-view {
+      display: none;
       text-align: center;
     }
-    .display img {
+    .detail-view img {
       width: 100%;
-      max-width: 100%;
       height: auto;
       border-radius: 10px;
       margin-bottom: 15px;
@@ -94,6 +93,22 @@
       font-size: 1em;
       color: #cccccc;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 8px 12px;
+      background-color: #ffcc00;
+      color: #000;
+      border-radius: 4px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .back-button:hover {
+      background-color: #ffaa00;
     }
   </style>
 </head>
@@ -106,58 +121,63 @@
     <a href="impressum.html">Impressum</a>
   </nav>
   <div class="content">
-    <p>Hier findest du drei Lost Places, die uns besonders beeindruckt haben. Klicke auf "Mehr erfahren", um mehr zu sehen:</p>
-
-    <div class="gallery">
+    <div class="gallery" id="gallery">
       <figure>
-        <img src="images/zi9.jpg" alt="Möbelhaus Klipphausen">
+        <img src="zi9.jpg" alt="Möbelhaus Klipphausen">
         <figcaption>Möbelhaus Klipphausen<br>Ein verlassenes Möbelhaus voller Geschichte und Staub.</figcaption>
-        <button class="button" onclick="zeigeObjekt('klipphausen')">Mehr erfahren</button>
+        <button class="button" onclick="zeigeDetail('klipphausen')">Mehr erfahren</button>
       </figure>
       <figure>
-        <img src="images/tschernobyl-atom-katatstrophe.jpg" alt="Tschernobyl">
+        <img src="tschernobyl-atom-katatstrophe.jpg" alt="Tschernobyl">
         <figcaption>Tschernobyl<br>Die Geisterstadt nach der Reaktorkatastrophe von 1986.</figcaption>
-        <button class="button" onclick="zeigeObjekt('tschernobyl')">Mehr erfahren</button>
+        <button class="button" onclick="zeigeDetail('tschernobyl')">Mehr erfahren</button>
       </figure>
       <figure>
-        <img src="images/R.jpeg" alt="Beelitz-Heilstätten">
+        <img src="R.jpeg" alt="Beelitz-Heilstätten">
         <figcaption>Beelitz-Heilstätten<br>Verfallene Klinikbauten nahe Berlin voller Geschichte.</figcaption>
-        <button class="button" onclick="zeigeObjekt('beelitz')">Mehr erfahren</button>
+        <button class="button" onclick="zeigeDetail('beelitz')">Mehr erfahren</button>
       </figure>
     </div>
 
-    <div class="display" id="anzeige">
-      <!-- Hier wird das große Bild und der lange Text angezeigt -->
+    <div class="detail-view" id="detail-view">
+      <h2 id="detail-title"></h2>
+      <img id="detail-img" src="" alt="">
+      <div class="description" id="detail-description"></div>
+      <button class="back-button" onclick="zurueckZurGalerie()">Zurück zur Übersicht</button>
     </div>
   </div>
 
   <script>
-    function zeigeObjekt(objekt) {
+    function zeigeDetail(objekt) {
       let bild = '';
-      let beschreibung = '';
       let titel = '';
+      let beschreibung = '';
 
       if (objekt === 'klipphausen') {
-        bild = 'images/zi9.jpg';
+        bild = 'zi9.jpg';
         titel = 'Möbelhaus Klipphausen';
-        beschreibung = 'Das Möbelhaus Klipphausen liegt verlassen an der B6 bei Dresden. Einst ein florierendes Möbelhaus, ist es heute eine Ruine voller Staub und Schatten. Die weitläufigen Ausstellungshallen sind mit verrosteten Regalen und zerbrochenen Stühlen gefüllt. Vögel nisten in den Deckenbalken, während das Tageslicht durch zerbrochene Fenster fällt. Jeder Raum erzählt eine Geschichte vom einstigen Glanz und dem langsamen Verfall.';
-      } 
-      else if (objekt === 'tschernobyl') {
-        bild = 'images/tschernobyl-atom-katatstrophe.jpg';
+        beschreibung = `REPLACE_WITH_KLIPPHAUSEN_TEXT`;
+      } else if (objekt === 'tschernobyl') {
+        bild = 'tschernobyl-atom-katatstrophe.jpg';
         titel = 'Tschernobyl';
-        beschreibung = 'Tschernobyl ist das bekannteste Sperrgebiet der Welt. Nach der Reaktorkatastrophe von 1986 wurde die Region für Jahrzehnte unbewohnbar. Die verlassenen Gebäude, Wohnblocks und Spielplätze wirken wie eingefroren in der Zeit. Heute zieht es Abenteuerlustige und Historiker gleichermaßen an, die das Ausmaß der Katastrophe hautnah erleben möchten.';
-      }
-      else if (objekt === 'beelitz') {
-        bild = 'images/R.jpeg';
+        beschreibung = `REPLACE_WITH_TSCHERNOBYL_TEXT`;
+      } else if (objekt === 'beelitz') {
+        bild = 'R.jpeg';
         titel = 'Beelitz-Heilstätten';
-        beschreibung = 'Die Beelitz-Heilstätten nahe Berlin sind ein legendärer Lost Place. Einst ein Sanatorium für Lungenkranke, später Militärhospital, sind die Gebäude heute von der Natur zurückerobert. Endlose Flure mit zerbrochenen Fenstern, imposante Backsteinfassaden und verwunschene Treppenhäuser erzählen Geschichten von Krankheit, Heilung, Krieg und Verfall.';
+        beschreibung = `REPLACE_WITH_BEELITZ_TEXT`;
       }
 
-      document.getElementById('anzeige').innerHTML = `
-        <h2>${titel}</h2>
-        <img src="${bild}" alt="${titel}">
-        <div class="description">${beschreibung}</div>
-      `;
+      document.getElementById('gallery').style.display = 'none';
+      document.getElementById('detail-title').innerText = titel;
+      document.getElementById('detail-img').src = bild;
+      document.getElementById('detail-img').alt = titel;
+      document.getElementById('detail-description').innerHTML = beschreibung;
+      document.getElementById('detail-view').style.display = 'block';
+    }
+
+    function zurueckZurGalerie() {
+      document.getElementById('detail-view').style.display = 'none';
+      document.getElementById('gallery').style.display = 'flex';
     }
   </script>
 </body>
