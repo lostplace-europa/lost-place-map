@@ -208,7 +208,13 @@
 
     function openMapModal() {
       document.getElementById('mapModal').style.display = 'block';
-      if (!map) initMap();
+      setTimeout(() => {
+        if (!map) {
+          initMap();
+        } else {
+          map.invalidateSize();
+        }
+      }, 100);
     }
 
     function closeMapModal() {
