@@ -56,47 +56,6 @@
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
     }
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 1rem;
-    }
-    section p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
-    .review {
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 12px;
-      margin: 30px auto;
-      max-width: 650px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    }
-    .stars {
-      color: gold;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-    footer {
-      padding: 30px 20px;
-      text-align: center;
-      background-color: #000;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    footer a {
-      color: #999;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover { color: #ffcc00; }
     #mapModal {
       display: none;
       position: fixed;
@@ -108,7 +67,7 @@
     }
     #karte {
       width: 100%;
-      height: calc(100vh - 80px);
+      height: 100%;
     }
     .close-btn {
       position: absolute;
@@ -135,68 +94,46 @@
       border: none;
       font-size: 1rem;
     }
+    #styleSwitcher {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2100;
+    }
+    #styleSwitcher select {
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+    }
+    #mapLoader {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      z-index: 2099;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffcc00;
+      font-size: 1.5rem;
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="#">Startseite</a>
-    <a href="#" onclick="openMapModal()">Karte</a>
-    <a href="zone.html">ZONE</a>
-    <a href="partner.html">Partner</a>
-    <a href="soziales.html">Soziales</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-    <a href="index-en.html">🇬🇧</a>
-  </nav>
-
-  <div class="hero">
-    <div>
-      <h1>Auf den Spuren des Zerfalls.</h1>
-      <p>Dein Abenteuer beginnt hier – entdecke Europas Lost Places.</p>
-      <button class="btn" onclick="openMapModal()">Karte öffnen</button>
-    </div>
-  </div>
-
-  <section>
-    <h2>Was ist Urban Exploring?</h2>
-    <p>Urban Exploring bedeutet das Erkunden verlassener Gebäude und Orte – mit Respekt vor Geschichte und Raum.</p>
-    <p>Urbex Scope bietet dir eine sichere Einstiegsmöglichkeit: Karte, Hinweise, Community. Kein Vandalismus, kein Kommerz. Nur Entdeckung & Dokumentation.</p>
-  </section>
-
-  <section style="background:#111;">
-    <h2>Das erwartet dich bei uns</h2>
-    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px;">
-      <div style="max-width:220px;"><p>🗺️ Interaktive Lost-Places-Karte</p></div>
-      <div style="max-width:220px;"><p>📷 Community-Bilder & Highlights</p></div>
-      <div style="max-width:220px;"><p>📚 Infos, Guides und ZONE-Bereich</p></div>
-      <div style="max-width:220px;"><p>📩 Orte melden via Instagram</p></div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Was andere über Urbex Scope sagen</h2>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>„Ich habe Orte gefunden, die ich ohne diese Seite nie entdeckt hätte. Die Karte ist ein Traum!“<br>– @verlasseneorte_berlin</p>
-    </div>
-    <div class="review">
-      <div class="stars">★★★★☆</div>
-      <p>„Super Übersicht! Könnte noch mehr Community-Funktionen haben, aber ich liebe das Design.“<br>– @urbex_hunter</p>
-    </div>
-    <div class="review">
-      <div class="stars">★★★★★</div>
-      <p>„Ehrlich, mystisch und inspirierend. Die perfekte Seite für Urbex-Fans wie mich.“<br>– @darkframes.de</p>
-    </div>
-  </section>
-
-  <footer>
-    Über 25.000 Besucher bisher • <a href="impressum.html">Impressum</a> • <a href="datenschutz.html">Datenschutz</a> • <a href="#">Kontakt</a>
-  </footer>
-
   <!-- Modal für Karte -->
   <div id="mapModal">
+    <div id="mapLoader">Karte wird geladen...</div>
     <div id="searchBox">
       <input type="text" id="mapSearch" placeholder="Suche nach Name oder Kategorie..." oninput="filterMarkers()">
+    </div>
+    <div id="styleSwitcher">
+      <select onchange="switchMapStyle(this.value)">
+        <option value="dark">🌑 Dunkel</option>
+        <option value="light">🌕 Hell</option>
+      </select>
     </div>
     <button class="close-btn" onclick="closeMapModal()">×</button>
     <div id="karte"></div>
@@ -205,10 +142,22 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
-    let map, markers = [], allPlaces = [], markerCluster;
+    let map, markers = [], allPlaces = [], markerCluster, currentLayer;
+
+    const layers = {
+      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap-Mitwirkende & CartoDB',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }),
+      light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap-Mitwirkende'
+      })
+    };
 
     function openMapModal() {
       document.getElementById('mapModal').style.display = 'block';
+      document.getElementById('mapLoader').style.display = 'flex';
       setTimeout(() => {
         if (!map) {
           initMap();
@@ -224,12 +173,7 @@
 
     function initMap() {
       map = L.map('karte').setView([51.1657, 10.4515], 6);
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap-Mitwirkende & CartoDB',
-        subdomains: 'abcd',
-        maxZoom: 19
-      }).addTo(map);
-
+      currentLayer = layers.dark.addTo(map);
       markerCluster = L.markerClusterGroup();
       map.addLayer(markerCluster);
 
@@ -238,7 +182,13 @@
         .then(data => {
           allPlaces = data;
           data.forEach(addMarker);
+          document.getElementById('mapLoader').style.display = 'none';
         });
+    }
+
+    function switchMapStyle(style) {
+      if (currentLayer) map.removeLayer(currentLayer);
+      currentLayer = layers[style].addTo(map);
     }
 
     function addMarker(ort) {
