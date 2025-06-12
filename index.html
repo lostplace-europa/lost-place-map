@@ -4,38 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urbex Scope – Lost Places Europa</title>
-  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas." />
+  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas. Interaktive Karte, Community, Geschichten & urbane Entdeckungen." />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Unbounded', sans-serif;
       background-color: #0a0a0a;
       color: #fff;
+      scroll-behavior: smooth;
     }
-    nav {
-      background: rgba(0,0,0,0.9);
-      padding: 1rem;
+    #preloader {
       position: fixed;
-      width: 100%;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #0a0a0a;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #333;
+      border-top-color: #ffcc00;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    nav {
+      position: fixed;
       top: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.85);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
       z-index: 1000;
-      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     }
     nav a {
-      margin: 0 10px;
       color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
+    nav a:hover { color: #ffcc00; }
     .hero {
       height: 100vh;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)), url('lostplaces_bg.jpg') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
       text-align: center;
       padding: 0 20px;
+    }
+    .hero-content {
+      max-width: 700px;
+      z-index: 2;
+      animation: fadeIn 2s ease forwards;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 20px rgba(0,0,0,0.8);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #ccc;
+      margin-bottom: 2rem;
     }
     .btn {
       background: #ffcc00;
@@ -45,9 +87,90 @@
       border-radius: 30px;
       font-size: 1rem;
       font-weight: bold;
+      text-transform: uppercase;
       cursor: pointer;
-      margin-top: 20px;
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+      transition: background 0.3s, transform 0.3s;
     }
+    .btn:hover { background: #ffaa00; transform: scale(1.05); }
+    .flagcounter { margin-top: 30px; }
+    .flagcounter img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      color: #ffcc00;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+    section h2 {
+      font-size: 2rem;
+      color: #ffcc00;
+      margin-bottom: 1rem;
+    }
+    section p {
+      max-width: 800px;
+      margin: 0 auto 20px;
+      color: #ccc;
+      font-size: 1.1rem;
+    }
+    .review {
+      background: #1a1a1a;
+      padding: 25px;
+      border-radius: 12px;
+      margin: 30px auto;
+      max-width: 650px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    }
+    .stars {
+      color: gold;
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+    .social-section {
+      background: #000;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    .social-icons a {
+      margin: 0 10px;
+      display: inline-block;
+      transition: transform 0.3s;
+    }
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background-color: #000;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    footer a {
+      color: #999;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { color: #ffcc00; }
     #karte {
       height: 500px;
       margin: 60px auto;
@@ -58,21 +181,87 @@
   </style>
 </head>
 <body>
+  <div id="preloader"><div class="spinner"></div></div>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('preloader').style.display = 'none';
+    });
+  </script>
+
   <nav>
     <a href="#">Startseite</a>
     <a href="#karte">Karte</a>
     <a href="zone.html">ZONE</a>
+    <a href="partner.html">Partner</a>
+    <a href="soziales.html">Soziales</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="index-en.html">🇬🇧</a>
   </nav>
 
   <div class="hero">
-    <div>
+    <div class="hero-content">
       <h1>Auf den Spuren des Zerfalls.</h1>
       <p>Dein Abenteuer beginnt hier – entdecke Europas Lost Places.</p>
-      <button class="btn" onclick="showMap()">Karte öffnen</button>
+      <a class="btn" onclick="showMap()">Karte öffnen</a>
+      <div class="flagcounter">
+        <a href="https://info.flagcounter.com/R2gS" target="_blank">
+          <img src="https://s01.flagcounter.com/count2/R2gS/bg_0a0a0a/txt_ffffff/border_000000/columns_4/maxflags_12/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Besucherzähler">
+        </a>
+      </div>
     </div>
+    <div class="scroll-hint">⬇️</div>
   </div>
 
   <div id="karte"></div>
+
+  <section>
+    <h2>Was ist Urban Exploring?</h2>
+    <p>Urban Exploring bedeutet das Erkunden verlassener Gebäude und Orte – mit Respekt vor Geschichte und Raum.</p>
+    <p>Urbex Scope bietet dir eine sichere Einstiegsmöglichkeit: Karte, Hinweise, Community. Kein Vandalismus, kein Kommerz. Nur Entdeckung & Dokumentation.</p>
+  </section>
+
+  <section style="background:#111;">
+    <h2>Das erwartet dich bei uns</h2>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:30px; margin-top:30px;">
+      <div style="max-width:220px;"><p>🗘️ Interaktive Lost-Places-Karte</p></div>
+      <div style="max-width:220px;"><p>📷 Community-Bilder & Highlights</p></div>
+      <div style="max-width:220px;"><p>📚 Infos, Guides und ZONE-Bereich</p></div>
+      <div style="max-width:220px;"><p>📩 Orte melden via Instagram</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Was andere über Urbex Scope sagen</h2>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>„Ich habe Orte gefunden, die ich ohne diese Seite nie entdeckt hätte. Die Karte ist ein Traum!“<br>– @verlasseneorte_berlin</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★☆</div>
+      <p>„Super Übersicht! Könnte noch mehr Community-Funktionen haben, aber ich liebe das Design.“<br>– @urbex_hunter</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>„Ehrlich, mystisch und inspirierend. Die perfekte Seite für Urbex-Fans wie mich.“<br>– @darkframes.de</p>
+    </div>
+  </section>
+
+  <section class="social-section">
+    <h2>Folge uns auf Social Media</h2>
+    <p>Bleib auf dem Laufenden über neue Orte, Bilder und Community-Aktionen.</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/urbexscope.eu/?next=%2F" target="_blank" title="Instagram" style="display:inline-block; width: 32px;">
+        <svg viewBox="0 0 448 512" width="32" height="32" fill="#ffcc00" xmlns="http://www.w3.org/2000/svg">
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9 114.9-51.3 114.9-114.9S287.7 141 224.1 141zm0 189.6c-41.2 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.5 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.9-26.9 26.9s-26.9-12-26.9-26.9 12-26.9 26.9-26.9 26.9 12 26.9 26.9zM448 112c-1.4-35.3-9.9-66.7-36.2-93S354.6 0 319.3 0H128.7C93.4 0 62 9.9 35.7 36.2S0 93.4 0 128.7v191.6C0 418.6 9.9 450 36.2 476.3S93.4 512 128.7 512h191.6c35.3 0 66.7-9.9 93-36.2S448 418.6 448 383.3V191.7c0-35.3-9.9-66.7-36.2-93.3z"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Über 25.000 Besucher bisher • <a href="impressum.html">Impressum</a> • <a href="datenschutz.html">Datenschutz</a> • <a href="#">Kontakt</a>
+  </footer>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
