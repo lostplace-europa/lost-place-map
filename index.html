@@ -4,11 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urbex Scope – Lost Places Europa</title>
-  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas. Interaktive Karte, Community, Geschichten & urbane Entdeckungen." />
+  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas." />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
       font-family: 'Unbounded', sans-serif;
       background-color: #0a0a0a;
       color: #fff;
@@ -18,11 +22,11 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(0,0,0,0.85);
-      padding: 1rem;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       z-index: 1000;
     }
     nav a {
@@ -30,7 +34,9 @@
       text-decoration: none;
       font-weight: 500;
     }
-    nav a:hover { color: #ffcc00; }
+    nav a:hover {
+      color: #ffcc00;
+    }
 
     .hero {
       height: 100vh;
@@ -43,12 +49,19 @@
       text-align: center;
       padding: 0 20px;
     }
+
+    .hero-content {
+      margin-top: 80px; /* Abstand zur fixierten Navigation */
+    }
+
     .hero h1 {
       font-size: 3rem;
       color: #ffcc00;
       max-width: 800px;
     }
+
     .btn {
+      margin-top: 20px;
       background: #ffcc00;
       color: #000;
       padding: 12px 30px;
@@ -59,23 +72,26 @@
       text-transform: uppercase;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
-      margin-top: 20px;
     }
+
     section {
       padding: 80px 20px;
       text-align: center;
     }
+
     section h2 {
       font-size: 2rem;
       color: #ffcc00;
       margin-bottom: 1rem;
     }
+
     section p {
       max-width: 800px;
       margin: 0 auto 20px;
       color: #ccc;
       font-size: 1.1rem;
     }
+
     .review {
       background: #1a1a1a;
       padding: 25px;
@@ -84,11 +100,13 @@
       max-width: 650px;
       box-shadow: 0 0 15px rgba(0,0,0,0.5);
     }
+
     .stars {
       color: gold;
       font-size: 1.2rem;
       margin-bottom: 8px;
     }
+
     footer {
       padding: 30px 20px;
       text-align: center;
@@ -96,24 +114,28 @@
       font-size: 0.9rem;
       color: #777;
     }
+
     footer a {
       color: #999;
       text-decoration: none;
       margin: 0 10px;
     }
-    footer a:hover { color: #ffcc00; }
+
+    footer a:hover {
+      color: #ffcc00;
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a href="#">Start</a>
-    <a href="#">Karte</a>
-    <a href="#">Melden</a>
+    <a href="#start">Start</a>
+    <a href="#karte">Karte</a>
+    <a href="#melden">Melden</a>
   </nav>
 
-  <div class="hero">
-    <div>
+  <div class="hero" id="start">
+    <div class="hero-content">
       <h1>Entdecke die geheimsten Lost Places Europas</h1>
       <button class="btn" onclick="alert('Karte öffnet sich bald...')">Zur Karte</button>
     </div>
@@ -126,7 +148,7 @@
 
   <section>
     <h2>Bewertungen aus der Community</h2>
-    
+
     <div class="review">
       <div class="stars">★★★★★</div>
       <p>„Wahnsinns Plattform – ich hab dank Urbex Scope Orte gefunden, die ich niemals alleine entdeckt hätte.“</p>
