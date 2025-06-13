@@ -36,14 +36,14 @@
     nav a:hover { color: #ffcc00; }
 
     .hero {
-  height: 100vh;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
-              url('lostplaces_bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 20px;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
+                  url('lostplaces_bg.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
     }
     .hero h1 {
       font-size: 3rem;
@@ -211,145 +211,11 @@
     <div>
       <h1>Entdecke die geheimsten Lost Places Europas</h1>
       <button class="btn" onclick="showMap()">Zur Karte</button>
+      <div style="margin-top: 20px; text-align: center;">
+        <p style="margin-bottom: 8px;">Besucherzahlen:</p>
+        <a href="https://info.flagcounter.com/R2gS">
+          <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
+        </a>
+      </div>
     </div>
   </div>
-
-  <section>
-    <h2>Was wir anbieten</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>Interaktive Karte</h3>
-        <p>Finde verlassene Orte auf unserer detaillierten Europakarte.</p>
-      </div>
-      <div class="feature">
-        <h3>Community</h3>
-        <p>Tausche dich mit anderen Urbex-Fans aus und teile deine Funde.</p>
-      </div>
-      <div class="feature">
-        <h3>Bewertungen</h3>
-        <p>Bewerte Lost Places und entdecke Geheimtipps der Szene.</p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Bewertungen aus der Community</h2>
-    <div class="review"><div class="stars">★★★★★</div>
-      <p>„Wahnsinns Plattform – ich hab dank Urbex Scope Orte gefunden, die ich niemals alleine entdeckt hätte.“</p>
-    </div>
-    <div class="review"><div class="stars">★★★★☆</div>
-      <p>„Tolle Kartenansicht, schöne Filter. Nur schade, dass manche Orte schnell wieder verschwinden.“</p>
-    </div>
-    <div class="review"><div class="stars">★★★★★</div>
-      <p>„Als Urban Explorer ist das hier mein digitales Zuhause. Großartig gemacht!“</p>
-    </div>
-  </section>
-
-  <footer>
-    <div>
-      <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
-    </div>
-    <div style="margin-top: 15px;">
-      <a href="https://info.flagcounter.com/R2gS">
-        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-      </a>
-    </div>
-  </footer>
-
-  <div id="mapModal">
-    <div id="mapLoader">Karte wird geladen...</div>
-    <div id="searchBox">
-      <input type="text" id="mapSearch" placeholder="Suche nach Name, Kategorie, Ort oder Land..." oninput="filterMarkers()">
-    </div>
-    <div id="styleSwitcher">
-      <select onchange="switchMapStyle(this.value)">
-        <option value="dark">🌑 Dunkel</option>
-        <option value="light">🌕 Hell</option>
-      </select>
-    </div>
-    <button class="close-btn" onclick="closeMapModal()">×</button>
-    <div id="karte"></div>
-  </div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-  <script>
-    let map, markers = [], allPlaces = [], markerCluster, currentLayer;
-
-    const layers = {
-      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; OpenStreetMap-Mitwirkende & CartoDB',
-        subdomains: 'abcd',
-        maxZoom: 19
-      }),
-      light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap-Mitwirkende'
-      })
-    };
-
-    function showMap() {
-      openMapModal();
-    }
-
-    function openMapModal() {
-      document.getElementById('mapModal').style.display = 'block';
-      document.getElementById('mapLoader').style.display = 'flex';
-      setTimeout(() => {
-        if (!map) {
-          initMap();
-        } else {
-          map.invalidateSize();
-          document.getElementById('mapLoader').style.display = 'none';
-        }
-      }, 100);
-    }
-
-    function closeMapModal() {
-      document.getElementById('mapModal').style.display = 'none';
-    }
-
-    function initMap() {
-      map = L.map('karte').setView([51.1657, 10.4515], 6);
-      currentLayer = layers.dark.addTo(map);
-      markerCluster = L.markerClusterGroup();
-      map.addLayer(markerCluster);
-
-      fetch('orte.json')
-        .then(res => res.json())
-        .then(data => {
-          allPlaces = data;
-          data.forEach(addMarker);
-          document.getElementById('mapLoader').style.display = 'none';
-        });
-    }
-
-    function switchMapStyle(style) {
-      if (currentLayer) map.removeLayer(currentLayer);
-      currentLayer = layers[style].addTo(map);
-    }
-
-    function addMarker(ort) {
-      const label = ort.kategorie ? `<i>${ort.kategorie}</i><br>` : '';
-      const marker = L.marker([ort.lat, ort.lng])
-        .bindPopup(`<b>${ort.name}</b><br>${label}${ort.beschreibung || ''}`);
-      marker.ortData = ort;
-      markers.push(marker);
-      markerCluster.addLayer(marker);
-    }
-
-    function filterMarkers() {
-      const query = document.getElementById('mapSearch').value.toLowerCase();
-      markerCluster.clearLayers();
-      markers.forEach(marker => {
-        const { name, kategorie, ort, land } = marker.ortData;
-        const match =
-          (name && name.toLowerCase().includes(query)) ||
-          (kategorie && kategorie.toLowerCase().includes(query)) ||
-          (ort && ort.toLowerCase().includes(query)) ||
-          (land && land.toLowerCase().includes(query));
-        if (match) markerCluster.addLayer(marker);
-      });
-    }
-  </script>
-</body>
-</html>
