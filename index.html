@@ -23,7 +23,6 @@
     .mobile-ad { display: none; }
 
     #startWrapper, #mapWrapper { display: flex; width: 100vw; height: 100vh; padding-top: 50px; }
-
     .start-content { flex: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)), url('lostplaces_bg.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; }
     .start-content h1 { font-size: 3rem; color: #ffcc00; }
     .btn { margin-top: 20px; background: #ffcc00; color: #000; padding: 12px 30px; border: none; border-radius: 30px; font-size: 1rem; font-weight: bold; cursor: pointer; }
@@ -116,33 +115,35 @@
   <script>
     window.addEventListener('load', function() {
       document.getElementById('globalLoader').style.display = 'none';
-      const adTest = document.createElement('div');
-      adTest.className = 'adsbygoogle';
-      adTest.style.display = 'none';
-      document.body.appendChild(adTest);
-      window.setTimeout(() => {
-        if (adTest.offsetHeight === 0) {
-          document.getElementById('adblockOverlay').style.display = 'flex';
-        }
-        document.body.removeChild(adTest);
-      }, 100);
+      const ads = document.querySelector('script[src*="adsbygoogle"]');
+      if (!ads) {
+        document.getElementById('adblockOverlay').style.display = 'flex';
+      }
     });
 
     function showMap() {
       document.getElementById('startWrapper').style.display = 'none';
       document.getElementById('mapWrapper').style.display = 'flex';
       document.getElementById('mapLoader').style.display = 'flex';
+
       if (!window.mapInitialized) {
         const map = L.map('karte').setView([51.1657, 10.4515], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
         const markers = L.markerClusterGroup();
-        fetch('orte.json').then(r => r.json()).then(data => {
-          data.forEach(ort => {
-            markers.addLayer(L.marker([ort.lat, ort.lng]).bindPopup(ort.name));
-          });
-          map.addLayer(markers);
-          document.getElementById('mapLoader').style.display = 'none';
-        }).catch(() => { document.getElementById('mapLoader').style.display = 'none'; });
+        fetch('orte.json')
+          .then(r => r.json())
+          .then(data => {
+            data.forEach(ort => {
+              markers.addLayer(L.marker([ort.lat, ort.lng]).bindPopup(ort.name));
+            });
+            map.addLayer(markers);
+            document.getElementById('mapLoader').style.display = 'none';
+          })
+          .catch(() => { document.getElementById('mapLoader').style.display = 'none'; });
+
         window.mapInitialized = true;
       } else {
         document.getElementById('mapLoader').style.display = 'none';
