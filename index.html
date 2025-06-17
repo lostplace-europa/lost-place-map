@@ -245,44 +245,29 @@
     window.addEventListener('load', function() {
       document.getElementById('globalLoader').style.display = 'none';
 
-      let adblockDetected = false;
-
-      // Prüfe ob AdSense geladen wurde
-      if (typeof window.adsbygoogle === 'undefined') {
-        adblockDetected = true;
-      } else {
-        try {
-          (adsbygoogle = window.adsbygoogle || []).push({});
-        } catch (e) {
-          adblockDetected = true;
-        }
-      }
-
+      // Minimaler Adblock-Test (keine Fehlalarme bei leeren Anzeigen)
       const adTest = document.createElement('div');
-      adTest.className = 'adsbygoogle';
-      adTest.style.height = '1px';
+      adTest.className = 'adsbox'; // wird von Blockern gefiltert
       adTest.style.position = 'absolute';
       adTest.style.top = '-1000px';
+      adTest.style.height = '1px';
+      adTest.style.width = '1px';
       document.body.appendChild(adTest);
 
       setTimeout(() => {
-        if (!adblockDetected) {
-          const style = window.getComputedStyle(adTest);
-          if (
-            adTest.offsetHeight === 0 &&
-            style.display === 'none'
-          ) {
-            adblockDetected = true;
-          }
-        }
+        const style = window.getComputedStyle(adTest);
+        const isBlocked =
+          adTest.offsetHeight === 0 ||
+          style.display === 'none' ||
+          style.visibility === 'hidden' ||
+          style.opacity === '0';
 
         adTest.remove();
 
-        if (adblockDetected) {
+        if (isBlocked) {
           document.getElementById('adblockOverlay').style.display = 'flex';
         }
-
-      }, 500);
+      }, 300);
     });
 
     function showMap() {
