@@ -247,10 +247,15 @@
 
       let adblockDetected = false;
 
-      try {
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      } catch (e) {
+      // Prüfe ob AdSense geladen wurde
+      if (typeof window.adsbygoogle === 'undefined') {
         adblockDetected = true;
+      } else {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          adblockDetected = true;
+        }
       }
 
       const adTest = document.createElement('div');
@@ -261,14 +266,14 @@
       document.body.appendChild(adTest);
 
       setTimeout(() => {
-        const style = window.getComputedStyle(adTest);
-        if (
-          adTest.offsetHeight === 0 ||
-          style.display === 'none' ||
-          style.visibility === 'hidden' ||
-          style.opacity === '0'
-        ) {
-          adblockDetected = true;
+        if (!adblockDetected) {
+          const style = window.getComputedStyle(adTest);
+          if (
+            adTest.offsetHeight === 0 &&
+            style.display === 'none'
+          ) {
+            adblockDetected = true;
+          }
         }
 
         adTest.remove();
