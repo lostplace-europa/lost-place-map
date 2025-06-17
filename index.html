@@ -42,6 +42,7 @@
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
                   url('lostplaces_bg.jpg') center/cover no-repeat;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
@@ -64,6 +65,10 @@
       text-transform: uppercase;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+    }
+
+    .flag-counter {
+      margin-top: 20px;
     }
 
     .ad-side {
@@ -158,26 +163,24 @@
   </div>
 
   <nav>
-    <a href="#start">Start</a>
-    <a href="#karte">Karte</a>
-    <a href="#melden">Melden</a>
+    <a href="Zone.html">Zone</a>
+    <a href="Impressum.html">Impressum</a>
+    <a href="Datenschutz.html">Datenschutz</a>
   </nav>
 
-  <div class="hero" id="start">
-    <div>
-      <h1>Entdecke die geheimsten Lost Places Europas</h1>
-      <button class="btn" onclick="showMap()">Zur Karte</button>
+  <div class="hero">
+    <h1>Entdecke die geheimsten Lost Places Europas</h1>
+    <button class="btn" onclick="showMap()">Zur Karte</button>
+    <div class="flag-counter">
+      <a href="https://info.flagcounter.com/R2gS" target="_blank">
+        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Flag Counter" border="0">
+      </a>
     </div>
   </div>
 
   <footer>
     <div>
-      <a href="#">Impressum</a> · <a href="#">Datenschutz</a>
-    </div>
-    <div style="margin-top: 15px;">
-      <a href="https://info.flagcounter.com/R2gS">
-        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-      </a>
+      <a href="Impressum.html">Impressum</a> · <a href="Datenschutz.html">Datenschutz</a>
     </div>
   </footer>
 
