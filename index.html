@@ -32,8 +32,9 @@
 
     .close-btn { position: fixed; top: 60px; right: 30px; background: #222; color: #fff; border: none; font-size: 24px; padding: 10px; border-radius: 6px; cursor: pointer; z-index: 2100; }
 
-    #globalLoader, #mapLoader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffcc00; font-size: 1.5rem; z-index: 4000; }
-    #mapLoader { background: rgba(0,0,0,0.85); z-index: 2100; }
+    #globalLoader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffcc00; font-size: 1.5rem; z-index: 4000; }
+
+    #mapLoader { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; color: #ffcc00; font-size: 1.5rem; z-index: 2100; }
 
     .loader-spinner { border: 8px solid rgba(255,204,0,0.2); border-top: 8px solid #ffcc00; border-radius: 50%; width: 60px; height: 60px; animation: spin 1s linear infinite; margin-bottom: 15px; }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -87,7 +88,7 @@
     </div>
   </div>
 
-  <div id="mapWrapper">
+  <div id="mapWrapper" style="display:none;">
     <div class="ad-bar">
       <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812" data-ad-format="auto" data-full-width-responsive="true"></ins>
       <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -103,57 +104,4 @@
     </div>
   </div>
 
-  <div class="mobile-ad">
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812" data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
-  <footer>© 2025 Urbex Scope – Lost Places Europa</footer>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
-  <script>
-    window.addEventListener('load', function() {
-      document.getElementById('globalLoader').style.display = 'none';
-      const ads = document.querySelector('script[src*="adsbygoogle"]');
-      if (!ads) {
-        document.getElementById('adblockOverlay').style.display = 'flex';
-      }
-    });
-
-    function showMap() {
-      document.getElementById('startWrapper').style.display = 'none';
-      document.getElementById('mapWrapper').style.display = 'flex';
-      document.getElementById('mapLoader').style.display = 'flex';
-
-      if (!window.mapInitialized) {
-        const map = L.map('karte').setView([51.1657, 10.4515], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        const markers = L.markerClusterGroup();
-        fetch('orte.json')
-          .then(r => r.json())
-          .then(data => {
-            data.forEach(ort => {
-              markers.addLayer(L.marker([ort.lat, ort.lng]).bindPopup(ort.name));
-            });
-            map.addLayer(markers);
-            document.getElementById('mapLoader').style.display = 'none';
-          })
-          .catch(() => { document.getElementById('mapLoader').style.display = 'none'; });
-
-        window.mapInitialized = true;
-      } else {
-        document.getElementById('mapLoader').style.display = 'none';
-      }
-    }
-
-    function closeMap() {
-      document.getElementById('mapWrapper').style.display = 'none';
-      document.getElementById('startWrapper').style.display = 'flex';
-    }
-  </script>
-</body>
-</html>
+  <
