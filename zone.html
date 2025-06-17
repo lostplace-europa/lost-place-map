@@ -1,36 +1,50 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>ZONE | Urbex Scope</title>
-  <link rel="stylesheet" href="style.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
   <style>
-    body {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      min-height: 100vh;
       background-color: #1a1a1a;
       color: #ffffff;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
+      overflow-x: hidden;
     }
+
     h1 {
       text-align: center;
-      margin-bottom: 10px;
+      margin: 20px 0 10px;
     }
+
     nav {
       text-align: center;
       margin-bottom: 20px;
     }
+
     nav a {
       color: #ffffff;
       text-decoration: none;
       margin: 0 10px;
     }
+
     nav a:hover {
       color: #ffcc00;
       text-decoration: underline;
     }
+
     .content {
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .content-inner {
       max-width: 1000px;
       margin: 0 auto;
       background-color: rgba(30, 30, 30, 0.8);
@@ -38,12 +52,14 @@
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     }
+
     .category-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       margin-top: 20px;
     }
+
     .category-card {
       background-color: rgba(50, 50, 50, 0.9);
       padding: 15px;
@@ -53,22 +69,88 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     .category-card.fade-in {
       opacity: 1;
       transform: translateY(0);
     }
+
     .category-card a {
       color: #ffcc00;
       text-decoration: none;
       font-size: 18px;
       font-weight: bold;
     }
+
     .category-card a:hover {
       text-decoration: underline;
+    }
+
+    .ad-side {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 160px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .ad-side.left {
+      left: 0;
+    }
+
+    .ad-side.right {
+      right: 0;
+    }
+
+    #adblockOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #c00;
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 5000;
+    }
+
+    @media (max-width: 1200px) {
+      .ad-side { display: none; }
     }
   </style>
 </head>
 <body>
+
+  <div class="ad-side left">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-9584980650144627"
+         data-ad-slot="7125154812"></ins>
+  </div>
+
+  <div class="ad-side right">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-9584980650144627"
+         data-ad-slot="7125154812"></ins>
+  </div>
+
+  <div id="adblockOverlay">
+    <svg viewBox="0 0 512 512" fill="#fff" width="100" height="100">
+      <circle cx="256" cy="256" r="256" fill="#fff"/>
+      <path d="M 128 128 L 384 384 M 384 128 L 128 384" stroke="#c00" stroke-width="40"/>
+    </svg>
+    <p>Unsere Website wird durch Werbung finanziert. Bitte deaktiviere deinen Adblocker!</p>
+  </div>
+
   <h1>ZONE</h1>
   <nav>
     <a href="index.html">Startseite</a> |
@@ -81,22 +163,24 @@
   </nav>
 
   <div class="content">
-    <h2>Willkommen in der ZONE</h2>
-    <p>Hier findest du alle spannenden Inhalte zu Lost Places und Urban Exploration:</p>
-    <div class="category-grid">
-      <div class="category-card"><a href="guides.html">Guides</a></div>
-      <div class="category-card"><a href="technik.html">Technik</a></div>
-      <div class="category-card"><a href="berichte.html">Berichte</a></div>
-      <div class="category-card"><a href="interviews.html">Interviews</a></div>
-      <div class="category-card"><a href="archiv.html">Archiv</a></div>
-      <div class="category-card"><a href="legenden.html">Legenden & Mythen</a></div>
-      <div class="category-card"><a href="news.html">News</a></div>
-      <div class="category-card"><a href="daily.html">Daily</a></div>
-      <div class="category-card"><a href="checkliste.html">Checkliste</a></div>
-      <div class="category-card"><a href="ausruestung.html">Ausrüstung</a></div>
-      <div class="category-card"><a href="download.html">Download´s</a></div>
-      <div class="category-card"><a href="vorstellung.html">Vorstellung</a></div>
-      <div class="category-card"><a href="faq.html">FAQ</a></div>
+    <div class="content-inner">
+      <h2>Willkommen in der ZONE</h2>
+      <p>Hier findest du alle spannenden Inhalte zu Lost Places und Urban Exploration:</p>
+      <div class="category-grid">
+        <div class="category-card"><a href="guides.html">Guides</a></div>
+        <div class="category-card"><a href="technik.html">Technik</a></div>
+        <div class="category-card"><a href="berichte.html">Berichte</a></div>
+        <div class="category-card"><a href="interviews.html">Interviews</a></div>
+        <div class="category-card"><a href="archiv.html">Archiv</a></div>
+        <div class="category-card"><a href="legenden.html">Legenden & Mythen</a></div>
+        <div class="category-card"><a href="news.html">News</a></div>
+        <div class="category-card"><a href="daily.html">Daily</a></div>
+        <div class="category-card"><a href="checkliste.html">Checkliste</a></div>
+        <div class="category-card"><a href="ausruestung.html">Ausrüstung</a></div>
+        <div class="category-card"><a href="download.html">Download´s</a></div>
+        <div class="category-card"><a href="vorstellung.html">Vorstellung</a></div>
+        <div class="category-card"><a href="faq.html">FAQ</a></div>
+      </div>
     </div>
   </div>
 
@@ -108,6 +192,34 @@
           card.classList.add('fade-in');
         }, index * 200);
       });
+    });
+
+    window.addEventListener('load', function() {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
+
+      const adTest = document.createElement('div');
+      adTest.className = 'adsbox';
+      adTest.style.position = 'absolute';
+      adTest.style.top = '-1000px';
+      adTest.style.height = '1px';
+      adTest.style.width = '1px';
+      document.body.appendChild(adTest);
+
+      setTimeout(() => {
+        const style = window.getComputedStyle(adTest);
+        const isBlocked =
+          adTest.offsetHeight === 0 ||
+          style.display === 'none' ||
+          style.visibility === 'hidden' ||
+          style.opacity === '0';
+
+        adTest.remove();
+
+        if (isBlocked) {
+          document.getElementById('adblockOverlay').style.display = 'flex';
+        }
+      }, 300);
     });
   </script>
 </body>
