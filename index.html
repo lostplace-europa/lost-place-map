@@ -1,88 +1,63 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Urbex Scope – Lost Places Europa</title>
-  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas.">
+  <meta charset="UTF-8">
+  <title>Urbex Scope – Startseite</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <style>
     html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
-      height: 100vh;
-      overflow: hidden;
-      font-family: 'Unbounded', sans-serif;
-      background: #0a0a0a;
-      color: #fff;
+      min-height: 100vh;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
-    .wrapper {
-      width: 100vw;
-      height: 100vh;
-      padding-top: 50px;
-      box-sizing: border-box;
+    h1 {
+      text-align: center;
+      margin: 20px 0 10px;
     }
 
-    nav#mainNav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 3000;
-      background: rgba(0,0,0,0.8);
-      padding: 10px 20px;
-      display: flex;
-      gap: 15px;
+    nav {
+      text-align: center;
+      margin-bottom: 20px;
     }
 
-    nav#mainNav a {
-      color: #ffcc00;
+    nav a {
+      color: #ffffff;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 10px;
     }
 
-    nav#mainNav a:hover {
+    nav a:hover {
+      color: #ffcc00;
       text-decoration: underline;
     }
 
     .content {
-      width: 100%;
-      height: 100%;
-    }
-
-    .start-content, .map-content {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
-                  url('lostplaces_bg.jpg') center/cover no-repeat;
+      max-width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
       text-align: center;
     }
 
-    .start-content h1 {
-      font-size: 3rem;
-      color: #ffcc00;
-    }
-
-    .btn {
-      margin-top: 20px;
+    .main-button {
+      display: inline-block;
       background: #ffcc00;
       color: #000;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
+      padding: 12px 25px;
+      border-radius: 5px;
       font-weight: bold;
-      cursor: pointer;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+
+    .main-button:hover {
+      background: #e6b800;
     }
 
     .ad-side {
@@ -91,44 +66,30 @@
       bottom: 0;
       width: 160px;
       background: #111;
-      z-index: 2000;
       display: flex;
       align-items: center;
       justify-content: center;
+      z-index: 2000;
     }
 
-    .ad-side.left { left: 0; }
-    .ad-side.right { right: 0; }
+    .ad-side.left {
+      left: 0;
+    }
 
-    @media (max-width: 768px) {
+    .ad-side.right {
+      right: 0;
+    }
+
+    @media (max-width: 1200px) {
       .ad-side { display: none; }
-    }
-
-    .close-btn {
-      position: fixed;
-      top: 60px;
-      right: 30px;
-      background: #222;
-      color: #fff;
-      border: none;
-      font-size: 24px;
-      padding: 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      z-index: 2100;
-    }
-
-    #karte {
-      width: 100%;
-      height: 100%;
     }
 
     .adblock-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background: #c00000;
       color: #fff;
       display: flex;
@@ -136,9 +97,8 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      font-size: 1.5rem;
+      z-index: 5000;
       padding: 20px;
-      z-index: 9999;
     }
 
     .adblock-symbol {
@@ -165,16 +125,13 @@
       font-size: 2rem;
       margin-bottom: 10px;
     }
+
+    .flag-counter {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
-
-  <nav id="mainNav">
-    <a href="index.html">Start</a>
-    <a href="zone.html">Zone</a>
-    <a href="impressum.html">Impressum</a>
-    <a href="datenschutz.html">Datenschutz</a>
-  </nav>
 
   <div class="ad-side left">
     <ins class="adsbygoogle"
@@ -190,81 +147,47 @@
          data-ad-slot="7125154812"></ins>
   </div>
 
-  <div class="wrapper" id="startWrapper">
-    <div class="content">
-      <div class="start-content">
-        <h1>Entdecke die <br>geheimsten Lost Places <br>Europas</h1>
-        <button class="btn" onclick="showMap()">Zur Karte</button>
-      </div>
+  <div id="adblockOverlay" class="adblock-overlay" style="display: none;">
+    <div class="adblock-symbol"></div>
+    <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
+    <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>
+    Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
+  </div>
+
+  <h1>Urbex Scope</h1>
+  <nav>
+    <a href="index.html">Startseite</a> |
+    <a href="zone.html">ZONE</a> |
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a>
+  </nav>
+
+  <div class="content">
+    <p>Willkommen auf unserer Startseite. Entdecke Lost Places in Europa!</p>
+    <a href="zone.html" class="main-button">Zur Zone</a>
+    <div class="flag-counter">
+      <p style="margin-bottom:8px;">Besucherzahlen:</p>
+      <a href="https://info.flagcounter.com/R2gS" target="_blank">
+        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Flag Counter" style="border:0;">
+      </a>
     </div>
   </div>
 
-  <div class="wrapper" id="mapWrapper" style="display:none;">
-    <div class="content">
-      <button class="close-btn" onclick="closeMap()">X</button>
-      <div id="karte"></div>
-    </div>
-  </div>
-
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
     window.addEventListener('load', function() {
       setTimeout(function() {
         if (typeof adsbygoogle === 'undefined') {
-          showAdblockOverlay();
+          document.getElementById('adblockOverlay').style.display = 'flex';
         } else {
           try {
             (adsbygoogle = window.adsbygoogle || []).push({});
             (adsbygoogle = window.adsbygoogle || []).push({});
           } catch (e) {
-            showAdblockOverlay();
+            document.getElementById('adblockOverlay').style.display = 'flex';
           }
         }
       }, 600);
     });
-
-    function showMap() {
-      document.getElementById('startWrapper').style.display = 'none';
-      document.getElementById('mapWrapper').style.display = 'block';
-
-      if (!window.mapInitialized) {
-        const map = L.map('karte').setView([51.1657, 10.4515], 6);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18,
-          attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        const markers = L.markerClusterGroup();
-        fetch('orte.json')
-          .then(r => r.json())
-          .then(data => {
-            data.forEach(ort => {
-              markers.addLayer(L.marker([ort.lat, ort.lng]).bindPopup(ort.name));
-            });
-            map.addLayer(markers);
-          });
-
-        window.mapInitialized = true;
-      }
-    }
-
-    function closeMap() {
-      document.getElementById('mapWrapper').style.display = 'none';
-      document.getElementById('startWrapper').style.display = 'block';
-    }
-
-    function showAdblockOverlay() {
-      const overlay = document.createElement('div');
-      overlay.className = 'adblock-overlay';
-      overlay.innerHTML = `
-        <div class="adblock-symbol"></div>
-        <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
-        <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>
-        Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
-      `;
-      document.body.appendChild(overlay);
-    }
   </script>
 </body>
 </html>
