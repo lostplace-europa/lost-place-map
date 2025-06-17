@@ -11,14 +11,22 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100vw;
-      overflow-x: hidden;
+      height: 100vh;
+      overflow: hidden;
       font-family: 'Unbounded', sans-serif;
       background: #0a0a0a;
       color: #fff;
+    }
+
+    .wrapper {
+      width: 100vw;
+      height: 100vh;
+      padding-top: 50px; /* Platz für Nav */
+      box-sizing: border-box;
     }
 
     nav#mainNav {
@@ -26,9 +34,9 @@
       top: 0;
       left: 0;
       width: 100%;
+      z-index: 3000;
       background: rgba(0,0,0,0.8);
       padding: 10px 20px;
-      z-index: 3000;
       display: flex;
       gap: 15px;
     }
@@ -43,16 +51,9 @@
       text-decoration: underline;
     }
 
-    .wrapper {
-      width: 100vw;
-      height: 100vh;
-      padding-top: 50px; /* Platz für Navigation */
-    }
-
     .content {
       width: 100%;
       height: 100%;
-      position: relative;
     }
 
     .start-content, .map-content {
@@ -62,9 +63,9 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
                   url('lostplaces_bg.jpg') center/cover no-repeat;
+      text-align: center;
     }
 
     .start-content h1 {
@@ -84,9 +85,23 @@
       cursor: pointer;
     }
 
-    #karte {
-      width: 100%;
-      height: 100%;
+    .ad-side {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 160px;
+      background: #111;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ad-side.left { left: 0; }
+    .ad-side.right { right: 0; }
+
+    @media (max-width: 768px) {
+      .ad-side { display: none; }
     }
 
     .close-btn {
@@ -103,79 +118,9 @@
       z-index: 2100;
     }
 
-    .ad-side {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      width: 160px;
-      background: #111;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-
-    .ad-side.left { left: 0; }
-    .ad-side.right { right: 0; }
-
-    #globalLoader, #mapLoader {
-      position: fixed;
-      top: 0;
-      left: 0;
+    #karte {
       width: 100%;
       height: 100%;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #ffcc00;
-      font-size: 1.5rem;
-      z-index: 4000;
-    }
-
-    #mapLoader {
-      background: rgba(0,0,0,0.85);
-      display: none;
-    }
-
-    .loader-spinner {
-      border: 8px solid rgba(255,204,0,0.2);
-      border-top: 8px solid #ffcc00;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 15px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    #adblockOverlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #c00;
-      color: #fff;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index: 5000;
-    }
-
-    @media (max-width: 768px) {
-      .ad-side { display: none; }
-      .close-btn {
-        top: 10px;
-        right: 10px;
-      }
     }
   </style>
 </head>
@@ -190,30 +135,16 @@
 
   <div class="ad-side left">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:inline-block;width:160px;height:600px"
          data-ad-client="ca-pub-9584980650144627"
-         data-ad-slot="7125154812"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+         data-ad-slot="7125154812"></ins>
   </div>
 
   <div class="ad-side right">
     <ins class="adsbygoogle"
-         style="display:block"
+         style="display:inline-block;width:160px;height:600px"
          data-ad-client="ca-pub-9584980650144627"
-         data-ad-slot="7125154812"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
-  </div>
-
-  <div id="globalLoader"><div class="loader-spinner"></div>Bitte warten...</div>
-
-  <div id="adblockOverlay">
-    <svg viewBox="0 0 512 512" fill="#fff" width="100" height="100" role="img" aria-label="Adblocker Hinweis Symbol">
-      <circle cx="256" cy="256" r="256" fill="#fff"/>
-      <path d="M 128 128 L 384 384 M 384 128 L 128 384" stroke="#c00" stroke-width="40"/>
-    </svg>
-    <p>Wir bieten unsere Dienste kostenlos an und finanzieren alles über Werbung.<br>Bitte deaktiviere deinen Ad-Blocker, um unsere Seite zu nutzen.</p>
+         data-ad-slot="7125154812"></ins>
   </div>
 
   <div class="wrapper" id="startWrapper">
@@ -221,20 +152,13 @@
       <div class="start-content">
         <h1>Entdecke die <br>geheimsten Lost Places <br>Europas</h1>
         <button class="btn" onclick="showMap()">Zur Karte</button>
-        <div style="margin-top: 20px;">
-          <p style="margin-bottom:8px;">Besucherzahlen:</p>
-          <a href="https://info.flagcounter.com/R2gS">
-            <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Flag Counter" style="border:0;">
-          </a>
-        </div>
       </div>
     </div>
   </div>
 
   <div class="wrapper" id="mapWrapper" style="display:none;">
     <div class="content">
-      <button class="close-btn" onclick="closeMap()" aria-label="Karte schließen">X</button>
-      <div id="mapLoader"><div class="loader-spinner"></div>Karte wird geladen...</div>
+      <button class="close-btn" onclick="closeMap()">X</button>
       <div id="karte"></div>
     </div>
   </div>
@@ -243,42 +167,20 @@
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
     window.addEventListener('load', function() {
-      document.getElementById('globalLoader').style.display = 'none';
-
-      // Minimaler Adblock-Test (keine Fehlalarme bei leeren Anzeigen)
-      const adTest = document.createElement('div');
-      adTest.className = 'adsbox'; // wird von Blockern gefiltert
-      adTest.style.position = 'absolute';
-      adTest.style.top = '-1000px';
-      adTest.style.height = '1px';
-      adTest.style.width = '1px';
-      document.body.appendChild(adTest);
-
-      setTimeout(() => {
-        const style = window.getComputedStyle(adTest);
-        const isBlocked =
-          adTest.offsetHeight === 0 ||
-          style.display === 'none' ||
-          style.visibility === 'hidden' ||
-          style.opacity === '0';
-
-        adTest.remove();
-
-        if (isBlocked) {
-          document.getElementById('adblockOverlay').style.display = 'flex';
-        }
-      }, 300);
+      // Lade die Anzeigen explizit
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      (adsbygoogle = window.adsbygoogle || []).push({});
     });
 
     function showMap() {
       document.getElementById('startWrapper').style.display = 'none';
       document.getElementById('mapWrapper').style.display = 'block';
-      document.getElementById('mapLoader').style.display = 'flex';
 
       if (!window.mapInitialized) {
         const map = L.map('karte').setView([51.1657, 10.4515], 6);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
         const markers = L.markerClusterGroup();
@@ -289,15 +191,9 @@
               markers.addLayer(L.marker([ort.lat, ort.lng]).bindPopup(ort.name));
             });
             map.addLayer(markers);
-            document.getElementById('mapLoader').style.display = 'none';
-          })
-          .catch(() => {
-            document.getElementById('mapLoader').style.display = 'none';
           });
 
         window.mapInitialized = true;
-      } else {
-        document.getElementById('mapLoader').style.display = 'none';
       }
     }
 
