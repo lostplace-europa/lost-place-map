@@ -5,36 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Urbex Scope – Lost Places Europa</title>
   <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas." />
+
+  <!-- Auto-AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627"
+          crossorigin="anonymous"></script>
+
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Unbounded', sans-serif;
-      background-color: #0a0a0a;
-      color: #fff;
-      scroll-behavior: smooth;
-    }
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(0,0,0,0.85);
-      padding: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 1000;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    nav a:hover { color: #ffcc00; }
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Unbounded', sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+    }
     .hero {
       height: 100vh;
       background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(10,10,10,0.9)),
@@ -42,13 +32,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       text-align: center;
       padding: 0 20px;
     }
     .hero h1 {
       font-size: 3rem;
       color: #ffcc00;
-      max-width: 800px;
     }
     .btn {
       margin-top: 20px;
@@ -59,70 +49,8 @@
       border-radius: 30px;
       font-size: 1rem;
       font-weight: bold;
-      text-transform: uppercase;
       cursor: pointer;
-      box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
     }
-
-    section {
-      padding: 80px 20px;
-      text-align: center;
-    }
-    section h2 {
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 1rem;
-    }
-    section p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      color: #ccc;
-      font-size: 1.1rem;
-    }
-
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .feature {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-    }
-
-    .review {
-      background: #1a1a1a;
-      padding: 25px;
-      border-radius: 12px;
-      margin: 30px auto;
-      max-width: 650px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.5);
-    }
-    .stars {
-      color: gold;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    footer {
-      padding: 30px 20px;
-      text-align: center;
-      background-color: #000;
-      font-size: 0.9rem;
-      color: #777;
-    }
-    footer a {
-      color: #999;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    footer a:hover { color: #ffcc00; }
-
     #mapModal {
       display: none;
       position: fixed;
@@ -131,6 +59,20 @@
       height: 100vh;
       background: rgba(0,0,0,0.95);
       z-index: 2000;
+    }
+    #ad-container {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+    .ad-left, .ad-right {
+      width: 160px;
+      background: #111;
+      padding: 5px;
+    }
+    .map-wrapper {
+      flex: 1;
+      position: relative;
     }
     #karte {
       width: 100%;
@@ -144,45 +86,10 @@
       color: #fff;
       border: none;
       font-size: 24px;
-      padding: 10px 15px;
+      padding: 10px;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 6px;
       z-index: 2100;
-    }
-    #searchBox {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      z-index: 2100;
-      background: rgba(20, 20, 20, 0.85);
-      padding: 12px 16px;
-      border-radius: 12px;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
-    }
-    #searchBox input {
-      padding: 10px 14px;
-      border-radius: 8px;
-      border: none;
-      width: 250px;
-      font-size: 1rem;
-      background-color: #111;
-      color: #fff;
-    }
-    #searchBox input::placeholder {
-      color: #aaa;
-    }
-    #styleSwitcher {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 2100;
-    }
-    #styleSwitcher select {
-      padding: 8px 12px;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
     }
     #mapLoader {
       position: absolute;
@@ -190,32 +97,130 @@
       width: 100%;
       height: 100%;
       background: rgba(0,0,0,0.85);
-      z-index: 2099;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       color: #ffcc00;
       font-size: 1.5rem;
+      z-index: 2100;
+    }
+    .loader-spinner {
+      border: 8px solid rgba(255, 204, 0, 0.2);
+      border-top: 8px solid #ffcc00;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      background: #000;
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="#start">Start</a>
-    <a href="#karte">Karte</a>
-    <a href="zone.html">ZONE</a>
-  </nav>
-
   <div class="hero" id="start">
-    <div>
-      <h1>Entdecke die geheimsten Lost Places Europas</h1>
-      <button class="btn" onclick="showMap()">Zur Karte</button>
-      <div style="margin-top: 20px; text-align: center;">
-        <p style="margin-bottom: 8px;">Besucherzahlen:</p>
-        <a href="https://info.flagcounter.com/R2gS">
-          <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0">
-        </a>
+    <h1>Entdecke die geheimsten Lost Places Europas</h1>
+    <button class="btn" onclick="showMap()">Zur Karte</button>
+  </div>
+
+  <!-- Map Modal -->
+  <div id="mapModal">
+    <div id="ad-container">
+      <div class="ad-left">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9584980650144627"
+             data-ad-slot="7125154812"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+
+      <div class="map-wrapper">
+        <button class="close-btn" onclick="closeMap()">X</button>
+        <div id="mapLoader">
+          <div class="loader-spinner"></div>
+          Karte wird geladen...
+        </div>
+        <div id="karte"></div>
+      </div>
+
+      <div class="ad-right">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9584980650144627"
+             data-ad-slot="7125154812"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
       </div>
     </div>
   </div>
+
+  <footer>
+    © 2025 Urbex Scope – Lost Places Europa
+  </footer>
+
+  <!-- Leaflet + MarkerCluster JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+  <script>
+    function showMap() {
+      const modal = document.getElementById('mapModal');
+      modal.style.display = 'block';
+      document.getElementById('mapLoader').style.display = 'flex';
+
+      if (!window.mapInitialized) {
+        const map = L.map('karte').setView([51.1657, 10.4515], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        const markers = L.markerClusterGroup();
+
+        fetch('orte.json')
+          .then(response => response.json())
+          .then(data => {
+            data.forEach(ort => {
+              const marker = L.marker([ort.lat, ort.lng]).bindPopup(ort.name);
+              markers.addLayer(marker);
+            });
+            map.addLayer(markers);
+            document.getElementById('mapLoader').style.display = 'none';
+          })
+          .catch(err => {
+            console.error('Fehler beim Laden von orte.json:', err);
+            document.getElementById('mapLoader').style.display = 'none';
+          });
+
+        window.mapInitialized = true;
+      } else {
+        document.getElementById('mapLoader').style.display = 'none';
+      }
+    }
+
+    function closeMap() {
+      document.getElementById('mapModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
