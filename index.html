@@ -25,7 +25,7 @@
     .wrapper {
       width: 100vw;
       height: 100vh;
-      padding-top: 50px; /* Platz für Nav */
+      padding-top: 50px;
       box-sizing: border-box;
     }
 
@@ -122,6 +122,49 @@
       width: 100%;
       height: 100%;
     }
+
+    .adblock-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #c00000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1.5rem;
+      padding: 20px;
+      z-index: 9999;
+    }
+
+    .adblock-symbol {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #fff;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .adblock-symbol::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 20%;
+      background: #c00000;
+      transform: translateY(-50%);
+    }
+
+    .adblock-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -178,7 +221,7 @@
             showAdblockOverlay();
           }
         }
-      }, 600); // 600 ms Verzögerung
+      }, 600);
     });
 
     function showMap() {
@@ -213,25 +256,12 @@
 
     function showAdblockOverlay() {
       const overlay = document.createElement('div');
-      overlay.style.position = 'fixed';
-      overlay.style.top = 0;
-      overlay.style.left = 0;
-      overlay.style.width = '100%';
-      overlay.style.height = '100%';
-      overlay.style.background = 'rgba(0,0,0,0.95)';
-      overlay.style.color = '#fff';
-      overlay.style.display = 'flex';
-      overlay.style.flexDirection = 'column';
-      overlay.style.alignItems = 'center';
-      overlay.style.justifyContent = 'center';
-      overlay.style.textAlign = 'center';
-      overlay.style.fontSize = '1.5rem';
-      overlay.style.padding = '20px';
-      overlay.style.zIndex = 9999;
+      overlay.className = 'adblock-overlay';
       overlay.innerHTML = `
-        <p>Unsere Seite ist für dich völlig kostenlos.<br>
-        Wir finanzieren den Betrieb und die Weiterentwicklung durch Werbung.<br>
-        Bitte unterstütze uns, indem du deinen Adblocker deaktivierst.<br>Danke! 🙏</p>
+        <div class="adblock-symbol"></div>
+        <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
+        <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>
+        Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
       `;
       document.body.appendChild(overlay);
     }
