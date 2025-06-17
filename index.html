@@ -13,10 +13,12 @@
   <style>
     body {
       margin: 0;
+      padding: 0;
+      width: 100vw;
+      overflow-x: hidden;
       font-family: 'Unbounded', sans-serif;
       background: #0a0a0a;
       color: #fff;
-      overflow-x: hidden;
     }
 
     nav#mainNav {
@@ -42,8 +44,9 @@
     }
 
     .wrapper {
+      width: 100vw;
       height: 100vh;
-      padding-top: 50px;
+      padding-top: 50px; /* Platz für Navigation */
     }
 
     .content {
@@ -151,6 +154,22 @@
       100% { transform: rotate(360deg); }
     }
 
+    #adblockOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #c00;
+      color: #fff;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 5000;
+    }
+
     @media (max-width: 768px) {
       .ad-side { display: none; }
       .close-btn {
@@ -169,7 +188,6 @@
     <a href="datenschutz.html">Datenschutz</a>
   </nav>
 
-  <!-- Werbeblöcke links und rechts -->
   <div class="ad-side left">
     <ins class="adsbygoogle"
          style="display:block"
@@ -189,6 +207,14 @@
   </div>
 
   <div id="globalLoader"><div class="loader-spinner"></div>Bitte warten...</div>
+
+  <div id="adblockOverlay">
+    <svg viewBox="0 0 512 512" fill="#fff" width="100" height="100" role="img" aria-label="Adblocker Hinweis Symbol">
+      <circle cx="256" cy="256" r="256" fill="#fff"/>
+      <path d="M 128 128 L 384 384 M 384 128 L 128 384" stroke="#c00" stroke-width="40"/>
+    </svg>
+    <p>Wir bieten unsere Dienste kostenlos an und finanzieren alles über Werbung.<br>Bitte deaktiviere deinen Ad-Blocker, um unsere Seite zu nutzen.</p>
+  </div>
 
   <div class="wrapper" id="startWrapper">
     <div class="content">
@@ -218,9 +244,40 @@
   <script>
     window.addEventListener('load', function() {
       document.getElementById('globalLoader').style.display = 'none';
-      document.querySelectorAll('.adsbygoogle').forEach(() => {
+
+      let adblockDetected = false;
+
+      try {
         (adsbygoogle = window.adsbygoogle || []).push({});
-      });
+      } catch (e) {
+        adblockDetected = true;
+      }
+
+      const adTest = document.createElement('div');
+      adTest.className = 'adsbygoogle';
+      adTest.style.height = '1px';
+      adTest.style.position = 'absolute';
+      adTest.style.top = '-1000px';
+      document.body.appendChild(adTest);
+
+      setTimeout(() => {
+        const style = window.getComputedStyle(adTest);
+        if (
+          adTest.offsetHeight === 0 ||
+          style.display === 'none' ||
+          style.visibility === 'hidden' ||
+          style.opacity === '0'
+        ) {
+          adblockDetected = true;
+        }
+
+        adTest.remove();
+
+        if (adblockDetected) {
+          document.getElementById('adblockOverlay').style.display = 'flex';
+        }
+
+      }, 300);
     });
 
     function showMap() {
