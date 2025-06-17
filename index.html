@@ -65,6 +65,11 @@
       text-transform: uppercase;
       cursor: pointer;
       box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255, 204, 0, 0.7);
     }
 
     .flag-counter {
@@ -137,10 +142,57 @@
     .close-btn { position: absolute; top: 20px; right: 30px; background: #222; color: #fff; border: none; font-size: 24px; padding: 10px 15px; cursor: pointer; border-radius: 6px; z-index: 2100; }
     #searchBox { position:absolute; top:20px; left:30px; z-index:2100; background:rgba(20,20,20,0.85); padding:12px 16px; border-radius:12px; }
     #searchBox input { padding:10px 14px; border-radius:8px; border:none; width:250px; font-size:1rem; background:#111; color:#fff; }
-    #mapLoader { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:2099; display:flex; align-items:center; justify-content:center; color:#ffcc00; font-size:1.5rem; }
+    #mapLoader, #startLoader {
+      position:absolute;
+      top:0; left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.85);
+      z-index:2099;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction: column;
+      color:#ffcc00;
+      font-size:1.5rem;
+    }
+    .loader-circle {
+      border: 6px solid #333;
+      border-top: 6px solid #ffcc00;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin-bottom: 20px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    #styleSwitcher {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2100;
+      background: rgba(20,20,20,0.85);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    #styleSwitcher select {
+      padding: 4px 8px;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
+
+  <div id="startLoader">
+    <div class="loader-circle"></div>
+    <div>Lade Urbex Scope...</div>
+  </div>
 
   <div class="ad-side left">
     <ins class="adsbygoogle"
@@ -173,7 +225,7 @@
     <button class="btn" onclick="showMap()">Zur Karte</button>
     <div class="flag-counter">
       <a href="https://info.flagcounter.com/R2gS" target="_blank">
-        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Flag Counter" border="0">
+        <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0">
       </a>
     </div>
   </div>
@@ -185,7 +237,16 @@
   </footer>
 
   <div id="mapModal">
-    <div id="mapLoader">Karte wird geladen...</div>
+    <div id="mapLoader">
+      <div class="loader-circle"></div>
+      <div>Karte wird geladen...</div>
+    </div>
+    <div id="styleSwitcher">
+      <select onchange="switchMapStyle(this.value)">
+        <option value="dark">🌑 Dunkel</option>
+        <option value="light">🌕 Hell</option>
+      </select>
+    </div>
     <div id="searchBox">
       <input type="text" id="mapSearch" placeholder="Suche nach Name, Kategorie, Ort oder Land..." oninput="filterMarkers()">
     </div>
@@ -202,8 +263,17 @@
         attribution: '&copy; OpenStreetMap-Mitwirkende & CartoDB',
         subdomains: 'abcd',
         maxZoom: 19
+      }),
+      light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap-Mitwirkende'
       })
     };
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('startLoader').style.display = 'none';
+      }, 1000);
+    });
 
     function showMap() {
       document.getElementById('mapModal').style.display = 'block';
@@ -256,6 +326,11 @@
           (land && land.toLowerCase().includes(query));
         if (match) markerCluster.addLayer(marker);
       });
+    }
+
+    function switchMapStyle(style) {
+      if (currentLayer) map.removeLayer(currentLayer);
+      currentLayer = layers[style].addTo(map);
     }
 
     window.addEventListener('load', function() {
