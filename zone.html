@@ -106,24 +106,50 @@
       right: 0;
     }
 
-    #adblockOverlay {
+    @media (max-width: 1200px) {
+      .ad-side { display: none; }
+    }
+
+    .adblock-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: #c00;
+      background: #c00000;
       color: #fff;
-      display: none;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       z-index: 5000;
+      padding: 20px;
     }
 
-    @media (max-width: 1200px) {
-      .ad-side { display: none; }
+    .adblock-symbol {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #fff;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .adblock-symbol::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 20%;
+      background: #c00000;
+      transform: translateY(-50%);
+    }
+
+    .adblock-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -143,12 +169,11 @@
          data-ad-slot="7125154812"></ins>
   </div>
 
-  <div id="adblockOverlay">
-    <svg viewBox="0 0 512 512" fill="#fff" width="100" height="100">
-      <circle cx="256" cy="256" r="256" fill="#fff"/>
-      <path d="M 128 128 L 384 384 M 384 128 L 128 384" stroke="#c00" stroke-width="40"/>
-    </svg>
-    <p>Unsere Website wird durch Werbung finanziert. Bitte deaktiviere deinen Adblocker!</p>
+  <div id="adblockOverlay" class="adblock-overlay" style="display: none;">
+    <div class="adblock-symbol"></div>
+    <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
+    <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>
+    Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
   </div>
 
   <h1>ZONE</h1>
@@ -195,31 +220,18 @@
     });
 
     window.addEventListener('load', function() {
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      (adsbygoogle = window.adsbygoogle || []).push({});
-
-      const adTest = document.createElement('div');
-      adTest.className = 'adsbox';
-      adTest.style.position = 'absolute';
-      adTest.style.top = '-1000px';
-      adTest.style.height = '1px';
-      adTest.style.width = '1px';
-      document.body.appendChild(adTest);
-
-      setTimeout(() => {
-        const style = window.getComputedStyle(adTest);
-        const isBlocked =
-          adTest.offsetHeight === 0 ||
-          style.display === 'none' ||
-          style.visibility === 'hidden' ||
-          style.opacity === '0';
-
-        adTest.remove();
-
-        if (isBlocked) {
+      setTimeout(function() {
+        if (typeof adsbygoogle === 'undefined') {
           document.getElementById('adblockOverlay').style.display = 'flex';
+        } else {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (e) {
+            document.getElementById('adblockOverlay').style.display = 'flex';
+          }
         }
-      }, 300);
+      }, 600);
     });
   </script>
 </body>
