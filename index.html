@@ -33,6 +33,11 @@
     footer { padding:30px 20px; text-align:center; background:#000; font-size:0.9rem; color:#777; }
     footer a { color:#999; text-decoration:none; margin:0 10px; }
     footer a:hover { color:#ffcc00; }
+    #startLoader { position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); display:flex; align-items:center; justify-content:center; flex-direction:column; color:#ffcc00; font-size:1.5rem; z-index:3000; }
+    .loader-circle { border:6px solid #333; border-top:6px solid #ffcc00; border-radius:50%; width:60px; height:60px; animation:spin 1s linear infinite; margin-bottom:20px; }
+    @keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+    @keyframes fadeIn { to { opacity:1; } }
+    @keyframes pulse { 0%{box-shadow:0 0 20px rgba(255,204,0,0.4);} 50%{box-shadow:0 0 40px rgba(255,204,0,0.8);} 100%{box-shadow:0 0 20px rgba(255,204,0,0.4);} }
     #mapModal { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:2000; }
     #karte { width:100%; height:100%; }
     .close-btn { position:absolute; top:20px; right:30px; background:#222; color:#fff; border:none; font-size:24px; padding:10px 15px; cursor:pointer; border-radius:6px; z-index:2100; }
@@ -55,9 +60,14 @@
   </style>
 </head>
 <body>
+  <div id="startLoader"><div class="loader-circle"></div><div>Lade Urbex Scope...</div></div>
   <div class="ad-side left"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
   <div class="ad-side right"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
-  <div id="adblockOverlay" class="adblock-overlay" style="display:none;"><div class="adblock-symbol"></div><h1>IHR ZUGRIFF WURDE VERWEIGERT</h1><p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p></div>
+  <div id="adblockOverlay" class="adblock-overlay" style="display:none;">
+    <div class="adblock-symbol"></div>
+    <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
+    <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
+  </div>
   <nav><a href="zone.html">Zone</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   <div class="hero">
     <div class="glass">
@@ -91,6 +101,7 @@
     };
     function showMap() {
       document.getElementById('mapModal').style.display = 'block';
+      document.getElementById('startLoader').style.display = 'none';
       if (!map) initMap();
       else map.invalidateSize();
     }
@@ -108,7 +119,7 @@
       places.forEach(p => {
         let schwierigkeitClass = p.schwierigkeit.toLowerCase() === 'leicht' ? 'difficulty-easy' : (p.schwierigkeit.toLowerCase() === 'mittel' ? 'difficulty-medium' : 'difficulty-hard');
         let zugangClass = p.zugang.toLowerCase().includes('offen') ? 'access-open' : 'access-closed';
-        let popupContent = `<div class=\"popup-content\"><h3 class=\"popup-title\">${p.name}</h3><div class=\"popup-subtitle\">${p.ort}, ${p.land} &bull; ${p.category}</div><p class=\"popup-description\">${p.beschreibung}</p><div class=\"popup-tags\"><span class=\"popup-tag ${schwierigkeitClass}\">${p.schwierigkeit}</span><span class=\"popup-tag ${zugangClass}\"><i class=\"fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}\"></i> ${p.zugang}</span></div></div>`;
+        let popupContent = `<div class="popup-content"><h3 class="popup-title">${p.name}</h3><div class="popup-subtitle">${p.ort}, ${p.land} &bull; ${p.category}</div><p class="popup-description">${p.beschreibung}</p><div class="popup-tags"><span class="popup-tag ${schwierigkeitClass}">${p.schwierigkeit}</span><span class="popup-tag ${zugangClass}"><i class="fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}"></i> ${p.zugang}</span></div></div>`;
         L.marker([p.lat, p.lng]).bindPopup(popupContent, { className: 'urbex-popup', maxWidth: 400 }).addTo(markerCluster);
       });
       map.addLayer(markerCluster);
@@ -122,7 +133,12 @@
         if(typeof adsbygoogle==='undefined'){
           document.getElementById('adblockOverlay').style.display='flex';
         } else {
-          try {(adsbygoogle=window.adsbygoogle||[]).push({}); (adsbygoogle=window.adsbygoogle||[]).push({});} catch(e){document.getElementById('adblockOverlay').style.display='flex';}
+          try {
+            (adsbygoogle=window.adsbygoogle||[]).push({});
+            (adsbygoogle=window.adsbygoogle||[]).push({});
+          } catch(e){
+            document.getElementById('adblockOverlay').style.display='flex';
+          }
         }
       },600);
     });
