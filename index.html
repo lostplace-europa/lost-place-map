@@ -101,7 +101,6 @@
     };
     function showMap() {
       document.getElementById('mapModal').style.display = 'block';
-      document.getElementById('startLoader').style.display = 'none';
       if (!map) initMap();
       else map.invalidateSize();
     }
@@ -130,6 +129,7 @@
     }
     window.addEventListener('load',()=>{
       setTimeout(()=>{
+        document.getElementById('startLoader').style.display='none';
         if(typeof adsbygoogle==='undefined'){
           document.getElementById('adblockOverlay').style.display='flex';
         } else {
@@ -140,7 +140,7 @@
             document.getElementById('adblockOverlay').style.display='flex';
           }
         }
-      },600);
+      },1000);
     });
   </script>
 </body>
