@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,6 +9,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-oS3vJWv+0UjzB4jdHQ1jQ+4fXkxF0FPa8m1z9E+3+9F7V1Vh8PraBh8GaMN5V6Q+" crossorigin="anonymous">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -36,37 +36,96 @@
     #mapModal { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:2000; }
     #karte { width:100%; height:100%; }
     .close-btn { position:absolute; top:20px; right:30px; background:#222; color:#fff; border:none; font-size:24px; padding:10px 15px; cursor:pointer; border-radius:6px; z-index:2100; }
-    #searchBox { position:absolute; top:20px; left:30px; z-index:2100; background:rgba(20,20,20,0.85); padding:12px 16px; border-radius:12px; }
-    #searchBox input { padding:10px 14px; border-radius:8px; border:none; width:250px; font-size:1rem; background:#111; color:#fff; }
-    #mapLoader,#startLoader { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:2099; display:flex; align-items:center; justify-content:center; flex-direction:column; color:#ffcc00; font-size:1.5rem; }
-    .loader-circle { border:6px solid #333; border-top:6px solid #ffcc00; border-radius:50%; width:60px; height:60px; animation:spin 1s linear infinite; margin-bottom:20px; }
-    @keyframes spin {0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
-    @keyframes fadeIn {to{opacity:1;}}
-    @keyframes pulse {0%{box-shadow:0 0 20px rgba(255,204,0,0.4);}50%{box-shadow:0 0 40px rgba(255,204,0,0.8);}100%{box-shadow:0 0 20px rgba(255,204,0,0.4);}}
+    .style-switcher { position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index:2100; background:rgba(20,20,20,0.85); padding:8px 12px; border-radius:8px; color:#fff; font-size:0.9rem; }
+    .style-switcher select { background:#111; color:#fff; border:none; padding:6px 10px; border-radius:6px; }
+    .urbex-popup .leaflet-popup-content-wrapper { background:#2b2b2b; color:#f0f0f0; border:2px solid #FFD700; border-radius:8px; padding:10px; }
+    .urbex-popup .leaflet-popup-tip { background:#2b2b2b; border:2px solid #FFD700; }
+    .urbex-popup .leaflet-popup-close-button { color:#fff; opacity:1; }
+    .popup-title { font-size:1.2em; font-weight:bold; color:#FFD700; margin:0 0 0.2em 0; }
+    .popup-subtitle { font-size:0.9em; color:#ccc; margin-bottom:0.5em; }
+    .popup-description { font-size:0.95em; line-height:1.4; margin-bottom:0.5em; }
+    .popup-tags { display:flex; flex-wrap:wrap; gap:0.5em; }
+    .popup-tag { display:inline-block; padding:2px 6px; font-size:0.85em; border-radius:4px; background:#555; color:#fff; }
+    .difficulty-easy { background:#4CAF50; }
+    .difficulty-medium { background:#FB8C00; }
+    .difficulty-hard { background:#E53935; }
+    .access-open { background:#4CAF50; }
+    .access-closed { background:#E53935; }
+    .popup-tag i { margin-right:4px; color:inherit; }
   </style>
 </head>
 <body>
-  <div id="startLoader"><div class="loader-circle"></div><div>Lade Urbex Scope...</div></div>
   <div class="ad-side left"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
   <div class="ad-side right"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
   <div id="adblockOverlay" class="adblock-overlay" style="display:none;"><div class="adblock-symbol"></div><h1>IHR ZUGRIFF WURDE VERWEIGERT</h1><p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p></div>
   <nav><a href="zone.html">Zone</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
-  <div class="hero"><div class="glass"><h1>Entdecke die geheimsten Lost Places Europas</h1><button class="btn" onclick="showMap()">Jetzt Lost Places entdecken 🗺️</button><div class="flag-counter"><a href="https://info.flagcounter.com/R2gS" target="_blank"><img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0"></a></div></div></div>
+  <div class="hero">
+    <div class="glass">
+      <h1>Entdecke die geheimsten Lost Places Europas</h1>
+      <button class="btn" onclick="showMap()">Jetzt Lost Places entdecken 🗺️</button>
+      <div class="flag-counter">
+        <a href="https://info.flagcounter.com/R2gS" target="_blank">
+          <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0">
+        </a>
+      </div>
+    </div>
+  </div>
   <footer><div><a href="Impressum.html">Impressum</a> · <a href="Datenschutz.html">Datenschutz</a></div></footer>
-  <div id="mapModal"><div id="mapLoader"><div class="loader-circle"></div><div>Karte wird geladen...</div></div><div id="styleSwitcher"><select onchange="switchMapStyle(this.value)"><option value="dark">🌑 Dunkel</option><option value="light">🌕 Hell</option></select></div><div id="searchBox"><input type="text" id="mapSearch" placeholder="Suche nach Name, Kategorie, Ort oder Land..." oninput="filterMarkers()"></div><button class="close-btn" onclick="closeMapModal()">×</button><div id="karte"></div></div>
+  <div id="mapModal">
+    <div class="style-switcher">
+      <select onchange="switchMapStyle(this.value)">
+        <option value="dark">🌑 Dunkel</option>
+        <option value="light">🌕 Hell</option>
+      </select>
+    </div>
+    <div id="karte"></div>
+    <button class="close-btn" onclick="closeMapModal()">×</button>
+  </div>
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
   <script>
-    let map, markers=[], allPlaces=[], markerCluster, currentLayer;
-    const layers={dark:L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap-Mitwirkende & CartoDB',subdomains:'abcd',maxZoom:19}),light:L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap-Mitwirkende'})};
-    window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('startLoader').style.display='none';},1000);});
-    function showMap(){document.getElementById('mapModal').style.display='block';document.getElementById('mapLoader').style.display='flex';setTimeout(()=>{if(!map)initMap();else{map.invalidateSize();document.getElementById('mapLoader').style.display='none';}},100);}
-    function closeMapModal(){document.getElementById('mapModal').style.display='none';}
-    function initMap(){map=L.map('karte').setView([51.1657,10.4515],6);currentLayer=layers.dark.addTo(map);markerCluster=L.markerClusterGroup();map.addLayer(markerCluster);fetch('orte.json').then(res=>res.json()).then(data=>{allPlaces=data;data.forEach(addMarker);document.getElementById('mapLoader').style.display='none';});}
-    function addMarker(ort){const marker=L.marker([ort.lat,ort.lng]).bindPopup(`<b>${ort.name}</b><br>${ort.kategorie||''}<br>${ort.beschreibung||''}`);marker.ortData=ort;markers.push(marker);markerCluster.addLayer(marker);}
-    function filterMarkers(){const query=document.getElementById('mapSearch').value.toLowerCase();markerCluster.clearLayers();markers.forEach(marker=>{const{name,kategorie,ort,land}=marker.ortData;const match=(name&&name.toLowerCase().includes(query))||(kategorie&&kategorie.toLowerCase().includes(query))||(ort&&ort.toLowerCase().includes(query))||(land&&land.toLowerCase().includes(query));if(match)markerCluster.addLayer(marker);});}
-    function switchMapStyle(style){if(currentLayer)map.removeLayer(currentLayer);currentLayer=layers[style].addTo(map);}
-    window.addEventListener('load',()=>{setTimeout(()=>{if(typeof adsbygoogle==='undefined'){document.getElementById('adblockOverlay').style.display='flex';}else{try{(adsbygoogle=window.adsbygoogle||[]).push({});(adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){document.getElementById('adblockOverlay').style.display='flex';}}},600);});
+    let map, markerCluster, currentLayer;
+    const layers = {
+      dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; OpenStreetMap-Mitwirkende & CartoDB'}),
+      light: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap-Mitwirkende'})
+    };
+    function showMap() {
+      document.getElementById('mapModal').style.display = 'block';
+      if (!map) initMap();
+      else map.invalidateSize();
+    }
+    function closeMapModal() {
+      document.getElementById('mapModal').style.display = 'none';
+    }
+    function initMap() {
+      map = L.map('karte').setView([51.1657,10.4515],6);
+      currentLayer = layers.dark.addTo(map);
+      markerCluster = L.markerClusterGroup();
+      const places = [
+        { name:"Kirche", lat:43.194828, lng:12.077952, beschreibung:"Der Ort 'Kirche' steht heute verlassen da, doch einst war er voller Leben...", zugang:"unbekannt", category:"Kaserne", schwierigkeit:"Leicht", land:"Italien", ort:"Perugia" },
+        { name:"Altes Krankenhaus", lat:48.1351, lng:11.5820, beschreibung:"Ein verlassenes Krankenhaus mitten in der Stadt.", zugang:"geschlossen", category:"Krankenhaus", schwierigkeit:"Schwer", land:"Deutschland", ort:"München" }
+      ];
+      places.forEach(p => {
+        let schwierigkeitClass = p.schwierigkeit.toLowerCase() === 'leicht' ? 'difficulty-easy' : (p.schwierigkeit.toLowerCase() === 'mittel' ? 'difficulty-medium' : 'difficulty-hard');
+        let zugangClass = p.zugang.toLowerCase().includes('offen') ? 'access-open' : 'access-closed';
+        let popupContent = `<div class=\"popup-content\"><h3 class=\"popup-title\">${p.name}</h3><div class=\"popup-subtitle\">${p.ort}, ${p.land} &bull; ${p.category}</div><p class=\"popup-description\">${p.beschreibung}</p><div class=\"popup-tags\"><span class=\"popup-tag ${schwierigkeitClass}\">${p.schwierigkeit}</span><span class=\"popup-tag ${zugangClass}\"><i class=\"fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}\"></i> ${p.zugang}</span></div></div>`;
+        L.marker([p.lat, p.lng]).bindPopup(popupContent, { className: 'urbex-popup', maxWidth: 400 }).addTo(markerCluster);
+      });
+      map.addLayer(markerCluster);
+    }
+    function switchMapStyle(style) {
+      if(currentLayer) map.removeLayer(currentLayer);
+      currentLayer = layers[style].addTo(map);
+    }
+    window.addEventListener('load',()=>{
+      setTimeout(()=>{
+        if(typeof adsbygoogle==='undefined'){
+          document.getElementById('adblockOverlay').style.display='flex';
+        } else {
+          try {(adsbygoogle=window.adsbygoogle||[]).push({}); (adsbygoogle=window.adsbygoogle||[]).push({});} catch(e){document.getElementById('adblockOverlay').style.display='flex';}
+        }
+      },600);
+    });
   </script>
 </body>
 </html>
