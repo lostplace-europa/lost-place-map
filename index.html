@@ -111,17 +111,17 @@
       map = L.map('karte').setView([51.1657,10.4515],6);
       currentLayer = layers.dark.addTo(map);
       markerCluster = L.markerClusterGroup();
-      const places = [
-        { name:"Kirche", lat:43.194828, lng:12.077952, beschreibung:"Der Ort 'Kirche' steht heute verlassen da, doch einst war er voller Leben...", zugang:"unbekannt", category:"Kaserne", schwierigkeit:"Leicht", land:"Italien", ort:"Perugia" },
-        { name:"Altes Krankenhaus", lat:48.1351, lng:11.5820, beschreibung:"Ein verlassenes Krankenhaus mitten in der Stadt.", zugang:"geschlossen", category:"Krankenhaus", schwierigkeit:"Schwer", land:"Deutschland", ort:"München" }
-      ];
-      places.forEach(p => {
-        let schwierigkeitClass = p.schwierigkeit.toLowerCase() === 'leicht' ? 'difficulty-easy' : (p.schwierigkeit.toLowerCase() === 'mittel' ? 'difficulty-medium' : 'difficulty-hard');
-        let zugangClass = p.zugang.toLowerCase().includes('offen') ? 'access-open' : 'access-closed';
-        let popupContent = `<div class="popup-content"><h3 class="popup-title">${p.name}</h3><div class="popup-subtitle">${p.ort}, ${p.land} &bull; ${p.category}</div><p class="popup-description">${p.beschreibung}</p><div class="popup-tags"><span class="popup-tag ${schwierigkeitClass}">${p.schwierigkeit}</span><span class="popup-tag ${zugangClass}"><i class="fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}"></i> ${p.zugang}</span></div></div>`;
-        L.marker([p.lat, p.lng]).bindPopup(popupContent, { className: 'urbex-popup', maxWidth: 400 }).addTo(markerCluster);
-      });
-      map.addLayer(markerCluster);
+      fetch('orte.json')
+        .then(res => res.json())
+        .then(places => {
+          places.forEach(p => {
+            let schwierigkeitClass = p.schwierigkeit.toLowerCase() === 'leicht' ? 'difficulty-easy' : (p.schwierigkeit.toLowerCase() === 'mittel' ? 'difficulty-medium' : 'difficulty-hard');
+            let zugangClass = p.zugang.toLowerCase().includes('offen') ? 'access-open' : 'access-closed';
+            let popupContent = `<div class="popup-content"><h3 class="popup-title">${p.name}</h3><div class="popup-subtitle">${p.ort}, ${p.land} &bull; ${p.category}</div><p class="popup-description">${p.beschreibung}</p><div class="popup-tags"><span class="popup-tag ${schwierigkeitClass}">${p.schwierigkeit}</span><span class="popup-tag ${zugangClass}"><i class="fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}"></i> ${p.zugang}</span></div></div>`;
+            L.marker([p.lat, p.lng]).bindPopup(popupContent, { className: 'urbex-popup', maxWidth: 400 }).addTo(markerCluster);
+          });
+          map.addLayer(markerCluster);
+        });
     }
     function switchMapStyle(style) {
       if(currentLayer) map.removeLayer(currentLayer);
