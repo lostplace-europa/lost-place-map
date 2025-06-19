@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
   <style>
-    /* Dein vollständiges CSS-Codeblock aus deinem Originalprojekt */
     body { margin:0; font-family:'Unbounded',sans-serif; background:#0a0a0a; color:#fff; }
     nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.85); padding:1rem; display:flex; justify-content:center; gap:2rem; z-index:1000; }
     nav a { color:#fff; text-decoration:none; font-weight:500; }
@@ -31,6 +30,19 @@
     .close-btn { position:absolute; top:20px; right:30px; background:#222; color:#fff; border:none; font-size:24px; padding:10px 15px; cursor:pointer; border-radius:6px; z-index:2100; }
     .style-switcher { position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index:2100; background:rgba(20,20,20,0.85); padding:8px 12px; border-radius:8px; color:#fff; font-size:0.9rem; }
     .style-switcher select { background:#111; color:#fff; border:none; padding:6px 10px; border-radius:6px; }
+    .urbex-popup .leaflet-popup-content-wrapper { background: #2b2b2b; color: #f0f0f0; border: 2px solid #FFD700; border-radius: 8px; padding: 10px; }
+    .urbex-popup .leaflet-popup-tip { background: #2b2b2b; border: 2px solid #FFD700; }
+    .popup-title { font-size: 1.2em; font-weight: bold; color: #FFD700; margin-bottom: 0.2em; }
+    .popup-subtitle { font-size: 0.9em; color: #ccc; margin-bottom: 0.5em; }
+    .popup-description { font-size: 0.95em; line-height: 1.4; margin-bottom: 0.5em; }
+    .popup-tags { display: flex; flex-wrap: wrap; gap: 0.5em; }
+    .popup-tag { display: inline-block; padding: 2px 6px; font-size: 0.85em; border-radius: 4px; background: #555; color: #fff; }
+    .difficulty-easy { background: #4CAF50; }
+    .difficulty-medium { background: #FB8C00; }
+    .difficulty-hard { background: #E53935; }
+    .access-open { background: #4CAF50; }
+    .access-closed { background: #E53935; }
+    .popup-tag i { margin-right: 4px; }
   </style>
 </head>
 <body>
