@@ -19,8 +19,95 @@
     li { margin-bottom: 8px; }
     .interview { margin-bottom: 30px; }
   </style>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
+
+
+  <style>
+    .ad-side {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 160px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .ad-side.left {
+      left: 0;
+    }
+    .ad-side.right {
+      right: 0;
+    }
+    @media (max-width: 1200px) {
+      .ad-side { display: none; }
+    }
+    .adblock-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #c00000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 5000;
+      padding: 20px;
+    }
+    .adblock-symbol {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: #fff;
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .adblock-symbol::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      width: 80%;
+      height: 20%;
+      background: #c00000;
+      transform: translateY(-50%);
+    }
+    .adblock-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+  </style>
+
 </head>
 <body>
+
+  <div class="ad-side left">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-9584980650144627"
+         data-ad-slot="7125154812"></ins>
+  </div>
+
+  <div class="ad-side right">
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:160px;height:600px"
+         data-ad-client="ca-pub-9584980650144627"
+         data-ad-slot="7125154812"></ins>
+  </div>
+
+  <div id="adblockOverlay" class="adblock-overlay" style="display: none;">
+    <div class="adblock-symbol"></div>
+    <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
+    <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>
+    Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
+  </div>
+
   <h1>Interviews</h1>
   <nav>
     <a href="index.html">Startseite</a> |
@@ -66,5 +153,23 @@
     </div>
 
   </div>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      if (typeof adsbygoogle === 'undefined') {
+        document.getElementById('adblockOverlay').style.display = 'flex';
+      } else {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          document.getElementById('adblockOverlay').style.display = 'flex';
+        }
+      }
+    }, 600);
+  });
+</script>
+
 </body>
 </html>
