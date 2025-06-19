@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Urbex Scope – Lost Places Europa</title>
-  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas." />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+  <meta name="description" content="Urbex Scope ist dein Kompass zu den geheimnisvollsten Lost Places Europas.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
   <style>
-    /* Dein kompletter CSS-Code wie bereits in deinem Projekt vorhanden */
+    /* Dein vollständiges CSS-Codeblock aus deinem Originalprojekt */
+    body { margin:0; font-family:'Unbounded',sans-serif; background:#0a0a0a; color:#fff; }
+    nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.85); padding:1rem; display:flex; justify-content:center; gap:2rem; z-index:1000; }
+    nav a { color:#fff; text-decoration:none; font-weight:500; }
+    nav a:hover { color:#ffcc00; }
+    .hero { height:100vh; background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(10,10,10,0.9)),url('lostplaces_bg.jpg') center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 20px; }
+    .glass { background:rgba(255,255,255,0.1); border-radius:16px; padding:30px; backdrop-filter:blur(10px); }
+    .hero h1 { font-size:3rem; color:#ffcc00; max-width:800px; margin-bottom:20px; }
+    .btn { background:#ffcc00; color:#000; padding:12px 30px; border:none; border-radius:30px; font-size:1rem; font-weight:bold; text-transform:uppercase; cursor:pointer; box-shadow:0 0 20px rgba(255,204,0,0.4); transition:transform 0.3s, box-shadow 0.3s; }
+    .btn:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(255,204,0,0.7); }
+    .flag-counter { margin-top:20px; }
+    footer { padding:30px 20px; text-align:center; background:#000; font-size:0.9rem; color:#777; }
+    footer a { color:#999; text-decoration:none; margin:0 10px; }
+    footer a:hover { color:#ffcc00; }
+    #mapModal { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:2000; }
+    #karte { width:100%; height:100%; }
+    .close-btn { position:absolute; top:20px; right:30px; background:#222; color:#fff; border:none; font-size:24px; padding:10px 15px; cursor:pointer; border-radius:6px; z-index:2100; }
+    .style-switcher { position:absolute; top:20px; left:50%; transform:translateX(-50%); z-index:2100; background:rgba(20,20,20,0.85); padding:8px 12px; border-radius:8px; color:#fff; font-size:0.9rem; }
+    .style-switcher select { background:#111; color:#fff; border:none; padding:6px 10px; border-radius:6px; }
   </style>
 </head>
 <body>
-  <div id="startLoader"><div class="loader-circle"></div><div>Lade Urbex Scope...</div></div>
-  <div class="ad-side left"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
-  <div class="ad-side right"><ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9584980650144627" data-ad-slot="7125154812"></ins></div>
-  <div id="adblockOverlay" class="adblock-overlay" style="display:none;">
-    <div class="adblock-symbol"></div>
-    <h1>IHR ZUGRIFF WURDE VERWEIGERT</h1>
-    <p>Der Betrieb dieser Plattform wird ausschließlich durch Werbung finanziert.<br>Bitte deaktivieren Sie Ihren Adblocker, um den Besuch fortzusetzen.</p>
-  </div>
   <nav><a href="zone.html">Zone</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   <div class="hero">
     <div class="glass">
@@ -85,21 +95,6 @@
       if(currentLayer) map.removeLayer(currentLayer);
       currentLayer = layers[style].addTo(map);
     }
-    window.addEventListener('load',()=>{
-      setTimeout(()=>{
-        document.getElementById('startLoader').style.display='none';
-        if(typeof adsbygoogle==='undefined'){
-          document.getElementById('adblockOverlay').style.display='flex';
-        } else {
-          try {
-            (adsbygoogle=window.adsbygoogle||[]).push({});
-            (adsbygoogle=window.adsbygoogle||[]).push({});
-          } catch(e){
-            document.getElementById('adblockOverlay').style.display='flex';
-          }
-        }
-      },1000);
-    });
   </script>
 </body>
 </html>
