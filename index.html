@@ -56,6 +56,12 @@
           <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0">
         </a>
       </div>
+      <div class="urbex-popup" style="max-width: 400px; margin: 20px auto; padding: 15px 20px; text-align: center;">
+        <h3 class="popup-title" style="margin-bottom: 0.5em;">In Entwicklung</h3>
+        <p class="popup-description" style="margin-bottom: 0;">
+          Diese Plattform befindet sich noch im Aufbau. Bald kannst du hier viele weitere spannende Lost Places entdecken, melden und selbst zur Karte beitragen!
+        </p>
+      </div>
     </div>
   </div>
   <footer><div><a href="Impressum.html">Impressum</a> · <a href="Datenschutz.html">Datenschutz</a></div></footer>
@@ -97,7 +103,22 @@
             let zugang = (p.zugang || 'unbekannt').toLowerCase();
             let schwierigkeitClass = schwierigkeit === 'leicht' ? 'difficulty-easy' : (schwierigkeit === 'mittel' ? 'difficulty-medium' : 'difficulty-hard');
             let zugangClass = zugang.includes('offen') ? 'access-open' : 'access-closed';
-            let popupContent = `<div class="popup-content"><h3 class="popup-title">${p.name}</h3><div class="popup-subtitle">${p.ort}, ${p.land} &bull; ${p.category}</div><p class="popup-description">${p.beschreibung}</p><div class="popup-tags"><span class="popup-tag ${schwierigkeitClass}">${p.schwierigkeit}</span><span class="popup-tag ${zugangClass}"><i class="fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}"></i> ${p.zugang}</span></div></div>`;
+            let popupContent = `<div class="popup-content">
+              <h3 class="popup-title">${p.name}</h3>
+              <div class="popup-subtitle">${p.ort}, ${p.land} &bull; ${p.category}</div>
+              <p class="popup-description">${p.beschreibung}</p>
+              <div class="popup-tags">
+                <span class="popup-tag ${schwierigkeitClass}">${p.schwierigkeit}</span>
+                <span class="popup-tag ${zugangClass}">
+                  <i class="fas ${zugangClass==='access-open'?'fa-unlock':'fa-lock'}"></i> ${p.zugang}
+                </span>
+              </div>
+              <div style="margin-top:10px;">
+                <a href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}" target="_blank" style="display:inline-block;width:100%;background:#ffcc00;color:#000;text-align:center;padding:10px 0;border-radius:6px;font-weight:bold;text-decoration:none;">
+                  📍 Mit Google Maps navigieren
+                </a>
+              </div>
+            </div>`;
             L.marker([p.lat, p.lng]).bindPopup(popupContent, { className: 'urbex-popup', maxWidth: 400 }).addTo(markerCluster);
           });
           map.addLayer(markerCluster);
