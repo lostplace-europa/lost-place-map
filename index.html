@@ -16,7 +16,7 @@
     nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.85); padding:1rem; display:flex; justify-content:center; gap:2rem; z-index:1000; }
     nav a { color:#fff; text-decoration:none; font-weight:500; }
     nav a:hover { color:#ffcc00; }
-    .hero { height:100vh; background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(10,10,10,0.9)),url('lostplaces_bg.jpg') center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 20px; }
+    .hero { min-height:100vh; background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(10,10,10,0.9)),url('lostplaces_bg.jpg') center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 20px; }
     .glass { background:rgba(255,255,255,0.1); border-radius:16px; padding:30px; backdrop-filter:blur(10px); }
     .hero h1 { font-size:3rem; color:#ffcc00; max-width:800px; margin-bottom:20px; }
     .btn { background:#ffcc00; color:#000; padding:12px 30px; border:none; border-radius:30px; font-size:1rem; font-weight:bold; text-transform:uppercase; cursor:pointer; box-shadow:0 0 20px rgba(255,204,0,0.4); transition:transform 0.3s, box-shadow 0.3s; }
@@ -43,6 +43,21 @@
     .access-open { background: #4CAF50; }
     .access-closed { background: #E53935; }
     .popup-tag i { margin-right: 4px; }
+
+    /* Lade-Ball + Zitat */
+    .loader {
+      border: 6px solid #333;
+      border-top: 6px solid #FFD700;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   </style>
 </head>
 <body>
@@ -61,6 +76,10 @@
         <p style="font-size: 0.95em; line-height: 1.4; color: #f0f0f0;">
           Diese Plattform befindet sich noch im Aufbau. Bald kannst du hier viele weitere spannende Lost Places entdecken, melden und selbst zur Karte beitragen!
         </p>
+      </div>
+      <div id="quote-box" style="margin-top: 20px; text-align: center;">
+        <div class="loader" id="quote-loader"></div>
+        <div id="quote" style="font-size: 1.2em; color: #FFD700; margin-top: 15px; opacity: 0; transition: opacity 0.5s ease-in;"></div>
       </div>
     </div>
   </div>
@@ -128,6 +147,44 @@
       if(currentLayer) map.removeLayer(currentLayer);
       currentLayer = layers[style].addTo(map);
     }
+
+    // Lade-Ball + Zitat Logik
+    const urbexQuotes = [
+      "Leave nothing but footprints.",
+      "Take nothing but pictures, leave nothing but footprints.",
+      "Lost Places erzählen die Geschichten der Vergessenen.",
+      "Urbex: Die Kunst des Entdeckens.",
+      "Die Vergangenheit lebt in verlassenen Mauern.",
+      "Die schönsten Orte sind oft verborgen.",
+      "Respektiere, was du findest – zerstöre nichts.",
+      "Jeder Lost Place birgt ein Geheimnis.",
+      "Urban Exploration: Geschichte zum Anfassen.",
+      "Die Stille der Ruinen erzählt mehr als Worte.",
+      "Verlassene Orte sind Zeitkapseln unserer Geschichte.",
+      "Manchmal liegt das Abenteuer direkt vor der Haustür.",
+      "Lost Places sind Mahnmale der Vergänglichkeit.",
+      "Entdecke, aber hinterlasse keine Spuren.",
+      "Der Reiz des Verbotenen lockt Urbexer weltweit.",
+      "Die Schönheit des Verfalls ist einzigartig.",
+      "Höre auf die Stille – sie hat viel zu sagen.",
+      "Ein Lost Place ist ein Fenster in die Vergangenheit.",
+      "Jeder Ort hat seine eigene Geschichte.",
+      "Urbex ist mehr als Fotos – es ist ein Gefühl.",
+      "Respektiere die Orte und ihre Vergangenheit.",
+      "In Ruinen lebt die Erinnerung weiter.",
+      "Der Charme des Vergänglichen zieht uns an.",
+      "Urbex: Der Blick hinter verschlossene Türen.",
+      "Wo andere Zerstörung sehen, sehen Urbexer Magie."
+    ];
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.getElementById("quote-loader").style.display = "none";
+        const randomQuote = urbexQuotes[Math.floor(Math.random() * urbexQuotes.length)];
+        const quoteEl = document.getElementById("quote");
+        quoteEl.textContent = `"${randomQuote}"`;
+        quoteEl.style.opacity = 1;
+      }, 1500);
+    });
   </script>
 </body>
 </html>
