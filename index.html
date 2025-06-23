@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9584980650144627" crossorigin="anonymous"></script>
   <style>
     body { margin:0; font-family:'Unbounded',sans-serif; background:#0a0a0a; color:#fff; }
     nav { position:fixed; top:0; width:100%; background:rgba(0,0,0,0.85); padding:1rem; display:flex; justify-content:center; gap:2rem; z-index:1000; }
@@ -20,12 +21,12 @@
     .hero h1 { font-size:3rem; color:#ffcc00; max-width:800px; margin-bottom:20px; }
     .btn { background:#ffcc00; color:#000; padding:12px 30px; border:none; border-radius:30px; font-size:1rem; font-weight:bold; text-transform:uppercase; cursor:pointer; box-shadow:0 0 20px rgba(255,204,0,0.4); transition:transform 0.3s, box-shadow 0.3s; }
     .btn:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(255,204,0,0.7); }
+    .flag-counter { margin-top:20px; }
 
     #mapModal { display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.95); z-index:2000; }
     #karte { width:100%; height:100%; display:none; }
     .close-btn { position:absolute; top:20px; right:30px; background:#222; color:#fff; border:none; font-size:24px; padding:10px 15px; cursor:pointer; border-radius:6px; z-index:2100; }
 
-    /* Overlay */
     #loader-overlay, #map-loader {
       position: fixed;
       top:0; left:0; width:100vw; height:100vh;
@@ -62,13 +63,13 @@
 </head>
 <body>
 
-  <!-- Seite-Overlay -->
+  <!-- Seiten-Lade-Overlay -->
   <div id="loader-overlay">
     <div class="loader"></div>
     <div id="loader-quote"></div>
   </div>
 
-  <!-- Map-Overlay -->
+  <!-- Map-Modal + Map-Loader -->
   <div id="mapModal">
     <div id="map-loader">
       <div class="loader"></div>
@@ -79,11 +80,27 @@
   </div>
 
   <!-- Seite -->
-  <nav><a href="#">Zone</a><a href="#">Impressum</a><a href="#">Datenschutz</a></nav>
+  <nav><a href="zone.html">Zone</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   <div class="hero">
     <div class="glass">
       <h1>Entdecke die geheimsten Lost Places Europas</h1>
       <button class="btn" onclick="showMap()">Jetzt Lost Places entdecken 🗺️</button>
+      <div class="flag-counter">
+        <a href="https://info.flagcounter.com/R2gS" target="_blank">
+          <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0">
+        </a>
+      </div>
+      <div style="margin-top:20px;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9584980650144627"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
     </div>
   </div>
 
