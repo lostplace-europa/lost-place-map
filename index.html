@@ -17,7 +17,7 @@
     nav a { color:#fff; text-decoration:none; font-weight:500; }
     nav a:hover { color:#ffcc00; }
     .hero { min-height:100vh; background:linear-gradient(to bottom,rgba(0,0,0,0.6),rgba(10,10,10,0.9)),url('lostplaces_bg.jpg') center/cover no-repeat; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:0 20px; }
-    .glass { background:rgba(255,255,255,0.1); border-radius:16px; padding:30px; backdrop-filter:blur(10px); }
+    .glass { background:rgba(255,255,255,0.1); border-radius:16px; padding:30px; backdrop-filter:blur(10px); display: inline-block; }
     .hero h1 { font-size:3rem; color:#ffcc00; max-width:800px; margin-bottom:20px; }
     .btn { background:#ffcc00; color:#000; padding:12px 30px; border:none; border-radius:30px; font-size:1rem; font-weight:bold; text-transform:uppercase; cursor:pointer; box-shadow:0 0 20px rgba(255,204,0,0.4); transition:transform 0.3s, box-shadow 0.3s; }
     .btn:hover { transform:scale(1.05); box-shadow:0 0 40px rgba(255,204,0,0.7); }
@@ -79,17 +79,25 @@
     <button class="close-btn" onclick="closeMapModal()">×</button>
   </div>
 
-  <!-- Seite -->
   <nav><a href="zone.html">Zone</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   <div class="hero">
     <div class="glass">
       <h1>Entdecke die geheimsten Lost Places Europas</h1>
       <button class="btn" onclick="showMap()">Jetzt Lost Places entdecken 🗺️</button>
+
       <div class="flag-counter">
         <a href="https://info.flagcounter.com/R2gS" target="_blank">
           <img src="https://s01.flagcounter.com/count2/R2gS/bg_C2C2C2/txt_000000/border_000000/columns_3/maxflags_12/viewers_0/labels_1/pageviews_1/flags_1/percent_0/" alt="Besucherzähler mit Länderflaggen" border="0">
         </a>
       </div>
+
+      <div style="background: #2b2b2b; border: 2px solid #FFD700; border-radius: 8px; padding: 15px 20px; max-width: 400px; margin: 20px auto; text-align: center;">
+        <h3 style="color: red; font-size: 1.2em; font-weight: bold; margin-bottom: 0.5em;">In Entwicklung</h3>
+        <p style="font-size: 0.95em; line-height: 1.4; color: #f0f0f0;">
+          Diese Plattform befindet sich noch im Aufbau. Bald kannst du hier viele weitere spannende Lost Places entdecken, melden und selbst zur Karte beitragen!
+        </p>
+      </div>
+
       <div style="margin-top:20px;">
         <ins class="adsbygoogle"
              style="display:block"
@@ -101,6 +109,7 @@
           (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
+
     </div>
   </div>
 
