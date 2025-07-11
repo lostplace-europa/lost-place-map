@@ -59,12 +59,11 @@
     const config = {
       domain: "dev-4ode6jg1p4llzqg3.us.auth0.com",
       client_id: "TJImluxcvlxDtz7QRaEztebvnyvzLSA5",
-      redirect_uri: window.location.origin
+      redirect_uri: "https://www.urbex-scope.eu/community.html"
     };
 
     const loginBtn = document.getElementById("login");
     const logoutBtn = document.getElementById("logout");
-    const authButtons = document.getElementById("auth-buttons");
     const userInfo = document.getElementById("user-info");
     const usernameSpan = document.getElementById("username");
 
@@ -92,7 +91,7 @@
     };
 
     loginBtn.addEventListener("click", () => auth0.loginWithRedirect());
-    logoutBtn.addEventListener("click", () => auth0.logout({ returnTo: window.location.origin }));
+    logoutBtn.addEventListener("click", () => auth0.logout({ returnTo: "https://www.urbex-scope.eu/community.html" }));
 
     initAuth0();
   </script>
