@@ -3,54 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Community – Urbex Scope</title>
+  <title>Community Login – Urbex Scope</title>
   <script src="https://cdn.auth0.com/js/auth0-spa-js/1.19/auth0-spa-js.production.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
+      padding: 2rem;
       font-family: 'Unbounded', sans-serif;
       background: #000;
       color: #eee;
-      padding: 20px;
       text-align: center;
+    }
+    .btn {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .login { background: orange; color: black; }
+    .logout { background: crimson; color: white; }
+    #user-info {
+      margin-top: 30px;
+      color: cyan;
+      text-shadow: 0 0 5px cyan;
     }
     .hidden {
       display: none;
     }
-    .btn {
-      padding: 10px 20px;
-      margin: 10px;
-      border: none;
-      border-radius: 6px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .login { background: orange; color: #000; }
-    .logout { background: crimson; color: #fff; }
-    .welcome {
-      margin-top: 40px;
-      font-size: 1.2rem;
-      color: cyan;
-      text-shadow: 0 0 6px cyan;
-    }
   </style>
 </head>
 <body>
-  <h1>Community-Bereich</h1>
+  <h1>Community Bereich</h1>
   <p>Nur für eingeloggte Mitglieder</p>
 
-  <div id="auth-buttons">
-    <button class="btn login" id="login">Einloggen</button>
-    <button class="btn logout hidden" id="logout">Ausloggen</button>
-  </div>
+  <button id="btn-login" class="btn login">🔐 Einloggen</button>
+  <button id="btn-logout" class="btn logout hidden">🚪 Ausloggen</button>
 
   <div id="user-info" class="hidden">
-    <p class="welcome">Willkommen, <span id="username"></span>!</p>
-    <div>
-      <h2>📝 Deine Beiträge</h2>
-      <p>(Hier könnten deine Inhalte stehen – z.B. Bilder oder Texte.)</p>
-    </div>
+    <p>Willkommen, <span id="username"></span>!</p>
   </div>
 
   <script>
@@ -62,15 +56,16 @@
       redirect_uri: "https://www.urbex-scope.eu/community.html"
     };
 
-    const loginBtn = document.getElementById("login");
-    const logoutBtn = document.getElementById("logout");
+    const loginBtn = document.getElementById("btn-login");
+    const logoutBtn = document.getElementById("btn-logout");
     const userInfo = document.getElementById("user-info");
     const usernameSpan = document.getElementById("username");
 
-    const initAuth0 = async () => {
+    async function init() {
       auth0 = await createAuth0Client(config);
 
-      if (window.location.search.includes("code=") && window.location.search.includes("state=")) {
+      // Wenn redirect von Auth0 zurückkommt
+      if (location.search.includes("code=") && location.search.includes("state=")) {
         await auth0.handleRedirectCallback();
         window.history.replaceState({}, document.title, "/community.html");
       }
@@ -83,17 +78,13 @@
         logoutBtn.classList.remove("hidden");
         userInfo.classList.remove("hidden");
         usernameSpan.textContent = user.name || user.email;
-      } else {
-        loginBtn.classList.remove("hidden");
-        logoutBtn.classList.add("hidden");
-        userInfo.classList.add("hidden");
       }
-    };
+    }
 
     loginBtn.addEventListener("click", () => auth0.loginWithRedirect());
     logoutBtn.addEventListener("click", () => auth0.logout({ returnTo: "https://www.urbex-scope.eu/community.html" }));
 
-    initAuth0();
+    init();
   </script>
 </body>
 </html>
