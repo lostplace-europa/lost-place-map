@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technische Störung</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #b30000; /* kräftiges Rot */
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Ecken-Dekoration */
+    .corner {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .line {
+      height: 12px;
+      border-radius: 3px;
+      background: repeating-linear-gradient(
+        45deg,
+        white 0 15px,
+        #b30000 15px 30px
+      );
+    }
+
+    .top-left {
+      top: 20px;
+      left: 20px;
+      transform: rotate(-15deg);
+    }
+
+    .bottom-right {
+      bottom: 20px;
+      right: 20px;
+      transform: rotate(15deg);
+    }
+  </style>
+</head>
+<body>
+  <!-- Ecke oben links -->
+  <div class="corner top-left">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Ecke unten rechts -->
+  <div class="corner bottom-right">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Inhalt -->
+  <div>
+    <h1>TECHNISCHE STÖRUNG</h1>
+    <p>
+      Aufgrund einer unerwarteten technischen Störung steht unsere Website derzeit nicht zur Verfügung.  
+      Unser Team arbeitet bereits intensiv daran, die Ursache zu beheben und die volle Funktionalität schnellstmöglich wiederherzustellen.  
+      Wir bitten um Ihr Verständnis und bedanken uns für Ihre Geduld.  
+      Bitte versuchen Sie es in Kürze erneut – wir sind bald wieder für Sie da.
+    </p>
+  </div>
+</body>
+</html>
