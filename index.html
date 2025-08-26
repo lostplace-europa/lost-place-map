@@ -11,7 +11,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #b30000; /* kräftiges Rot */
+      background-color: #b30000; /* Hintergrund */
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
@@ -22,7 +22,7 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: clamp(2rem, 5vw, 3.5rem);
       letter-spacing: 3px;
       margin-bottom: 1rem;
       font-weight: bold;
@@ -30,69 +30,142 @@
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
     }
 
-    /* Ecken-Dekoration */
-    .corner {
+    /* Blinkendes Warnsymbol */
+    .warning {
+      font-size: 3rem;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    /* Sprachumschalter */
+    .lang-switch {
       position: absolute;
-      width: 150px;
-      height: 150px;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 10px;
     }
 
-    .line {
-      height: 12px;
-      border-radius: 3px;
+    .lang-btn {
+      background: white;
+      color: #b30000;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .lang-btn:hover {
+      background: #ddd;
+    }
+
+    /* Absperrbänder */
+    .tape {
+      position: absolute;
+      width: 320px;
+      height: 40px;
       background: repeating-linear-gradient(
         45deg,
-        white 0 15px,
-        #b30000 15px 30px
+        white 0 20px,
+        #ff0000 20px 40px   /* helleres Rot als Hintergrund */
       );
+      background-size: 40px 40px;
+      animation: stripeMove 1s linear infinite;
+      opacity: 0.95;
+      border-radius: 4px;
     }
 
-    .top-left {
-      top: 20px;
-      left: 20px;
-      transform: rotate(-15deg);
+    @keyframes stripeMove {
+      from { background-position: 0 0; }
+      to   { background-position: 40px 0; }
     }
 
-    .bottom-right {
-      bottom: 20px;
-      right: 20px;
-      transform: rotate(15deg);
+    .tape.top-left {
+      top: 40px;
+      left: -80px;
+      transform: rotate(-20deg);
+    }
+
+    .tape.bottom-right {
+      bottom: 40px;
+      right: -80px;
+      transform: rotate(-20deg);
+    }
+
+    /* Mobile Anpassung */
+    @media (max-width: 600px) {
+      .tape {
+        width: 220px;
+        height: 30px;
+      }
+      .lang-btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Ecke oben links -->
-  <div class="corner top-left">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
-  </div>
+  <!-- Absperrbänder -->
+  <div class="tape top-left"></div>
+  <div class="tape bottom-right"></div>
 
-  <!-- Ecke unten rechts -->
-  <div class="corner bottom-right">
-    <div class="line"></div>
-    <div class="line"></div>
-    <div class="line"></div>
+  <!-- Sprachumschalter -->
+  <div class="lang-switch">
+    <button class="lang-btn" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
   </div>
 
   <!-- Inhalt -->
-  <div>
-    <h1>TECHNISCHE STÖRUNG</h1>
-    <p>
-      Aufgrund einer unerwarteten technischen Störung steht unsere Website derzeit nicht zur Verfügung.  
-      Unser Team arbeitet bereits intensiv daran, die Ursache zu beheben und die volle Funktionalität schnellstmöglich wiederherzustellen.  
-      Wir bitten um Ihr Verständnis und bedanken uns für Ihre Geduld.  
+  <div id="content">
+    <div class="warning">⚠️</div>
+    <h1 id="title">TECHNISCHE STÖRUNG</h1>
+    <p id="text">
+      Aufgrund einer unerwarteten technischen Störung steht unsere Website derzeit nicht zur Verfügung.<br>
+      Unser Team arbeitet bereits intensiv daran, die Ursache zu beheben und die volle Funktionalität schnellstmöglich wiederherzustellen.<br>
+      Wir bitten um Ihr Verständnis und bedanken uns für Ihre Geduld.<br>
       Bitte versuchen Sie es in Kürze erneut – wir sind bald wieder für Sie da.
     </p>
   </div>
+
+  <script>
+    function setLang(lang) {
+      const title = document.getElementById("title");
+      const text = document.getElementById("text");
+
+      if (lang === "en") {
+        title.textContent = "TECHNICAL ISSUE";
+        text.innerHTML = `
+          Due to an unexpected technical issue, our website is currently unavailable.<br>
+          Our team is already working intensively to resolve the cause and restore full functionality as quickly as possible.<br>
+          We kindly ask for your understanding and thank you for your patience.<br>
+          Please check back again soon – we will be online shortly.
+        `;
+      } else {
+        title.textContent = "TECHNISCHE STÖRUNG";
+        text.innerHTML = `
+          Aufgrund einer unerwarteten technischen Störung steht unsere Website derzeit nicht zur Verfügung.<br>
+          Unser Team arbeitet bereits intensiv daran, die Ursache zu beheben und die volle Funktionalität schnellstmöglich wiederherzustellen.<br>
+          Wir bitten um Ihr Verständnis und bedanken uns für Ihre Geduld.<br>
+          Bitte versuchen Sie es in Kürze erneut – wir sind bald wieder für Sie da.
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
